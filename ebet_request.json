@@ -1012,11 +1012,7 @@
           "description": "Signature. String splicing : seqNo+event+channelId+timestamp+username+money"
         },
         "detail": {
-          "type": "array",
-          "description": "",
-          "items": {
             "$ref": "#/definitions/increaseCredit_detail"
-          }
         }
       }
     },

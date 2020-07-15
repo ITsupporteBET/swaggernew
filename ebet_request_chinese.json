@@ -1012,12 +1012,8 @@
           "description": "签名。 字符串拼接: seqNo+event+channelId+timestamp+username+money"
         },
         "detail": {
-          "type": "array",
-          "description": "",
-          "items": {
             "$ref": "#/definitions/increaseCredit_detail"
           }
-        }
       }
     },
     "body_5": {
