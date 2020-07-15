@@ -1,0 +1,15 @@
+http://52.229.204.212/
+http://52.229.204.212/swaggernew/
+http://52.229.204.212/swaggernew/index.html
+http://52.229.204.212/swaggernew/precautions.html
+http://52.229.204.212/swaggernew/fortune_wheel.html
+http://52.229.204.212/swaggernew/lottery_ticket.html
+http://52.229.204.212/swaggernew/web_operation_settings.html
+http://52.229.204.212/swaggernew/app_operation_settings.html
+http://52.229.204.212/swaggernew/background_operation.html
+http://52.229.204.212/swaggernew/ebet_request.html
+http://52.229.204.212/swaggernew/channel_request.html
+http://52.229.204.212/swaggernew/common_parameter.html
+http://52.229.204.212/swaggernew/game_related_instructions.html
+http://52.229.204.212/swaggernew/example.html
+http://52.229.204.212/swaggernew/update.html

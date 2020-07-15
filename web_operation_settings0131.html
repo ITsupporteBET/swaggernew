@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>eBET</title>
+    <div id="h_css"></div>
+</head>
+
+<body>
+  
+    <div id="header"></div>
+    <div class="container">
+        <div id="container"></div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/header_css.js"></script>
+    <script src="js/login_parameter.js"></script>
+    <script>
+        //        en
+        const web_context = document.getElementById('container');
+        web_context.innerHTML = `<h1>Game login instructions</h1>
+    <span>Use the link provided by eBET to go to the eBET client website
+      h5 game login link: &lt;H5 Game link provided by eBET&gt;</span><br>
+    <br>
+    <h2>1. normal login</h2>
+    <span>Enter your account number and password on the eBET website</span><br>
+    <br>
+
+    <h2>2. Token login</h2>
+    <span>The function is to jump from the channel’s APP or web to eBET web
+Add username and accessToken to the login link</span><br>
+    <br>
+    <h1>Other parameters that can be added</h1><br>
+    <h1>H5 login url set</h1>
+    <span>When the channel wants to use these features, add the relevant
+      parameters to the url.</span><br>
+    <br>
+    <h2>A. Enter the designated game lobby</h2>
+    <span>It can go to the designated game lobby</span><br>
+    <br>
+    <table class="gameType" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="code">code</th>
+          <th data-field="Description">Description</th>
+        </tr>
+      </thead>
+    </table>
+    <br>
+    <h3>dgt</h3><br>
+
+    <h3>gameType</h3><br>
+    
+    <span>Note: This parameter can be <code>used for h5 webpages or apps</code>, and <code>only shows the list of
+        games</code>.</span><br>
+    <span>url example : http://&lt;provide by ebet&gt;&gameType=5</span><br>
+
+    <h2>B. Enter the designated game table</h2><br>
+    <h3>tableCode</h3>
+    <span>Go directly to the designated game table,<code>please check with the
+        customer service staff for a detailed list of tableCode.</code></span><br>
+    <span>url example : http://&lt;provide by ebet&gt;&<code>tableCode</code>=B1</span>
+
+    <h2>C. Set horizontal or vertical screen</h2><br>
+    <h3>orientation</h3><br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Description</th>
+            <th scope="col">Picture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Horizontal screen</td>
+            <td><img style="width: 100%;" src="img/Horizontal.jpg"></td>
+          </tr>
+        </tbody>
+      </table>
+    <br>
+    <span>This parameter <code>corresponds to the version of 3.5.</code> Do not use it for non-3.5.</span><br>
+    <span>When this parameter is not added, <code>the default Vertical screen</code></span><br>
+    <span>url example : http://&lt;provide by ebet&gt;&orientation=1</span><br>
+
+    <h2>D. Language settings when entering the game</h2><br>
+    <h3>language</h3>
+    <span>Carry this parameter and<code>set the open language on the backend</code></span>to change the language of the
+    interface.<br>
+    <table class="language" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="Lang_Code">Lang Code</th>
+          <th data-field="Description">Description</th>
+        </tr>
+      </thead>
+    </table>
+    <br>
+    <span>url example : http://&lt;provide by ebet&gt;& language=en_us</span><br>
+    <h2>E. Login demo</h2><br>
+    <h3>mode</h3>
+    <span>Carry this string (mode=trial) to log in to the game directly using the
+      demo account.</span><br>
+    <span>url example : http://&lt;provide by ebet&gt;&mode=trial</span><br>
+    <h2>F. Leave the game jump page</h2><br>
+    <h3>exitUrl</h3>
+    <span>Add the URL of the specified page to jump when the player exits the
+      game.</span><br>
+      <span><code>Note1 : The URL used for leaving needs to be "encode".</code>For example :https://www.google.com => https%3A%2F%2Fwww.google.com</span><br>
+      <span><code>Note2 : </code>This parameter is not available on the pc<code>(because there is no function to leave the game)</code></span><br>
+      <br>
+      <span>url example : http://&lt;provide by ebet&gt;&exitUrl=&lt;provide by channel&gt;</span><br>`;
+
+    </script>
+    <script>
+        if (window.localStorage.getItem('lang') == "cn") {
+
+            web_context.innerHTML = `<h1>游戏登入说明</h1>
+    <span>使用eBET提供的连结可以到eBET client网页h5游戏登入连结：&lt;eBET提供的H5 Game连结&gt;</span><br>
+    <br>
+    <h2>1. 一般登入</h2>
+    <span>输入帐号和密码在eBET的网页上</span><br>
+    <br>
+
+    <h2>2. Token登入</h2>
+    <span>该功能是从渠道的APP或web跳转至eBET web
+在登入的连结上加入username 和 accessToken</span><br>
+    <br>
+    <h1>其他可添加的参数</h1><br>
+    <h1>H5连结设置</h1>
+    <span>当想使用这些功能时，在url添加相关参数即可</span><br>
+    <br>
+    <h2>1. 进入特定游戏大厅</h2>
+    <span网址后加上参数，让玩家可以藉由此网址直接进入该游戏大厅。例如：网页上有秀出来老虎机的游戏网址，玩家可直接点选该网址，点选后直接进入到老虎机游戏大厅。</span><br>
+    <br>
+    <table class="gameType" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="code">代码</th>
+          <th data-field="Description">描述</th>
+        </tr>
+      </thead>
+    </table><br>
+    <h3>dgt</h3><br>
+    <span>请参考gameType表。</span><br>
+    <span>此参数只适用于PC H5页面且只能输入一个参数值。</span><br>
+    <span>此参数在进入ebet游戏后仍可切换至其他游戏。</span><br>
+    <span>url example : http://<provide by ebet>&dgt=1</span><br>
+    
+    <h3>gameType</h3><br>
+    <span>请参考gameType表。</span><br>
+    <span>此参数适用任意平台页面且输入一个参数值为独立介面。</span><br>
+    <span>此参数可输入多个参数值，进入ebet游戏后只会显示特定游戏。</span><br>
+    <span>url example : http://<provide by ebet>&gameType=1,2,3,4</span><br>
+    <br>
+    <h2>2. 进入游戏桌</h2><br>
+    <h3>tableCode</h3>
+    <span>可直接进入指定的游戏桌，tableCode详细清单请和客服人员索取。</span><br>
+    <span>url example : http://&lt;provide by ebet&gt;&<code>tableCode</code>=B1</span><br>
+    <br>
+    <h2>3. 横竖屏设置</h2><br>
+    <h3>orientation</h3><br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">代码</th>
+            <th scope="col">描述</th>
+            <th scope="col">示意图</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>横屏</td>
+            <td><img style="width: 100%;" src="img/Horizontal.jpg"></td>
+          </tr>
+        </tbody>
+      </table>
+    <br>
+    <span>未添加此参数时，<code>默认竖屏</code>。</span><br>
+    <span>url example : http://&lt;provide by ebet&gt;&orientation=1</span><br>
+    <br>
+    <h2>4. 进入游戏桌</h2><br>
+    <h3>language</h3>
+    <span>携带该参数并在后端设定开放语言，可以使介面变更语言<br>
+    <table class="language" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="Lang_Code">语系</th>
+          <th data-field="Description">描述</th>
+        </tr>
+      </thead>
+    </table>
+    <br>
+    <span>url example : http://&lt;provide by ebet&gt;& language=en_us</span><br><br>
+    <h2>5. 试玩登入</h2><br>
+    <h3>mode</h3>
+    <span>携带该字串(mode=trial)可以直接使用试玩帐号登入游戏</span><br>
+    <span>url example : http://&lt;provide by ebet&gt;&mode=trial</span><br><br>
+    <h2>6. 离开游戏后的介面</h2><br>
+    <h3>exitUrl</h3>
+    <span>携带该参数并在后面添加离开的网址，就可以在玩家退出或断线游戏时，进入指定页面。</span><br>
+      <span>离开的网址需要做encode，例如：https://www.google.com => https%3A%2F%2Fwww.google.com</span><br>
+      <span>要使用此参数有问题时，请和ebet技术人员请求协助确认</span><br>
+      <span>url example : http://<provide by ebet>&exitUrl=<provide by channel></span><br>
+      <br>`;
+        } else {
+
+        }
+
+    </script>
+</body>
+
+</html>

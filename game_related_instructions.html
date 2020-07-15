@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="eBET API Document" />
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="verify" content="index,follow" />
+    <title>eBET</title>
+    <div id="h_css"></div>
+
+</head>
+
+<body>
+    <div id="header"></div>
+
+
+    <div class="container">
+        <div id="container"></div>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/header_css.js"></script>
+    <!-- <script src="js/block.js"></script> -->
+    <script src="js/cardtype.js"></script>
+    <script src="js/niuniuresult.js"></script>
+    <script src="js/bettypeinterval.js"></script>
+    <script src="js/tableodds.js"></script>
+    <script>
+        const web_context = document.getElementById('container');
+
+        if (window.localStorage.getItem('lang') == "cn") {
+            web_context.innerHTML = `
+            <h1>游戏相关说明</h1><br>
+        <h2>扑克牌牌面代码</h2><br>
+        <table class="cardtype" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="club">梅花club</th>
+                    <th data-field="diamond">方块diamond</th>
+                    <th data-field="heart">红心heart</th>
+                    <th data-field="spades">黑桃spade</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h2>牛牛牌型代码</h2><br>
+        <table class="niuniuresult" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="code">代码</th>
+                    <th data-field="description">描述</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h2>betTypeInterval 参数表格</h2><br>
+        <h3>街注( betType = 202 )</h3><br>
+        <table class="streetbet" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="betTypeInterval">betTypeInterval</th>
+                    <th data-field="number">number</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>角注( betType = 203)</h3><br>
+        <table class="cornerbet" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="betTypeInterval">betTypeInterval</th>
+                    <th data-field="number">number</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>线注( betType = 206 )</h3><br>
+        <table class="lineBET" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="betTypeInterval">betTypeInterval</th>
+                    <th data-field="number">number</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>列注( betType = 207 )</h3><br>
+        <table class="columnbet" data-height="155">
+            <thead>
+                <tr>
+                    <th data-field="betTypeInterval">betTypeInterval</th>
+                    <th data-field="number">number</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>打注( betType = 208 )</h3><br>
+        <table class="dozenbet" data-height="155">
+            <thead>
+                <tr>
+                    <th data-field="betTypeInterval">betTypeInterval</th>
+                    <th data-field="number">number</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h2>游戏赔率</h2><br>
+        <h3>龙虎赔率</h3><br>
+        <table class="dragontiger" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="dragon_tiger">投注项目</th>
+                    <th data-field="Odds">赔率</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>轮盘赔率</h3><br>
+        <table class="roulette" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="roulette_game">投注项目</th>
+                    <th data-field="Odds">赔率</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>骰宝赔率</h3><br>
+        <table class="sicbo" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="sicbo">投注项目</th>
+                    <th data-field="Odds">赔率</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>百家乐赔率</h3><br>
+        <table class="baccarat" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="baccarat">投注项目</th>
+                    <th data-field="Odds">一般赔率</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>百家乐赔率(免佣)</h3><br>
+        <table class="baccaratno" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="baccaratno">投注项目</th>
+                    <th data-field="Odds">免佣赔率</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>牛牛赔率(玩家赢的赔率)</h3><br>
+        <table class="niuniuwin" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="niuniuwin">牌型</th>
+                    <th data-field="Odds_Equal">平倍赔率</th>
+                    <th data-field="Odds_Double">翻倍赔率</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>牛牛赔率(玩家输的赔率)</h3><br>
+        <table class="niuniulose" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="niuniulose">牌型</th>
+                    <th data-field="Odds_Equal">平倍赔率</th>
+                    <th data-field="Odds_Double">翻倍赔率</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>财富大转盘赔率</h3><br>
+        <h4>基本赔率(会因为倍数而改变派彩金额)</h4>
+        <table class="fortune_wheelb" data-height="265">
+            <thead>
+                <tr>
+                    <th data-field="betting_items">投注项目</th>
+                    <th data-field="Odds">基本赔率</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h4>固定赔率(不会因为倍数而改变派彩金额)</h4>
+        <table class="fortune_wheelf" data-height="160">
+            <thead>
+                <tr>
+                    <th data-field="betting_items">投注项目</th>
+                    <th data-field="Odds">固定赔率</th>
+                </tr>
+            </thead>
+        </table><br>`;
+        } else {
+            web_context.innerHTML = `
+            <h1>Other forms</h1><br>
+        <h2>card type</h2><br>
+        <table class="cardtype" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="club">club</th>
+                    <th data-field="diamond">diamond</th>
+                    <th data-field="heart">heart</th>
+                    <th data-field="spades">spades</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h2>niuniuResult</h2><br>
+        <table class="niuniuresult" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="code">code</th>
+                    <th data-field="description">description</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h2>betTypeInterval Table</h2><br>
+        <h3>street bet ( betType = 202 )</h3><br>
+        <table class="streetbet" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="betTypeInterval">betTypeInterval</th>
+                    <th data-field="number">number</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>corner bet ( betType = 203)</h3><br>
+        <table class="cornerbet" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="betTypeInterval">betTypeInterval</th>
+                    <th data-field="number">number</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>line bet ( betType = 206 )</h3><br>
+        <table class="lineBET" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="betTypeInterval">betTypeInterval</th>
+                    <th data-field="number">number</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>column bet ( betType = 207 )</h3><br>
+        <table class="columnbet" data-height="155">
+            <thead>
+                <tr>
+                    <th data-field="betTypeInterval">betTypeInterval</th>
+                    <th data-field="number">number</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>dozen bet ( betType = 208 )</h3><br>
+        <table class="dozenbet" data-height="155">
+            <thead>
+                <tr>
+                    <th data-field="betTypeInterval">betTypeInterval</th>
+                    <th data-field="number">number</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h2>Table Odds</h2><br>
+        <h3>Dragon tiger</h3><br>
+        <table class="dragontiger" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="dragon_tiger">Dragon tiger</th>
+                    <th data-field="Odds">Odds</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>Roulette</h3><br>
+        <table class="roulette" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="roulette_game">roulette</th>
+                    <th data-field="Odds">Odds</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>Sic-bo</h3><br>
+        <table class="sicbo" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="sicbo">sicbo</th>
+                    <th data-field="Odds">Odds</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>Baccarat</h3><br>
+        <table class="baccarat" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="baccarat">sicbo</th>
+                    <th data-field="Odds">Odds</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>Baccarat(No Commision)</h3><br>
+        <table class="baccaratno" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="baccaratno">Baccarat(No Commision)</th>
+                    <th data-field="Odds">Odds</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>BullBull(Player win odds)</h3><br>
+        <table class="niuniuwin" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="niuniuwin">BullBull(Player win odds)</th>
+                    <th data-field="Odds_Equal">Odds(Equal)</th>
+                    <th data-field="Odds_Double">Odds(Double)</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>BullBull(Player lose odds)</h3><br>
+        <table class="niuniulose" data-height="280">
+            <thead>
+                <tr>
+                    <th data-field="niuniulose">BullBull(Player lose odds)</th>
+                    <th data-field="Odds_Equal">Odds(Equal)</th>
+                    <th data-field="Odds_Double">Odds(Double)</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h3>Fortune Wheel</h3><br>
+        <h4>Basic Odds</h4>
+        <table class="fortune_wheelb" data-height="265">
+            <thead>
+                <tr>
+                    <th data-field="betting_items">Betting Items</th>
+                    <th data-field="Odds">Basic Odds</th>
+                </tr>
+            </thead>
+        </table><br>
+        <h4>Fixed Odds</h4>
+        <table class="fortune_wheelf" data-height="160">
+            <thead>
+                <tr>
+                    <th data-field="betting_items">Betting Items</th>
+                    <th data-field="Odds">Fixed Odds</th>
+                </tr>
+            </thead>
+        </table><br>`;
+
+        }
+    </script>
+</body>
+
+</html>

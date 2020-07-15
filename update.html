@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="eBET API Document" />
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="verify" content="index,follow" />
+    <title>eBET</title>
+    <div id="h_css"></div>
+
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div class="container">
+        
+        <div id="container"></div>
+
+    </div>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/header_css.js"></script>
+    <!-- <script src="js/block.js"></script> -->
+    <script src="js/up_history.js"></script>
+    <script>
+        const web_context = document.getElementById('container');
+        // <span>
+        //         更新项目<br>
+        //         新增事务类型type=37<br>
+        //         以下为受影响API<br>
+        //         单钱包：increaseCredit (影响参数：API > eBET request > increaseCredit > detail > modifyBetList)<br>
+        //         转帐钱包：没有影响<br>
+        //     </span>
+
+        if (window.localStorage.getItem('lang') == "cn") {
+            web_context.innerHTML = `
+
+            <span>
+                更新项目<br>
+                优化充值流程<br>
+                单钱包：没有影响<br>
+                转帐钱包：优化充值流程，API没有变动<br>
+            </span>
+            <br>
+            <table class="up_his" data-height="500">
+                <thead>
+                    <tr>
+                        <th data-field="update_time">更新时间</th>
+                        <th data-field="update_member">更新人员</th>
+                        <th data-field="update_description">更新说明</th>
+                    </tr>
+                </thead>
+            </table>`
+        } else {
+            web_context.innerHTML = `
+            <span>
+                Update description<br>
+                Optimizing recharge process<br>
+                Single wallet : No impact<br>
+                Transfer wallet : Optimizing recharge process,API no impact<br>
+            </span>
+            <br>
+            <table class="up_his" data-height="500">
+                <thead>
+                    <tr>
+                        <th data-field="update_time">update time</th>
+                        <th data-field="update_member">update member</th>
+                        <th data-field="update_description">update description</th>
+                    </tr>
+                </thead>
+            </table>`
+        }
+    </script>
+</body>
+
+</html>

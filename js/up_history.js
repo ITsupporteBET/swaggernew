@@ -1,0 +1,114 @@
+if (window.localStorage.getItem('lang') == "cn") {
+
+    $(function () {
+        $('.up_his').bootstrapTable({
+            data: up_his_cn
+        });
+    });
+} else {
+    $(function () {
+        $('.up_his').bootstrapTable({
+            data: up_his
+        });
+    });
+}
+const up_his = [{
+    update_time: "2020/Feb/20",
+    update_member: "leo",
+    update_description: `
+Add relevant API descriptions for Fortune Wheel<br>
+Add the parameter maxPayout of userbethistory for Fortune Wheel<br>
+Add the parameter of getbetlimit for Fortune Wheel<br>
+Add the parameter of updatebetlimit for Fortune Wheel<br>
+Add API loginslot: It can login to slot games directly<br>
+Add API slotgamelist: It can get the list of slot games<br>
+Add API callback: Apply for OAuth login<br>
+Add languages: German, French, Turkish<br>`
+}, {
+    update_time: "2020/Feb/27",
+    update_member: "leo",
+    update_description: `
+Add relevant API descriptions for Lottery<br>
+Add gameType descriptions for Lottery<br>
+Add tableType descriptions for Lottery<br>
+`
+}, {
+    update_time: "2020/Mar/12",
+    update_member: "leo",
+    update_description: `
+    Update web operation settings descriptions for Leave the game jump page<br>`
+}, {
+    update_time: "2020/Mar/19",
+    update_member: "leo",
+    update_description: `
+    Adjust increaseCredit request parameters<br>`
+}, {
+    update_time: "2020/May/15",
+    update_member: "leo",
+    update_description: `
+    Add the new common parameter type=37<br>`
+}, {
+    update_time: "2020/June/04",
+    update_member: "leo",
+    update_description: `
+    Add currencies: Peso mexicano ,Nuevo Sol ,Peso colombiano<br>`
+}, {
+    update_time: "2020/June/18",
+    update_member: "leo",
+    update_description: `
+    Optimizing recharge process<br>
+    Add precautions description<br>`
+}
+]
+
+const up_his_cn = [
+
+    {
+        update_time: "2020/Feb/20",
+        update_member: "leo",
+        update_description: `
+增加游戏财富大转盘的相关说明<br>
+增加userbethistory的回传参数：maxPayout：财富大转盘相关<br>
+增加getbetlimit的回传参数：财富大转盘相关<br>
+增加updatebetlimit的请求参数：财富大转盘相关<br>
+增加API loginslot：它可以直接登入slot游戏<br>
+增加API slotgamelist：它可以取得slot游戏清单<br>
+增加API callback：用于OAuth登入<br>
+增加语系：德语、法语、土耳其语<br>`
+    }, {
+        update_time: "2020/Feb/27",
+        update_member: "leo",
+        update_description: `
+        增加游戏彩票的相关说明<br>
+        增加gameType彩票的相关说明<br>
+        增加tableType彩票的相关说明<br>
+        `
+    }, {
+        update_time: "2020/Mar/12",
+        update_member: "leo",
+        update_description: `
+        更新离开游戏后的介面说明<br>`
+    }, {
+        update_time: "2020/Mar/19",
+        update_member: "leo",
+        update_description: `
+        調整increaseCredit請求參數<br>`
+    }, {
+        update_time: "2020/May/15",
+        update_member: "leo",
+        update_description: `
+        新增事务类型type=37<br>`
+    }, {
+        update_time: "2020/June/04",
+        update_member: "leo",
+        update_description: `
+        新增币种：墨西哥比索、秘鲁新索尔、哥伦比亚比索<br>`
+    }, {
+        update_time: "2020/June/18",
+        update_member: "leo",
+        update_description: `
+        优化充值流程<br>
+        新增注意事项说明<br>`
+    }
+    
+]

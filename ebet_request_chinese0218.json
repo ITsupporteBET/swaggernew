@@ -1,0 +1,1165 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : 
+    "# **概述**\n *此页面描述了eBET向渠道发出的'用于验证用户登录'或'通知用户金额更改'的请求。*\n \n 有两种管理玩家资金的方法：单钱包和转账钱包。\n \"转账钱包\" : 玩家的资金由eBET管理。\n \"单钱包\" : 玩家的资金由渠道管理。\n API根据管理方法发送不同的请求。\n \n# **关于登录流程**\n 1. 使用不同的登录方法提供玩家信息給eBET。\n eventType = 1: 在eBET h5网页或App上输入帐号和密码\n eventType = 3: 在渠道平台登入后，点击**applink**连结\n eventType = 4: 在渠道平台登入后，点击**token**连结\n 2. eBET向渠道发送验证登录API请求。\n 转账钱包: RegisterOrLoginReq\n 单钱包: registerOrLogin\n 3. eBET根据渠道的响应来确定是否让用户进入游戏。\n \n# **发送游戏相关类型**\n *投注：当用户单击一次确认投注时，eBET发送投注请求。一回合的点击次数没有限制。*\n *派彩：停止下注后，计算该回合的投注记录并发送派彩请求。*\n \n **基本流程** \n 投注：请求下注（type = 1）。如果返回失败，则投注失败。\n 派彩: 请求派彩（type = 2）。如果返回失败，请在检查后再次请求相同的内容。\n \n **特殊流程** - *在对牛牛下注翻倍时，将使用此流程。*\n 投注: 先请求预扣（type = 27），如果预扣响应成功，则请求下注（type = 1）。 预扣回应失败则使用基本流程的投注失败处理。如果投注回应失败，会使用下注seqNo将下注错误退款（type = 11）请求发送至渠道以要求退还预扣款。\n 派彩: 如果还有剩余的预扣金额，请先请求预扣返还（type = 28），然后再请求派彩（type = 2）。 如果没有剩余的预扣金额，则直接请求派彩（type = 2）。\n \n# **投注失败流程**\n ***投注失败的定义：eBET收到的状态不是200或未收到。***\n 在派彩请求中，betmoney = 0表示eBET认为该投注不成功，因此未计算相关的派彩金额。\n 此时渠道可以执行以下操作：\n 1. 渠道自己退款\n *派彩:* 渠道检查betList，如果有投注失败的纪录就自己退款\n *查询:* 在eBET送出查询的请求 的时候，该下注注单status返回209代表这个下注已经退款\n 2. eBET请求退款 - 渠道的DB允许再次修改\n *派彩:* 
+    正常回应，不用检查betList\n *查询:* 提供渠道ＤＢ的纪录，回传不正确可能会无法退款\n *退款:* 根据实作的退款API请求退款\n 3. eBET请求退款 - 渠道的DB**不允许**再次修改\n *派彩:* 检查betList。 如果有下注失败回应派彩失败给eBET\n *查询:* 提供渠道ＤＢ的纪录，回传不正确可能会无法退款\n *退款:* 根据实作的退款API请求退款。退款完成后会重新发送派彩请求\n \n# **单钱包特殊用途**\n 1. syncCredit将在registerOrLogin成功响应后发送请求。 **两者都必须成功**，然后用户才能登录eBET游戏。\n 2. syncCredit响应**status：410 **将导致玩家退出eBET游戏。\n 3. 渠道可以在registerOrLogin响应时自定义其他API请求的用户名。 （eBET后端需要启用相关设置）\n \n# **建议的响应状态代码**\n
+    <table id=\"tg-dx1DP\" class=\"tg\">\n
+        <tr>\n
+            <th class=\"tg-0uei\">代码</th>\n
+            <th class=\"tg-0uei\">描述</th>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>200</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;成功</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>202</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;渠道不存在</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>206</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;seqNo 不存在</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>207</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;退款金额不一致</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>208</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;记录不存在</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>209</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;已经退款的数据</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>401</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;用户名或密码不正确</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>410</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;无效的Token</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>500</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;系统错误</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>505</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;渠道服务器在维护中</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4003</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;系统繁忙，请稍后再试</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4025</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;参数不对</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4026</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;签名不对</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4027</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;IP 不允许</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4029</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;功能无效</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4030</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;资料类型错误</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4037</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;用户不存在</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4038</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;频繁请求</td>\n
+        </tr>\n
+        <tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5003</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;子渠道不存在</td>\n
+        </tr>\n
+    </table>\n",
+    "version" : "1.0.0",
+    "title" : "eBET request"
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/ITtoppathsupport/test03/1.0.0",
+  "tags" : [ {
+    "name" : "API used by transfer wallet",
+    "description" : "eBET提供给转帐钱包所使用的API"
+  }, {
+    "name" : "API used by single wallet",
+    "description" : "eBET提供给单钱包所使用的API"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/RegisterOrLoginReq" : {
+      "post" : {
+        "tags" : [ "API used by transfer wallet" ],
+        "summary" : "转帐钱包使用的验证用户登录",
+        "description" : "此api用于验证用户登录。\n 将请求直接发送到渠道提供的服务器URL。",
+        "operationId" : "RegisterOrLoginReq",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET 请求",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "成功",
+            "schema" : {
+              "required" : [ "accessToken", "status", "subChannelId", "username" ],
+              "properties" : {
+                "accessToken" : {
+                  "$ref" : "#/definitions/accessToken"
+                },
+                "subChannelId" : {
+                  "$ref" : "#/definitions/subChannelId"
+                },
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "nickname" : {
+                  "type" : "string",
+                  "example" : "用户昵称，预设随机生成",
+                  "description" : "password"
+                },
+                "currency" : {
+                  "$ref" : "#/definitions/currency"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UserInfo" : {
+      "post" : {
+        "tags" : [ "API used by transfer wallet" ],
+        "summary" : "核对用户信息",
+        "description" : "此api用于确认用户信息。\n 在RegisterOrLoginReq响应成功后，它将发送请求。\n 响应失败不会影响玩家登录",
+        "operationId" : "UserInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET 请求",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_1"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "成功",
+            "schema" : {
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/registerOrLogin" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "单钱包使用的验证用户登录",
+        "description" : "此api用于验证用户登录。\n 发送请求至接收地址是渠道的服务器url + api。 E.g. http://127.0.0.1/registerOrLogin",
+        "operationId" : "registerOrLogin",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET 请求",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_2"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "成功",
+            "schema" : {
+              "required" : [ "accessToken", "currency", "event", "seqNo", "sessionToken", "status", "subChannelId", "username" ],
+              "properties" : {
+                "accessToken" : {
+                  "$ref" : "#/definitions/accessToken"
+                },
+                "subChannelId" : {
+                  "$ref" : "#/definitions/subChannelId"
+                },
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "sessionToken" : {
+                  "$ref" : "#/definitions/sessionToken"
+                },
+                "currency" : {
+                  "$ref" : "#/definitions/currency"
+                },
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "registerOrLogin",
+                  "description" : "API 名称"
+                },
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "nickname" : {
+                  "type" : "string",
+                  "example" : "用户昵称，预设随机生成",
+                  "description" : "password"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/syncCredit" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "同步用户金额",
+        "description" : "此api是用于确认用户当前的金额。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/syncCredit",
+        "operationId" : "syncCredit",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET 请求",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_3"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "成功",
+            "schema" : {
+              "required" : [ "event", "money", "seqNo", "status", "username" ],
+              "properties" : {
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "money" : {
+                  "type" : "number",
+                  "example" : 1000.01,
+                  "description" : "用户当前金额。 建议的金额仅保留到小数点后第二位"
+                },
+                "currency" : {
+                  "$ref" : "#/definitions/currency"
+                },
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "syncCredit",
+                  "description" : "API 名称"
+                },
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "timestamp" : {
+                  "$ref" : "#/definitions/timestamp"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/increaseCredit" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "通知用户金额变动",
+        "description" : "该API是用于通知渠道更改玩家金额。\n Note 1: seqNo是**唯一值**。 避免重复处理金額，请勿记录相同的支出seqNo。\n Note 2:关于派彩，我们有一个**retry**机制（此机制仅适用于派彩）。如果之前已经成功处理过，请向eBET返回201（重复seqNo）或200（成功但不更改玩家金额）。 \n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/increaseCredit",
+        "operationId" : "increaseCredit",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET 请求",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "成功",
+            "schema" : {
+              "required" : [ "event", "money", "moneyBefore", "seqNo", "status", "username" ],
+              "properties" : {
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "money" : {
+                  "type" : "number",
+                  "example" : 1000.01,
+                  "description" : "经过增减后的金额 "
+                },
+                "moneyBefore" : {
+                  "type" : "number",
+                  "example" : 1000.01,
+                  "description" : "玩家原始的金额"
+                },
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "increaseCredit",
+                  "description" : "API 名称"
+                },
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "timestamp" : {
+                  "$ref" : "#/definitions/timestamp"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/queryIncreaseCreditRecord" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "查询increaseCredit的纪录",
+        "description" : "该API用于查询渠道数据库中的increaseCredit的处理状态。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/queryIncreaseCreditRecord",
+        "operationId" : "queryIncreaseCreditRecord",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET 请求",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_5"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "成功",
+            "schema" : {
+              "required" : [ "event", "seqNo", "status", "username" ],
+              "properties" : {
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "queryIncreaseCreditRecord",
+                  "description" : "API 名称"
+                },
+                "timestamp" : {
+                  "$ref" : "#/definitions/timestamp"
+                },
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "creditRecord" : {
+                  "type" : "array",
+                  "description" : "渠道数据库的纪录，返回空序列意味着没有记录",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "querySeqNo" : {
+                        "type" : "string",
+                        "example" : "seqNoBetseqNoBet",
+                        "description" : "查询的seqNo"
+                      },
+                      "type" : {
+                        "type" : "number",
+                        "example" : 1.0,
+                        "description" : "交易事务类型"
+                      },
+                      "username" : {
+                        "$ref" : "#/definitions/username"
+                      },
+                      "roundCode" : {
+                        "$ref" : "#/definitions/roundCode"
+                      },
+                      "status" : {
+                        "type" : "number",
+                        "example" : 200.0,
+                        "description" : "该seqNo的处理状态"
+                      },
+                      "creditTime" : {
+                        "type" : "number",
+                        "example" : 1.987654321012E12,
+                        "description" : "事务纪录处理成功时间(毫秒)。时间格式为Unix。"
+                      },
+                      "moneyBefore" : {
+                        "type" : "number",
+                        "example" : 1100.01,
+                        "description" : "变动前金额"
+                      },
+                      "moneyAfter" : {
+                        "type" : "number",
+                        "example" : 1000.01,
+                        "description" : "变动后金额 "
+                      },
+                      "money" : {
+                        "type" : "number",
+                        "example" : 100.0,
+                        "description" : "变动金额 "
+                      }
+                    }
+                  }
+                },
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/refundSingleWallet" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "手动通知处理投注失败的退款",
+        "description" : "此API是eBET对失败投注進行手动退款请求。\n发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/refundSingleWallet",
+        "operationId" : "refundSingleWallet",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET 请求",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_6"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "成功",
+            "schema" : {
+              "required" : [ "event", "seqNo", "status", "timestamp" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "refundSingleWallet",
+                  "description" : "API 名称"
+                },
+                "timestamp" : {
+                  "$ref" : "#/definitions/timestamp"
+                },
+                "moneyBefore" : {
+                  "type" : "number",
+                  "example" : 0.0,
+                  "description" : "退款前的总金额"
+                },
+                "moneyAfter" : {
+                  "type" : "number",
+                  "example" : 1000.0,
+                  "description" : "退款後的总金额"
+                },
+                "refundMoney" : {
+                  "type" : "number",
+                  "example" : 1000.0,
+                  "description" : "需要退款的金额"
+                },
+                "refundList" : {
+                  "type" : "array",
+                  "description" : "退款处理结果。",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "refundSeqNo" : {
+                        "type" : "string",
+                        "example" : "seqNoBetseqNoRefund",
+                        "description" : "退款的投注SeqNo"
+                      },
+                      "status" : {
+                        "type" : "number",
+                        "example" : 200.0,
+                        "description" : "退款处理的状态。\n 200: 渠道已收到eBET请求并已对其进行处理\n 209: 渠道已自行退款"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/autoRefundBatch" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "自动通知处理投注失败的退款",
+        "description" : "定時检查失败的投注记录，并将其发送到渠道以批量处理退款。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/autoRefundBatch",
+        "operationId" : "autoRefundBatch",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET 请求",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_7"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "成功",
+            "schema" : {
+              "required" : [ "event", "refundResultList", "seqNo", "status", "timestamp" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "timestamp" : {
+                  "$ref" : "#/definitions/timestamp"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "autoRefundBatch",
+                  "description" : "API 名称"
+                },
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "refundResultList" : {
+                  "type" : "array",
+                  "description" : "退款处理列表",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "refundTotalMoney" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "成功处理的退款总金额"
+                      },
+                      "roundCode" : {
+                        "$ref" : "#/definitions/roundCode"
+                      },
+                      "username" : {
+                        "$ref" : "#/definitions/username"
+                      },
+                      "sucRefundList" : {
+                        "type" : "array",
+                        "description" : "成功进行投注退款处理的处理列表。\n 如果所有处理失败，请返回空数组。",
+                        "items" : {
+                          "type" : "object",
+                          "properties" : {
+                            "status" : {
+                              "type" : "number",
+                              "example" : 200.0,
+                              "description" : "退款处理的状态。"
+                            },
+                            "seqNo" : {
+                              "type" : "string",
+                              "example" : "seqNoBetseqNoRefund",
+                              "description" : "退款的該投注SeqNo"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "username" : {
+      "type" : "string",
+      "description" : "用户名",
+      "example" : "apitest01"
+    },
+    "channelId" : {
+      "type" : "number",
+      "description" : "渠道 ID",
+      "example" : 1
+    },
+    "subChannelId" : {
+      "type" : "number",
+      "description" : "子渠道 ID。 如果未创建，请输入0。",
+      "example" : 0
+    },
+    "timestamp" : {
+      "type" : "integer",
+      "description" : "时间戳记,以毫秒为单位。",
+      "example" : 1234567890123
+    },
+    "signature" : {
+      "type" : "string",
+      "description" : "签名。 字符串拼接:username+timestamp",
+      "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ=="
+    },
+    "currency" : {
+      "type" : "string",
+      "description" : "货币",
+      "example" : "en_us"
+    },
+    "status" : {
+      "type" : "number",
+      "description" : "建议返回的状态码",
+      "example" : 200
+    },
+    "accessToken" : {
+      "type" : "string",
+      "description" : "渠道返回的AccessToken。",
+      "example" : "accessTokenTest"
+    },
+    "seqNo" : {
+      "type" : "string",
+      "description" : "eBET的序列号。 请返回相同的值。",
+      "example" : "seqNoseqNoseqNoseqNo"
+    },
+    "sessionToken" : {
+      "type" : "string",
+      "description" : "由渠道提供或随机生成",
+      "example" : "sessionToken"
+    },
+    "roundCode" : {
+      "type" : "string",
+      "description" : "牌局号",
+      "example" : "B1-200101012345"
+    },
+    "body" : {
+      "properties" : {
+        "cmd" : {
+          "type" : "string",
+          "example" : "RegisterOrLoginReq",
+          "description" : "API 名称"
+        },
+        "eventType" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "登录方式:\n 1:普通登录\n 3:Applink登录\n 4:Token登录"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "password",
+          "description" : "用户密码。 空字符串為沒有密码。"
+        },
+        "accessToken" : {
+          "type" : "string",
+          "example" : "accessToken",
+          "description" : "该参数值由渠道提供。仅在eventType = 4时使用"
+        },
+        "timestamp" : {
+          "type" : "number",
+          "example" : 1.23456789E9,
+          "description" : "当前时间,格式为Unix。"
+        },
+        "ip" : {
+          "type" : "string",
+          "example" : "127.0.0.1",
+          "description" : "用户登录IP"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "签名。 字符串拼接:\n 普通登录/applink登录: username+timestamp\n token登录: timestamp+accessToken"
+        }
+      }
+    },
+    "body_1" : {
+      "properties" : {
+        "cmd" : {
+          "type" : "string",
+          "example" : "UserInfo",
+          "description" : "API 名称"
+        },
+        "money" : {
+          "type" : "number",
+          "example" : 1000.01,
+          "description" : "用户当前金额"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "subChannelId" : {
+          "$ref" : "#/definitions/subChannelId"
+        },
+        "timestamp" : {
+          "type" : "number",
+          "example" : 1234567890,
+          "description" : "当前时间,格式为Unix。"
+        },
+        "userId" : {
+          "type" : "number",
+          "example" : 123456789,
+          "description" : "用户 ID"
+        },
+        "ip" : {
+          "type" : "string",
+          "example" : "127.0.0.1",
+          "description" : "用户登录IP"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature"
+        }
+      }
+    },
+    "body_2" : {
+      "properties" : {
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "password",
+          "description" : "用户密码。 空字符串為沒有密码。"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "ip" : {
+          "type" : "string",
+          "example" : "127.0.0.1",
+          "description" : "用户登录IP"
+        },
+        "eventType" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "登录方式:\n 1:普通登录\n 3:Applink登录\n 4:Token登录"
+        },
+        "accessToken" : {
+          "type" : "string",
+          "example" : "accessToken",
+          "description" : "该参数值由渠道提供。仅在eventType = 4时使用"
+        },
+        "platfrom" : {
+          "type" : "number",
+          "example" : 3.0,
+          "description" : "用户的平台"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "registerOrLogin",
+          "description" : "API 名称"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "签名。 字符串拼接:\n 普通登录/applink登录: seqNo+event+channelId+username+timestamp+password\n token登录: seqNo+event+channelId+timestamp+username+accessToken"
+        }
+      }
+    },
+    "body_3" : {
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "tableType" : {
+          "type" : "string",
+          "example" : "password",
+          "description" : "用户密码。 空字符串為沒有密码。"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "syncCredit",
+          "description" : "API 名称"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        }
+      }
+    },
+    "increaseCredit_betList" : {
+      "type" : "object",
+      "properties" : {
+        "betType" : {
+          "type" : "number",
+          "example" : 80.0,
+          "description" : "投注牌型"
+        },
+        "betMoney" : {
+          "type" : "number",
+          "example" : 100.0,
+          "description" : "投注金额。 当betMoney = 0时，视为下注失败。"
+        },
+        "seqNo" : {
+          "type" : "string",
+          "example" : "seqNoBetseqNoBet",
+          "description" : "投注请求的序号。 只有派彩的事件，才需要此字段。"
+        },
+        "payout" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "派彩金额。 只有派彩的事件，才需要此字段。"
+        },
+        "number" : {
+          "type" : "string",
+          "description" : "在轮盘游戏下注的号码 . 只有轮盘游戏的派彩才会有此字段 "
+        }
+      }
+    },
+    "increaseCredit_detail" : {
+      "type" : "object",
+      "properties" : {
+        "tabelCode" : {
+          "type" : "string",
+          "example" : "B1",
+          "description" : "游戏桌号"
+        },
+        "tableType" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "游戏类型"
+        },
+        "tableSubType" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "游戏桌类型"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "betTime" : {
+          "type" : "number",
+          "example" : 1.987654321012E12,
+          "description" : "下注时间(毫秒)。 格式为Unix时间"
+        },
+        "totalBet" : {
+          "type" : "number",
+          "example" : 100.0,
+          "description" : "总投注"
+        },
+        "validBet" : {
+          "type" : "number",
+          "example" : 100.0,
+          "description" : "有效投注"
+        },
+        "srcResults" : {
+          "type" : "array",
+          "example" : [ 46, 47, null, 51, 51, null ],
+          "description" : "荷官开牌结果 . 百家乐，龙虎，牛牛 适用于此,其代码请参考牌型代码",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "brokerageRequired" : {
+          "type" : "boolean",
+          "example" : true,
+          "description" : "是否為免佣金百家乐。 只有百家乐才會有此参数"
+        },
+        "results" : {
+          "type" : "array",
+          "example" : [ 60, 88, 71, 83, 62, 61 ],
+          "description" : "牌局计算结果",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "payout" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "派彩总额"
+        },
+        "payoutTime" : {
+          "type" : "number",
+          "example" : 1.987654321098E12,
+          "description" : "派彩时间(毫秒)。 格式为Unix"
+        },
+        "betList" : {
+          "type" : "array",
+          "description" : "投注详情",
+          "items" : {
+            "$ref" : "#/definitions/increaseCredit_betList"
+          }
+        }
+      }
+    },
+    "body_4" : {
+      "properties" : {
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "money" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "需要变动的金额，如果为负数代表 玩家要扣金额 "
+        },
+        "type" : {
+          "type" : "number",
+          "example" : 2.0,
+          "description" : "交易事务类型"
+        },
+        "platform" : {
+          "type" : "number",
+          "example" : 3.0,
+          "description" : "用户平台"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "increaseCredit",
+          "description" : "API 名称"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "签名。 字符串拼接: seqNo+event+channelId+timestamp+username+money"
+        },
+        "detail" : {
+          "type" : "array",
+          "description" : "",
+          "items" : {
+            "$ref" : "#/definitions/increaseCredit_detail"
+          }
+        }
+      }
+    },
+    "body_5" : {
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "qureySeqNo" : {
+          "type" : "string",
+          "example" : "seqNoBetseqNoBet,seqNoPayoutseqNoPayout",
+          "description" : "要查询的序列号，以逗号分隔。"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "queryIncreaseCreditRecord",
+          "description" : "API 名称"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "签名。 字符串拼接: username+timestamp"
+        }
+      }
+    },
+    "refundSingleWallet_refundList" : {
+      "type" : "object",
+      "properties" : {
+        "refundSeqNo" : {
+          "type" : "string",
+          "example" : "seqNoBetseqNoRefund",
+          "description" : "退款投注序列号"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "refundMoney" : {
+          "type" : "number",
+          "example" : -1000.0,
+          "description" : "退款金额。 该值为负"
+        }
+      }
+    },
+    "body_6" : {
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "refundSingleWallet",
+          "description" : "API 名称"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "签名。 字符串拼接: username+timestamp"
+        },
+        "refundList" : {
+          "type" : "array",
+          "description" : "退款明细",
+          "items" : {
+            "$ref" : "#/definitions/refundSingleWallet_refundList"
+          }
+        }
+      }
+    },
+    "autoRefundBatch_batchRefundList" : {
+      "type" : "object",
+      "properties" : {
+        "seqNo" : {
+          "type" : "string",
+          "example" : "seqNoBetseqNoRefund",
+          "description" : "退款投注序列号"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "refundMoney" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "退款金额。 此值为正。"
+        }
+      }
+    },
+    "body_7" : {
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "lastStartProcessTime" : {
+          "type" : "number",
+          "example" : 1.919191919191E12,
+          "description" : "批处理时间(毫秒)。 格式为Unix。"
+        },
+        "refundThreshold" : {
+          "type" : "number",
+          "example" : 10000.0,
+          "description" : "退款金额的阈值。"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "autoRefundBatch",
+          "description" : "API 名称"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "签名。 字符串拼接:channelId+timestamp"
+        },
+        "batchRefundList" : {
+          "type" : "array",
+          "description" : "退款清单",
+          "items" : {
+            "$ref" : "#/definitions/autoRefundBatch_batchRefundList"
+          }
+        }
+      }
+    }
+  }
+}

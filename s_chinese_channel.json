@@ -1,0 +1,3492 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "# **概述**\n *此页描述渠道可以透过发送请求给eBET以获得相关资讯。*\n \n \n# **关于OAuth登录**\n *提供渠道使用自己的登录页面来验证用户登录*\n \n **事先设定**\n ＊ 实作API：回调地址和OAuth JS窗口框架\n ＊ 將其链接提供給eBET\n \n **流程说明**\n 1. 用户登录eBET平台，单击\"登录\"按钮，跳至所提供的验证登录链接。\n 2. 成功验证后，向eBET发送API：回调成功请求。\n 3. 收到响应后，使用OAuth JS框架关闭页面。\n \n# **eBET响应状态码**\n <
+    table id = \"tg-dx1DP\" class=\"tg\">\n <
+    tr > \n <
+    th class = \"tg-0uei\">Status Code</th>\n <
+    th class = \"tg-0uei\">Description</th>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>-1</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;充值纪录不存在</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>0</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;充值中</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>200</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;成功</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>201</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;重复的充值请求ID</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>202</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;渠道不存在</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>203</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;充值 ID 不能为空</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>204</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;充值金额不能为 0</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>205</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;充值金额太小</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>207</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;退款金额不一致</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>208</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;记录不存在</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>209</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;已经退款的数据</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>401</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;用户名或密码不正确</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>410</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;无效的Token</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>500</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;系统错误</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>505</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;渠道服务器在维护中</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>4003</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;系统繁忙，请稍后再试</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>4025</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;参数不对</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>4026</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;签名不对</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>4027</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;IP 不允许</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>4028</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;试玩玩家不能充值</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>4029</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;功能无效</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>4030</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;资料类型错误</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>4037</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;用户不存在</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>4038</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;频繁请求</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>4202</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;接口调用次数不足</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>5001</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;充值失败</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>5002</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;余额不足，取款失败</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>5003</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;子渠道不存在</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>5005</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;钱包尚未开启</td>\n < /
+    tr > \n <
+    tr > \n <
+    td class = \"tg-0pky\">&nbsp;<code>5006</code></td>\n <
+    td class = \"tg-0pky\">&nbsp;游戏中无法提领</td>\n < /
+    tr > \n <
+    /table>\n",
+    "version": "1.0.0",
+    "title": "Channel request"
+  },
+  "host": "virtserver.swaggerhub.com",
+  "basePath": "/ITtoppathsupport/test01/1.0.0",
+  "tags": [{
+    "name": "单钱包使用的API",
+    "description": "eBET提供单个钱包的API。"
+  }, {
+    "name": "通用API",
+    "description": "任何钱包都可以使用的API。"
+  }],
+  "schemes": ["http"],
+  "paths": {
+    "/api/getseqnorecord": {
+      "post": {
+        "tags": ["单钱包使用的API"],
+        "summary": "获取seqno记录",
+        "description": "此api为取得ebet纪录为失败的序列编号。",
+        "operationId": "getseqnorecord",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_3"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "status"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "count": {
+                  "$ref": "#/definitions/count"
+                },
+                "remainingVisit": {
+                  "$ref": "#/definitions/remainingVisit"
+                },
+                "seqNoHistorys": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "description": "每个钱包的余额。",
+                    "properties": {
+                      "seqNo": {
+                        "type": "string",
+                        "example": "a698facaf47c80b784e116524c20bbf1",
+                        "description": "记录序列号"
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "apitest01",
+                        "description": "纪录的用户名"
+                      },
+                      "event": {
+                        "type": "string",
+                        "example": "increaseCredit",
+                        "description": "纪录的apiName"
+                      },
+                      "startRequestTime": {
+                        "type": "string",
+                        "example": "2020-01-01T00:00:00Z",
+                        "description": "请求发送时间"
+                      },
+                      "endResponseTime": {
+                        "type": "string",
+                        "example": "2020-01-01T00:00:10Z",
+                        "description": "响应结束时间"
+                      },
+                      "status": {
+                        "type": "integer",
+                        "example": 4025.0,
+                        "description": "纪录的状态码"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/syncuser": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "创建用户",
+        "description": "创建新用户",
+        "operationId": "syncuser",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_4"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "status"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "该帐户已注册。"
+          }
+        }
+      }
+    },
+    "/api/userinfo": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "用户信息",
+        "description": "查询用户信息",
+        "operationId": "userinfo",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_5"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "channelId", "money", "status", "subChannelId", "userId", "username", "wallet"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "channelId": {
+                  "$ref": "#/definitions/channelId"
+                },
+                "subChannelId": {
+                  "$ref": "#/definitions/subChannelId"
+                },
+                "username": {
+                  "$ref": "#/definitions/username"
+                },
+                "userId": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 1919191919,
+                  "description": "用户ID"
+                },
+                "money": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100000.01,
+                  "description": "用户的金額"
+                },
+                "wallet": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/wallet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/userbethistory": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "用户投注记录",
+        "description": "该API用于查询在特定时间段内记录的投注。\n Note: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)",
+        "operationId": "userbethistory",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_6"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "betHistories", "count", "remainingVisits", "status"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "count": {
+                  "$ref": "#/definitions/channelId"
+                },
+                "remainingVisits": {
+                  "$ref": "#/definitions/remainingVisit"
+                },
+                "betHistories": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/betHistories"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/getcurrentluzhu": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "牌局結果路書",
+        "description": "回传当前已经结束的 30 笔牌局结果且转换成路书资讯",
+        "operationId": "getcurrentluzhu",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_7"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "count", "remainingVisits", "status", "tableCode", "tableSubType", "tableType"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "count": {
+                  "$ref": "#/definitions/count"
+                },
+                "remainingVisits": {
+                  "$ref": "#/definitions/remainingVisit"
+                },
+                "tableType": {
+                  "$ref": "#/definitions/tableType"
+                },
+                "tableSubType": {
+                  "$ref": "#/definitions/tableSubType"
+                },
+                "tableCode": {
+                  "type": "string",
+                  "example": "B1",
+                  "description": "游戏桌号码"
+                },
+                "luzhuList": {
+                  "type": "array",
+                  "example": [
+                    [68]
+                  ],
+                  "description": "每局开牌结果。仅当count> 0时才会显示此参数。",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "luzhuStat": {
+                  "type": "array",
+                  "example": [
+                    ["draw"]
+                  ],
+                  "description": "每局结果。仅当count> 0时才会显示此参数。",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/getbetlimit": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "取得下注限制",
+        "description": "取得用户在各房间类型设置的投注限制清单",
+        "operationId": "getbetlimit",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_8"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "channelId", "limit", "status", "username"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "username": {
+                  "$ref": "#/definitions/username"
+                },
+                "channelId": {
+                  "$ref": "#/definitions/channelId"
+                },
+                "limit": {
+                  "type": "array",
+                  "description": "",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "betType": {
+                        "type": "integer",
+                        "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 23:财富大转盘"
+                      },
+                      "playerMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "闲 最低下注限额。\n 只有百家乐。"
+                      },
+                      "playerMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "闲 最高下注限额。\n 只有百家乐。"
+                      },
+                      "bankerMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "庄 最低下注限额。\n 只有百家乐。"
+                      },
+                      "bankerMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "庄 最高下注限额。\n 只有百家乐。"
+                      },
+                      "tieMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "和 最低下注限额。\n 只有百家乐。,龙虎."
+                      },
+                      "tieMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "和 最高下注限额。\n 只有百家乐。,龙虎。"
+                      },
+                      "playerPairMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "闲对 最低下注限额。\n 只有百家乐。"
+                      },
+                      "playerPairMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "闲对 最高下注限额。\n 只有百家乐。"
+                      },
+                      "bankerPairMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "庄对 最低下注限额。\n 只有百家乐。"
+                      },
+                      "bankerPairMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "庄对 最高下注限额。\n 只有百家乐。"
+                      },
+                      "bankerDragonBounsMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "庄龙宝 最低下注限额。\n 只有百家乐"
+                      },
+                      "bankerDragonBounsMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "庄龙宝 最高下注限额。\n 只有百家乐"
+                      },
+                      "playerDragonBounsMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "闲龙宝 最低下注限额。\n 只有百家乐"
+                      },
+                      "playerDragonBounsMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "闲龙宝 最高下注限额。\n 只有百家乐."
+                      },
+                      "bigMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "大 最低下注限额\n 只有百家乐，骰宝，轮盘。"
+                      },
+                      "bigMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "大 最高下注限额。\n 只有百家乐，骰宝，轮盘。"
+                      },
+                      "smallMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "小 最低下注限额。\n 只有百家乐，骰宝，轮盘。"
+                      },
+                      "smallMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "小 最高下注限制。\n 只有百家乐，骰宝，轮盘。"
+                      },
+                      "bankerOddMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "庄单 最低下注限额。\n 只有百家乐."
+                      },
+                      "bankerOddMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "庄单 最高下注限额。\n 只有百家乐."
+                      },
+                      "bankerEvenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "庄双 最低下注限额。\n 只有百家乐."
+                      },
+                      "bankerEvenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "庄双 最高下注限额。\n 只有百家乐.。"
+                      },
+                      "playerOddMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "闲单 最低下注限额。\n 只有百家乐.。"
+                      },
+                      "playerOddMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "闲单 最高下注限额。\n 只有百家乐.。"
+                      },
+                      "playerEvenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 10.0,
+                        "description": "闲双 最低下注限额。\n 只有百家乐.。"
+                      },
+                      "playerEvenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "闲双 最高下注限额。\n 只有百家乐.。"
+                      },
+                      "dragonMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "龙 最低下注限额。\n 只有龙虎。"
+                      },
+                      "dragonMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "龙 最高下注限额。\n 只有龙虎。"
+                      },
+                      "tigerMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "虎 最低下注限额。\n 只有龙虎。"
+                      },
+                      "tigerMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "虎 最高下注限额。\n 只有龙虎。"
+                      },
+                      "dragonOddMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "龙单 最低下注限额。\n 只有龙虎。"
+                      },
+                      "dragonOddMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "龙单 最高下注限额。\n 只有龙虎。"
+                      },
+                      "dragonEvenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "龙双 最低下注限额。\n 只有龙虎。"
+                      },
+                      "dragonEvenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "龙双 最高下注限额。\n 只有龙虎。"
+                      },
+                      "tigerOddMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "虎单 最低下注限额。\n 只有龙虎。"
+                      },
+                      "tigerOddMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "虎单 最高下注限额。\n 只有龙虎。"
+                      },
+                      "tigerEvenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "虎双 最低下注限额。\n 只有龙虎。"
+                      },
+                      "tigerEvenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "虎双 最高下注限额。\n 只有龙虎。"
+                      },
+                      "dragonBlackMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "龙黑 最低下注限额。\n 只有龙虎。"
+                      },
+                      "dragonBlackMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "龙黑 最高下注限额。\n 只有龙虎。"
+                      },
+                      "dragonRedMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "龙红 最低下注限额。\n 只有龙虎。"
+                      },
+                      "dragonRedMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "龙红 最高下注限额。\n 只有龙虎。"
+                      },
+                      "tigerBlackMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "虎黑 最低下注限额。\n 只有龙虎。"
+                      },
+                      "tigerBlackMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "虎黑 最高下注限额。\n 只有龙虎。"
+                      },
+                      "tigerRedMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "虎红 最低下注限额。\n 只有龙虎。"
+                      },
+                      "tigerRedMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "虎红 最高下注限额。\n 只有龙虎。"
+                      },
+                      "oddMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "单 最低下注限额。\n 只有骰宝，轮盘，财富大转盘。"
+                      },
+                      "oddMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "单 最高下注限额。\n 只有骰宝，轮盘，财富大转盘。"
+                      },
+                      "evenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "双 最低下注限额。\n 只有骰宝，轮盘，财富大转盘。"
+                      },
+                      "evenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "双 最高下注限额。\n 只有骰宝，轮盘，财富大转盘。"
+                      },
+                      "pairMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "对子1-6 最低下注限额。\n 只有骰宝。"
+                      },
+                      "pairMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "对子1-6 最高下注限额。\n 只有骰宝。"
+                      },
+                      "tripMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "围骰1-6 最低下注限额。\n 只有骰宝。"
+                      },
+                      "tripMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "围骰1-6 最高下注限额。\n 只有骰宝。"
+                      },
+                      "allTripMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "全围 最低下注限额。\n 只有骰宝。"
+                      },
+                      "allTripMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "全围 最高下注限额。\n 只有骰宝。"
+                      },
+                      "fourMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "4点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "fourMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "4点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "fiveMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "5点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "fiveMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "5点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "sixMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "6点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "sixMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "6点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "sevenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "7点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "sevenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "7点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "eightMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "8点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "eightMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "8点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "nineMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "9点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "nineMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "9点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "tenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "10点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "tenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "10点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "elevenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "11点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "elevenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "11点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "twelveMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "12点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "twelveMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "12点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "thirteenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "13点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "thirteenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "13点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "fourteenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "14点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "fourteenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "14点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "fifteenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "15点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "fifteenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "15点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "sixteenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "16点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "sixteenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "16点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "seventeenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "17点 最低下注限额。\n 只有骰宝。"
+                      },
+                      "seventeenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "17点 最高下注限额。\n 只有骰宝。"
+                      },
+                      "singleDiceMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "单点数1-6 最低下注限额。\n 只有骰宝。"
+                      },
+                      "singleDiceMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "单点数1-6 最高下注限额。\n 只有骰宝。"
+                      },
+                      "combinationMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "组合 最低下注限额。\n 只有骰宝。"
+                      },
+                      "combinationMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "组合 最高下注限额。\n 只有骰宝。"
+                      },
+                      "moreLeftMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "二同号 最低下注限额。\n 只有骰宝。"
+                      },
+                      "moreLeftMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "二同号 最高下注限额。\n 只有骰宝。"
+                      },
+                      "moreRightMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "三不同 最低下注限额。\n 只有骰宝。"
+                      },
+                      "moreRightMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "三不同 最高下注限额。\n 只有骰宝。"
+                      },
+                      "redMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "红 最低下注限额。\n 只有轮盘。"
+                      },
+                      "redMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "红 最高下注限额。\n 只有轮盘。"
+                      },
+                      "blackMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "黑 最低下注限额。\n 只有轮盘。"
+                      },
+                      "blackMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "黑 最高下注限额。\n 只有轮盘。"
+                      },
+                      "dozenMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "打注 最低下注限额。\n 只有轮盘。"
+                      },
+                      "dozenMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "打注 最高下注限额。\n 只有轮盘。"
+                      },
+                      "columnMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "列注 最低下注限额。\n 只有轮盘。"
+                      },
+                      "columnMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "列注 最高下注限额。\n 只有轮盘。"
+                      },
+                      "lineMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "线注 最低下注限额。\n 只有轮盘。"
+                      },
+                      "lineMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "线注 最高下注限额。\n 只有轮盘。"
+                      },
+                      "basketMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "四个号码 最低下注限额。\n 只有轮盘。"
+                      },
+                      "basketMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "四个号码 最高下注限额。\n 只有轮盘。"
+                      },
+                      "connerMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "角注 最低下注限额。\n 只有轮盘。"
+                      },
+                      "connerMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "角注 最高下注限额。\n 只有轮盘。"
+                      },
+                      "trioMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "三数 最低下注限额。\n 只有轮盘。"
+                      },
+                      "trioMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "三数 最高下注限额。\n 只有轮盘。"
+                      },
+                      "streetMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "街注 最低下注限额。\n 只有轮盘。"
+                      },
+                      "streetMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "街注 最高下注限额。\n 只有轮盘。"
+                      },
+                      "splitMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "分注 最低下注限额。\n 只有轮盘。"
+                      },
+                      "splitMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "分注 最高下注限额。\n 只有轮盘。"
+                      },
+                      "straightMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "直接注 最低下注限额。\n 只有轮盘。"
+                      },
+                      "straightMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "直接注 最高下注限额。\n 只有轮盘。"
+                      },
+                      "betPlayer1Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲1平倍 最低下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer1Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲1平倍 最高下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer1DoubleMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲1翻倍 最低下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer1DoubleMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲1翻倍 最高下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer2Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲2平倍 最低下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer2Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲2平倍 最高下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer2DoubleMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲2翻倍 最低下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer2DoubleMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲2翻倍 最高下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer3Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲3平倍 最低下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer3Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲3平倍 最高下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer3DoubleMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲3翻倍 最低下注限额。\n 只有牛牛。"
+                      },
+                      "betPlayer3DoubleMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "闲3翻倍 最高下注限额。\n 只有牛牛。"
+                      },
+                      "number_1Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码1 最低下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_1Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码1 最高下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_2Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码2 最低下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_2Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码2 最高下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_5Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码5 最低下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_5Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码5 最高下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_10Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码10 最低下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_10Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码10 最高下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_20Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码20 最低下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_20Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码20 最高下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_40Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码40 最低下注限额。\n 只有财富大转盘。"
+                      },
+                      "number_40Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "号码40 最高下注限额。\n 只有财富大转盘。"
+                      },
+                      "multipleMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "2X/8X 最低下注限额。\n 只有财富大转盘。"
+                      },
+                      "multipleMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "2X/8X 最高下注限额。\n 只有财富大转盘。"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/updatebetlimit": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "更新下注限制",
+        "description": "变更用户在各房间类型设置的投注限制清单。\n 可以只修改特定游戏的投注限额，例如：只修改百家乐的投注限额。",
+        "operationId": "updatebetlimit",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_9"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "channelId", "status", "updateGameList", "username"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "channelId": {
+                  "$ref": "#/definitions/channelId"
+                },
+                "username": {
+                  "$ref": "#/definitions/username"
+                },
+                "updateGameList": {
+                  "type": "array",
+                  "example": [1],
+                  "description": "更新投注限额游戏的代号:\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 23:财富大转盘",
+                  "items": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/userBetTracer": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "用户投注详情连结",
+        "description": "提供用户投注历史的URL。\n 链接屏幕显示游戏名称，下注日期，下注金额，派彩金额，牌局号，会员下注类型（文字+图标）和牌局结果类型（文字+图标）。 与eBET后台投注详情相同。\n\n URL path 的規則:\n 1.细单页面连结\n 2.用户名称(userName)\n 3.渠道ID(channelId)\n 4.牌局号(roundCode)\n 5.語系(lang)\n 6.加入display=1可以关闭有效投注栏位\n 7.签名signature (需由渠道用GET method自行添加上去)\n 产生的规则为 RSA (channelId+username+roundCode+lang)",
+        "operationId": "userBetTracer",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_10"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "path", "status"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "path": {
+                  "type": "string",
+                  "example": "http://192.168.0.239:50009/userBetTracer.html?userName=apitest01&channelId=1&roundCode=B1-200101000000&lang=en_us",
+                  "description": "链接。 已添加了用户名称，渠道ID，牌局号和語系。"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/usertransaction": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "用户交易记录",
+        "description": "此api用于查询一段时间内登录用户的当前金额。\n Note: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)",
+        "operationId": "usertransaction",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_11"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "count", "remainingVisits", "status", "transactions"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "count": {
+                  "$ref": "#/definitions/count"
+                },
+                "remainingVisits": {
+                  "$ref": "#/definitions/remainingVisit"
+                },
+                "transactions": {
+                  "type": "array",
+                  "description": "交易记录",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "userId": {
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 19191919,
+                        "description": "用户ID"
+                      },
+                      "username": {
+                        "$ref": "#/definitions/username"
+                      },
+                      "roundNo": {
+                        "$ref": "#/definitions/roundCode"
+                      },
+                      "transBeforeBalance": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "更改前的金额。"
+                      },
+                      "transBalance": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "更改金额。"
+                      },
+                      "transAfterBalance": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "更改后的金额。"
+                      },
+                      "transactionId": {
+                        "type": "string",
+                        "description": "交易编号"
+                      },
+                      "time": {
+                        "type": "string",
+                        "description": "交易时间"
+                      },
+                      "subChannelId": {
+                        "$ref": "#/definitions/subChannelId"
+                      },
+                      "bonusId": {
+                        "type": "integer",
+                        "description": "活动ID。 仅在tradeType = 23,24时出现"
+                      },
+                      "bonusName": {
+                        "type": "string",
+                        "description": "活动名称。 仅在tradeType = 23,24时出现"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/userbetsummary": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "用户摘要",
+        "description": "此api是查询时间段内的总计报告。\n Note: 仅记录成功投注和成功派彩的记录。\n 预设时间段是当天。",
+        "operationId": "userbetsummary",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_12"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "count", "endTime", "remainingVisits", "startTime", "status", "totalBet", "totalPayout", "totalWithholding"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "count": {
+                  "$ref": "#/definitions/count"
+                },
+                "remainingVisits": {
+                  "$ref": "#/definitions/remainingVisit"
+                },
+                "totalBet": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 123456.78,
+                  "description": "投注成功的总额"
+                },
+                "totalPayout": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 123456.78,
+                  "description": "派彩成功的总额"
+                },
+                "totalWithholding": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 123456.78,
+                  "description": "预扣成功的总额"
+                },
+                "startTime": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 1577808000000,
+                  "description": "查询的开始时间。以毫秒为单位。格式为Unix Time。"
+                },
+                "endTime": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 1577894400000,
+                  "description": "查询的结束时间。以毫秒为单位。格式为Unix Time。"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/totaluserbetsummary": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "总用户摘要",
+        "description": "查询用户投注历史",
+        "operationId": "totaluserbetsummary",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "该API用于查询每个游戏中每个玩家的下注数量，下注金額，有效下注和盈余。\n 搜索期不能超过7天。",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_13"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "status"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "remainingVisit": {
+                  "$ref": "#/definitions/remainingVisit"
+                },
+                "results": {
+                  "type": "array",
+                  "description": "记录",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "userName": {
+                        "$ref": "#/definitions/username"
+                      },
+                      "games": {
+                        "type": "array",
+                        "description": "记录",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "gameType": {
+                              "type": "integer",
+                              "example": 1,
+                              "description": "游戏类型"
+                            },
+                            "gameName": {
+                              "type": "string",
+                              "example": "baccarat",
+                              "description": "游戏名称"
+                            },
+                            "totalBet": {
+                              "type": "number",
+                              "format": "double",
+                              "example": 100.0,
+                              "description": "总投注"
+                            },
+                            "totalEffectiveBet": {
+                              "type": "number",
+                              "format": "double",
+                              "example": 100.0,
+                              "description": "总有效投注"
+                            },
+                            "totalBalance": {
+                              "type": "number",
+                              "format": "double",
+                              "example": 100.0,
+                              "description": "盈余总额，计算公式( 投注 - 派彩 )"
+                            },
+                            "count": {
+                              "type": "integer",
+                              "example": 1,
+                              "description": "总投注次数"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/logout": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "登出",
+        "description": "为让玩家离开ebet游戏。\n Note: 必须在eBET后台启用相关功能才能使用。",
+        "operationId": "logout",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_14"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "status"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/loginslot": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "登入老虎机游戏",
+        "description": "获取链接以直接登录到老虎机游戏。\n Note: 使用此方法仍会发送验证登录请求。 只有成功验证后，才会提供登录链接。",
+        "operationId": "logslot",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_15"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "slotURL", "status"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "slotURL": {
+                  "type": "string",
+                  "example": "https://m.pg-demo.com/dragon-tiger-luck/index.html?bet_type=1&language=zh_cn&operator_player_session=47f3252d4bed570db97334a1378a6276-6815&operator_token=3f88464afacfa9cc07be0d181a5e631",
+                  "description": "登入老虎机游戏的连结。"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/slotgamelist": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "老虎机游戏清单",
+        "description": "获取老虎机游戏列表。",
+        "operationId": "slotgamelist",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_16"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "slotGames", "status"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "slotGames": {
+                  "type": "array",
+                  "description": "列表",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "gameID": {
+                        "type": "string",
+                        "example": "win-win-won",
+                        "description": "老虎机游戏ID"
+                      },
+                      "english": {
+                        "type": "string",
+                        "example": "WIN WIN WON",
+                        "description": "老虎机游戏的英文名称"
+                      },
+                      "chinese": {
+                        "type": "string",
+                        "example": "旺旺旺",
+                        "description": "老虎机游戏的中文名称"
+                      },
+                      "providerId": {
+                        "type": "string",
+                        "example": "pgsoft",
+                        "description": "老虎机游戏供应商ID"
+                      },
+                      "releaseDate": {
+                        "type": "string",
+                        "example": "2018-08-14",
+                        "description": "发布日期"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+    },
+    "/api/callback": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "登入通知",
+        "description": "Channels can use their own login portal if the channel does not want to go through eBET's login portal.\n The channel must request this API to notify eBET to let the player log in to the game after verifying the player.\n Note: Need to provide link and eBET should be set to open on the backend.",
+        "operationId": "callback",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "Request",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_17"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "channelId", "money", "status", "subChannelId", "timestamp", "userId", "username", "wallet"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "channelId": {
+                  "$ref": "#/definitions/channelId"
+                },
+                "subChannelId": {
+                  "$ref": "#/definitions/subChannelId"
+                },
+                "username": {
+                  "$ref": "#/definitions/username"
+                },
+                "userId": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 1919191919,
+                  "description": "用户ID"
+                },
+                "money": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100000.01,
+                  "description": "用户的金額"
+                },
+                "timestamp": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 1577808000,
+                  "description": "当前时间。以秒为单位。格式为Unix Time。"
+                },
+                "wallet": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/wallet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "username": {
+      "type": "string",
+      "description": "用户名.",
+      "example": "apitest01"
+    },
+    "channelId": {
+      "type": "integer",
+      "description": "渠道ID.",
+      "example": 1
+    },
+    "subChannelId": {
+      "type": "integer",
+      "description": "子渠道ID.",
+      "example": 0
+    },
+    "pageNum": {
+      "type": "integer",
+      "description": "页码。 默认值为1。",
+      "example": 1
+    },
+    "pageSize": {
+      "type": "integer",
+      "description": "每页上显示的记录数。 默认值为10。最大为5000。",
+      "example": 10
+    },
+    "startTimeStr": {
+      "type": "string",
+      "description": "查询时间范围的开始。",
+      "example": "2020-01-01 00:00:00"
+    },
+    "endTimeStr": {
+      "type": "string",
+      "description": "查询时间范围的结束。",
+      "example": "2020-01-02 00:00:00"
+    },
+    "timestamp": {
+      "type": "integer",
+      "format": "int64",
+      "description": "时间戳记。以毫秒为单位。格式为Unix Time。",
+      "example": 1577808000000
+    },
+    "signature": {
+      "type": "string",
+      "description": "签名。 字串拼接：username+timestamp\n Note: 如果没有用户名，可以单独使用timestamp",
+      "example": "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ=="
+    },
+    "signature2": {
+      "type": "string",
+      "description": "签名。 字串拼接：字串拼接：username+channelId+timestamp",
+      "example": "dry4mQ5qb7hyAeDDi1Ia+m5fsouP+qf2xfcpb+nP+La5yEMbYuHRz7Fge2OTgVi7DttC8p+Aiedfnnu42ii2lQ=="
+    },
+    "currency": {
+      "type": "string",
+      "description": "货币。",
+      "example": "en_us"
+    },
+    "status": {
+      "type": "integer",
+      "description": "回应状态。",
+      "example": 200
+    },
+    "apiVersion": {
+      "type": "string",
+      "description": "API版本号。",
+      "example": "1.3.55"
+    },
+    "remainingVisit": {
+      "type": "integer",
+      "description": "剩余请求数，每分钟500次。",
+      "example": 200
+    },
+    "rechargeReqId": {
+      "type": "string",
+      "description": "充值请求ID。",
+      "example": "rechargeReqId123456"
+    },
+    "tableType": {
+      "type": "integer",
+      "description": "游戏类型。",
+      "example": 1
+    },
+    "tableSubType": {
+      "type": "integer",
+      "description": "游戏桌类型。",
+      "example": 0
+    },
+    "roundCode": {
+      "type": "string",
+      "description": "牌局号码。",
+      "example": "B1-200101000000"
+    },
+    "count": {
+      "type": "integer",
+      "description": "总数。",
+      "example": 1
+    },
+    "wallet": {
+      "type": "object",
+      "properties": {
+        "typeId": {
+          "type": "integer",
+          "example": 0
+        },
+        "money": {
+          "type": "number",
+          "format": "double",
+          "example": 200.0
+        }
+      },
+      "description": "每个钱包的余额。"
+    },
+    "betHistories": {
+      "type": "object",
+      "description": "投注历史。",
+      "properties": {
+        "gameType": {
+          "type": "integer",
+          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 6: 老虎机\n 7: 区块链百家乐\n 8: 牛牛\n 23: 财富大转盘"
+        },
+        "gameName": {
+          "type": "string",
+          "description": "游戏名称。\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 6: Slot\n 7: Blockchain Baccarat\n 8: BullBull\n 23:  FortuneWheel",
+          "enum": ["baccarat", "dragon-tiger", "sic-bo", "roulette", "slot", "blockchain-baccarat", "bullbull", "fortune-wheel"]
+        },
+        "betMap": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/betMap"
+          }
+        },
+        "bet": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "总投注额。"
+        },
+        "roundNo": {
+          "$ref": "#/definitions/roundCode"
+        },
+        "payout": {
+          "type": "number",
+          "format": "double",
+          "example": 20.0,
+          "description": "总派彩金额。"
+        },
+        "payoutDetail": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/betHistories_payoutDetail"
+          }
+        },
+        "judgeResult": {
+          "type": "array",
+          "example": [60, 70, 82, 63],
+          "description": "中奖奖项。\n 牛牛: 开牌结果。",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "playerCards": {
+          "type": "array",
+          "example": [1, 6, 29],
+          "description": "只有百家乐.。 闲的开牌结果。",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "playerResult": {
+          "type": "integer",
+          "example": 6,
+          "description": "只有百家乐.。 闲家点数"
+        },
+        "bankerCard": {
+          "type": "array",
+          "example": [14, 38, 7],
+          "description": "只有百家乐.。 庄的开牌结果。",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "bankerResult": {
+          "type": "integer",
+          "example": 3,
+          "description": "只有百家乐.。 庄家点数。"
+        },
+        "dragonCard": {
+          "type": "integer",
+          "description": "只有龙虎。 龙的开牌结果。"
+        },
+        "tigerCard": {
+          "type": "integer",
+          "description": "只有龙虎。 虎的开牌结果。"
+        },
+        "number": {
+          "type": "integer",
+          "description": "只有轮盘。 结果号码。"
+        },
+        "allDices": {
+          "type": "array",
+          "description": "只有骰宝。 骰子点数。",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "niuniuResult": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/betHistories_niuniuResult"
+          }
+        },
+        "niuniuWithHoldingTotal": {
+          "type": "number",
+          "format": "double",
+          "description": "只有牛牛。 牛牛的预扣总额。"
+        },
+        "niuniuWithHoldingDetail": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/betHistories_niuniuWithHoldingDetail"
+          }
+        },
+        "maxPayout": {
+          "type": "number",
+          "format": "double",
+          "description": "只有财富大转盘。 最高赔付金额。"
+
+        },
+        "payoutWithoutholding": {
+          "type": "number",
+          "format": "double",
+          "description": "纯派彩总额。\n 如果没有预扣金额，则参数值将与派彩相同。\n 如果有预扣金额，则计算公式为payout-niuniuWithholdingtotal。 如果参数值大于0，则玩家获胜；如果参数值等于0是玩家输钱。"
+        },
+        "createTime": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1577808000,
+          "description": "下注时间。 以秒为单位。格式为Unix Time。"
+        },
+        "payoutTime": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1577808030,
+          "description": "派彩时间。 以秒为单位。格式为Unix Time。"
+        },
+        "betHistoryId": {
+          "type": "string",
+          "example": "5e0d696b2fdda1335fa68243",
+          "description": "投注记录ID。"
+        },
+        "validBet": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "有效投注。"
+        },
+        "balance": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "盈余。"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "example": 19191919,
+          "description": "用户ID"
+        },
+        "platform": {
+          "type": "integer",
+          "example": 1,
+          "description": "游戏平台"
+        }
+      }
+    },
+    "betMap": {
+      "type": "object",
+      "properties": {
+        "betType": {
+          "type": "integer",
+          "format": "int64",
+          "example": 60,
+          "description": "投注类型"
+        },
+        "betMoney": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "投注金额"
+        },
+        "betTypeInterval": {
+          "type": "string",
+          "description": "只有轮盘。 组合代码。"
+        },
+        "betNumber": {
+          "type": "array",
+          "description": "只有轮盘。 下注组合。",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "betDice": {
+          "type": "array",
+          "description": "只有骰宝。 下注组合。",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "description": "投注详细信息。"
+    },
+    "body": {
+      "required": ["channelId", "money", "rechargeReqId", "signature", "timestamp", "username"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
+        },
+        "money": {
+          "type": "number",
+          "format": "double",
+          "example": 100.0,
+          "description": "要更改金额。\n 正数表示转入。\n 负数表示转出。"
+        },
+        "rechargeReqId": {
+          "$ref": "#/definitions/rechargeReqId"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "typeId": {
+          "type": "integer",
+          "example": 0,
+          "description": "钱包类型。默认值为0。"
+        }
+      }
+    },
+    "body_1": {
+      "required": ["channelId", "rechargeReqId", "signature"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "signature": {
+          "type": "string",
+          "example": "PooUUWwXW5lDNzAgk9f6CFEhTbKq/J3b5UScNMl3SnBzCLxLDXZ/s2y8nF8UufSXgrHyS3DfJ6CJxAqjKRg53A==",
+          "description": "签名。字串拼接：rechargeReqId"
+        },
+        "rechargeReqId": {
+          "$ref": "#/definitions/rechargeReqId"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        }
+      }
+    },
+    "body_2": {
+      "required": ["channelId", "signature", "username"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名。字串拼接：username"
+        },
+        "subChannelId": {
+          "$ref": "#/definitions/subChannelId"
+        },
+        "startTimeStr": {
+          "$ref": "#/definitions/startTimeStr"
+        },
+        "endTimeStr": {
+          "$ref": "#/definitions/endTimeStr"
+        },
+        "pageNum": {
+          "$ref": "#/definitions/pageNum"
+        },
+        "pageSize": {
+          "$ref": "#/definitions/pageSize"
+        },
+        "minMoney": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "最低金额。低于此金额将不会显示。"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "walletType": {
+          "type": "integer",
+          "example": 0,
+          "description": "查询钱包类型"
+        }
+      }
+    },
+    "body_3": {
+      "required": ["channelId", "signature", "timestamp"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature2"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "subChannelId": {
+          "$ref": "#/definitions/subChannelId"
+        },
+        "startTimeStr": {
+          "$ref": "#/definitions/startTimeStr"
+        },
+        "endTimeStr": {
+          "$ref": "#/definitions/endTimeStr"
+        },
+        "pageNum": {
+          "$ref": "#/definitions/pageNum"
+        },
+        "pageSize": {
+          "$ref": "#/definitions/pageSize"
+        },
+        "withNo200": {
+          "type": "boolean",
+          "example": false,
+          "description": "获取成功记录。 默认为false。"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        }
+      }
+    },
+    "body_4": {
+      "required": ["channelId", "signature", "username"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名。 字串拼接：username"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "subChannelId": {
+          "$ref": "#/definitions/subChannelId"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        }
+      }
+    },
+    "body_5": {
+      "required": ["channelId", "signature", "timestamp", "username"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        }
+      }
+    },
+    "body_6": {
+      "required": ["channelId", "signature", "timestamp"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "subChannelId": {
+          "$ref": "#/definitions/subChannelId"
+        },
+        "startTimeStr": {
+          "$ref": "#/definitions/startTimeStr"
+        },
+        "endTimeStr": {
+          "$ref": "#/definitions/endTimeStr"
+        },
+        "pageNum": {
+          "$ref": "#/definitions/pageNum"
+        },
+        "pageSize": {
+          "$ref": "#/definitions/pageSize"
+        },
+        "betStatus": {
+          "type": "integer",
+          "example": 1,
+          "description": "检查投注状态。默认为查询所有记录\n 0：仅查询失败的记录\n 1：仅查询成功的记录"
+        },
+        "roundCode": {
+          "$ref": "#/definitions/roundCode"
+        },
+        "gameType": {
+          "type": "integer",
+          "example": 1.0,
+          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 6: 老虎机\n 7: 区块链百家乐\n 8: 牛牛\n 23: 财富大转盘"
+        },
+        "judgeTime": {
+          "type": "integer",
+          "example": 0.0,
+          "description": "判断查询时间。预设为0 \n 0：派彩时间\n 1：下注时间"
+        },
+        "isSeparate": {
+          "type": "boolean",
+          "example": false,
+          "description": "betHistories的显示方式。默认为false。\n true: 按确认的投注次数细分\n false: 根据付款记录显示\n Note: 该参数不会影响其他参数的计算。仍将根据付款数量进行处理。"
+        }
+      }
+    },
+    "body_7": {
+      "required": ["channelId", "signature", "tableCode", "tableSubType", "tableType", "timestamp"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名。字串拼接:timestamp"
+        },
+        "tableType": {
+          "$ref": "#/definitions/tableType"
+        },
+        "tableSubType": {
+          "$ref": "#/definitions/tableSubType"
+        },
+        "tableCode": {
+          "type": "string",
+          "example": "B1",
+          "description": "游戏桌号码"
+        }
+      }
+    },
+    "body_8": {
+      "required": ["channelId", "signature", "timestamp", "username"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature2"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        }
+      }
+    },
+    "apiupdatebetlimit_limit": {
+      "type": "object",
+      "properties": {
+        "betType": {
+          "type": "integer",
+          "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 23:财富大转盘"
+        },
+        "playerMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "闲 最低下注限额。\n 只有百家乐.。"
+        },
+        "playerMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "闲 最高下注限额。\n 只有百家乐.。"
+        },
+        "bankerMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "庄 最低下注限额。\n 只有百家乐.。"
+        },
+        "bankerMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "庄 最高下注限额。\n 只有百家乐.。"
+        },
+        "tieMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "和 最低下注限额。\n 只有百家乐，老虎。"
+        },
+        "tieMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "和 最高下注限额。\n 只有百家乐，老虎。"
+        },
+        "playerPairMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "闲对 最低下注限额。\n 只有百家乐.。"
+        },
+        "playerPairMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "闲对 最高下注限额。\n 只有百家乐.。"
+        },
+        "bankerPairMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "庄对 最低下注限额。\n 只有百家乐.。"
+        },
+        "bankerPairMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "庄对 最高下注限额。\n 只有百家乐.。"
+        },
+        "bankerDragonBounsMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "庄龙宝 最低下注限额。\n 只有百家乐.。"
+        },
+        "bankerDragonBounsMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "庄龙宝 最高下注限额。\n 只有百家乐.。"
+        },
+        "playerDragonBounsMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "闲龙宝 最低下注限额。\n 只有百家乐.。"
+        },
+        "playerDragonBounsMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "闲龙宝 最高下注限额。\n 只有百家乐.。"
+        },
+        "bigMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "大 最低下注限额。\n 只有百家乐，骰宝，轮盘。"
+        },
+        "bigMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "大 最高下注限额。\n 只有百家乐，骰宝，轮盘。"
+        },
+        "smallMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "小 最低下注限额。\n 只有百家乐，骰宝，轮盘。"
+        },
+        "smallMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "小 最高下注限额。\n 只有百家乐，骰宝，轮盘。"
+        },
+        "bankerOddMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "庄单 最低下注限额。\n 只有百家乐.。"
+        },
+        "bankerOddMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "庄单 最高下注限额。\n 只有百家乐.。"
+        },
+        "bankerEvenMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "庄双 最低下注限额。\n 只有百家乐.。"
+        },
+        "bankerEvenMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "庄双 最高下注限额。\n 只有百家乐.。"
+        },
+        "playerOddMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "闲单 最低下注限额。\n 只有百家乐.。"
+        },
+        "playerOddMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "闲单 最高下注限额。\n 只有百家乐.。"
+        },
+        "playerEvenMin": {
+          "type": "number",
+          "format": "double",
+          "example": 10.0,
+          "description": "闲双 最低下注限额。\n 只有百家乐.。"
+        },
+        "playerEvenMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "闲双 最高下注限额。\n 只有百家乐.。"
+        },
+        "dragonMin": {
+          "type": "number",
+          "format": "double",
+          "description": "龙 最低下注限额。\n 只有龙虎。"
+        },
+        "dragonMax": {
+          "type": "number",
+          "format": "double",
+          "description": "龙 最高下注限额。\n 只有龙虎。"
+        },
+        "tigerMin": {
+          "type": "number",
+          "format": "double",
+          "description": "虎 最低下注限额。\n 只有龙虎。"
+        },
+        "tigerMax": {
+          "type": "number",
+          "format": "double",
+          "description": "虎 最高下注限额。\n 只有龙虎。"
+        },
+        "dragonOddMin": {
+          "type": "number",
+          "format": "double",
+          "description": "龙單 最低下注限额。\n 只有龙虎。"
+        },
+        "dragonOddMax": {
+          "type": "number",
+          "format": "double",
+          "description": "龙單 最高下注限额。\n 只有龙虎。"
+        },
+        "dragonEvenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "龙双 最低下注限额。\n 只有龙虎。"
+        },
+        "dragonEvenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "龙双 最高下注限额。\n 只有龙虎。"
+        },
+        "tigerOddMin": {
+          "type": "number",
+          "format": "double",
+          "description": "虎单 最低下注限额。\n 只有龙虎。"
+        },
+        "tigerOddMax": {
+          "type": "number",
+          "format": "double",
+          "description": "虎单 最高下注限额。\n 只有龙虎。"
+        },
+        "tigerEvenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "虎双 最低下注限额。\n 只有龙虎。"
+        },
+        "tigerEvenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "虎双 最高下注限额。\n 只有龙虎。"
+        },
+        "dragonBlackMin": {
+          "type": "number",
+          "format": "double",
+          "description": "龙黑 最低下注限额。\n 只有龙虎。"
+        },
+        "dragonBlackMax": {
+          "type": "number",
+          "format": "double",
+          "description": "龙黑 最高下注限额。\n 只有龙虎。"
+        },
+        "dragonRedMin": {
+          "type": "number",
+          "description": "龙红 最低下注限额。\n 只有龙虎。"
+        },
+        "dragonRedMax": {
+          "type": "number",
+          "format": "double",
+          "description": "龙红 最高下注限额。\n 只有龙虎。"
+        },
+        "tigerBlackMin": {
+          "type": "number",
+          "format": "double",
+          "description": "虎黑 最低下注限额。\n 只有龙虎。"
+        },
+        "tigerBlackMax": {
+          "type": "number",
+          "format": "double",
+          "description": "虎黑 最高下注限额。\n 只有龙虎。"
+        },
+        "tigerRedMin": {
+          "type": "number",
+          "format": "double",
+          "description": "虎红 最低下注限额。\n 只有龙虎。"
+        },
+        "tigerRedMax": {
+          "type": "number",
+          "format": "double",
+          "description": "虎红 最高下注限额。\n 只有龙虎。"
+        },
+        "oddMin": {
+          "type": "number",
+          "format": "double",
+          "description": "單 最低下注限额。\n 只有骰宝，轮盘，财富大转盘。"
+        },
+        "oddMax": {
+          "type": "number",
+          "format": "double",
+          "description": "單 最高下注限额。\n 只有骰宝，轮盘，财富大转盘。"
+        },
+        "evenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "双 最低下注限额。\n 只有骰宝，轮盘，财富大转盘。"
+        },
+        "evenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "双 最高下注限额。\n 只有骰宝，轮盘，财富大转盘。"
+        },
+        "pairMin": {
+          "type": "number",
+          "format": "double",
+          "description": "对子1-6 最低下注限额。\n 只有骰宝。"
+        },
+        "pairMax": {
+          "type": "number",
+          "format": "double",
+          "description": "对子1-6 最高下注限额。\n 只有骰宝。"
+        },
+        "tripleMin": {
+          "type": "number",
+          "format": "double",
+          "description": "围骰1-6 最低下注限额。\n 只有骰宝。"
+        },
+        "tripleMax": {
+          "type": "number",
+          "format": "double",
+          "description": "围骰1-6 最高下注限额。\n 只有骰宝。"
+        },
+        "allTripleMin": {
+          "type": "number",
+          "format": "double",
+          "description": "全围 最低下注限额。\n 只有骰宝。"
+        },
+        "allTripleMax": {
+          "type": "number",
+          "format": "double",
+          "description": "全围 最高下注限额。\n 只有骰宝。"
+        },
+        "fourMin": {
+          "type": "number",
+          "format": "double",
+          "description": "4点 最低下注限额。\n 只有骰宝。"
+        },
+        "fourMax": {
+          "type": "number",
+          "format": "double",
+          "description": "4点 最高下注限额。\n 只有骰宝。"
+        },
+        "fiveMin": {
+          "type": "number",
+          "format": "double",
+          "description": "5点 最低下注限额。\n 只有骰宝。"
+        },
+        "fiveMax": {
+          "type": "number",
+          "format": "double",
+          "description": "5点 最高下注限额。\n 只有骰宝。"
+        },
+        "sixMin": {
+          "type": "number",
+          "format": "double",
+          "description": "6点 最低下注限额。\n 只有骰宝。"
+        },
+        "sixMax": {
+          "type": "number",
+          "format": "double",
+          "description": "6点 最高下注限额。\n 只有骰宝。"
+        },
+        "sevenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "7点 最低下注限额。\n 只有骰宝。"
+        },
+        "sevenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "7点 最高下注限额。\n 只有骰宝。"
+        },
+        "eightMin": {
+          "type": "number",
+          "format": "double",
+          "description": "8点 最低下注限额。\n 只有骰宝。"
+        },
+        "eightMax": {
+          "type": "number",
+          "format": "double",
+          "description": "8点 最高下注限额。\n 只有骰宝。"
+        },
+        "nineMin": {
+          "type": "number",
+          "format": "double",
+          "description": "9点 最低下注限额。\n 只有骰宝。"
+        },
+        "nineMax": {
+          "type": "number",
+          "format": "double",
+          "description": "9点 最高下注限额。\n 只有骰宝。"
+        },
+        "tenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "10点 最低下注限额。\n 只有骰宝。"
+        },
+        "tenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "10点 最高下注限额。\n 只有骰宝。"
+        },
+        "elevenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "11点 最低下注限额。\n 只有骰宝。"
+        },
+        "elevenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "11点 最高下注限额。\n 只有骰宝。"
+        },
+        "twelveMin": {
+          "type": "number",
+          "format": "double",
+          "description": "12点 最低下注限额。\n 只有骰宝。"
+        },
+        "twelveMax": {
+          "type": "number",
+          "format": "double",
+          "description": "12点 最高下注限额。\n 只有骰宝。"
+        },
+        "thirteenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "13点 最低下注限额。\n 只有骰宝。"
+        },
+        "thirteenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "13点 最高下注限额。\n 只有骰宝。"
+        },
+        "fourteenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "14点 最低下注限额。\n 只有骰宝。"
+        },
+        "fourteenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "14点 最高下注限额。\n 只有骰宝。"
+        },
+        "fifteenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "15点 最低下注限额。\n 只有骰宝。"
+        },
+        "fifteenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "15点 最高下注限额。\n 只有骰宝。"
+        },
+        "sixteenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "16点 最低下注限额。\n 只有骰宝。"
+        },
+        "sixteenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "16点 最高下注限额。\n 只有骰宝。"
+        },
+        "seventeenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "17点 最低下注限额。\n 只有骰宝。"
+        },
+        "seventeenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "17点 最高下注限额。\n 只有骰宝。"
+        },
+        "singleDiceMin": {
+          "type": "number",
+          "format": "double",
+          "description": "单点数 最低下注限额。\n 只有骰宝。"
+        },
+        "singleDiceMax": {
+          "type": "number",
+          "format": "double",
+          "description": "单点数 最高下注限额。\n 只有骰宝。"
+        },
+        "combinationMin": {
+          "type": "number",
+          "format": "double",
+          "description": "组合 最低下注限额。\n 只有骰宝。"
+        },
+        "combinationMax": {
+          "type": "number",
+          "format": "double",
+          "description": "组合 最高下注限额。\n 只有骰宝。"
+        },
+        "moreLeftMin": {
+          "type": "number",
+          "format": "double",
+          "description": "二同号 最低下注限额。\n 只有骰宝。"
+        },
+        "moreLeftMax": {
+          "type": "number",
+          "format": "double",
+          "description": "二同号 最高下注限额。\n 只有骰宝。"
+        },
+        "moreRightMin": {
+          "type": "number",
+          "format": "double",
+          "description": "三不同 最低下注限额.\n 只有骰宝。"
+        },
+        "moreRightMax": {
+          "type": "number",
+          "format": "double",
+          "description": "三不同 最高下注限额.\n 只有骰宝。"
+        },
+        "redMin": {
+          "type": "number",
+          "format": "double",
+          "description": "紅 最低下注限额。\n 只有轮盘。"
+        },
+        "redMax": {
+          "type": "number",
+          "format": "double",
+          "description": "紅 最高下注限额。\n 只有轮盘。"
+        },
+        "blackMin": {
+          "type": "number",
+          "format": "double",
+          "description": "黑 最低下注限额。\n 只有轮盘。"
+        },
+        "blackMax": {
+          "type": "number",
+          "format": "double",
+          "description": "黑 最高下注限额。\n 只有轮盘。"
+        },
+        "dozenMin": {
+          "type": "number",
+          "format": "double",
+          "description": "打注 最低下注限额。\n 只有轮盘。"
+        },
+        "dozenMax": {
+          "type": "number",
+          "format": "double",
+          "description": "打注 最高下注限额。\n 只有轮盘。"
+        },
+        "columnMin": {
+          "type": "number",
+          "format": "double",
+          "description": "列注 最低下注限额。\n 只有轮盘。"
+        },
+        "columnMax": {
+          "type": "number",
+          "format": "double",
+          "description": "列注 最高下注限额。\n 只有轮盘。"
+        },
+        "lineMin": {
+          "type": "number",
+          "format": "double",
+          "description": "线注 最低下注限额。\n 只有轮盘。"
+        },
+        "lineMax": {
+          "type": "number",
+          "format": "double",
+          "description": "线注 最高下注限额。\n 只有轮盘。"
+        },
+        "basketMin": {
+          "type": "number",
+          "format": "double",
+          "description": "四个号码 最低下注限额。\n 只有轮盘。"
+        },
+        "basketMax": {
+          "type": "number",
+          "format": "double",
+          "description": "四个号码 最高下注限额。\n 只有轮盘。"
+        },
+        "cornerMin": {
+          "type": "number",
+          "format": "double",
+          "description": "角注 最低下注限额。\n 只有轮盘。"
+        },
+        "cornerMax": {
+          "type": "number",
+          "format": "double",
+          "description": "角注 最高下注限额。\n 只有轮盘。"
+        },
+        "trioMin": {
+          "type": "number",
+          "format": "double",
+          "description": "三数 最低下注限额。\n 只有轮盘。"
+        },
+        "trioMax": {
+          "type": "number",
+          "format": "double",
+          "description": "三数 最高下注限额。\n 只有轮盘。"
+        },
+        "streetMin": {
+          "type": "number",
+          "format": "double",
+          "description": "街注 最低下注限额。\n 只有轮盘。"
+        },
+        "streetMax": {
+          "type": "number",
+          "format": "double",
+          "description": "街注 最高下注限额。\n 只有轮盘。"
+        },
+        "splitMin": {
+          "type": "number",
+          "format": "double",
+          "description": "分注 最低下注限额。\n 只有轮盘。"
+        },
+        "splitMax": {
+          "type": "number",
+          "format": "double",
+          "description": "分注 最高下注限额。\n 只有轮盘。"
+        },
+        "straightMin": {
+          "type": "number",
+          "format": "double",
+          "description": "直接注 最低下注限额。\n 只有轮盘。"
+        },
+        "straightMax": {
+          "type": "number",
+          "format": "double",
+          "description": "直接注 最高下注限额。\n 只有轮盘。"
+        },
+        "betPlayer1Min": {
+          "type": "number",
+          "format": "double",
+          "description": "闲1平倍 最低下注限额。\n 只有牛牛。"
+        },
+        "betPlayer1Max": {
+          "type": "number",
+          "format": "double",
+          "description": "闲1平倍 最高下注限额。\n 只有牛牛。"
+        },
+        "betPlayer1DoubleMin": {
+          "type": "number",
+          "format": "double",
+          "description": "闲1翻倍 最低下注限额。\n 只有牛牛。"
+        },
+        "betPlayer1DoubleMax": {
+          "type": "number",
+          "format": "double",
+          "description": "闲1翻倍 最高下注限额。\n 只有牛牛。"
+        },
+        "betPlayer2Min": {
+          "type": "number",
+          "format": "double",
+          "description": "闲2平倍 最低下注限额。\n 只有牛牛。"
+        },
+        "betPlayer2Max": {
+          "type": "number",
+          "format": "double",
+          "description": "闲2平倍 最高下注限额。\n 只有牛牛。"
+        },
+        "betPlayer2DoubleMin": {
+          "type": "number",
+          "format": "double",
+          "description": "闲2翻倍 最低下注限额。\n 只有牛牛。"
+        },
+        "betPlayer2DoubleMax": {
+          "type": "number",
+          "format": "double",
+          "description": "闲2翻倍 最高下注限额。\n 只有牛牛。"
+        },
+        "betPlayer3Min": {
+          "type": "number",
+          "format": "double",
+          "description": "闲3平倍 最低下注限额。\n 只有牛牛。"
+        },
+        "betPlayer3Max": {
+          "type": "number",
+          "format": "double",
+          "description": "闲3平倍 最高下注限额。\n 只有牛牛。"
+        },
+        "betPlayer3DoubleMin": {
+          "type": "number",
+          "format": "double",
+          "description": "闲3翻倍 最低下注限额。\n 只有牛牛。"
+        },
+        "betPlayer3DoubleMax": {
+          "type": "number",
+          "format": "double",
+          "description": "闲3翻倍 最高下注限额。\n 只有牛牛。"
+        },
+        "number_1Min": {
+          "type": "number",
+          "format": "double",
+          "description": "号码1 最低下注限额。\n 只有财富大转盘。"
+        },
+        "number_1Max": {
+          "type": "number",
+          "format": "double",
+          "description": "号码1 最高下注限额。\n 只有财富大转盘。"
+        },
+        "number_2Min": {
+          "type": "number",
+          "format": "double",
+          "description": "号码2 最低下注限额。\n 只有财富大转盘。"
+        },
+        "number_2Max": {
+          "type": "number",
+          "format": "double",
+          "description": "号码2 最高下注限额。\n 只有财富大转盘。"
+        },
+        "number_5Min": {
+          "type": "number",
+          "format": "double",
+          "description": "号码5 最低下注限额。\n 只有财富大转盘。"
+        },
+        "number_5Max": {
+          "type": "number",
+          "format": "double",
+          "description": "号码5 最高下注限额。\n 只有财富大转盘。"
+        },
+        "number_10Min": {
+          "type": "number",
+          "format": "double",
+          "description": "号码10 最低下注限额。\n 只有财富大转盘。"
+        },
+        "number_10Max": {
+          "type": "number",
+          "format": "double",
+          "description": "号码10 最高下注限额。\n 只有财富大转盘。"
+        },
+        "number_20Min": {
+          "type": "number",
+          "format": "double",
+          "description": "号码20 最低下注限额。\n 只有财富大转盘。"
+        },
+        "number_20Max": {
+          "type": "number",
+          "format": "double",
+          "description": "号码20 最高下注限额。\n 只有财富大转盘。"
+        },
+        "number_40Min": {
+          "type": "number",
+          "format": "double",
+          "description": "号码40 最低下注限额。\n 只有财富大转盘。"
+        },
+        "number_40Max": {
+          "type": "number",
+          "format": "double",
+          "description": "号码40 最高下注限额。\n 只有财富大转盘。"
+        },
+        "multipleMin": {
+          "type": "number",
+          "format": "double",
+          "description": "2X/8X 最低下注限额。\n 只有财富大转盘。"
+        },
+        "multipleMax": {
+          "type": "number",
+          "format": "double",
+          "description": "2X/8X 最高下注限额。\n 只有财富大转盘。"
+        }
+      }
+    },
+    "body_9": {
+      "required": ["channelId", "limit", "signature", "timestamp", "username"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature2"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "limit": {
+          "type": "array",
+          "description": "限额清单",
+          "items": {
+            "$ref": "#/definitions/apiupdatebetlimit_limit"
+          }
+        }
+      }
+    },
+    "body_10": {
+      "required": ["channelId", "signature", "timestamp"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "roundCode": {
+          "$ref": "#/definitions/roundCode"
+        },
+        "betHistoryId": {
+          "type": "string",
+          "example": "5e0d696b2fdda1335fa68243",
+          "description": "投注记录ID。\n 如果不使用此参数，则必须使用username和roundCode。"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "lang": {
+          "type": "string",
+          "example": "en_us",
+          "description": "语言代码。默认英语。"
+        }
+      }
+    },
+    "body_11": {
+      "required": ["channelId", "signature", "timestamp"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature2"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "subChannelId": {
+          "$ref": "#/definitions/subChannelId"
+        },
+        "startTimeStr": {
+          "$ref": "#/definitions/startTimeStr"
+        },
+        "endTimeStr": {
+          "$ref": "#/definitions/endTimeStr"
+        },
+        "pageNum": {
+          "$ref": "#/definitions/pageNum"
+        },
+        "pageSize": {
+          "$ref": "#/definitions/pageSize"
+        },
+        "tradeType": {
+          "type": "array",
+          "example": [23, 24],
+          "description": "交易记录类型",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "body_12": {
+      "required": ["channelId", "signature", "timestamp"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "subChannelId": {
+          "$ref": "#/definitions/subChannelId"
+        },
+        "startTimeStr": {
+          "$ref": "#/definitions/startTimeStr"
+        },
+        "endTimeStr": {
+          "$ref": "#/definitions/endTimeStr"
+        },
+        "pageNum": {
+          "$ref": "#/definitions/pageNum"
+        },
+        "pageSize": {
+          "$ref": "#/definitions/pageSize"
+        },
+        "gameType": {
+          "type": "integer",
+          "example": 1,
+          "description": "游戏类型"
+        },
+        "judgeTime": {
+          "type": "integer",
+          "example": 1,
+          "description": "判断查询时间。默认为1\n 0: 派彩时间\n 1: 投注时间"
+        }
+      }
+    },
+    "body_13": {
+      "required": ["channelId", "endTimeStr", "pageNum", "pageSize", "signature", "startTimeStr", "timestamp"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名 字串拼接 :channelId+timestamp"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "subChannelId": {
+          "$ref": "#/definitions/subChannelId"
+        },
+        "startTimeStr": {
+          "$ref": "#/definitions/startTimeStr"
+        },
+        "endTimeStr": {
+          "$ref": "#/definitions/endTimeStr"
+        },
+        "pageNum": {
+          "$ref": "#/definitions/pageNum"
+        },
+        "pageSize": {
+          "$ref": "#/definitions/pageSize"
+        },
+        "judgeTime": {
+          "type": "integer",
+          "example": 1,
+          "description": "判断查询时间。默认为1\n 0: 派彩时间\n 1: 投注时间"
+        }
+      }
+    },
+    "body_14": {
+      "required": ["channelId", "signature", "timestamp", "username"],
+      "properties": {
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature2"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        }
+      }
+    },
+    "body_15": {
+      "required": ["channelId", "gameID", "loginEventType", "providerId", "signature", "timestamp", "username"],
+      "properties": {
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
+        },
+        "gameID": {
+          "type": "string",
+          "example": "",
+          "description": "老虎机游戏ID"
+        },
+        "providerId": {
+          "type": "string",
+          "example": "",
+          "description": "老虎机游戏供应商ID"
+        },
+        "loginEventType": {
+          "type": "integer",
+          "example": 1,
+          "description": "登录方式：\n 1: 普通登录\n 4: Token 登录"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "pwd": {
+          "type": "string",
+          "example": "password",
+          "description": "密码 for login. 当loginEventType = 1时必需"
+        },
+        "token": {
+          "type": "string",
+          "example": "",
+          "description": "AccessToken for 登录. 当loginEventType = 4时必需"
+        },
+        "ip": {
+          "type": "string",
+          "example": "127.0.0.1",
+          "description": "登录IP"
+        },
+        "language": {
+          "type": "string",
+          "example": "en_us",
+          "description": "用户语言"
+        }
+      }
+    },
+    "body_16": {
+      "required": ["channelId", "signature", "timestamp"],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名 字串拼接 :channelId+timestamp"
+        }
+      }
+    },
+    "body_17": {
+      "required": ["accessToken", "channelId", "signature", "timestamp", "username"],
+      "properties": {
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "subChannelId": {
+          "$ref": "#/definitions/subChannelId"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1987654321,
+          "description": "当前时间。以秒为单位。格式为Unix Time。"
+        },
+        "accessToken": {
+          "type": "string",
+          "example": "accessToken",
+          "description": "该参数值由渠道商提供"
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名 字串拼接 :username+channelId+accessToken+timestamp"
+        }
+      }
+    },
+    "betHistories_payoutDetail": {
+      "type": "object",
+      "properties": {
+        "bet item code": {
+          "type": "number",
+          "format": "double",
+          "example": 20.0
+        }
+      },
+      "description": "每个投注项目的派彩金额。\n 骰宝的155.156后面会带开出的骰子点数，例如\"155:1,1,6\": 100.\n 轮盘名称后面会携带该局的点数或betTypeInterval的參數，例如\"200:17\": 3600, \"207:1\": 300, \"201:14,17\": 1800"
+    },
+    "betHistories_niuniuResult": {
+      "type": "object",
+      "properties": {
+        "banker": {
+          "type": "integer",
+          "description": "庄家的组合代码"
+        },
+        "player1": {
+          "type": "integer",
+          "description": "闲家1的组合代码。"
+        },
+        "player2": {
+          "type": "integer",
+          "description": "闲家2的组合代码。"
+        },
+        "player3": {
+          "type": "integer",
+          "description": "闲家3的组合代码。"
+        },
+        "isWin": {
+          "type": "boolean",
+          "description": "是否获胜"
+        }
+      },
+      "description": "只有牛牛。牛牛的结果记录。"
+    },
+    "betHistories_niuniuWithHoldingDetail": {
+      "type": "object",
+      "properties": {
+        "302": {
+          "type": "number",
+          "format": "double",
+          "description": "闲1翻倍的预扣金额"
+        },
+        "304": {
+          "type": "number",
+          "format": "double",
+          "description": "闲2翻倍的预扣金额"
+        },
+        "306": {
+          "type": "number",
+          "format": "double",
+          "description": "闲3翻倍的预扣金额"
+        }
+      },
+      "description": "只有牛牛。牛牛的预扣细节。"
+    }
+  }
+}

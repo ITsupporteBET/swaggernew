@@ -1,0 +1,3284 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "# **总览**\n *此页描述渠道可以透过发送请求给eBET以获得相关资讯。*\n \n 管理玩家资金的方式：单钱包和转账钱包。\n \"转账钱包\" : 玩家的资金由eBET管理\n \"单钱包\" : 玩家的资金由渠道管理\n 根据管理方法发送不同的API请求。\n \n# 充值\n **仅适用于转账钱包**\n \n **eBET建议的处理流程**\n 1.先使用API：userinfo查询用户在eBET游戏中的当前金额。\n 发送充值API：发送rechargI来转用户的进/出金额。\n 3.成功收到响应，请使用API​​：rechargestatus 查询充值记录是否成功。\n 4. 如果一段时间内未收到对充值请求的响应，则可以调用API：rechargestatus （建议至少3次）以查询充值记录是否成功。\n 5.如充值成功可以将其写入数据库。如果不成功，请不要写入数据库并记录充值失败/成功日志。\n \n# **关于OAuth登录**\n *提供渠道使用自己的登录页面来验证用户登录*\n \n **事先设定**\n ＊ 实作API：回调地址和OAuth JS窗口框架\n ＊ 將其链接提供給eBET\n \n **流程说明**\n 1. 用户登录eBET平台，单击\"登录\"按钮，跳至所提供的验证登录链接。\n 2.成功验证后，向eBET发送API：回调成功请求。\n 3. 收到响应后，使用OAuth JS框架关闭页面。\n \n# **eBET响应状态码**\n
+    <table id=\"tg-dx1DP\" class=\"tg\">\n
+        <tr>\n
+            <th class=\"tg-0uei\">Status Code</th>\n
+            <th class=\"tg-0uei\">Description</th>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>-1</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;充值纪录不存在</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>0</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;充值中</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>200</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;成功</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>201</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;重复的充值请求ID</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>202</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;渠道不存在</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>203</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;充值 ID 不能为空</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>204</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;充值金额不能为 0</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>205</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;充值金额太小</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>207</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;退款金额不一致</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>208</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;记录不存在</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>209</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;已经退款的数据</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>401</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;用户名或密码不正确</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>410</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;无效的Token</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>500</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;系统错误</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>505</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;渠道服务器在维护中</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4003</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;系统繁忙，请稍后再试</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4025</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;参数不对</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4026</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;签名不对</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4027</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;IP 不允许</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4028</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;试玩玩家不能充值</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4029</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;功能无效</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4030</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;资料类型错误</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4037</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;用户不存在</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4038</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;频繁请求</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4202</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;接口调用次数不足</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5001</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;充值失败</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5002</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;余额不足，取款失败</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5003</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;子渠道不存在</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5005</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;钱包尚未开启</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5006</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;游戏中无法提领</td>\n
+        </tr>\n
+    </table>\n",
+    "version" : "1.0.0",
+    "title" : "Channel request"
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/ITtoppathsupport/test01/1.0.0",
+  "tags" : [ {
+    "name" : "API used by transfer wallet",
+    "description" : "eBET provides several APIs for transfer wallet."
+  }, {
+    "name" : "API used by single wallet",
+    "description" : "eBET provides an API for single wallet."
+  }, {
+    "name" : "Common API",
+    "description" : "APIs that any wallet can use."
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/api/recharge" : {
+      "post" : {
+        "tags" : [ "API used by transfer wallet" ],
+        "summary" : "reharge",
+        "description" : "This API notifies eBET to process when the user's wallet amount is changed.\n Note: It returns success to indicate that a notification has been received, but processing is not complete.\n Note: There is no upper limit.",
+        "operationId" : "recharge",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "rechargeReqId" : {
+                  "$ref" : "#/definitions/rechargeReqId"
+                },
+                "money" : {
+                  "type" : "number",
+                  "example" : 100.0,
+                  "description" : "User's current amount."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/rechargestatus" : {
+      "post" : {
+        "tags" : [ "API used by transfer wallet" ],
+        "summary" : "rechargestatus",
+        "description" : "This API is to check whether eBET has received and processed the recharge request.",
+        "operationId" : "rechargestatus",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_1"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "rechargeReqId" : {
+                  "$ref" : "#/definitions/rechargeReqId"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/getusermoney" : {
+      "post" : {
+        "tags" : [ "API used by transfer wallet" ],
+        "summary" : "getusermoney",
+        "description" : "This api is to query the current amount of money for users who have logged in within a period of time.\n Note: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)",
+        "operationId" : "getusermoney",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_2"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "status" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "results" : {
+                  "type" : "object",
+                  "description" : "Record.",
+                  "properties" : {
+                    "username" : {
+                      "$ref" : "#/definitions/username"
+                    },
+                    "money" : {
+                      "type" : "number",
+                      "example" : 543.21,
+                      "description" : "User's money"
+                    },
+                    "wallet" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/definitions/wallet"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/getseqnorecord" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "getseqnorecord",
+        "description" : "This api is query failed seqNo in eBET database.",
+        "operationId" : "getseqnorecord",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_3"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "status" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "count" : {
+                  "$ref" : "#/definitions/count"
+                },
+                "remainingVisit" : {
+                  "$ref" : "#/definitions/remainingVisit"
+                },
+                "seqNoHistorys" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "description" : "Balance of each wallet.",
+                    "properties" : {
+                      "seqNo" : {
+                        "type" : "string",
+                        "example" : "a698facaf47c80b784e116524c20bbf1",
+                        "description" : "Record seqNo"
+                      },
+                      "username" : {
+                        "type" : "string",
+                        "example" : "apitest01",
+                        "description" : "Record username"
+                      },
+                      "event" : {
+                        "type" : "string",
+                        "example" : "increaseCredit",
+                        "description" : "Record apiName"
+                      },
+                      "startRequestTime" : {
+                        "type" : "string",
+                        "example" : "2020-01-01T00:00:00Z",
+                        "description" : "Request sent time"
+                      },
+                      "endResponseTime" : {
+                        "type" : "string",
+                        "example" : "2020-01-01T00:00:10Z",
+                        "description" : "Response end time"
+                      },
+                      "status" : {
+                        "type" : "number",
+                        "example" : 4025.0,
+                        "description" : "Record status code"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/syncuser" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "syncuser",
+        "description" : "New player registration",
+        "operationId" : "syncuser",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "status" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "The account has been registered."
+          }
+        }
+      }
+    },
+    "/api/userinfo" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "userinfo",
+        "description" : "Query user information",
+        "operationId" : "userinfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_5"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "channelId", "money", "status", "subChannelId", "userId", "username", "wallet" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "channelId" : {
+                  "$ref" : "#/definitions/channelId"
+                },
+                "subChannelId" : {
+                  "$ref" : "#/definitions/subChannelId"
+                },
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "userId" : {
+                  "type" : "number",
+                  "example" : 1.9191919E7,
+                  "description" : "User ID"
+                },
+                "money" : {
+                  "type" : "number",
+                  "example" : 100000.01,
+                  "description" : "User's money"
+                },
+                "wallet" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/definitions/wallet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/userbethistory" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "userbethistory",
+        "description" : "This API is for querying bets recorded in a specific time period.\n Note: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)",
+        "operationId" : "userbethistory",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_6"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "betHistories", "count", "remainingVisits", "status" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "count" : {
+                  "$ref" : "#/definitions/channelId"
+                },
+                "remainingVisits" : {
+                  "$ref" : "#/definitions/subChannelId"
+                },
+                "betHistories" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/definitions/betHistories"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/getcurrentluzhu" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "getcurrentluzhu",
+        "description" : "The 30 game records that have ended so far and converted into luzhu information",
+        "operationId" : "getcurrentluzhu",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_7"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "count", "remainingVisits", "status", "tableCode", "tableSubType", "tableType" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "count" : {
+                  "$ref" : "#/definitions/count"
+                },
+                "remainingVisits" : {
+                  "$ref" : "#/definitions/remainingVisit"
+                },
+                "tableType" : {
+                  "$ref" : "#/definitions/tableType"
+                },
+                "tableSubType" : {
+                  "$ref" : "#/definitions/tableSubType"
+                },
+                "tableCode" : {
+                  "type" : "string",
+                  "example" : "B1",
+                  "description" : "Game table number"
+                },
+                "luzhuList" : {
+                  "type" : "array",
+                  "example" : [ [ 68 ] ],
+                  "description" : "Flop of each round. This parameter will only appear when count> 0.",
+                  "items" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "number"
+                    }
+                  }
+                },
+                "luzhuStat" : {
+                  "type" : "array",
+                  "example" : [ [ "draw" ] ],
+                  "description" : "Status of each round. This parameter will only appear when count> 0.",
+                  "items" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/getbetlimit" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "getbetlimit",
+        "description" : "Get user bet limit in each game",
+        "operationId" : "getbetlimit",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_8"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "channelId", "limit", "status", "username" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "channelId" : {
+                  "$ref" : "#/definitions/channelId"
+                },
+                "limit" : {
+                  "type" : "array",
+                  "description" : "",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "betType" : {
+                        "type" : "number",
+                        "description" : "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull (niuniu)\n 23:Fortune Wheel"
+                      },
+                      "playerMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "Player minimum bet limit.\n Only baccarat."
+                      },
+                      "playerMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "Player maximum bet limit.\n Only baccarat."
+                      },
+                      "bankerMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "Banker minimum bet limit.\n Only baccarat."
+                      },
+                      "bankerMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "Banker maximum bet limit.\n Only baccarat."
+                      },
+                      "tieMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "Tie minimum bet limit.\n Only baccarat,dragon-tiger."
+                      },
+                      "tieMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "Tie maximum bet limit.\n Only baccarat,dragon-tiger."
+                      },
+                      "playerPairMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "PlayerPair minimum bet limit.\n Only baccarat."
+                      },
+                      "playerPairMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "PlayerPair maximum bet limit.\n Only baccarat."
+                      },
+                      "bankerPairMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "BankerPair minimum bet limit.\n Only baccarat."
+                      },
+                      "bankerPairMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "BankerPair maximum bet limit.\n Only baccarat."
+                      },
+                      "bankerDragonBounsMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "BankerDragonBouns minimum bet limit.\n Only baccarat."
+                      },
+                      "bankerDragonBounsMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "BankerDragonBouns maximum bet limit.\n Only baccarat."
+                      },
+                      "playerDragonBounsMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "PlayerDragonBouns minimum bet limit.\n Only baccarat."
+                      },
+                      "playerDragonBounsMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "Player maximum bet limit.\n Only baccarat."
+                      },
+                      "bigMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "Big minimum bet limit.\n Only baccarat,sic-bo,roulette."
+                      },
+                      "bigMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "Big maximum bet limit.\n Only baccarat,sic-bo,roulette."
+                      },
+                      "smallMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "Small minimum bet limit.\n Only baccarat,sic-bo,roulette."
+                      },
+                      "smallMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "Small maximum bet limit.\n Only baccarat,sic-bo,roulette."
+                      },
+                      "bankerOddMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "BankerOdd minimum bet limit.\n Only baccarat."
+                      },
+                      "bankerOddMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "BankerOdd maximum bet limit.\n Only baccarat."
+                      },
+                      "bankerEvenMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "BankerEven minimum bet limit.\n Only baccarat."
+                      },
+                      "bankerEvenMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "BankerEven maximum bet limit.\n Only baccarat."
+                      },
+                      "playerOddMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "PlayerOdd minimum bet limit.\n Only baccarat."
+                      },
+                      "playerOddMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "PlayerOdd maximum bet limit.\n Only baccarat."
+                      },
+                      "playerEvenMin" : {
+                        "type" : "number",
+                        "example" : 10.0,
+                        "description" : "PlayerEven minimum bet limit.\n Only baccarat."
+                      },
+                      "playerEvenMax" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "PlayerEven maximum bet limit.\n Only baccarat."
+                      },
+                      "dragonMin" : {
+                        "type" : "number",
+                        "description" : "Dragon minimum bet limit.\n Only dragon-tiger."
+                      },
+                      "dragonMax" : {
+                        "type" : "number",
+                        "description" : "Dragon maximum bet limit.\n Only dragon-tiger."
+                      },
+                      "tigerMin" : {
+                        "type" : "number",
+                        "description" : "Tiger minimum bet limit.\n Only dragon-tiger."
+                      },
+                      "tigerMax" : {
+                        "type" : "number",
+                        "description" : "Tiger maximum bet limit.\n Only dragon-tiger."
+                      },
+                      "dragonOddMin" : {
+                        "type" : "number",
+                        "description" : "DragonOdd minimum bet limit.\n Only dragon-tiger."
+                      },
+                      "dragonOddMax" : {
+                        "type" : "number",
+                        "description" : "DragonOdd maximum bet limit.\n Only dragon-tiger."
+                      },
+                      "dragonEvenMin" : {
+                        "type" : "number",
+                        "description" : "DragonEven minimum bet limit.\n Only dragon-tiger."
+                      },
+                      "dragonEvenMax" : {
+                        "type" : "number",
+                        "description" : "DragonEven maximum bet limit.\n Only dragon-tiger."
+                      },
+                      "tigerOddMin" : {
+                        "type" : "number",
+                        "description" : "TigerOdd minimum bet limit.\n Only dragon-tiger."
+                      },
+                      "tigerOddMax" : {
+                        "type" : "number",
+                        "description" : "TigerOdd maximum bet limit.\n Only dragon-tiger."
+                      },
+                      "tigerEvenMin" : {
+                        "type" : "number",
+                        "description" : "TigerEven minimum bet limit.\n Only dragon-tiger."
+                      },
+                      "tigerEvenMax" : {
+                        "type" : "number",
+                        "description" : "TigerEven maximum bet limit.\n Only dragon-tiger."
+                      },
+                      "dragonBlackMin" : {
+                        "type" : "number",
+                        "description" : "DragonBlack minimum bet limit.\n Only dragon-tiger."
+                      },
+                      "dragonBlackMax" : {
+                        "type" : "number",
+                        "description" : "DragonBlack maximum bet limit.\n Only dragon-tiger."
+                      },
+                      "dragonRedMin" : {
+                        "type" : "number",
+                        "description" : "DragonRed minimum bet limit.\n Only dragon-tiger."
+                      },
+                      "dragonRedMax" : {
+                        "type" : "number",
+                        "description" : "DragonRed maximum bet limit.\n Only dragon-tiger."
+                      },
+                      "tigerBlackMin" : {
+                        "type" : "number",
+                        "description" : "TigerBlack minimum bet limit.\n Only dragon-tiger."
+                      },
+                      "tigerBlackMax" : {
+                        "type" : "number",
+                        "description" : "TigerBlack maximum bet limit.\n Only dragon-tiger."
+                      },
+                      "tigerRedMin" : {
+                        "type" : "number",
+                        "description" : "TigerRed minimum bet limit.\n Only dragon-tiger."
+                      },
+                      "tigerRedMax" : {
+                        "type" : "number",
+                        "description" : "TigerRed maximum bet limit.\n Only dragon-tiger."
+                      },
+                      "oddMin" : {
+                        "type" : "number",
+                        "description" : "Odd minimum bet limit.\n Only sic-bo,roulette,fortune-wheel."
+                      },
+                      "oddMax" : {
+                        "type" : "number",
+                        "description" : "Odd maximum bet limit.\n Only sic-bo,roulette,fortune-wheel."
+                      },
+                      "evenMin" : {
+                        "type" : "number",
+                        "description" : "Even minimum bet limit.\n Only sic-bo,roulette,fortune-wheel."
+                      },
+                      "evenMax" : {
+                        "type" : "number",
+                        "description" : "Even maximum bet limit.\n Only sic-bo,roulette,fortune-wheel."
+                      },
+                      "pairMin" : {
+                        "type" : "number",
+                        "description" : "Pair minimum bet limit.\n Only sic-bo."
+                      },
+                      "pairMax" : {
+                        "type" : "number",
+                        "description" : "Pair maximum bet limit.\n Only sic-bo."
+                      },
+                      "tripMin" : {
+                        "type" : "number",
+                        "description" : "Trip minimum bet limit.\n Only sic-bo."
+                      },
+                      "tripMax" : {
+                        "type" : "number",
+                        "description" : "Trip maximum bet limit.\n Only sic-bo."
+                      },
+                      "allTripMin" : {
+                        "type" : "number",
+                        "description" : "AllTrip minimum bet limit.\n Only sic-bo."
+                      },
+                      "allTripMax" : {
+                        "type" : "number",
+                        "description" : "AllTrip maximum bet limit.\n Only sic-bo."
+                      },
+                      "fourMin" : {
+                        "type" : "number",
+                        "description" : "Four minimum bet limit.\n Only sic-bo."
+                      },
+                      "fourMax" : {
+                        "type" : "number",
+                        "description" : "Four maximum bet limit.\n Only sic-bo."
+                      },
+                      "fiveMin" : {
+                        "type" : "number",
+                        "description" : "Five minimum bet limit.\n Only sic-bo."
+                      },
+                      "fiveMax" : {
+                        "type" : "number",
+                        "description" : "Five maximum bet limit.\n Only sic-bo."
+                      },
+                      "sixMin" : {
+                        "type" : "number",
+                        "description" : "Six minimum bet limit.\n Only sic-bo."
+                      },
+                      "sixMax" : {
+                        "type" : "number",
+                        "description" : "Six maximum bet limit.\n Only sic-bo."
+                      },
+                      "sevenMin" : {
+                        "type" : "number",
+                        "description" : "Seven minimum bet limit.\n Only sic-bo."
+                      },
+                      "sevenMax" : {
+                        "type" : "number",
+                        "description" : "Seven maximum bet limit.\n Only sic-bo."
+                      },
+                      "eightMin" : {
+                        "type" : "number",
+                        "description" : "Eight minimum bet limit.\n Only sic-bo."
+                      },
+                      "eightMax" : {
+                        "type" : "number",
+                        "description" : "Eight maximum bet limit.\n Only sic-bo."
+                      },
+                      "nineMin" : {
+                        "type" : "number",
+                        "description" : "Nine minimum bet limit.\n Only sic-bo."
+                      },
+                      "nineMax" : {
+                        "type" : "number",
+                        "description" : "Nine maximum bet limit.\n Only sic-bo."
+                      },
+                      "tenMin" : {
+                        "type" : "number",
+                        "description" : "Ten minimum bet limit.\n Only sic-bo."
+                      },
+                      "tenMax" : {
+                        "type" : "number",
+                        "description" : "Ten maximum bet limit.\n Only sic-bo."
+                      },
+                      "elevenMin" : {
+                        "type" : "number",
+                        "description" : "Eleven minimum bet limit.\n Only sic-bo."
+                      },
+                      "elevenMax" : {
+                        "type" : "number",
+                        "description" : "Eleven maximum bet limit.\n Only sic-bo."
+                      },
+                      "twelveMin" : {
+                        "type" : "number",
+                        "description" : "Twelve minimum bet limit.\n Only sic-bo."
+                      },
+                      "twelveMax" : {
+                        "type" : "number",
+                        "description" : "Twelve maximum bet limit.\n Only sic-bo."
+                      },
+                      "thirteenMin" : {
+                        "type" : "number",
+                        "description" : "Thirteen minimum bet limit.\n Only sic-bo."
+                      },
+                      "thirteenMax" : {
+                        "type" : "number",
+                        "description" : "Thirteen maximum bet limit.\n Only sic-bo."
+                      },
+                      "fourteenMin" : {
+                        "type" : "number",
+                        "description" : "Fourteen minimum bet limit.\n Only sic-bo."
+                      },
+                      "fourteenMax" : {
+                        "type" : "number",
+                        "description" : "Fourteen maximum bet limit.\n Only sic-bo."
+                      },
+                      "fifteenMin" : {
+                        "type" : "number",
+                        "description" : "Fifteen minimum bet limit.\n Only sic-bo."
+                      },
+                      "fifteenMax" : {
+                        "type" : "number",
+                        "description" : "Fifteen maximum bet limit.\n Only sic-bo."
+                      },
+                      "sixteenMin" : {
+                        "type" : "number",
+                        "description" : "Sixteen minimum bet limit.\n Only sic-bo."
+                      },
+                      "sixteenMax" : {
+                        "type" : "number",
+                        "description" : "Sixteen maximum bet limit.\n Only sic-bo."
+                      },
+                      "seventeenMin" : {
+                        "type" : "number",
+                        "description" : "Seventeen minimum bet limit.\n Only sic-bo."
+                      },
+                      "seventeenMax" : {
+                        "type" : "number",
+                        "description" : "Seventeen maximum bet limit.\n Only sic-bo."
+                      },
+                      "singleDiceMin" : {
+                        "type" : "number",
+                        "description" : "SingleDice minimum bet limit.\n Only sic-bo."
+                      },
+                      "singleDiceMax" : {
+                        "type" : "number",
+                        "description" : "SingleDice maximum bet limit.\n Only sic-bo."
+                      },
+                      "combinationMin" : {
+                        "type" : "number",
+                        "description" : "Combination minimum bet limit.\n Only sic-bo."
+                      },
+                      "combinationMax" : {
+                        "type" : "number",
+                        "description" : "Combination maximum bet limit.\n Only sic-bo."
+                      },
+                      "moreLeftMin" : {
+                        "type" : "number",
+                        "description" : "MoreLeft minimum bet limit.\n Only sic-bo."
+                      },
+                      "moreLeftMax" : {
+                        "type" : "number",
+                        "description" : "MoreLeft maximum bet limit.\n Only sic-bo."
+                      },
+                      "moreRightMin" : {
+                        "type" : "number",
+                        "description" : "MoreRight minimum bet limit.\n Only sic-bo."
+                      },
+                      "moreRightMax" : {
+                        "type" : "number",
+                        "description" : "MoreRight maximum bet limit.\n Only sic-bo."
+                      },
+                      "redMin" : {
+                        "type" : "number",
+                        "description" : "Red minimum bet limit.\n Only roulette."
+                      },
+                      "redMax" : {
+                        "type" : "number",
+                        "description" : "Red maximum bet limit.\n Only roulette."
+                      },
+                      "blackMin" : {
+                        "type" : "number",
+                        "description" : "Black minimum bet limit.\n Only roulette."
+                      },
+                      "blackMax" : {
+                        "type" : "number",
+                        "description" : "Black maximum bet limit.\n Only roulette."
+                      },
+                      "dozenMin" : {
+                        "type" : "number",
+                        "description" : "Dozen minimum bet limit.\n Only roulette."
+                      },
+                      "dozenMax" : {
+                        "type" : "number",
+                        "description" : "Dozen maximum bet limit.\n Only roulette."
+                      },
+                      "columnMin" : {
+                        "type" : "number",
+                        "description" : "Column minimum bet limit.\n Only roulette."
+                      },
+                      "columnMax" : {
+                        "type" : "number",
+                        "description" : "Column maximum bet limit.\n Only roulette."
+                      },
+                      "lineMin" : {
+                        "type" : "number",
+                        "description" : "Line minimum bet limit.\n Only roulette."
+                      },
+                      "lineMax" : {
+                        "type" : "number",
+                        "description" : "Line maximum bet limit.\n Only roulette."
+                      },
+                      "basketMin" : {
+                        "type" : "number",
+                        "description" : "Basket minimum bet limit.\n Only roulette."
+                      },
+                      "basketMax" : {
+                        "type" : "number",
+                        "description" : "Basket maximum bet limit.\n Only roulette."
+                      },
+                      "connerMin" : {
+                        "type" : "number",
+                        "description" : "Conner minimum bet limit.\n Only roulette."
+                      },
+                      "connerMax" : {
+                        "type" : "number",
+                        "description" : "Conner maximum bet limit.\n Only roulette."
+                      },
+                      "trioMin" : {
+                        "type" : "number",
+                        "description" : "Trio minimum bet limit.\n Only roulette."
+                      },
+                      "trioMax" : {
+                        "type" : "number",
+                        "description" : "Trio maximum bet limit.\n Only roulette."
+                      },
+                      "streetMin" : {
+                        "type" : "number",
+                        "description" : "Street minimum bet limit.\n Only roulette."
+                      },
+                      "streetMax" : {
+                        "type" : "number",
+                        "description" : "Street maximum bet limit.\n Only roulette."
+                      },
+                      "splitMin" : {
+                        "type" : "number",
+                        "description" : "Split minimum bet limit.\n Only roulette."
+                      },
+                      "splitMax" : {
+                        "type" : "number",
+                        "description" : "Split maximum bet limit.\n Only roulette."
+                      },
+                      "straightMin" : {
+                        "type" : "number",
+                        "description" : "Straight minimum bet limit.\n Only roulette."
+                      },
+                      "straightMax" : {
+                        "type" : "number",
+                        "description" : "Straight maximum bet limit.\n Only roulette."
+                      },
+                      "betPlayer1Min" : {
+                        "type" : "number",
+                        "description" : "BetPlayer1 minimum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer1Max" : {
+                        "type" : "number",
+                        "description" : "BetPlayer1 maximum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer1DoubleMin" : {
+                        "type" : "number",
+                        "description" : "BetPlayer1Double minimum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer1DoubleMax" : {
+                        "type" : "number",
+                        "description" : "BetPlayer1Double maximum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer2Min" : {
+                        "type" : "number",
+                        "description" : "BetPlayer2 minimum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer2Max" : {
+                        "type" : "number",
+                        "description" : "BetPlayer2 maximum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer2DoubleMin" : {
+                        "type" : "number",
+                        "description" : "BetPlayer2Double minimum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer2DoubleMax" : {
+                        "type" : "number",
+                        "description" : "BetPlayer2Double maximum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer3Min" : {
+                        "type" : "number",
+                        "description" : "BetPlayer3 minimum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer3Max" : {
+                        "type" : "number",
+                        "description" : "BetPlayer3 maximum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer3DoubleMin" : {
+                        "type" : "number",
+                        "description" : "BetPlayer3Double minimum bet limit.\n Only niuniu."
+                      },
+                      "betPlayer3DoubleMax" : {
+                        "type" : "number",
+                        "description" : "BetPlayer3Double maximum bet limit.\n Only niuniu."
+                      },
+                      "number_1Min" : {
+                        "type" : "number",
+                        "description" : "Number1 minimum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_1Max" : {
+                        "type" : "number",
+                        "description" : "Number1 maximum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_2Min" : {
+                        "type" : "number",
+                        "description" : "Number2 minimum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_2Max" : {
+                        "type" : "number",
+                        "description" : "Number2 maximum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_5Min" : {
+                        "type" : "number",
+                        "description" : "Number5 minimum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_5Max" : {
+                        "type" : "number",
+                        "description" : "Number5 maximum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_10Min" : {
+                        "type" : "number",
+                        "description" : "Number10 minimum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_10Max" : {
+                        "type" : "number",
+                        "description" : "Number10 maximum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_20Min" : {
+                        "type" : "number",
+                        "description" : "Number20 minimum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_20Max" : {
+                        "type" : "number",
+                        "description" : "Number20 maximum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_40Min" : {
+                        "type" : "number",
+                        "description" : "Number40 minimum bet limit.\n Only fortune-wheel."
+                      },
+                      "number_40Max" : {
+                        "type" : "number",
+                        "description" : "Number40 maximum bet limit.\n Only fortune-wheel."
+                      },
+                      "multipleMin" : {
+                        "type" : "number",
+                        "description" : "Multiple minimum bet limit.\n Only fortune-wheel."
+                      },
+                      "multipleMax" : {
+                        "type" : "number",
+                        "description" : "Multiple maximum bet limit.\n Only fortune-wheel."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/updatebetlimit" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "updatebetlimit",
+        "description" : "Update user bet limit in each game",
+        "operationId" : "updatebetlimit",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_9"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "channelId", "status", "updateGameList", "username" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "channelId" : {
+                  "$ref" : "#/definitions/channelId"
+                },
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "updateGameList" : {
+                  "type" : "number",
+                  "description" : "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull (niuniu)\n 23:Fortune Wheel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/userBetTracer" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "userBetTracer",
+        "description" : "Provides the URL of the user's betting history.\n The link screen displays the game name, bet date, bet amount, payout amount, round number, member bet type (text + icon), and the result card type (text + icon). As with eBET background betting details.\n\n URL path rules:\n 1.Page link\n 2.username\n 3.channelId\n 4.roundCode\n 5.lang\n 6.Add display = 1 to turn off the valid betting field; don't bring in or add display = 0 to show the valid betting field\n 7.signature (need to be added by the channel using the GET method)\n The resulting rule is RSA (channelId+username+roundCode+lang)",
+        "operationId" : "userBetTracer",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_10"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "path", "status" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "path" : {
+                  "type" : "string",
+                  "example" : "en_us",
+                  "description" : "link. Added username, channelId, roundCode and lang."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/usertransaction" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "usertransaction",
+        "description" : "This api is to query the current amount of money for users who have logged in within a period of time.\n Note: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)",
+        "operationId" : "usertransaction",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_11"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "count", "remainingVisits", "status", "transactions" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "count" : {
+                  "$ref" : "#/definitions/count"
+                },
+                "remainingVisits" : {
+                  "$ref" : "#/definitions/remainingVisit"
+                },
+                "transactions" : {
+                  "type" : "array",
+                  "description" : "Transaction record",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "userId" : {
+                        "type" : "number",
+                        "example" : 1.9191919E7,
+                        "description" : "User ID"
+                      },
+                      "username" : {
+                        "$ref" : "#/definitions/username"
+                      },
+                      "roundNo" : {
+                        "$ref" : "#/definitions/roundCode"
+                      },
+                      "transBeforeBalance" : {
+                        "type" : "number",
+                        "description" : "Amount before change."
+                      },
+                      "transBalance" : {
+                        "type" : "number",
+                        "description" : "Change amount."
+                      },
+                      "transAfterBalance" : {
+                        "type" : "number",
+                        "description" : "Amount after change."
+                      },
+                      "transactionId" : {
+                        "type" : "string",
+                        "description" : "Transaction ID"
+                      },
+                      "time" : {
+                        "type" : "string",
+                        "description" : "Transaction time"
+                      },
+                      "subChannelId" : {
+                        "$ref" : "#/definitions/subChannelId"
+                      },
+                      "bonusId" : {
+                        "type" : "number",
+                        "description" : "Event ID. Appears only when tradeType = 23,24"
+                      },
+                      "bonusName" : {
+                        "type" : "string",
+                        "description" : "Event name. Appears only when tradeType = 23,24"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/userbetsummary" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "userbetsummary",
+        "description" : "This api is the total report in the query time period.\n Note: Only the records of successful bets and successful payouts are counted.\n The preset time period is the current day.",
+        "operationId" : "userbetsummary",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_12"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "count", "endTime", "remainingVisits", "startTime", "status", "totalBet", "totalPayout", "totalWithholding" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "count" : {
+                  "$ref" : "#/definitions/count"
+                },
+                "remainingVisits" : {
+                  "$ref" : "#/definitions/remainingVisit"
+                },
+                "totalBet" : {
+                  "type" : "number",
+                  "example" : 0.0,
+                  "description" : "Total amount of successful bets"
+                },
+                "totalPayout" : {
+                  "type" : "number",
+                  "example" : 0.0,
+                  "description" : "Total amount of successful payouts"
+                },
+                "totalWithholding" : {
+                  "type" : "number",
+                  "example" : 0.0,
+                  "description" : "Total amount of successful withholdings"
+                },
+                "startTime" : {
+                  "type" : "number",
+                  "example" : 0.0,
+                  "description" : "The beginning of the search period. Uses milliseconds. The format is Unix Time"
+                },
+                "endTime" : {
+                  "type" : "number",
+                  "example" : 0.0,
+                  "description" : "The end of the search period. Used in milliseconds. The format is Unix Time"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/totaluserbetsummary" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "totaluserbetsummary",
+        "description" : "Query user betting history",
+        "operationId" : "totaluserbetsummary",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "This API is to query the number of bets, the amount of bets, the effective bets and the surplus of each player in each game.\n The search period cannot exceed seven days.",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_13"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "status" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "remainingVisit" : {
+                  "$ref" : "#/definitions/remainingVisit"
+                },
+                "results" : {
+                  "type" : "array",
+                  "description" : "record",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "userName" : {
+                        "$ref" : "#/definitions/username"
+                      },
+                      "games" : {
+                        "type" : "array",
+                        "description" : "User ID",
+                        "items" : {
+                          "type" : "object",
+                          "description" : "record",
+                          "properties" : {
+                            "gameType" : {
+                              "type" : "number",
+                              "example" : 1.0,
+                              "description" : "Game type"
+                            },
+                            "gameName" : {
+                              "type" : "string",
+                              "example" : "baccarat",
+                              "description" : "Game name"
+                            },
+                            "totalBet" : {
+                              "type" : "number",
+                              "example" : 100.0,
+                              "description" : "Total bet"
+                            },
+                            "totalEffectiveBet" : {
+                              "type" : "number",
+                              "example" : 100.0,
+                              "description" : "Total valid bets"
+                            },
+                            "totalBalance" : {
+                              "type" : "number",
+                              "example" : 100.0,
+                              "description" : "Total surplus, calculation formula (bet-payout)"
+                            },
+                            "count" : {
+                              "type" : "number",
+                              "example" : 1.0,
+                              "description" : "Total number of bets"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/logout" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "logout",
+        "description" : "Take the player away from the eBET game.\n Note: The related functions must be enabled in the eBET background to use.",
+        "operationId" : "logout",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_14"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "status" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/logslot" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "logslot",
+        "description" : "Get a link to log in to the slot game directly.\n Note: using this method will still send a verification login request. A login link will only be provided after successful verification.",
+        "operationId" : "logslot",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_15"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "slotURL", "status" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "slotURL" : {
+                  "type" : "string",
+                  "example" : "",
+                  "description" : "Link to slot games."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/slotgamelist" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "slotgamelist",
+        "description" : "Get a list of slot games.",
+        "operationId" : "slotgamelist",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_16"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "slotGames", "status" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "slotGames" : {
+                  "type" : "array",
+                  "description" : "record",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "gameID" : {
+                        "type" : "string",
+                        "example" : "",
+                        "description" : "slot game id"
+                      },
+                      "english" : {
+                        "type" : "string",
+                        "example" : "",
+                        "description" : "English name of slot game"
+                      },
+                      "chinese" : {
+                        "type" : "string",
+                        "example" : "",
+                        "description" : "Chinese name of slot game"
+                      },
+                      "providerId" : {
+                        "type" : "string",
+                        "example" : "",
+                        "description" : "slot game vendor id"
+                      },
+                      "releaseDate" : {
+                        "type" : "string",
+                        "example" : "",
+                        "description" : "Release date"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/callback" : {
+      "post" : {
+        "tags" : [ "Common API" ],
+        "summary" : "callback",
+        "description" : "Channels can use their own login portal if the channel does not want to go through eBET's login portal.\n The channel must request this API to notify eBET to let the player log in to the game after verifying the player.\n Note: Need to provide link and eBET should be set to open on the backend.",
+        "operationId" : "callback",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_17"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "apiVersion", "channelId", "money", "status", "subChannelId", "timestamp", "userId", "username", "wallet" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "apiVersion" : {
+                  "$ref" : "#/definitions/apiVersion"
+                },
+                "channelId" : {
+                  "$ref" : "#/definitions/channelId"
+                },
+                "subChannelId" : {
+                  "$ref" : "#/definitions/subChannelId"
+                },
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "userId" : {
+                  "type" : "number",
+                  "example" : 1.9191919E7,
+                  "description" : "User ID"
+                },
+                "money" : {
+                  "type" : "number",
+                  "example" : 100000.01,
+                  "description" : "User's money"
+                },
+                "timestamp" : {
+                  "type" : "number",
+                  "example" : 1.987654321E9,
+                  "description" : "Current time. In seconds. Format is Unix Time."
+                },
+                "wallet" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/definitions/wallet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "username" : {
+      "type" : "string",
+      "description" : "Username.",
+      "example" : "apitest01"
+    },
+    "channelId" : {
+      "type" : "number",
+      "description" : "Channel ID.",
+      "example" : 1
+    },
+    "subChannelId" : {
+      "type" : "number",
+      "description" : "Sub-channel ID.",
+      "example" : 0
+    },
+    "pageNum" : {
+      "type" : "number",
+      "description" : "Page number. Default is 1.",
+      "example" : 1
+    },
+    "pageSize" : {
+      "type" : "number",
+      "description" : "The number of records displayed on each page. Default is 10. The maximum is 5000.",
+      "example" : 10
+    },
+    "startTimeStr" : {
+      "type" : "string",
+      "description" : "Start of query time range.",
+      "example" : "2020-01-01 00:00:00"
+    },
+    "endTimeStr" : {
+      "type" : "string",
+      "description" : "End of query time range.",
+      "example" : "2020-01-02 00:00:00"
+    },
+    "timestamp" : {
+      "type" : "integer",
+      "description" : "Timestamp. In milliseconds.",
+      "example" : 1234567890123
+    },
+    "signature" : {
+      "type" : "string",
+      "description" : "Signature. String splicing :username+timestamp\n Note: timestamp can be used alone if no username",
+      "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ=="
+    },
+    "signature2" : {
+      "type" : "string",
+      "description" : "Signature. String splicing :username+channelId+timestamp",
+      "example" : "dry4mQ5qb7hyAeDDi1Ia+m5fsouP+qf2xfcpb+nP+La5yEMbYuHRz7Fge2OTgVi7DttC8p+Aiedfnnu42ii2lQ=="
+    },
+    "currency" : {
+      "type" : "string",
+      "description" : "Currency.",
+      "example" : "en_us"
+    },
+    "status" : {
+      "type" : "number",
+      "description" : "Response status.",
+      "example" : 200
+    },
+    "apiVersion" : {
+      "type" : "string",
+      "description" : "API version number.",
+      "example" : "1.3.55"
+    },
+    "remainingVisit" : {
+      "type" : "number",
+      "description" : "Number of remaining requests, 500 times per minute.",
+      "example" : 200
+    },
+    "rechargeReqId" : {
+      "type" : "string",
+      "description" : "Recharge Request ID.",
+      "example" : "rechargeReqId123456"
+    },
+    "tableType" : {
+      "type" : "number",
+      "description" : "Game type.",
+      "example" : 1
+    },
+    "tableSubType" : {
+      "type" : "number",
+      "description" : "Game table type.",
+      "example" : 0
+    },
+    "roundCode" : {
+      "type" : "string",
+      "description" : "Round number.",
+      "example" : "B1-200101000000"
+    },
+    "count" : {
+      "type" : "number",
+      "description" : "Total count.",
+      "example" : 1
+    },
+    "wallet" : {
+      "type" : "object",
+      "properties" : {
+        "typeId" : {
+          "type" : "number",
+          "example" : 0.0
+        },
+        "money" : {
+          "type" : "number",
+          "example" : 543.21
+        }
+      },
+      "description" : "Balance of each wallet."
+    },
+    "betHistories" : {
+      "type" : "object",
+      "properties" : {
+        "gameType" : {
+          "type" : "number",
+          "description" : "Game type"
+        },
+        "gameName" : {
+          "type" : "string",
+          "description" : "Game name.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 6: Slot\n 7: Blockchain Baccarat\n 8: Niu Niu(BullBull)\n 23:  FortuneWheel",
+          "enum" : [ "baccarat", "dragon-tiger", "sic-bo", "roulette", "slot", "blockchain-baccarat", "niu niu", "fortune-wheel" ]
+        },
+        "betMap" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/betMap"
+          }
+        },
+        "bet" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Total bet amount."
+        },
+        "roundNo" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "payout" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Total payout amount."
+        },
+        "payoutDetail" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/betHistories_payoutDetail"
+          }
+        },
+        "judgeResult" : {
+          "type" : "array",
+          "example" : [ 0 ],
+          "description" : "Winning awards.\n niuniu: The result of the flop.",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "playerCards" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Only baccarat. Player's flop results."
+        },
+        "playerResult" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Only baccarat. Player points"
+        },
+        "bankerCard" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Only baccarat. Banker's flop results."
+        },
+        "bankerResult" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Only baccarat. Banker points"
+        },
+        "dragonCard" : {
+          "type" : "number",
+          "description" : "Only dragon-tiger. Dragon's flop results."
+        },
+        "tigerCard" : {
+          "type" : "number",
+          "description" : "Only dragon-tiger. Tiger's flop results."
+        },
+        "number" : {
+          "type" : "number",
+          "description" : "Only roulette. Number for the result."
+        },
+        "allDices" : {
+          "type" : "number",
+          "description" : "Only sic-bo. Points for the result."
+        },
+        "niuniuResult" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/betHistories_niuniuResult"
+          }
+        },
+        "niuniuWithHoldingTotal" : {
+          "type" : "number",
+          "description" : "Only niuniu. Niuniu's total withholding amount."
+        },
+        "niuniuWithHoldingDetail" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/betHistories_niuniuWithHoldingDetail"
+          }
+        },
+        "payoutWithoutholding" : {
+          "type" : "number",
+          "description" : "Exclude withholding total payout amount.\n If there is no withholding amount, the parameter value will be the same as payout.\n If there is a withholding amount, the calculation formula is payout-niuniuWithholdingtotal. If the parameter value is greater than 0, the player wins, and if it is 0, the player loses money."
+        },
+        "createTime" : {
+          "type" : "number",
+          "example" : 1.577808E9,
+          "description" : "Bet time. In seconds. Format is Unix Time."
+        },
+        "payoutTime" : {
+          "type" : "number",
+          "example" : 1.57780803E9,
+          "description" : "Payout time. In seconds. Format is Unix Time."
+        },
+        "betHistoryId" : {
+          "type" : "string",
+          "example" : "5e0d696b2fdda1335fa68243",
+          "description" : "Bet Record ID."
+        },
+        "validBet" : {
+          "type" : "number",
+          "example" : 4025.0,
+          "description" : "Valid bet."
+        },
+        "balance" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Surplus."
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "userId" : {
+          "type" : "number",
+          "example" : 1.9191919E7,
+          "description" : "User ID"
+        },
+        "platform" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "Game platform"
+        }
+      },
+      "description" : "betHistories."
+    },
+    "betMap" : {
+      "type" : "object",
+      "properties" : {
+        "betType" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Bet type"
+        },
+        "betMoney" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "Bet money"
+        },
+        "betTypeInterval" : {
+          "type" : "string",
+          "description" : "Only roulette. Combined code."
+        },
+        "betNumber" : {
+          "type" : "number",
+          "description" : "Only roulette. Bet combination."
+        },
+        "betDice" : {
+          "type" : "number",
+          "description" : "Only sic-bo. Bet combination."
+        }
+      },
+      "description" : "Bet details."
+    },
+    "body" : {
+      "required" : [ "channelId", "money", "rechargeReqId", "signature", "timestamp", "username" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature"
+        },
+        "money" : {
+          "type" : "number",
+          "example" : 100.0,
+          "description" : "To change the amount.\n Positive numbers represent transfer in. \n Negative numbers represent transfer out."
+        },
+        "rechargeReqId" : {
+          "$ref" : "#/definitions/rechargeReqId"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "typeId" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Wallet type. Default is 0."
+        }
+      }
+    },
+    "body_1" : {
+      "required" : [ "channelId", "rechargeReqId", "signature" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "PooUUWwXW5lDNzAgk9f6CFEhTbKq/J3b5UScNMl3SnBzCLxLDXZ/s2y8nF8UufSXgrHyS3DfJ6CJxAqjKRg53A==",
+          "description" : "Signature. String splicing :rechargeReqId"
+        },
+        "rechargeReqId" : {
+          "$ref" : "#/definitions/rechargeReqId"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        }
+      }
+    },
+    "body_2" : {
+      "required" : [ "channelId", "signature", "username" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description" : "Signature. String splicing :username"
+        },
+        "subChannelId" : {
+          "$ref" : "#/definitions/subChannelId"
+        },
+        "startTimeStr" : {
+          "$ref" : "#/definitions/startTimeStr"
+        },
+        "endTimeStr" : {
+          "$ref" : "#/definitions/endTimeStr"
+        },
+        "pageNum" : {
+          "$ref" : "#/definitions/pageNum"
+        },
+        "pageSize" : {
+          "$ref" : "#/definitions/pageSize"
+        },
+        "minMoney" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "Minimum amount of money. Below this amount will not be displayed."
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "walletType" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Query Wallet Type"
+        }
+      }
+    },
+    "body_3" : {
+      "required" : [ "channelId", "signature", "timestamp" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature2"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "subChannelId" : {
+          "$ref" : "#/definitions/subChannelId"
+        },
+        "startTimeStr" : {
+          "$ref" : "#/definitions/startTimeStr"
+        },
+        "endTimeStr" : {
+          "$ref" : "#/definitions/endTimeStr"
+        },
+        "pageNum" : {
+          "$ref" : "#/definitions/pageNum"
+        },
+        "pageSize" : {
+          "$ref" : "#/definitions/pageSize"
+        },
+        "withNo200" : {
+          "type" : "boolean",
+          "example" : false,
+          "description" : "Get success record. Default is false."
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        }
+      }
+    },
+    "body_4" : {
+      "required" : [ "channelId", "signature", "username" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description" : "Signature. String splicing :username"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "subChannelId" : {
+          "$ref" : "#/definitions/subChannelId"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        }
+      }
+    },
+    "body_5" : {
+      "required" : [ "channelId", "signature", "timestamp", "username" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        }
+      }
+    },
+    "body_6" : {
+      "required" : [ "channelId", "signature", "timestamp" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "subChannelId" : {
+          "$ref" : "#/definitions/subChannelId"
+        },
+        "startTimeStr" : {
+          "$ref" : "#/definitions/startTimeStr"
+        },
+        "endTimeStr" : {
+          "$ref" : "#/definitions/endTimeStr"
+        },
+        "pageNum" : {
+          "$ref" : "#/definitions/pageNum"
+        },
+        "pageSize" : {
+          "$ref" : "#/definitions/pageSize"
+        },
+        "betStatus" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "Check the betting status. Default is all records\n 0: query only failed records\n 1: query only successful records"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "gameType" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 6: Slot\n 7: Blockchain Baccarat\n 8: Niu Niu(BullBull)\n 23:  FortuneWheel"
+        },
+        "judgeTime" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Judgment query time. Default is 0\n 0: Payout time\n 1: Bet time"
+        },
+        "isSeparate" : {
+          "type" : "boolean",
+          "example" : false,
+          "description" : "The way betHistories is displayed. Default is false.\n true: segment by the number of confirmed bets\n false: according to payout records do show\n Note: This parameter will not affect the calculation of other parameters. It will still be processed based on the number of payouts."
+        }
+      }
+    },
+    "body_7" : {
+      "required" : [ "channelId", "signature", "tableCode", "tableSubType", "tableType", "timestamp" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description" : "Signature. String splicing :timestamp"
+        },
+        "tableType" : {
+          "$ref" : "#/definitions/tableType"
+        },
+        "tableSubType" : {
+          "$ref" : "#/definitions/tableSubType"
+        },
+        "tableCode" : {
+          "type" : "string",
+          "example" : "B1",
+          "description" : "Game table number"
+        }
+      }
+    },
+    "body_8" : {
+      "required" : [ "channelId", "signature", "timestamp", "username" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature2"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        }
+      }
+    },
+    "apiupdatebetlimit_limit" : {
+      "type" : "object",
+      "properties" : {
+        "betType" : {
+          "type" : "number",
+          "description" : "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull (niuniu)\n 23:Fortune Wheel"
+        },
+        "playerMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "Player minimum bet limit.\n Only baccarat."
+        },
+        "playerMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "Player maximum bet limit.\n Only baccarat."
+        },
+        "bankerMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "Banker minimum bet limit.\n Only baccarat."
+        },
+        "bankerMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "Banker maximum bet limit.\n Only baccarat."
+        },
+        "tieMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "Tie minimum bet limit.\n Only baccarat,dragon-tiger."
+        },
+        "tieMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "Tie maximum bet limit.\n Only baccarat,dragon-tiger."
+        },
+        "playerPairMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "PlayerPair minimum bet limit.\n Only baccarat."
+        },
+        "playerPairMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "PlayerPair maximum bet limit.\n Only baccarat."
+        },
+        "bankerPairMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "BankerPair minimum bet limit.\n Only baccarat."
+        },
+        "bankerPairMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "BankerPair maximum bet limit.\n Only baccarat."
+        },
+        "bankerDragonBounsMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "BankerDragonBouns minimum bet limit.\n Only baccarat."
+        },
+        "bankerDragonBounsMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "BankerDragonBouns maximum bet limit.\n Only baccarat."
+        },
+        "playerDragonBounsMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "PlayerDragonBouns minimum bet limit.\n Only baccarat."
+        },
+        "playerDragonBounsMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "Player maximum bet limit.\n Only baccarat."
+        },
+        "bigMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "Big minimum bet limit.\n Only baccarat,sic-bo,roulette."
+        },
+        "bigMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "Big maximum bet limit.\n Only baccarat,sic-bo,roulette."
+        },
+        "smallMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "Small minimum bet limit.\n Only baccarat,sic-bo,roulette."
+        },
+        "smallMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "Small maximum bet limit.\n Only baccarat,sic-bo,roulette."
+        },
+        "bankerOddMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "BankerOdd minimum bet limit.\n Only baccarat."
+        },
+        "bankerOddMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "BankerOdd maximum bet limit.\n Only baccarat."
+        },
+        "bankerEvenMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "BankerEven minimum bet limit.\n Only baccarat."
+        },
+        "bankerEvenMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "BankerEven maximum bet limit.\n Only baccarat."
+        },
+        "playerOddMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "PlayerOdd minimum bet limit.\n Only baccarat."
+        },
+        "playerOddMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "PlayerOdd maximum bet limit.\n Only baccarat."
+        },
+        "playerEvenMin" : {
+          "type" : "number",
+          "example" : 10.0,
+          "description" : "PlayerEven minimum bet limit.\n Only baccarat."
+        },
+        "playerEvenMax" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "PlayerEven maximum bet limit.\n Only baccarat."
+        },
+        "dragonMin" : {
+          "type" : "number",
+          "description" : "Dragon minimum bet limit.\n Only dragon-tiger."
+        },
+        "dragonMax" : {
+          "type" : "number",
+          "description" : "Dragon maximum bet limit.\n Only dragon-tiger."
+        },
+        "tigerMin" : {
+          "type" : "number",
+          "description" : "Tiger minimum bet limit.\n Only dragon-tiger."
+        },
+        "tigerMax" : {
+          "type" : "number",
+          "description" : "Tiger maximum bet limit.\n Only dragon-tiger."
+        },
+        "dragonOddMin" : {
+          "type" : "number",
+          "description" : "DragonOdd minimum bet limit.\n Only dragon-tiger."
+        },
+        "dragonOddMax" : {
+          "type" : "number",
+          "description" : "DragonOdd maximum bet limit.\n Only dragon-tiger."
+        },
+        "dragonEvenMin" : {
+          "type" : "number",
+          "description" : "DragonEven minimum bet limit.\n Only dragon-tiger."
+        },
+        "dragonEvenMax" : {
+          "type" : "number",
+          "description" : "DragonEven maximum bet limit.\n Only dragon-tiger."
+        },
+        "tigerOddMin" : {
+          "type" : "number",
+          "description" : "TigerOdd minimum bet limit.\n Only dragon-tiger."
+        },
+        "tigerOddMax" : {
+          "type" : "number",
+          "description" : "TigerOdd maximum bet limit.\n Only dragon-tiger."
+        },
+        "tigerEvenMin" : {
+          "type" : "number",
+          "description" : "TigerEven minimum bet limit.\n Only dragon-tiger."
+        },
+        "tigerEvenMax" : {
+          "type" : "number",
+          "description" : "TigerEven maximum bet limit.\n Only dragon-tiger."
+        },
+        "dragonBlackMin" : {
+          "type" : "number",
+          "description" : "DragonBlack minimum bet limit.\n Only dragon-tiger."
+        },
+        "dragonBlackMax" : {
+          "type" : "number",
+          "description" : "DragonBlack maximum bet limit.\n Only dragon-tiger."
+        },
+        "dragonRedMin" : {
+          "type" : "number",
+          "description" : "DragonRed minimum bet limit.\n Only dragon-tiger."
+        },
+        "dragonRedMax" : {
+          "type" : "number",
+          "description" : "DragonRed maximum bet limit.\n Only dragon-tiger."
+        },
+        "tigerBlackMin" : {
+          "type" : "number",
+          "description" : "TigerBlack minimum bet limit.\n Only dragon-tiger."
+        },
+        "tigerBlackMax" : {
+          "type" : "number",
+          "description" : "TigerBlack maximum bet limit.\n Only dragon-tiger."
+        },
+        "tigerRedMin" : {
+          "type" : "number",
+          "description" : "TigerRed minimum bet limit.\n Only dragon-tiger."
+        },
+        "tigerRedMax" : {
+          "type" : "number",
+          "description" : "TigerRed maximum bet limit.\n Only dragon-tiger."
+        },
+        "oddMin" : {
+          "type" : "number",
+          "description" : "Odd minimum bet limit.\n Only sic-bo,roulette,fortune-wheel."
+        },
+        "oddMax" : {
+          "type" : "number",
+          "description" : "Odd maximum bet limit.\n Only sic-bo,roulette,fortune-wheel."
+        },
+        "evenMin" : {
+          "type" : "number",
+          "description" : "Even minimum bet limit.\n Only sic-bo,roulette,fortune-wheel."
+        },
+        "evenMax" : {
+          "type" : "number",
+          "description" : "Even maximum bet limit.\n Only sic-bo,roulette,fortune-wheel."
+        },
+        "pairMin" : {
+          "type" : "number",
+          "description" : "Pair minimum bet limit.\n Only sic-bo."
+        },
+        "pairMax" : {
+          "type" : "number",
+          "description" : "Pair maximum bet limit.\n Only sic-bo."
+        },
+        "tripleMin" : {
+          "type" : "number",
+          "description" : "Trip minimum bet limit.\n Only sic-bo."
+        },
+        "tripleMax" : {
+          "type" : "number",
+          "description" : "Trip maximum bet limit.\n Only sic-bo."
+        },
+        "allTripleMin" : {
+          "type" : "number",
+          "description" : "AllTrip minimum bet limit.\n Only sic-bo."
+        },
+        "allTripleMax" : {
+          "type" : "number",
+          "description" : "AllTrip maximum bet limit.\n Only sic-bo."
+        },
+        "fourMin" : {
+          "type" : "number",
+          "description" : "Four minimum bet limit.\n Only sic-bo."
+        },
+        "fourMax" : {
+          "type" : "number",
+          "description" : "Four maximum bet limit.\n Only sic-bo."
+        },
+        "fiveMin" : {
+          "type" : "number",
+          "description" : "Five minimum bet limit.\n Only sic-bo."
+        },
+        "fiveMax" : {
+          "type" : "number",
+          "description" : "Five maximum bet limit.\n Only sic-bo."
+        },
+        "sixMin" : {
+          "type" : "number",
+          "description" : "Six minimum bet limit.\n Only sic-bo."
+        },
+        "sixMax" : {
+          "type" : "number",
+          "description" : "Six maximum bet limit.\n Only sic-bo."
+        },
+        "sevenMin" : {
+          "type" : "number",
+          "description" : "Seven minimum bet limit.\n Only sic-bo."
+        },
+        "sevenMax" : {
+          "type" : "number",
+          "description" : "Seven maximum bet limit.\n Only sic-bo."
+        },
+        "eightMin" : {
+          "type" : "number",
+          "description" : "Eight minimum bet limit.\n Only sic-bo."
+        },
+        "eightMax" : {
+          "type" : "number",
+          "description" : "Eight maximum bet limit.\n Only sic-bo."
+        },
+        "nineMin" : {
+          "type" : "number",
+          "description" : "Nine minimum bet limit.\n Only sic-bo."
+        },
+        "nineMax" : {
+          "type" : "number",
+          "description" : "Nine maximum bet limit.\n Only sic-bo."
+        },
+        "tenMin" : {
+          "type" : "number",
+          "description" : "Ten minimum bet limit.\n Only sic-bo."
+        },
+        "tenMax" : {
+          "type" : "number",
+          "description" : "Ten maximum bet limit.\n Only sic-bo."
+        },
+        "elevenMin" : {
+          "type" : "number",
+          "description" : "Eleven minimum bet limit.\n Only sic-bo."
+        },
+        "elevenMax" : {
+          "type" : "number",
+          "description" : "Eleven maximum bet limit.\n Only sic-bo."
+        },
+        "twelveMin" : {
+          "type" : "number",
+          "description" : "Twelve minimum bet limit.\n Only sic-bo."
+        },
+        "twelveMax" : {
+          "type" : "number",
+          "description" : "Twelve maximum bet limit.\n Only sic-bo."
+        },
+        "thirteenMin" : {
+          "type" : "number",
+          "description" : "Thirteen minimum bet limit.\n Only sic-bo."
+        },
+        "thirteenMax" : {
+          "type" : "number",
+          "description" : "Thirteen maximum bet limit.\n Only sic-bo."
+        },
+        "fourteenMin" : {
+          "type" : "number",
+          "description" : "Fourteen minimum bet limit.\n Only sic-bo."
+        },
+        "fourteenMax" : {
+          "type" : "number",
+          "description" : "Fourteen maximum bet limit.\n Only sic-bo."
+        },
+        "fifteenMin" : {
+          "type" : "number",
+          "description" : "Fifteen minimum bet limit.\n Only sic-bo."
+        },
+        "fifteenMax" : {
+          "type" : "number",
+          "description" : "Fifteen maximum bet limit.\n Only sic-bo."
+        },
+        "sixteenMin" : {
+          "type" : "number",
+          "description" : "Sixteen minimum bet limit.\n Only sic-bo."
+        },
+        "sixteenMax" : {
+          "type" : "number",
+          "description" : "Sixteen maximum bet limit.\n Only sic-bo."
+        },
+        "seventeenMin" : {
+          "type" : "number",
+          "description" : "Seventeen minimum bet limit.\n Only sic-bo."
+        },
+        "seventeenMax" : {
+          "type" : "number",
+          "description" : "Seventeen maximum bet limit.\n Only sic-bo."
+        },
+        "singleDiceMin" : {
+          "type" : "number",
+          "description" : "SingleDice minimum bet limit.\n Only sic-bo."
+        },
+        "singleDiceMax" : {
+          "type" : "number",
+          "description" : "SingleDice maximum bet limit.\n Only sic-bo."
+        },
+        "combinationMin" : {
+          "type" : "number",
+          "description" : "Combination minimum bet limit.\n Only sic-bo."
+        },
+        "combinationMax" : {
+          "type" : "number",
+          "description" : "Combination maximum bet limit.\n Only sic-bo."
+        },
+        "moreLeftMin" : {
+          "type" : "number",
+          "description" : "MoreLeft minimum bet limit.\n Only sic-bo."
+        },
+        "moreLeftMax" : {
+          "type" : "number",
+          "description" : "MoreLeft maximum bet limit.\n Only sic-bo."
+        },
+        "moreRightMin" : {
+          "type" : "number",
+          "description" : "MoreRight minimum bet limit.\n Only sic-bo."
+        },
+        "moreRightMax" : {
+          "type" : "number",
+          "description" : "MoreRight maximum bet limit.\n Only sic-bo."
+        },
+        "redMin" : {
+          "type" : "number",
+          "description" : "Red minimum bet limit.\n Only roulette."
+        },
+        "redMax" : {
+          "type" : "number",
+          "description" : "Red maximum bet limit.\n Only roulette."
+        },
+        "blackMin" : {
+          "type" : "number",
+          "description" : "Black minimum bet limit.\n Only roulette."
+        },
+        "blackMax" : {
+          "type" : "number",
+          "description" : "Black maximum bet limit.\n Only roulette."
+        },
+        "dozenMin" : {
+          "type" : "number",
+          "description" : "Dozen minimum bet limit.\n Only roulette."
+        },
+        "dozenMax" : {
+          "type" : "number",
+          "description" : "Dozen maximum bet limit.\n Only roulette."
+        },
+        "columnMin" : {
+          "type" : "number",
+          "description" : "Column minimum bet limit.\n Only roulette."
+        },
+        "columnMax" : {
+          "type" : "number",
+          "description" : "Column maximum bet limit.\n Only roulette."
+        },
+        "lineMin" : {
+          "type" : "number",
+          "description" : "Line minimum bet limit.\n Only roulette."
+        },
+        "lineMax" : {
+          "type" : "number",
+          "description" : "Line maximum bet limit.\n Only roulette."
+        },
+        "basketMin" : {
+          "type" : "number",
+          "description" : "Basket minimum bet limit.\n Only roulette."
+        },
+        "basketMax" : {
+          "type" : "number",
+          "description" : "Basket maximum bet limit.\n Only roulette."
+        },
+        "cornerMin" : {
+          "type" : "number",
+          "description" : "Conner minimum bet limit.\n Only roulette."
+        },
+        "cornerMax" : {
+          "type" : "number",
+          "description" : "Conner maximum bet limit.\n Only roulette."
+        },
+        "trioMin" : {
+          "type" : "number",
+          "description" : "Trio minimum bet limit.\n Only roulette."
+        },
+        "trioMax" : {
+          "type" : "number",
+          "description" : "Trio maximum bet limit.\n Only roulette."
+        },
+        "streetMin" : {
+          "type" : "number",
+          "description" : "Street minimum bet limit.\n Only roulette."
+        },
+        "streetMax" : {
+          "type" : "number",
+          "description" : "Street maximum bet limit.\n Only roulette."
+        },
+        "splitMin" : {
+          "type" : "number",
+          "description" : "Split minimum bet limit.\n Only roulette."
+        },
+        "splitMax" : {
+          "type" : "number",
+          "description" : "Split maximum bet limit.\n Only roulette."
+        },
+        "straightMin" : {
+          "type" : "number",
+          "description" : "Straight minimum bet limit.\n Only roulette."
+        },
+        "straightMax" : {
+          "type" : "number",
+          "description" : "Straight maximum bet limit.\n Only roulette."
+        },
+        "betPlayer1Min" : {
+          "type" : "number",
+          "description" : "BetPlayer1 minimum bet limit.\n Only niuniu."
+        },
+        "betPlayer1Max" : {
+          "type" : "number",
+          "description" : "BetPlayer1 maximum bet limit.\n Only niuniu."
+        },
+        "betPlayer1DoubleMin" : {
+          "type" : "number",
+          "description" : "BetPlayer1Double minimum bet limit.\n Only niuniu."
+        },
+        "betPlayer1DoubleMax" : {
+          "type" : "number",
+          "description" : "BetPlayer1Double maximum bet limit.\n Only niuniu."
+        },
+        "betPlayer2Min" : {
+          "type" : "number",
+          "description" : "BetPlayer2 minimum bet limit.\n Only niuniu."
+        },
+        "betPlayer2Max" : {
+          "type" : "number",
+          "description" : "BetPlayer2 maximum bet limit.\n Only niuniu."
+        },
+        "betPlayer2DoubleMin" : {
+          "type" : "number",
+          "description" : "BetPlayer2Double minimum bet limit.\n Only niuniu."
+        },
+        "betPlayer2DoubleMax" : {
+          "type" : "number",
+          "description" : "BetPlayer2Double maximum bet limit.\n Only niuniu."
+        },
+        "betPlayer3Min" : {
+          "type" : "number",
+          "description" : "BetPlayer3 minimum bet limit.\n Only niuniu."
+        },
+        "betPlayer3Max" : {
+          "type" : "number",
+          "description" : "BetPlayer3 maximum bet limit.\n Only niuniu."
+        },
+        "betPlayer3DoubleMin" : {
+          "type" : "number",
+          "description" : "BetPlayer3Double minimum bet limit.\n Only niuniu."
+        },
+        "betPlayer3DoubleMax" : {
+          "type" : "number",
+          "description" : "BetPlayer3Double maximum bet limit.\n Only niuniu."
+        },
+        "number_1Min" : {
+          "type" : "number",
+          "description" : "Number1 minimum bet limit.\n Only fortune-wheel."
+        },
+        "number_1Max" : {
+          "type" : "number",
+          "description" : "Number1 maximum bet limit.\n Only fortune-wheel."
+        },
+        "number_2Min" : {
+          "type" : "number",
+          "description" : "Number2 minimum bet limit.\n Only fortune-wheel."
+        },
+        "number_2Max" : {
+          "type" : "number",
+          "description" : "Number2 maximum bet limit.\n Only fortune-wheel."
+        },
+        "number_5Min" : {
+          "type" : "number",
+          "description" : "Number5 minimum bet limit.\n Only fortune-wheel."
+        },
+        "number_5Max" : {
+          "type" : "number",
+          "description" : "Number5 maximum bet limit.\n Only fortune-wheel."
+        },
+        "number_10Min" : {
+          "type" : "number",
+          "description" : "Number10 minimum bet limit.\n Only fortune-wheel."
+        },
+        "number_10Max" : {
+          "type" : "number",
+          "description" : "Number10 maximum bet limit.\n Only fortune-wheel."
+        },
+        "number_20Min" : {
+          "type" : "number",
+          "description" : "Number20 minimum bet limit.\n Only fortune-wheel."
+        },
+        "number_20Max" : {
+          "type" : "number",
+          "description" : "Number20 maximum bet limit.\n Only fortune-wheel."
+        },
+        "number_40Min" : {
+          "type" : "number",
+          "description" : "Number40 minimum bet limit.\n Only fortune-wheel."
+        },
+        "number_40Max" : {
+          "type" : "number",
+          "description" : "Number40 maximum bet limit.\n Only fortune-wheel."
+        },
+        "multipleMin" : {
+          "type" : "number",
+          "description" : "Multiple minimum bet limit.\n Only fortune-wheel."
+        },
+        "multipleMax" : {
+          "type" : "number",
+          "description" : "Multiple maximum bet limit.\n Only fortune-wheel."
+        }
+      }
+    },
+    "body_9" : {
+      "required" : [ "channelId", "limit", "signature", "timestamp", "username" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature2"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "limit" : {
+          "type" : "array",
+          "description" : "",
+          "items" : {
+            "$ref" : "#/definitions/apiupdatebetlimit_limit"
+          }
+        }
+      }
+    },
+    "body_10" : {
+      "required" : [ "channelId", "signature", "timestamp" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "betHistoryId" : {
+          "type" : "string",
+          "example" : "5e0d696b2fdda1335fa68243",
+          "description" : "Bet Record ID.\n Must take username and roundCode if not take this parameter."
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "lang" : {
+          "type" : "string",
+          "example" : "en_us",
+          "description" : "Language code. Default English."
+        }
+      }
+    },
+    "body_11" : {
+      "required" : [ "channelId", "signature", "timestamp" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature2"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "subChannelId" : {
+          "$ref" : "#/definitions/subChannelId"
+        },
+        "startTimeStr" : {
+          "$ref" : "#/definitions/startTimeStr"
+        },
+        "endTimeStr" : {
+          "$ref" : "#/definitions/endTimeStr"
+        },
+        "pageNum" : {
+          "$ref" : "#/definitions/pageNum"
+        },
+        "pageSize" : {
+          "$ref" : "#/definitions/pageSize"
+        },
+        "tradeType" : {
+          "type" : "array",
+          "example" : [ 23, 24 ],
+          "description" : "Transaction record",
+          "items" : {
+            "type" : "number"
+          }
+        }
+      }
+    },
+    "body_12" : {
+      "required" : [ "channelId", "signature", "timestamp" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "subChannelId" : {
+          "$ref" : "#/definitions/subChannelId"
+        },
+        "startTimeStr" : {
+          "$ref" : "#/definitions/startTimeStr"
+        },
+        "endTimeStr" : {
+          "$ref" : "#/definitions/endTimeStr"
+        },
+        "pageNum" : {
+          "$ref" : "#/definitions/pageNum"
+        },
+        "pageSize" : {
+          "$ref" : "#/definitions/pageSize"
+        },
+        "gameType" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "Game type"
+        },
+        "judgeTime" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "Judgment query time. Default is 1\n 0: Payout time\n 1: Bet time"
+        }
+      }
+    },
+    "body_13" : {
+      "required" : [ "channelId", "endTimeStr", "pageNum", "pageSize", "signature", "startTimeStr", "timestamp" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description" : "Signature. String splicing :channelId+timestamp"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "subChannelId" : {
+          "$ref" : "#/definitions/subChannelId"
+        },
+        "startTimeStr" : {
+          "$ref" : "#/definitions/startTimeStr"
+        },
+        "endTimeStr" : {
+          "$ref" : "#/definitions/endTimeStr"
+        },
+        "pageNum" : {
+          "$ref" : "#/definitions/pageNum"
+        },
+        "pageSize" : {
+          "$ref" : "#/definitions/pageSize"
+        },
+        "judgeTime" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "Judgment query time. Default is 1\n 0: Payout time\n 1: Bet time"
+        }
+      }
+    },
+    "body_14" : {
+      "required" : [ "channelId", "signature", "timestamp", "username" ],
+      "properties" : {
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature2"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        }
+      }
+    },
+    "body_15" : {
+      "required" : [ "channelId", "gameID", "loginEventType", "providerId", "signature", "timestamp", "username" ],
+      "properties" : {
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature"
+        },
+        "gameID" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "slot game id"
+        },
+        "providerId" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "slot game vendor id"
+        },
+        "loginEventType" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "Login method:\n 1: Normal login\n 4: Token login"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "pwd" : {
+          "type" : "string",
+          "example" : "password",
+          "description" : "Password for login. Required when loginEventType = 1"
+        },
+        "token" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "AccessToken for login. Required when loginEventType = 4"
+        },
+        "ip" : {
+          "type" : "string",
+          "example" : "127.0.0.1",
+          "description" : "Login IP"
+        },
+        "language" : {
+          "type" : "string",
+          "example" : "",
+          "description" : "User's language"
+        }
+      }
+    },
+    "body_16" : {
+      "required" : [ "channelId", "signature", "timestamp" ],
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description" : "Signature. String splicing :channelId+timestamp"
+        }
+      }
+    },
+    "body_17" : {
+      "required" : [ "accessToken", "channelId", "signature", "timestamp", "username" ],
+      "properties" : {
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "subChannelId" : {
+          "$ref" : "#/definitions/subChannelId"
+        },
+        "timestamp" : {
+          "type" : "number",
+          "example" : 1.987654321E9,
+          "description" : "Current time. In seconds. Format is Unix Time."
+        },
+        "accessToken" : {
+          "type" : "string",
+          "example" : "accessToken",
+          "description" : "This parameter value is provided by the channel"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description" : "Signature. String splicing :username+channelId+accessToken+timestamp"
+        }
+      }
+    },
+    "betHistories_payoutDetail" : {
+      "type" : "object",
+      "properties" : {
+        "bet item code" : {
+          "type" : "number",
+          "example" : 543.21
+        }
+      },
+      "description" : "Payout amount for each bet item.\n Sic Bo's 155.156 will be followed by the number of open dice points, for example \"155: 1,1,6\": 100.\n Betting items on the roulette are followed by points or betTypeInterval codes, such as \"200: 17\": 3600, \"207: 1\": 300, \"201: 14,17\": 1800."
+    },
+    "betHistories_niuniuResult" : {
+      "type" : "object",
+      "properties" : {
+        "banker" : {
+          "type" : "number",
+          "description" : "Combination code for banker."
+        },
+        "player1" : {
+          "type" : "number",
+          "description" : "Combination code for player 1."
+        },
+        "player2" : {
+          "type" : "number",
+          "description" : "Combination code for player 2."
+        },
+        "player3" : {
+          "type" : "number",
+          "description" : "Combination code for player 3."
+        },
+        "isWin" : {
+          "type" : "boolean",
+          "description" : "Whether win"
+        }
+      },
+      "description" : "Only niuniu. Niuniu's results record."
+    },
+    "betHistories_niuniuWithHoldingDetail" : {
+      "type" : "object",
+      "properties" : {
+        "302" : {
+          "type" : "number",
+          "description" : "Withholding amount for bet item \"Player 1 Double\""
+        },
+        "304" : {
+          "type" : "number",
+          "description" : "Withholding amount for bet item \"Player 2 Double\""
+        },
+        "306" : {
+          "type" : "number",
+          "description" : "Withholding amount for bet item \"Player 3 Double\""
+        }
+      },
+      "description" : "Only niuniu. Niuniu's withholding details."
+    }
+  }
+}

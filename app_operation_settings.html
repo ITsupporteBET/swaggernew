@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="eBET API Document" />
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="verify" content="index,follow" />
+    <title>eBET</title>
+    <div id="h_css"></div>
+
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="container">
+        <div id="container"></div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/header_css.js"></script>
+    <!-- <script src="js/block.js"></script> -->
+    <script>
+        const web_context = document.getElementById('container');
+
+        if (window.localStorage.getItem('lang') == "cn") {
+            web_context.innerHTML = `<h1>游戏登入说明</h1>
+    <span>下载eBET APP</span><br>
+    <span>只有android app的下载连结：https://www.eBETapp.com/&lt;渠道名&gt;</span><br>
+    <span>双平台app的下载连结：https://upload.eBETapp.com/&lt;渠道名&gt;</span><br><br>
+    <h2>1. 一般登入(normal login)</h2>
+    <span>输入帐号和密码在eBET的App上</span><br><br>
+    <h2>2. AppLink登入(applink login)</h2>
+    <span>该功能是从渠道的App跳转至eBET APP</span><br>
+    <span>－渠道使用eBET提供的AppLink Rules告知eBET用户登入</span><br>
+    <span>－开启eBET App</span><br><br>`;
+        } else {
+            web_context.innerHTML = `<h1>Game login instructions</h1>
+    <span>Download eBET APP</span><br>
+    <span>Only download link for android app: https://www.eBETapp.com/&lt;channel name&gt;</span><br>
+    <span>There are download links for android and ios two platform apps: https://upload.eBETapp.com/&lt;channel name&gt;</span><br><br>
+    <h2>1. normal login</h2>
+    <span>Enter account and password on eBET’s APP</span><br><br>
+    <h2>2. AppLink login</h2>
+    <span>This function is to jump from channel APP to eBET APP</span><br>
+    <span>－Channels use the AppLink Rules provided by eBET to notify eBET</span><br>
+    <span>－Open eBET App</span><br><br>`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexkai.css);
+
+.code {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* p{direction: rtl;    unicode-bidi: embed;} */
+code {
+    font-size: 14px;
+    padding: 5px 7px;
+    border-radius: 4px;
+    background: rgba(0,0,0,.05);
+    font-family: monospace;
+    font-weight: 600;
+}
+body{
+    margin-top:74px;
+}
+.t_block {
+display: block;
+height: 1000px;
+}
+
+.logo_img {
+    height: 3rem;
+}
+/* 隱藏modal */
+.swagger-ui section.models  {
+    display: none;
+}
+
+/* .swagger-ui .auth-wrapper .authorize{
+    display: none !important;
+} */
+
+/* 隱藏Try it */
+.swagger-ui .btn {
+    display: none;
+}
+
+/* 修正collapse */
+.fixed-table-container {
+padding-bottom: 40px !important;
+}
+
+.btn {
+width: 100%;
+}
+
+/* 標題 */
+.swagger-ui .info hgroup.main {
+    display: none;
+}
+
+.swagger-ui section {
+    margin-top:74px !important;
+}
+h1{
+    font-family:Arial,'DFKai-sb';
+}
+h2{
+    font-family:Arial,'PMingLiU';
+}
+span{
+    font-family: Arial,'Noto Sans SC', sans-serif;
+}
+.fixed-table-border{
+    display: none;
+}
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0uei{font-weight:bold;font-size:18px;background-color:#dae8fc;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg-sort-header::-moz-selection{background:0 0}
+.tg-sort-header::selection{background:0 0}
+.tg-sort-header{cursor:pointer}
+.tg-sort-header:after{content:'';float:right;margin-top:7px;border-width:0 5px 5px;border-style:solid;border-color:#404040 transparent;visibility:hidden}
+.tg-sort-header:hover:after{visibility:visible}
+.tg-sort-asc:after,.tg-sort-asc:hover:after,@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}
+
+.ebet_logo { color: #ffa700; }

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="eBET API Document" />
+  <meta name="robots" content="index,follow" />
+  <meta name="google" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <meta name="verify" content="index,follow" />
+  <title>eBET</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+  <link rel="stylesheet" href="css/api.css">
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <div class="container">
+    <div id="container"></div>
+
+
+  </div>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/currency.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/platform.js"></script>
+  <script src="js/tableType.js"></script>
+  <script src="js/tableSubType.js"></script>
+  <script src="js/typeId.js"></script>
+  <script src="js/type.js"></script>
+  <script src="js/bet_code.js"></script>
+  <!-- <script src="js/block.js"></script> -->
+  <script>
+    const web_context = document.getElementById('container');
+
+    if (window.localStorage.getItem('lang') == "cn") {
+      web_context.innerHTML = `
+  <h1 id="currency_n">currency</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#currency">currency</button>
+  <div id="currency" class="collapse">
+    <table class="currency" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="currency">币种</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    
+
+    <h1 id="language_n">language</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#language">language</button>
+  <div id="language" class="collapse">
+    <table class="language" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="language">语系</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+    
+
+    <h1 id="platform_n">platform</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#platform">platform</button>
+  <div id="platform" class="collapse">
+    <table class="platform" data-height="228">
+      <thead>
+        <tr>
+          <th data-field="code">代码</th>
+          <th data-field="deviceType">玩家的游戏平台</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+
+    <h1 id="tableType_n">tableType</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#tableType">tableType</button>
+  <div id="tableType" class="collapse">
+    <table class="tableType" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="code">代码</th>
+          <th data-field="GameType">游戏类型</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    <h1 id="tableSubType_n">tableSubType</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#tableSubType">tableSubType</button>
+  <div id="tableSubType" class="collapse">
+    <table class="tableSubType" data-height="147">
+      <thead>
+        <tr>
+          <th data-field="code">代码</th>
+          <th data-field="GameType">桌子类型</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+    
+
+
+    <h1 id="typeId_n">typeId</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#typeId">typeId</button>
+  <div id="typeId" class="collapse">
+    <table class="typeId" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="code">代码</th>
+          <th data-field="description">多钱包类型说明</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    
+
+    <h1 id="type_n">type</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#type">type</button>
+  <div id="type" class="collapse">
+    <table class="type" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="Code">代码</th>
+          <th data-field="Type">事务类型</th>
+          <th data-field="description">说明</th>
+          <th data-field="Occurrence">发生情况</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+    
+
+
+    <h1 id="betcode_n">bet code</h1>
+    <br>
+
+
+    <h2 id="baccarat_n">百家乐</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#baccarat">百家乐</button>
+  <div id="baccarat" class="collapse">
+    <table class="baccarat" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">代码</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+  
+    <h2 id="dragonTiger_n">龙虎</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#dragonTiger">龙虎</button>
+  <div id="dragonTiger" class="collapse">
+    <table class="dragonTiger" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">代码</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+    
+
+
+    <h2 id="sicbo_n">骰宝</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#sicbo">骰宝</button>
+  <div id="sicbo" class="collapse">
+    <table class="sicbo" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">代码</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+    
+
+
+    <h2 id="roulette_n">轮盘</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#roulette">轮盘</button>
+  <div id="roulette" class="collapse">
+    <table class="roulette" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">代码</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+    
+
+
+    <h2 id="bullbull_n">牛牛</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bullbull">牛牛</button>
+  <div id="bullbull" class="collapse">
+    <table class="bullbull" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">代码</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+    
+
+
+
+    <h2 id="Fortune_Wheel_n">财富大转盘</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Fortune_Wheel">财富大转盘</button>
+  <div id="Fortune_Wheel" class="collapse">
+    <table class="Fortune_Wheel" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">代码</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+    
+
+    
+    <!-- <h2 id="">彩票</h2>
+    <br>
+
+    <h3 id="">betType 01 TicketType(彩种类型)</h3>
+    <br>
+    <table class="ticket_TicketType" data-height="290">
+      <thead>
+        <tr>
+          <th data-field="bid">代码</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+    <br>
+    
+
+    
+    <h3 id="">betType 02 GameType(玩法类型)</h3>
+    <br>
+    <table class="ticket_GameType" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="Key">代码</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+    <br>
+    
+
+
+    <h3 id="">betType 03 PickType(选号类型)</h3>
+    <br>
+    <table class="ticket_PickType" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="Key">代码</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+    <br>
+    
+
+
+    <h3 id="">betType 04 PickValue(选号值)</h3>
+    <br>
+    <table class="ticket_PickValue" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="Key">代码</th>
+          <th data-field="description">描述</th>
+        </tr>
+      </thead>
+    </table>
+    <br> -->
+    `;
+    } else {
+      web_context.innerHTML = `
+  <h1 id="currency_n">currency</h1>
+
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#currency">currency</button>
+  <div id="currency" class="collapse">
+    <table class="currency" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="currency">currency</th>
+          <th data-field="description">description</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+
+
+    <h1 id="language_n">language</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#language">language</button>
+  <div id="language" class="collapse">
+    <table class="language" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="language">Language</th>
+          <th data-field="description">description</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    <h1 id="platform_n">platform</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#platform">platform</button>
+  <div id="platform" class="collapse">
+    <table class="platform" data-height="228">
+      <thead>
+        <tr>
+          <th data-field="code">code</th>
+          <th data-field="deviceType">deviceType</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    <h1 id="tableType_n">tableType</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#tableType">tableType</button>
+  <div id="tableType" class="collapse">
+    <table class="tableType" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="code">code</th>
+          <th data-field="GameType">deviceType</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    <h1 id="tableSubType_n">tableSubType</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#tableSubType">tableSubType</button>
+  <div id="tableSubType" class="collapse">
+    <table class="tableSubType" data-height="147">
+      <thead>
+        <tr>
+          <th data-field="code">code</th>
+          <th data-field="GameType">deviceType</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    <h1 id="typeId_n">typeId</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#typeId">typeId</button>
+  <div id="typeId" class="collapse">
+    <table class="typeId" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="code">code</th>
+          <th data-field="description">deviceType</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    <h1 id="type_n">type</h1>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#type">type</button>
+  <div id="type" class="collapse">
+    <table class="type" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="Code">code</th>
+          <th data-field="Type">Type</th>
+          <th data-field="description">description</th>
+          <th data-field="Occurrence">Occurrence</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    <h1 id="betcode_n">bet code</h1>
+    <br>
+
+
+    <h2 id="baccarat_n">baccarat</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#baccarat">baccarat</button>
+  <div id="baccarat" class="collapse">
+    <table class="baccarat" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">betCode</th>
+          <th data-field="description">deviceType</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+
+    <h2 id="dragonTiger_n">dragonTiger</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#dragonTiger">dragonTiger</button>
+  <div id="dragonTiger" class="collapse">
+    <table class="dragonTiger" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">betCode</th>
+          <th data-field="description">deviceType</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    <h2 id="sicbo_n">sicbo</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#sicbo">sicbo</button>
+  <div id="sicbo" class="collapse">
+    <table class="sicbo" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">betCode</th>
+          <th data-field="description">deviceType</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    <h2 id="roulette_n">roulette</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#roulette">roulette</button>
+  <div id="roulette" class="collapse">
+    <table class="roulette" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">betCode</th>
+          <th data-field="description">deviceType</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+    <h2 id="bullbull_n">BullBull</h2>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bullbull">bullbull</button>
+  <div id="bullbull" class="collapse">
+    <table class="bullbull" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">betCode</th>
+          <th data-field="description">deviceType</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+
+
+    <h2 id="Fortune_Wheel_n">Fortune Wheel</h2>
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Fortune_Wheel">Fortune_Wheel</button>
+  <div id="Fortune_Wheel" class="collapse">
+    <table class="Fortune_Wheel" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="betCode">betCode</th>
+          <th data-field="description">deviceType</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <br>
+  <br>
+`;
+
+    }
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="eBET API Document" />
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="verify" content="index,follow" />
+    <title>eBET</title>
+    <div id="h_css"></div>
+
+</head>
+
+<body>
+    <div id="header"></div>
+
+
+    <div class="container">
+        <div id="container"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/header_css.js"></script>
+    <!-- <script src="js/block.js"></script> -->
+    <script>
+        const web_context = document.getElementById('container');
+
+        if (window.localStorage.getItem('lang') == "cn") {
+            web_context.innerHTML = `<h1>代码样本（供参考）</h1><br>
+                <h2>C# 登入 API 代码样本</h2>
+
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#clogin">C# 登入 API 代码样本</button>
+                <div id="clogin" class="collapse">
+                        <span class="code">
+                                （ASP.NET WEB API framework 4.*）-（更详细请看示范代码）<br>
+                                [HttpPost]//说明请求方式是 POST 请求<br>
+                                public HttpResponseMessage RegisterOrLogin() //方法名，返回 HTTP Response<br>
+                                Stream stream =<br>
+                                HttpContext.Current.Request.GetBufferedInputStream();//读取<br>
+                                HTTP input stream StreamReader reader = new<br>
+                                StreamReader(stream);// 使用 streamReader 读取 stream<br>
+                                string jsonPost = reader.ReadToEnd(); //读取 stream<br>
+                                RegisterOrLoginResp resp = new RegisterOrLoginResp(); // 建立一个model 对象<br>
+                                if (jsonPost.Contains(\"RegisterOrLoginReq\"))// 如果是RegisterOrLoginReq，处理登入请求<br>
+                                // 转换去对象<br>
+                                RegisterOrLoginReq req =<br>
+                                JsonConvert.DeserializeObject<RegisterOrLoginReq>(jsonPost);//读取对象值参数<br>
+                                if (req.username == xx && req.password == xx) ………..<br>
+                                return Request.CreateResponse(resp);//返回请求响应 (JSON 数据)<br>
+                                else if (jsonPost.Contains(\"UserInfo\")) //处理 userinfo 请求<br>
+                                // 处理用户充值等等….;<br></span>
+                </div>
+
+                <h2 id="javalogin_title">JAVA 登入 API 代码样本</h2>
+
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#javalogin">JAVA 登入 API 代码样本</button>
+                <div id="javalogin" class="collapse">
+                        <span class="code" id="javalogin_text">
+                                （JAVA SPRING WEB API 4.*）-（更详细请看示范代码）<br> 
+                                @RequestMapping(value=\/login\, method = RequestMethod.POST)<br> 
+                                //说明请求方式是 POST 请求 public<br> 
+                                ResponseEntity<RegisterOrLoginResp> ValidateLoginInfo<br> 
+                                (HttpServletRequest request, HttpServletResponse response) {<br> 
+                                // 用户登入验证方法<br> 
+                                InputStream reader = request.getInputStream();<br> 
+                                //读取返回目錄<br> 
+                                HTTP input stream BufferedReader br =new BufferedReader(new<br> 
+                                InputStreamReader(reader)); //用来读取 stream<br> 
+                                // 把 stream 转换成 json string<br> 
+                                StringBuilder sb= new StringBuilder();<br> 
+                                String jsonString = \\;<br> 
+                                while((jsonString = br.readLine()) != null) {<br> 
+                                sb.append(jsonString);<br> 
+                                }<br> 
+                                ObjectMapper mapper = new ObjectMapper();<br> 
+                                // 用来转换 JSON 去对象<br> 
+                                RegisterOrLoginReq req =<br> 
+                                mapper.readValue(jsonString,RegisterOrLoginReq.class);<br> 
+                                // 转换指定的<br> 
+                                对象 RegisterOrLoginResp resp = new RegisterOrLoginResp();<br> 
+                                // 建立返回请求响应对象 
+                                if （req.getUsername() == xx && req.getPassword() == xx）{...}<br> 
+                                resp.setStatus(200);<br> 
+                                //设置对象参数值<br> 
+                                return new ResponseEntity<RegisterOrLoginResp>(resp,HttpStatus.OK);<br> 
+                                // 返回请求结果\<br> 
+                                }<br></span>
+                </div>
+
+                <h2>PHP 登入 API 代码样本</h2>
+
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#phplogin">PHP 登入 API 代码样本</button>
+                <div id="phplogin" class="collapse">
+                        <span class="code">
+                                (PHP 5.5.*) -（更详细请看示范代码）<br>
+                                &lt;?php<br>
+                                $post = file_get_contents('php://input'); //读取 HTTP input stream<br>
+                                if ($_SERVER[“REQUEST_METHOD”] == “POST”) ｛//检查是否是 POST 请求<br>
+                                $obj = json_decode($post); // JSON 字符串译码<br>
+                                $cmd = $obj→{'cmd'};//读取 参数值<br>
+                                if($cmd == "RegisterOrLoginReq"){..｝//处理用户登入验证请求<br>
+                                if($cmd == "UserInfo"){…}<br>
+                                //处理 userinfo 请求<br>
+                                //设置返回参数值<br>
+                                $data = array('cmd' => 'RegisterOrLoginResp','status'=>200);<br>
+                                header('Content-type: application/json');<br>
+                                echo json_encode($data);｝<br>
+                        </span>
+                </div>
+
+
+                <h2>C# 请求服务器资源代码样本</h2>
+
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#creq">C# 请求服务器资源代码样本</button>
+                <div id="creq" class="collapse">
+                        <span class="code" id="creq_text">
+                                public class UserInfoResp｛public string username { get; set; } ｝//定义 model<br>
+                                var client = new WebClient();//建立 webClient 对象<br>
+                                var parameters = new NameValueCollection();//使用 NameValueCollection 封装请求参数值<br>
+                                parameters["username"] ＝“xx” //设置请求值<br>
+                                var response = client.UploadValues("request ip ", parameters);//请求服务器资源<br>
+                                var jsonString = Encoding.Default.GetString(response);//读取译码 JSON 字符串<br>
+                                UserInfoResp resp = JsonConvert.DeserializeObject&lt;UserInfoResp&gt;(jsonString);
+                                //转换去对象<br>
+                                Console.WriteLine(resp.status);//读取 对象参数值
+                        </span>
+                </div>
+
+                <h2>JAVA 请求服务器资源代码样本</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#javareq">JAVA 请求服务器资源代码样本</button>
+                <div id="javareq" class="collapse">
+                        <span class="code" id="javareq_text">
+                                CloseableHttpClient client = HttpClients.createDefault();//创建<br>
+                                HTTP client object HttpPost httpPost = new HttpPost("request ip URL");<br>
+                                //设置POST 请求地址URL<br>
+                                ArrayList &lt;NameValuePair&gt; params = new ArrayList&lt;NameValuePair&gt;();<br>
+                                //用来封装请求参数值<br>
+                                params.add(new BasicNameValuePair("username", “xxx”)); //设置参数值<br>
+                                httpPost.setEntity(new UrlEncodedFormEntity(params)); //url encode form 编码<br>
+                                CloseableHttpResponse response = client.execute(httpPost); //发送 HTTP POST 请求
+                                <br>
+                                //读取请求返回内容<br>
+                                BufferedReader reader = new
+                                BufferedReader(newInputStreamReader(response.getEntity().getContent())); <br>
+                                StringBuilder builder = new StringBuilder(); String line = "";<br>
+                                while( (line = reader.readLine()) != null) {<br>
+                                builder.append(line);<br>
+                                }<br>
+                                ObjectMapper mapper = new ObjectMapper();<br>
+                                UserInfoResp resp = mapper.readValue(builder.toString(),UserInfoResp.class);//转换 JSON 字符串去对象<br>
+                                System.out.println(resp.getLoginname());//读取参数值<br>
+                        </span>
+                </div>
+
+                <h2>PHP 请求服务器资源代码样本</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#phpreq">PHP 请求服务器资源代码样本</button><br>
+                <div id="phpreq" class="collapse">
+                        <span class="code" id="phpreq_text">
+                                $data = array('username' => xxx,
+                                'channelId'=>'xx','timestamp'=>xxx,'signature'=>xxx);<br>
+                                $options = array(<br>
+                                'http' => array(<br>
+                                'header' => "Content-type: application/x-www-form-urlencoded\r<br>",<br>
+                                'method' => 'POST',<br>
+                                'content' => http_build_query($data), ), );<br>
+                                $context = stream_context_create($options);//发送 HTTP POST 请求<br>
+                                $result = file_get_contents($url, false, $context);//读取 HTTP POST 请求回应<br>
+                                $obj = json_decode($result);<br>
+                                $status = $obj→{'status'}; //读取参数值<br>
+                        </span>
+                </div><br>
+
+                <h1 id="rsa_title">RSA代码实作参考</h1><br>
+
+                <h2>C# RSA 实现方法</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#crsa">C# RSA 实现方法</button>
+                <div id="crsa" class="collapse">
+                <span class="code" id="crsa_text">
+                        //私钥匙加密<br>
+                        public static string SignAndHash(string dataToSign ,string privatekey)<br>
+                        {<br>
+                        UnicodeEncoding ByteConverter = new UnicodeEncoding();<br>
+                        RSACryptoServiceProvider RSAProvider = new RSACryptoServiceProvider();<br>
+                        var encoder = new UTF8Encoding();<br>
+                        byte[] plaintext = encoder.GetBytes(dataToSign);<br>
+                        RSAProvider.FromXmlString(privatekey);<br>
+                        RSAParameters priKey = RSAProvider.ExportParameters(true);<br>
+                        RSAProvider.ImportParameters(priKey);<br>
+                        byte[] sign = RSAProvider.SignData(plaintext, CryptoConfig.MapNameToOID("MD5"));<br>
+                        return Convert.ToBase64String(sign);<br>
+                        }<br>
+                        //公钥匙验证<br>
+                        public static bool VerifySignedHash(string dataToSign, string SignedData, string public_key)
+                        {<br>
+                        try{<br>
+                        UnicodeEncoding ByteConverter = new UnicodeEncoding();<br>
+                        var encoder = new UTF8Encoding();<br>
+                        RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider();<br>
+                        RSAParameters priKey = RSAalg.ExportParameters(true);<br>
+                        RSAalg.ImportParameters(priKey);<br>
+                        RSAalg.FromXmlString(public_key);<br>
+                        byte[] plaintext = encoder.GetBytes(dataToSign);<br>
+                        return RSAalg.VerifyData(plaintext, CryptoConfig.MapNameToOID("MD5"),<br>
+                        Convert.FromBase64String(SignedData));<br>
+                        }catch (CryptographicException e){ Console.WriteLine(e.Message + " <br>
+                        Error!!!");<br>
+                        Console.ReadLine();<br>
+                        return false;}}<br>
+                </span>
+                </div>
+
+                <h2>JAVA RSA 实现方法</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#javarrsa">JAVA RSA 实现方法</button>
+                <div id="javarrsa" class="collapse">
+                <span class="code" id="javarsa_text">
+                        //私钥匙加密<br>
+                        public static String sign(byte[] data,String privateKey)throws NoSuchAlgorithmException,<br>
+                        InvalidKeySpecException, InvalidKeyException, SignatureException <br>
+                        {byte[] keyBytes = Base64.getDecoder().decode(privateKey.getBytes());<br>
+                        PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(keyBytes);<br>
+                        KeyFactory keyFactory = KeyFactory.getInstance("RSA");<br>
+                        PrivateKey priKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);<br>
+                        Signature signature = Signature.getInstance("MD5withRSA");<br>
+                        signature.initSign(priKey);<br>
+                        signature.update(data);<br>
+                        return new String(Base64.getEncoder().encode(signature.sign())); }<br>
+                        //公钥匙验证<br>
+                        public static boolean verify(byte[] data,String publicKey,String sign)throws Exception{<br>
+                        byte[] keyBytes = Base64.getDecoder().decode(publicKey.getBytes());<br>
+                        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(keyBytes);<br>
+                        KeyFactory keyFactory = KeyFactory.getInstance("RSA");<br>
+                        PublicKey publicKey2 = keyFactory.generatePublic(x509EncodedKeySpec);<br>
+                        Signature signature = Signature.getInstance("MD5withRSA");<br>
+                        signature.initVerify(publicKey2);<br>
+                        signature.update(data);<br>
+                        return signature.verify(Base64.getDecoder().decode(sign));<br>
+                        }<br>
+                </span>
+                </div>
+
+                <h2 id="phprsa_title">PHP RSA 实现方法</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#phprsa">PHP RSA 实现方法</button>
+                <div id="phprsa" class="collapse">
+                <span class="code" id="phprsa_text">
+                        RSA PHP URL：https://github.com/phpseclib/phpseclib/tree/1.0<br>
+                        //私钥匙加密<br>
+                        $rsa = new Crypt_RSA();<br>
+                        $rsa→loadKey(xxx）;//xxx private key<br>
+                        $rsa→setSignatureMode(CRYPT_RSA_SIGNATURE_PKCS1);<br>
+                        $rsa→setHash("md5");<br>
+                        $signature = $rsa→sign($plaintext); <br>
+                        echo base64_encode($signature);<br>
+                        //公钥匙验证<br>
+                        $rsa = new Crypt_RSA();<br>
+                        $rsa->loadKey('publickey');<br>
+                        $rsa→setSignatureMode(CRYPT_RSA_SIGNATURE_PKCS1);<br>
+                        $rsa→setHash("md5");<br>
+                        echo $rsa->verify($plaintext, base64_decode($signature)) ? 'verified' : 'unverified';<br>
+                </span>
+                </div>
+
+                <h2 id="oauth_title">oAuth JS 窗口关闭</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#oauth">oAuth JS 窗口关闭</button>
+                <div id="oauth" class="collapse">
+                <span class="code" id="oauth_text">
+                        &lt;script type="text/javascript"&gt;<br>
+                        if(window.AndroidBridge)<br>
+                        {<br>
+                        // native -android app<br>
+                        window.AndroidBridge.closeWebview();<br>
+                        }<br>
+                        else if(window.webkit)<br>
+                        {<br>
+                        // native -ios app<br>
+                        window.webkit.messageHandlers.closeOauthLogin.postMessage(null);<br>
+                        }<br>
+                        else<br>
+                        {<br>
+                        // h5<br>
+                        parent.postMessage({<br>
+                        msg: "closeOauthLogin"<br>
+                        }, "*");<br>
+                        }<br>
+                        &lt;script&gt;
+                </span>
+                </div>`;
+        } else {
+            web_context.innerHTML = `<h1>Sample Source Code (For Reference)</h1><br>
+                <h2>C# user login authentication web api</h2>
+
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#clogin">C# user login
+                        authentication web api</button>
+                <div id="clogin" class="collapse">
+                        <span class="code">
+                                （ASP.NET WEB API framework 4.*）-（Referial full source code）<br>
+                                [HttpPost]//to set this API is using POST method<br>
+                                public HttpResponseMessage RegisterOrLogin()//return HTTP Response Stream<br>
+                                Stream stream = <br>
+                                HttpContext.Current.Request.GetBufferedInputStream();//get HTTP input<br>
+                                HTTP input stream StreamReader reader = new StreamReader(stream);//streamReaderread
+                                stream<br>
+                                string jsonPost = reader.ReadToEnd(); //read stream<br>
+                                RegisterOrLoginResp resp = new RegisterOrLoginResp(); //build model object<br>
+                                if (jsonPost.Contains("RegisterOrLoginReq"))//if is RegisterOrLoginReq , handle user
+                                authentication request
+                                //convert string to object<br>
+                                RegisterOrLoginReq req = <br>
+                                JsonConvert.DeserializeObject &lt;RegisterOrLoginReq&gt; (jsonPost);//read object
+                                value<br>
+                                if (req.username == xx && req.password == xx) ………..
+                                return Request.CreateResponse(resp);//return POST response (JSON data)<br>
+                                else if (jsonPost.Contains("UserInfo"))//handle user info request<br>
+                                // business logic –recharge and etc</span>
+                </div>
+
+                <h2>JAVA user login authentication web api</h2>
+
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#javalogin">JAVA user
+                        login
+                        authentication web api</button>
+                <div id="javalogin" class="collapse">
+                        <span class="code">
+                                （JAVA SPRING WEB API 4.*）-（Refer full source code）<br>
+                                @RequestMapping(value="/login", method = RequestMethod.POST)////API using POST
+                                method<br>
+                                public ResponseEntity &lt;RegisterOrLoginResp&gt; ValidateLoginInfo <br>
+                                (HttpServletRequest request, HttpServletResponse response) { // user login verify
+                                function<br>
+                                InputStream reader = request.getInputStream();//getHTTP input stream<br>
+                                HTTP input stream BufferedReader br =new BufferedReader(new<br>
+                                InputStreamReader(reader)); <br>
+                                //usingstream // convert stream to json string<br>
+                                StringBuilder sb= new StringBuilder(); <br>
+                                String jsonString = "";<br>
+                                while((jsonString = br.readLine()) != null) {<br>
+                                sb.append(jsonString);<br>
+                                } <br>
+                                ObjectMapper mapper = new ObjectMapper();//convert JSON to object.<br>
+                                RegisterOrLoginReq req = mapper.readValue(jsonString,RegisterOrLoginReq.class);
+                                //convert to
+                                object.<br>
+                                RegisterOrLoginResp resp = new RegisterOrLoginResp();//build returnrequest object<br>
+                                if （req.getUsername() == xx && req.getPassword() == xx）{...}<br>
+                                resp.setStatus(200);<br>
+                                //Set object parameter values<br>
+                                return new ResponseEntity<RegisterOrLoginResp>(resp,HttpStatus.OK);// return POST
+                                        response
+                        </span>
+                </div>
+
+                <h2>PHP user authentication web api</h2>
+
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#phplogin">JAVA user
+                        login
+                        authentication web api</button>
+                <div id="phplogin" class="collapse">
+                        <span class="code">
+                                (PHP 5.5.*) -（Refer full source code）<br>
+                                &lt;?php<br>
+                                $post = file_get_contents('php://input'); //get HTTP input stream<br>
+                                if ($_SERVER[“REQUEST_METHOD”] == “POST”) ｛//check isPOST request<br>
+                                $obj = json_decode($post); // JSON decode<br>
+                                $cmd = $obj→{'cmd'};//read value<br>
+                                if($cmd == "RegisterOrLoginReq"){..｝//handle user login request <br>
+                                if($cmd == "UserInfo"){…}<br>
+                                //handle userinfo request<br>
+                                //set the return parameter value <br>
+                                $data = array('cmd' => 'RegisterOrLoginResp','status'=>200);<br>
+                                header('Content-type: application/json');<br>
+                                echo json_encode($data);｝<br>
+                        </span>
+                </div>
+
+
+                <h2>C# send HTTP POST Request to API</h2>
+
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#creq">C# send HTTP POST
+                        Request to API</button>
+                <div id="creq" class="collapse">
+                        <span class="code" id="creq_text">
+                                public class UserInfoResp｛public string username { get; set; } ｝//define model<br>
+                                var client = new WebClient();//create webClient object<br>
+                                var parameters = new NameValueCollection();// using NameValueCollection to package
+                                parameter
+                                value <br>
+                                parameters["username"] ＝“xx” //Set request value<br>
+                                var response = client.UploadValues("request ip ", parameters);//send POST request to API
+                                server<br>
+                                var jsonString = Encoding.Default.GetString(response);// read JSON data<br>
+                                UserInfoResp resp = JsonConvert.DeserializeObject&lt;UserInfoResp&gt;(jsonString);
+                                //convert
+                                json to object<br>
+                                Console.WriteLine(resp.status);//print value
+                        </span>
+                </div>
+
+                <h2>JAVA send HTTP POST Request to API</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#javareq">JAVA send HTTP
+                        POST Request to API</button>
+                <div id="javareq" class="collapse">
+                        <span class="code" id="javareq_text">
+                                CloseableHttpClient client = HttpClients.createDefault();//create<br>
+                                HTTP client object HttpPost httpPost = new HttpPost("request ip URL");<br>
+                                //set POST URL address <br>
+                                ArrayList &lt;NameValuePair&gt; params = new ArrayList&lt;NameValuePair&gt;();<br>
+                                //set parameter value <br>
+                                params.add(new BasicNameValuePair("username", “xxx”)); //set parameter value<br>
+                                httpPost.setEntity(new UrlEncodedFormEntity(params)); // url encode <br>
+                                CloseableHttpResponse response = client.execute(httpPost); //executeHTTP POST request
+                                <br>
+                                //get the return POST response result <br>
+                                BufferedReader reader = new
+                                BufferedReader(newInputStreamReader(response.getEntity().getContent())); <br>
+                                StringBuilder builder = new StringBuilder(); String line = "";<br>
+                                while( (line = reader.readLine()) != null) {<br>
+                                builder.append(line);<br>
+                                }<br>
+                                ObjectMapper mapper = new ObjectMapper();<br>
+                                UserInfoResp resp = mapper.readValue(builder.toString(),UserInfoResp.class);//Convert
+                                JSON
+                                string to object<br>
+                                System.out.println(resp.getLoginname());//print value<br>
+                        </span>
+                </div>
+
+                <h2>PHP send HTTP POST Request to API</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#phpreq">JAVA send HTTP
+                        POST Request to API</button><br>
+                <div id="phpreq" class="collapse">
+                        <span class="code" id="phpreq_text">
+                                $data = array('username' => xxx,
+                                'channelId'=>'xx','timestamp'=>xxx,'signature'=>xxx);<br>
+                                $options = array(<br>
+                                'http' => array(<br>
+                                'header' => "Content-type: application/x-www-form-urlencoded\r<br>",<br>
+                                'method' => 'POST',<br>
+                                'content' => http_build_query($data), ), );<br>
+                                $context = stream_context_create($options);//HTTP POST request<br>
+                                $result = file_get_contents($url, false, $context);//read HTTP POST request return<br>
+                                $obj = json_decode($result);<br>
+                                $status = $obj→{'status'}; //get value<br>
+                        </span>
+                </div><br>
+
+                <h1 id="rsa_title">RSA Code Implementation Reference</h1><br>
+
+                <h2>C# user login authentication web api</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#crsa">C# user login authentication web api</button>
+                <div id="crsa" class="collapse">
+                <span class="code" id="crsa_text">
+                        //private Key encrypt<br>
+                        public static string SignAndHash(string dataToSign ,string privatekey)<br>
+                        {<br>
+                        UnicodeEncoding ByteConverter = new UnicodeEncoding();<br>
+                        RSACryptoServiceProvider RSAProvider = new RSACryptoServiceProvider();<br>
+                        var encoder = new UTF8Encoding();<br>
+                        byte[] plaintext = encoder.GetBytes(dataToSign);<br>
+                        RSAProvider.FromXmlString(privatekey);<br>
+                        RSAParameters priKey = RSAProvider.ExportParameters(true);<br>
+                        RSAProvider.ImportParameters(priKey);<br>
+                        byte[] sign = RSAProvider.SignData(plaintext, CryptoConfig.MapNameToOID("MD5"));<br>
+                        return Convert.ToBase64String(sign);<br>
+                        }<br>
+                        //public Key verify<br>
+                        public static bool VerifySignedHash(string dataToSign, string SignedData, string public_key)
+                        {<br>
+                        try{<br>
+                        UnicodeEncoding ByteConverter = new UnicodeEncoding();<br>
+                        var encoder = new UTF8Encoding();<br>
+                        RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider();<br>
+                        RSAParameters priKey = RSAalg.ExportParameters(true);<br>
+                        RSAalg.ImportParameters(priKey);<br>
+                        RSAalg.FromXmlString(public_key);<br>
+                        byte[] plaintext = encoder.GetBytes(dataToSign);<br>
+                        return RSAalg.VerifyData(plaintext, CryptoConfig.MapNameToOID("MD5"),<br>
+                        Convert.FromBase64String(SignedData));<br>
+                        }catch (CryptographicException e){ Console.WriteLine(e.Message + " <br>
+                        Error!!!");<br>
+                        Console.ReadLine();<br>
+                        return false;}}<br>
+                </span>
+                </div>
+
+                <h2>JAVA user login authentication web api</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#javarrsa">JAVA user login authentication web api</button>
+                <div id="javarrsa" class="collapse">
+                <span class="code" id="javarsa_text">
+                        // private Key encrypt<br>
+                        public static String sign(byte[] data,String privateKey)throws NoSuchAlgorithmException,<br>
+                        InvalidKeySpecException, InvalidKeyException, SignatureException <br>
+                        {byte[] keyBytes = Base64.getDecoder().decode(privateKey.getBytes());<br>
+                        PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(keyBytes);<br>
+                        KeyFactory keyFactory = KeyFactory.getInstance("RSA");<br>
+                        PrivateKey priKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);<br>
+                        Signature signature = Signature.getInstance("MD5withRSA");<br>
+                        signature.initSign(priKey);<br>
+                        signature.update(data);<br>
+                        return new String(Base64.getEncoder().encode(signature.sign())); }<br>
+                        //public Key verify<br>
+                        public static boolean verify(byte[] data,String publicKey,String sign)throws Exception{<br>
+                        byte[] keyBytes = Base64.getDecoder().decode(publicKey.getBytes());<br>
+                        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(keyBytes);<br>
+                        KeyFactory keyFactory = KeyFactory.getInstance("RSA");<br>
+                        PublicKey publicKey2 = keyFactory.generatePublic(x509EncodedKeySpec);<br>
+                        Signature signature = Signature.getInstance("MD5withRSA");<br>
+                        signature.initVerify(publicKey2);<br>
+                        signature.update(data);<br>
+                        return signature.verify(Base64.getDecoder().decode(sign));<br>
+                        }<br>
+                </span>
+                </div>
+
+                <h2 id="phprsa_title">PHP user authentication web api</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#phprsa">PHP user authentication web api</button>
+                <div id="phprsa" class="collapse">
+                <span class="code" id="phprsa_text">
+                        RSA PHP URL：https://github.com/phpseclib/phpseclib/tree/1.0<br>
+                        // private Key encrypt<br>
+                        $rsa = new Crypt_RSA();<br>
+                        $rsa→loadKey(xxx）;//xxx private key<br>
+                        $rsa→setSignatureMode(CRYPT_RSA_SIGNATURE_PKCS1);<br>
+                        $rsa→setHash("md5");<br>
+                        $signature = $rsa→sign($plaintext); <br>
+                        echo base64_encode($signature);<br>
+                        // public Key verify<br>
+                        $rsa = new Crypt_RSA();<br>
+                        $rsa->loadKey('publickey');<br>
+                        $rsa→setSignatureMode(CRYPT_RSA_SIGNATURE_PKCS1);<br>
+                        $rsa→setHash("md5");<br>
+                        echo $rsa->verify($plaintext, base64_decode($signature)) ? 'verified' : 'unverified';<br>
+                </span>
+                </div>
+
+                <h2 id="oauth_title">oAuth JS Window frame</h2>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#oauth">oAuth JS Window frame</button>
+                <div id="oauth" class="collapse">
+                <span class="code" id="oauth_text">
+                        &lt;script type="text/javascript"&gt;<br>
+                        if(window.AndroidBridge)<br>
+                        {<br>
+                        // native -android app<br>
+                        window.AndroidBridge.closeWebview();<br>
+                        }<br>
+                        else if(window.webkit)<br>
+                        {<br>
+                        // native -ios app<br>
+                        window.webkit.messageHandlers.closeOauthLogin.postMessage(null);<br>
+                        }<br>
+                        else<br>
+                        {<br>
+                        // h5<br>
+                        parent.postMessage({<br>
+                        msg: "closeOauthLogin"<br>
+                        }, "*");<br>
+                        }<br>
+                        &lt;script&gt;
+                </span>
+                </div>`;
+        }
+    </script>
+
+
+</body>
+
+</html>

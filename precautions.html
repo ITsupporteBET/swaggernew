@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="eBET API Document" />
+  <meta name="robots" content="index,follow" />
+  <meta name="google" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <meta name="verify" content="index,follow" />
+  <title>eBET</title>
+  <div id="h_css"></div>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div class="container">
+    <div id ="container"></div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/header_css.js"></script>
+  <!-- <script src="js/block.js"></script> -->
+  <script>
+     const web_context = document.getElementById('container');
+
+        if (window.localStorage.getItem('lang') == "cn") {
+            web_context.innerHTML = `<h1>eBET对接注意事项</h1>
+    <h2>1. 请求和接收数据</h2>
+
+    <span>1.请严格遵守eBET使用的<code>参数大小写</code>，否则会导致获取不正确的数据</span><br>
+    <span>2.eBET是使用<code>JSON(application/json)</code>来发送和接收数据的</span><br>
+    <br>
+    
+    <h2>2. 测试相关</h2>
+    <span>1. 在正式环境测试的数据是<code>无法删除</code>的。</span><br>
+    <span>2. 建议使用<code>多個前缀為test</code>的账号进行测试，方便渠道自行辨识测试。該账号还是正式玩家账号，如果正式上线，每种账号仍<code>须计算费用</code>。</span><br>
+    <span>3. eBET有提供测试环境，如果有需要请向客服人员申请。</span><br>
+    <br>
+
+    <h2>3. 白名單</h2>
+
+    <span>eBET有3个部分需要提供ip做添加到白名单才允许使用。</span><br>
+    <span>1. 登入游戏。若要在限制地区测试需要提供ip。</span><br>
+    <span>真人游戏限制地区：<code>新加坡，美国，澳门，香港，台湾和菲律宾</code></span><br>
+    <span>老虎机游戏限制地区：<code>新加坡，美国，台湾，马来西亚和拉脱维亚</code></span><br>
+    <span>2. api請求。如果没有设置, 则<code>预设皆为开放</code>。</span><br>
+    <span>3. 渠道數據後台登入。只有提供的ip才<code>允許登入</code>。</span><br>
+    <h4>重要事项：</h4>
+    <span>关于访问 eBET API 安全措施：</span><br>
+    <span>我们这里是需要您们提供当您们调用eBET api的 ip 地址。</span><br>
+    <span>我方添加之后就“<code>只有</code>”提供的 ip 地址才可以访问eBET api。</span><br>
+    <span>PS：我方<code>已提醒</code>贵方安全措施，后期遇上关于访问 eBET api 特殊<code>状况请自负</code>。</span><br>
+    <br>
+    <h2>4. 游戏登入</h2>
+    <span>登入游戏接口支持http以及https，若要<code>使用https 需做申请</code>。</span><br>
+    <br>
+    <h2>5. 备注</h2>
+    <span>您在eBET做任何操作（例如：登入eBET游戏、向eBET发送API请求等），若收到http的错误（例如：403、502、504等），或其他未提及之错误，请向eBET人员寻求协助。</span><br>
+    <br>`;
+        } else {
+            web_context.innerHTML = `<h1>eBET Integration Precautions</h1>
+    <h2>1. Request and receive data</h2>
+
+    <span>1.Please strictly adhere to the case of the parameters used by eBET, otherwise it will cause incorrect data to be obtained.</span><br>
+    <span>2.eBET uses <code>JSON (application / json)</code> to send and receive data.</span><br>
+    <br>
+    
+    <h2>2.Test related</h2>
+    <span>1. Test data cannot be deleted.</span><br>
+    <span>2. It is recommended to use multiple accounts with the prefix test to test, so that the channel can identify the
+    test by itself. This account is also an official player account. If the account is officially launched, each account will still be charged.</span><br>
+    <span>3. eBET provides a test environment. If necessary, please apply to customer service staff.</span><br>
+    <br>
+
+    <h2>3. Whitelist</h2>
+
+    <span>There are 3 parts of eBET that need to provide IP to add to the whitelist before being allowed to use.</span><br>
+    <span>1. Log in to the game. Restricted areas need to provide IP.</span><br>
+    <span>Live Game Restricted Areas: <code>Singapore, USA, Macau, Hong Kong, Taiwan and Philippines</code></span><br>
+    <span>Slot game restricted areas: <code>Singapore, United States, Taiwan, Malaysia and Latvia</code></span><br>
+    <span>2. API request. If not set, all presets are open.</span><br>
+    <span>3. Channel data background login. Only the provided IP is allowed to log in.</span><br>
+    <h4>Important matters:</h4>
+    <span>About accessing eBET API security measures:</span><br>
+    <span>Here we need your IP address when you call eBET api.</span><br>
+    <span>After we add, we can only access the eBET api with the IP address provided.</span><br>
+    <span>PS: We have reminded you of security measures, and you should bear your own responsibility in case of special circumstances regarding access to eBET api in the future.</span><br>
+    <br>
+    <h2>4. Game Login</h2>
+    <span>The login game interface supports http and https. To use https, you need to apply.</span><br>
+    <br>
+    <h2>5. Remark</h2>
+    <span>When you do any operation on eBET (ex: login to eBET game, send API request to eBET), and if you receive http status code errors (ex: 403, 502, 504... etc.) or any other errors that are not listed above, please contact eBET staff for assistance.</span><br>
+    <br>`;
+        }
+    
+    </script>
+</body>
+
+</html>

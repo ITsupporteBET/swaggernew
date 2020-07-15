@@ -1,0 +1,1163 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "# **Overview**\n *This page describes a request made by eBET to a channel to verify user login or notify money changes.*\n \n There are two ways to manage player money: single wallet and transfer wallet.\n \"transfer wallet\" : The player's money is managed by eBET.\n \"single wallet\" : The player's money is managed by the channel.\n API sends different requests depending on the management method.\n \n# **About the login process**\n 1. Provide eBET player information with different login methods.\n eventType = 1: Enter account and password on eBET h5 webpage or App\n eventType = 3: The user clicks the **applink link** after logging in on the channel platform\n eventType = 4: The user clicks the **token link** after logging in on the channel platform\n 2. eBET sends a verification login API request to the channel.\n transfer wallet: RegisterOrLoginReq\n single wallet: registerOrLogin\n 3. eBET determines whether to enter the game based on the response of the channel.\n \n# **Send game related types**\n *Bet: eBET sends a bet request when the user clicks once to confirm the bet. There is no limit to the number of clicks in a round.*\n *Payout: After stopping betting, count betting records for that round and send a payout request.*\n \n **Basic** \n Bet: Request a bet (type = 1). If the return fails, the bet fails.\n Payout: Request a payout (type = 2). If the return fails, request the same content again after checking.\n \n **Special** - *This process is used when there is a doubling bet on bullbull.*\n Bet: Request a withholding (type = 27) first, and then request a bet (type = 1) if the withholding response is successful. Failure to withhold will be treated as a basic bet failure. When the bet fails, use bet seqNo to send a bet error refund (type = 11) request to the channel for refund of withholding money. A bet error refund request will be sent by eBET.\n Payout: If there is a remaining withholding amount, first request a withholding return (type = 28), and then request a payout (type = 2). if the withholding return is successful; if there is no remaining withholding amount, directly request a payout (type = 2)\n \n# **Bet failure process**\n ***Definition of bet failure: eBET received a status other than 200 or did not receive a response.***\n In the request for payout, betmoney = 0 means that eBET believes that the bet was unsuccessful, so the relevant payout amount is not calculated.\n What the channel can do at this time is as follows:\n 1. Channel own refund\n *payout:* The channel checks the betList and refunds itself if there is a record of failed bets. \n *query:* When eBET sends a query request, the bet slip status returns 209 to indicate that the bet has been refunded. \n 2. eBET request refund - Channel's DB allows modification again\n *payout:* Normal response without checking betList.\n *query:* Provide the record of the channel DB. If the return is incorrect, it may not be refunded.\n *refund:* Request a refund based on the implemented refund API.\n 3. eBET request refund - Channel's DB **doesn't allow** modification \n *payout:* Check betList. Respond to payout failure to eBET if a bet fails.\n *query:* Provide the record of the channel DB. If the return is incorrect, it may not be refunded.\n *refund:* Request a refund based on the implemented refund API. After the refund is completed, the payout request will be resent.\n \n# **Single wallet special use**\n 1. syncCredit will send a request after registerOrLogin responds successfully. **Both must be successful** before users can log in to eBET games. \n 2. syncCredit response **status: 410** will cause players to leave the eBET game.\n 3. The channel can customize the username of other API requests when registerOrLogin response. (eBET backend needs to enable related settings)\n \n# **Suggested response status code**\n 
+    <table id=\"tg-dx1DP\" class=\"tg\">\n
+        <tr>\n
+            <th class=\"tg-0uei\">Status Code</th>\n
+            <th class=\"tg-0uei\">Description</th>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>200</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Successful</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>202</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Channel no exist</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>206</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;seqNo no exist</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>207</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Refund Money Inconsistent</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>208</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Record is not existed</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>209</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Check record already refund</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>401</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;User or password error</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>410</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Token error</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>500</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Server error</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>505</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Channel under maintenance</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4003</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;System busy, try back later</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4025</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Parameter error</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4026</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Signature error</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4027</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;IP is not authorized</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4029</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Function disable</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4030</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Data type error</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4037</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;User not existence</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>4038</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Frequent request</td>\n
+        </tr>\n
+        <tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5003</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Sub channel no exist</td>\n
+        </tr>\n
+    </table>\n",
+    "version" : "1.0.0",
+    "title" : "eBET request"
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/ITtoppathsupport/test03/1.0.0",
+  "tags" : [ {
+    "name" : "API used by transfer wallet",
+    "description" : "eBET provides several APIs for transfer wallet."
+  }, {
+    "name" : "API used by single wallet",
+    "description" : "eBET provides an API for single wallet."
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/RegisterOrLoginReq" : {
+      "post" : {
+        "tags" : [ "API used by transfer wallet" ],
+        "summary" : "Verify user login",
+        "description" : "This api is used to verify user login.\n It will send the request directly to the server url provided by the channel.",
+        "operationId" : "RegisterOrLoginReq",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "accessToken", "status", "subChannelId", "username" ],
+              "properties" : {
+                "accessToken" : {
+                  "$ref" : "#/definitions/accessToken"
+                },
+                "subChannelId" : {
+                  "$ref" : "#/definitions/subChannelId"
+                },
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "nickname" : {
+                  "type" : "string",
+                  "example" : "User nickname, randomly generated by default",
+                  "description" : "password"
+                },
+                "currency" : {
+                  "$ref" : "#/definitions/currency"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UserInfo" : {
+      "post" : {
+        "tags" : [ "API used by transfer wallet" ],
+        "summary" : "Check user information",
+        "description" : "This api is used to confirm user information.\n It will send the request after the RegisterOrLoginReq response is successful.\n Its failure to implement does not affect player login",
+        "operationId" : "UserInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_1"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/registerOrLogin" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "Verify user login",
+        "description" : "This api is used to verify user login.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/registerOrLogin",
+        "operationId" : "registerOrLogin",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_2"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "accessToken", "currency", "event", "seqNo", "sessionToken", "status", "subChannelId", "username" ],
+              "properties" : {
+                "accessToken" : {
+                  "$ref" : "#/definitions/accessToken"
+                },
+                "subChannelId" : {
+                  "$ref" : "#/definitions/subChannelId"
+                },
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "sessionToken" : {
+                  "$ref" : "#/definitions/sessionToken"
+                },
+                "currency" : {
+                  "$ref" : "#/definitions/currency"
+                },
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "registerOrLogin",
+                  "description" : "API name"
+                },
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "nickname" : {
+                  "type" : "string",
+                  "example" : "User nickname, randomly generated by default",
+                  "description" : "password"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/syncCredit" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "Synchronize user's money",
+        "description" : "This api is to confirm the user's current amount of money.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/syncCredit",
+        "operationId" : "syncCredit",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_3"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "event", "money", "seqNo", "status", "username" ],
+              "properties" : {
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "money" : {
+                  "type" : "number",
+                  "example" : 1000.01,
+                  "description" : "User current money. The recommended amount is only to the second decimal place"
+                },
+                "currency" : {
+                  "$ref" : "#/definitions/currency"
+                },
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "syncCredit",
+                  "description" : "API name"
+                },
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "timestamp" : {
+                  "$ref" : "#/definitions/timestamp"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/increaseCredit" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "Notification of change of user money amount",
+        "description" : "This API is a notification channel for changing player money.\n Note 1: seqNo is **unique value**. Avoid repeated processing of money, do not record the same payout seqNo.\n Note 2: For payouts, we have a **retry** mechanism (this mechanism is only available for payouts, there is no such mechanism for betting). If it has been processed successfully before, please return 201 (seqNo repeated) or 200 (successful but not changing the player amount) to eBET for subsequent requests.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/increaseCredit",
+        "operationId" : "increaseCredit",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "event", "money", "moneyBefore", "seqNo", "status", "username" ],
+              "properties" : {
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "money" : {
+                  "type" : "number",
+                  "example" : 1000.01,
+                  "description" : "Money after change"
+                },
+                "moneyBefore" : {
+                  "type" : "number",
+                  "example" : 1000.01,
+                  "description" : "Money before change"
+                },
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "increaseCredit",
+                  "description" : "API name"
+                },
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "timestamp" : {
+                  "$ref" : "#/definitions/timestamp"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/queryIncreaseCreditRecord" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "Query increaseCredit records",
+        "description" : "This API is for querying the processing status of increaseCredit in the channel's database.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/queryIncreaseCreditRecord",
+        "operationId" : "queryIncreaseCreditRecord",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_5"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "event", "seqNo", "status", "username" ],
+              "properties" : {
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "queryIncreaseCreditRecord",
+                  "description" : "API name"
+                },
+                "timestamp" : {
+                  "$ref" : "#/definitions/timestamp"
+                },
+                "username" : {
+                  "$ref" : "#/definitions/username"
+                },
+                "creditRecord" : {
+                  "type" : "array",
+                  "description" : "Channel records. Returns empty array means no records",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "querySeqNo" : {
+                        "type" : "string",
+                        "example" : "seqNoBetseqNoBet",
+                        "description" : "Query sequence number"
+                      },
+                      "type" : {
+                        "type" : "number",
+                        "example" : 1.0,
+                        "description" : "Transaction type"
+                      },
+                      "username" : {
+                        "$ref" : "#/definitions/username"
+                      },
+                      "roundCode" : {
+                        "$ref" : "#/definitions/roundCode"
+                      },
+                      "status" : {
+                        "type" : "number",
+                        "example" : 200.0,
+                        "description" : "Recorded processing status code"
+                      },
+                      "creditTime" : {
+                        "type" : "number",
+                        "example" : 1.987654321012E12,
+                        "description" : "Recording time. Used to milliseconds. Format is Unix Time."
+                      },
+                      "moneyBefore" : {
+                        "type" : "number",
+                        "example" : 1100.01,
+                        "description" : "Amount before change"
+                      },
+                      "moneyAfter" : {
+                        "type" : "number",
+                        "example" : 1000.01,
+                        "description" : "Amount after change"
+                      },
+                      "money" : {
+                        "type" : "number",
+                        "example" : 100.0,
+                        "description" : "Change amount"
+                      }
+                    }
+                  }
+                },
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/refundSingleWallet" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "Manual refund",
+        "description" : "This API is eBET's manual refund request for failed bets.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/refundSingleWallet",
+        "operationId" : "refundSingleWallet",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_6"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "event", "seqNo", "status", "timestamp" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "refundSingleWallet",
+                  "description" : "API name"
+                },
+                "timestamp" : {
+                  "$ref" : "#/definitions/timestamp"
+                },
+                "moneyBefore" : {
+                  "type" : "number",
+                  "example" : 0.0,
+                  "description" : "Amount before change"
+                },
+                "moneyAfter" : {
+                  "type" : "number",
+                  "example" : 1000.0,
+                  "description" : "Amount after change"
+                },
+                "refundMoney" : {
+                  "type" : "number",
+                  "example" : 1000.0,
+                  "description" : "Total refund amount"
+                },
+                "refundList" : {
+                  "type" : "array",
+                  "description" : "Refund processing results.",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "refundSeqNo" : {
+                        "type" : "string",
+                        "example" : "seqNoBetseqNoRefund",
+                        "description" : "Refund bet sequence number"
+                      },
+                      "status" : {
+                        "type" : "number",
+                        "example" : 200.0,
+                        "description" : "Recorded processing status code\n 200: The channel has received the eBET request and processed it\n 209: Channel has refunded itself"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/autoRefundBatch" : {
+      "post" : {
+        "tags" : [ "API used by single wallet" ],
+        "summary" : "Automatic refund",
+        "description" : "Regularly check the records of failed bets and send them to the channel to process refunds in batches.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/autoRefundBatch",
+        "operationId" : "autoRefundBatch",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "eBET Request",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/body_7"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful",
+            "schema" : {
+              "required" : [ "event", "refundResultList", "seqNo", "status", "timestamp" ],
+              "properties" : {
+                "status" : {
+                  "$ref" : "#/definitions/status"
+                },
+                "timestamp" : {
+                  "$ref" : "#/definitions/timestamp"
+                },
+                "event" : {
+                  "type" : "string",
+                  "example" : "autoRefundBatch",
+                  "description" : "API name"
+                },
+                "seqNo" : {
+                  "$ref" : "#/definitions/seqNo"
+                },
+                "refundResultList" : {
+                  "type" : "array",
+                  "description" : "Refund processing details.",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "refundTotalMoney" : {
+                        "type" : "number",
+                        "example" : 1000.0,
+                        "description" : "Total amount of refund processed successfully"
+                      },
+                      "roundCode" : {
+                        "$ref" : "#/definitions/roundCode"
+                      },
+                      "username" : {
+                        "$ref" : "#/definitions/username"
+                      },
+                      "sucRefundList" : {
+                        "type" : "array",
+                        "description" : "Details of successful bet refund processing.\n If all processing fails, please return empty array",
+                        "items" : {
+                          "type" : "object",
+                          "properties" : {
+                            "status" : {
+                              "type" : "number",
+                              "example" : 200.0,
+                              "description" : "Recorded processing status code"
+                            },
+                            "seqNo" : {
+                              "type" : "string",
+                              "example" : "seqNoBetseqNoRefund",
+                              "description" : "Refund bet sequence number"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "username" : {
+      "type" : "string",
+      "description" : "Username.",
+      "example" : "apitest01"
+    },
+    "channelId" : {
+      "type" : "number",
+      "description" : "Channel ID.",
+      "example" : 1
+    },
+    "subChannelId" : {
+      "type" : "number",
+      "description" : "Sub-channel ID. Enter 0 if not created.",
+      "example" : 0
+    },
+    "timestamp" : {
+      "type" : "integer",
+      "description" : "Timestamp. In milliseconds.",
+      "example" : 1234567890123
+    },
+    "signature" : {
+      "type" : "string",
+      "description" : "Signature. String splicing :username+timestamp",
+      "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ=="
+    },
+    "currency" : {
+      "type" : "string",
+      "description" : "Currency.",
+      "example" : "en_us"
+    },
+    "status" : {
+      "type" : "number",
+      "description" : "Suggested status code to return.",
+      "example" : 200
+    },
+    "accessToken" : {
+      "type" : "string",
+      "description" : "AccessToken returned by the channel.",
+      "example" : "accessTokenTest"
+    },
+    "seqNo" : {
+      "type" : "string",
+      "description" : "eBET sequence number. Please return the same value.",
+      "example" : "seqNoseqNoseqNoseqNo"
+    },
+    "sessionToken" : {
+      "type" : "string",
+      "description" : "Provided by channels or randomly generated.",
+      "example" : "sessionToken"
+    },
+    "roundCode" : {
+      "type" : "string",
+      "description" : "Round number",
+      "example" : "B1-200101012345"
+    },
+    "body" : {
+      "properties" : {
+        "cmd" : {
+          "type" : "string",
+          "example" : "RegisterOrLoginReq",
+          "description" : "API name"
+        },
+        "eventType" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "Login method:\n 1:Normal login\n 3:Applink login\n 4:Token login"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "password",
+          "description" : "User password. Empty string if no"
+        },
+        "accessToken" : {
+          "type" : "string",
+          "example" : "accessToken",
+          "description" : "This parameter value is provided by the channel. Only used when eventType = 4"
+        },
+        "timestamp" : {
+          "type" : "number",
+          "example" : 1.23456789E9,
+          "description" : "Current time. Used to seconds. Format is Unix Time"
+        },
+        "ip" : {
+          "type" : "string",
+          "example" : "127.0.0.1",
+          "description" : "User login IP"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "Signature. String splicing:\n normal/applink: username+timestamp\n token: timestamp+accessToken"
+        }
+      }
+    },
+    "body_1" : {
+      "properties" : {
+        "cmd" : {
+          "type" : "string",
+          "example" : "UserInfo",
+          "description" : "API name"
+        },
+        "money" : {
+          "type" : "number",
+          "example" : 1000.01,
+          "description" : "User's current amount"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "subChannelId" : {
+          "$ref" : "#/definitions/subChannelId"
+        },
+        "timestamp" : {
+          "type" : "number",
+          "example" : 1.23456789E9,
+          "description" : "Current time. Used to seconds. Format is Unix Time"
+        },
+        "userId" : {
+          "type" : "number",
+          "example" : 1.23456789E9,
+          "description" : "User ID"
+        },
+        "ip" : {
+          "type" : "string",
+          "example" : "127.0.0.1",
+          "description" : "User login IP"
+        },
+        "signature" : {
+          "$ref" : "#/definitions/signature"
+        }
+      }
+    },
+    "body_2" : {
+      "properties" : {
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "password",
+          "description" : "User password. Empty string if no"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "ip" : {
+          "type" : "string",
+          "example" : "127.0.0.1",
+          "description" : "User login IP"
+        },
+        "eventType" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "Login method:\n 1:Normal login\n 3:Applink login\n 4:Token login"
+        },
+        "accessToken" : {
+          "type" : "string",
+          "example" : "accessToken",
+          "description" : "This parameter value is provided by the channel. Only used when eventType = 4"
+        },
+        "platfrom" : {
+          "type" : "number",
+          "example" : 3.0,
+          "description" : "Users' platforms"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "registerOrLogin",
+          "description" : "API name"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "Signature. String splicing:\n normal/applink: seqNo+event+channelId+username+timestamp+password\n token: seqNo+event+channelId+timestamp+username+accessToken"
+        }
+      }
+    },
+    "body_3" : {
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "tableType" : {
+          "type" : "string",
+          "example" : "password",
+          "description" : "User password. Empty string if no"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "syncCredit",
+          "description" : "API name"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        }
+      }
+    },
+    "increaseCredit_betList" : {
+      "type" : "object",
+      "properties" : {
+        "betType" : {
+          "type" : "number",
+          "example" : 80.0,
+          "description" : "Bet item"
+        },
+        "betMoney" : {
+          "type" : "number",
+          "example" : 100.0,
+          "description" : "Bet amount. When betMoney = 0, the bet failed."
+        },
+        "seqNo" : {
+          "type" : "string",
+          "example" : "seqNoBetseqNoBet",
+          "description" : "The sequence number of the bet request. This parameter is only available for payouts."
+        },
+        "payout" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Payout amount. This parameter is only available when payout."
+        },
+        "number" : {
+          "type" : "string",
+          "description" : "Bet number. This parameter is only available when paying for specific items."
+        }
+      }
+    },
+    "increaseCredit_detail" : {
+      "type" : "object",
+      "properties" : {
+        "tabelCode" : {
+          "type" : "string",
+          "example" : "B1",
+          "description" : "Game table number"
+        },
+        "tableType" : {
+          "type" : "number",
+          "example" : 1.0,
+          "description" : "Game type"
+        },
+        "tableSubType" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Game table type"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "betTime" : {
+          "type" : "number",
+          "example" : 1.987654321012E12,
+          "description" : "Bet time. Used to milliseconds. Format is Unix Time"
+        },
+        "totalBet" : {
+          "type" : "number",
+          "example" : 100.0,
+          "description" : "Total Bet"
+        },
+        "validBet" : {
+          "type" : "number",
+          "example" : 100.0,
+          "description" : "Valid bet"
+        },
+        "srcResults" : {
+          "type" : "array",
+          "example" : [ 46, 47, null, 51, 51, null ],
+          "description" : "The flop result. Baccarat, Dragon Tiger, Niu Niu query card code",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "brokerageRequired" : {
+          "type" : "boolean",
+          "example" : true,
+          "description" : "Whether it is commission baccarat. Only Baccarat has this parameter."
+        },
+        "results" : {
+          "type" : "array",
+          "example" : [ 60, 88, 71, 83, 62, 61 ],
+          "description" : "Winning bets",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "payout" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "Total payout"
+        },
+        "payoutTime" : {
+          "type" : "number",
+          "example" : 1.987654321098E12,
+          "description" : "Payout time. Used to milliseconds. Format is Unix Time"
+        },
+        "betList" : {
+          "type" : "array",
+          "description" : "Bet Details",
+          "items" : {
+            "$ref" : "#/definitions/increaseCredit_betList"
+          }
+        }
+      }
+    },
+    "body_4" : {
+      "properties" : {
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "money" : {
+          "type" : "number",
+          "example" : 0.0,
+          "description" : "The amount of change. If negative, the amount to be deducted Channel ID."
+        },
+        "type" : {
+          "type" : "number",
+          "example" : 2.0,
+          "description" : "Transaction type"
+        },
+        "platform" : {
+          "type" : "number",
+          "example" : 3.0,
+          "description" : "Users' platforms"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "increaseCredit",
+          "description" : "API name"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "Signature. String splicing : seqNo+event+channelId+timestamp+username+money"
+        },
+        "detail" : {
+          "type" : "array",
+          "description" : "",
+          "items" : {
+            "$ref" : "#/definitions/increaseCredit_detail"
+          }
+        }
+      }
+    },
+    "body_5" : {
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "qureySeqNo" : {
+          "type" : "string",
+          "example" : "seqNoBetseqNoBet,seqNoPayoutseqNoPayout",
+          "description" : "The serial number to be queried, separated by commas."
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "queryIncreaseCreditRecord",
+          "description" : "API name"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "Signature. String splicing: username+timestamp"
+        }
+      }
+    },
+    "refundSingleWallet_refundList" : {
+      "type" : "object",
+      "properties" : {
+        "refundSeqNo" : {
+          "type" : "string",
+          "example" : "seqNoBetseqNoRefund",
+          "description" : "Refund bet sequence number"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "refundMoney" : {
+          "type" : "number",
+          "example" : -1000.0,
+          "description" : "Refund amount. The value is negative."
+        }
+      }
+    },
+    "body_6" : {
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "refundSingleWallet",
+          "description" : "API name"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "Signature. String splicing: username+timestamp"
+        },
+        "refundList" : {
+          "type" : "array",
+          "description" : "Refund details",
+          "items" : {
+            "$ref" : "#/definitions/refundSingleWallet_refundList"
+          }
+        }
+      }
+    },
+    "autoRefundBatch_batchRefundList" : {
+      "type" : "object",
+      "properties" : {
+        "seqNo" : {
+          "type" : "string",
+          "example" : "seqNoBetseqNoRefund",
+          "description" : "Refund bet sequence number"
+        },
+        "username" : {
+          "$ref" : "#/definitions/username"
+        },
+        "roundCode" : {
+          "$ref" : "#/definitions/roundCode"
+        },
+        "refundMoney" : {
+          "type" : "number",
+          "example" : 1000.0,
+          "description" : "Refund amount. This value is positive."
+        }
+      }
+    },
+    "body_7" : {
+      "properties" : {
+        "channelId" : {
+          "$ref" : "#/definitions/channelId"
+        },
+        "lastStartProcessTime" : {
+          "type" : "number",
+          "example" : 1.919191919191E12,
+          "description" : "Batch processing time. Used to milliseconds. Format is Unix Time."
+        },
+        "refundThreshold" : {
+          "type" : "number",
+          "example" : 10000.0,
+          "description" : "Threshold for refund amount."
+        },
+        "sessionToken" : {
+          "$ref" : "#/definitions/sessionToken"
+        },
+        "seqNo" : {
+          "$ref" : "#/definitions/seqNo"
+        },
+        "currency" : {
+          "$ref" : "#/definitions/currency"
+        },
+        "event" : {
+          "type" : "string",
+          "example" : "autoRefundBatch",
+          "description" : "API name"
+        },
+        "timestamp" : {
+          "$ref" : "#/definitions/timestamp"
+        },
+        "signature" : {
+          "type" : "string",
+          "example" : "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
+          "description" : "Signature. String splicing: channelId+timestamp"
+        },
+        "batchRefundList" : {
+          "type" : "array",
+          "description" : "List of refunds",
+          "items" : {
+            "$ref" : "#/definitions/autoRefundBatch_batchRefundList"
+          }
+        }
+      }
+    }
+  }
+}
