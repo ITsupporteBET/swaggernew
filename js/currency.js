@@ -21,7 +21,6 @@ const currency =
         { "currency": "CNY", "description": "RMB" },
         { "currency": "EUR", "description": "Euro" },
         { "currency": "GBP", "description": "Pound sterling" },
-        { "currency": "HKD", "description": "Hong Kong Dollar" },
         { "currency": "ID2", "description": "Indonesian Rupiah" },
         { "currency": "IDR", "description": "Indonesian Rupiah (1:1000)" },
         { "currency": "INR", "description": "Indian rupee" },
@@ -36,7 +35,6 @@ const currency =
         { "currency": "THB", "description": "Thai baht" },
         { "currency": "TMT", "description": "Turkmenistan Manat" },
         { "currency": "TRY", "description": "Turkish lira" },
-        { "currency": "TWD", "description": "Taiwan Dollar" },
         { "currency": "USD", "description": "USD" },
         { "currency": "VN2", "description": "Vietnamese dong" },
         { "currency": "VND", "description": "Vietnamese dong (1:1000)" },
@@ -51,7 +49,6 @@ const currency =
         { "currency": "MBCH", "description": "MillionBitcoinCash" },
         { "currency": "MLTC", "description": "MillionLiteCoin" },
         { "currency": "KZT", "description": "Kazakhstani Tenge" },
-        { "currency": "SGD", "description": "Singapore Dollar" },
         { "currency": "TND", "description": "TND" }
     ]
 
@@ -62,7 +59,6 @@ const currency_cn = [
     { "currency": "CNY", "description": "人民币" },
     { "currency": "EUR", "description": "欧元" },
     { "currency": "GBP", "description": "英镑" },
-    { "currency": "HKD", "description": "港币" },
     { "currency": "ID2", "description": "印尼盾" },
     { "currency": "IDR", "description": "毫印尼盾" },
     { "currency": "INR", "description": "印度" },
@@ -77,7 +73,6 @@ const currency_cn = [
     { "currency": "THB", "description": "泰铢" },
     { "currency": "TMT", "description": "土库曼斯坦马纳特" },
     { "currency": "TRY", "description": "土耳其" },
-    { "currency": "TWD", "description": "新台币" },
     { "currency": "USD", "description": "美元" },
     { "currency": "VN2", "description": "越南盾" },
     { "currency": "VND", "description": "毫越南盾" },
@@ -92,7 +87,6 @@ const currency_cn = [
     { "currency": "MBCH", "description": "毫比特币现金" },
     { "currency": "MLTC", "description": "毫莱特币" },
     { "currency": "KZT", "description": "哈萨克斯坦坚戈" },
-    { "currency": "SGD", "description": "新加坡元" },
     { "currency": "TND", "description": "突尼斯第纳尔" }
 
 ]
