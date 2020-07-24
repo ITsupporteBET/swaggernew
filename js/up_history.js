@@ -65,8 +65,6 @@ Add tableType descriptions for Lottery<br>
     Adjust support currency<br>
     <br>
     Add currency<br>
-    MBCH(MillionBitcoinCash)<br>
-    MLTC(MillionLiteCoin)<br>
     KZT(Kazakhstani Tenge)<br>
     TND(TND)<br>
     CAD(Canadian Dollar)<br>
@@ -135,8 +133,6 @@ const up_his_cn = [
         调整支援币种<br>
         <br>
         新增币种<br>
-        MBCH(毫比特币现金)<br>
-        MLTC(毫莱特币)<br>
         KZT(哈萨克斯坦坚戈)<br>
         TND(突尼斯第纳尔)<br>
         CAD(加拿大元)<br>

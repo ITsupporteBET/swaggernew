@@ -45,8 +45,6 @@ const currency =
         { "currency": "MXN", "description": "Peso mexicano" },
         { "currency": "PEN", "description": "Nuevo Sol" },
         { "currency": "COP", "description": "Peso colombiano" },
-        { "currency": "MBCH", "description": "MillionBitcoinCash" },
-        { "currency": "MLTC", "description": "MillionLiteCoin" },
         { "currency": "KZT", "description": "Kazakhstani Tenge" },
         { "currency": "TND", "description": "TND" },
         { "currency": "CAD", "description": "Canadian Dollar" }
@@ -83,8 +81,6 @@ const currency_cn = [
     { "currency": "MXN", "description": "墨西哥比索" },
     { "currency": "PEN", "description": "秘鲁新索尔" },
     { "currency": "COP", "description": "哥伦比亚比索" },
-    { "currency": "MBCH", "description": "毫比特币现金" },
-    { "currency": "MLTC", "description": "毫莱特币" },
     { "currency": "KZT", "description": "哈萨克斯坦坚戈" },
     { "currency": "TND", "description": "突尼斯第纳尔" },
     { "currency": "CAD", "description": "加拿大元" }
