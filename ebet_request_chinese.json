@@ -878,11 +878,8 @@
           "description": "派彩金额。 只有派彩的事件，才需要此字段。"
         },
         "number": {
-          "type": "array",
-          "description": "游戏下注的号码。 只有特定项目才会有此字段",
-          "items": {
-            "type": "string"
-          }
+          "type": "string",
+          "description": "游戏下注的号码。 只有特定项目才会有此字段"
         }
       }
     },

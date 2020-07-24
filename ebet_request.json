@@ -878,11 +878,8 @@
           "description": "Payout amount. This parameter is only available when payout."
         },
         "number": {
-          "type": "array",
-          "description": "Bet number. This parameter is only available for specific items.",
-          "items": {
-            "type": "string"
-          }
+          "type": "string",
+          "description": "Bet number. This parameter is only available for specific items."
         }
       }
     },
