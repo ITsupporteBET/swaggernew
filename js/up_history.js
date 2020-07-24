@@ -58,6 +58,25 @@ Add tableType descriptions for Lottery<br>
     update_description: `
     Optimizing recharge process<br>
     Add precautions description<br>`
+}, {
+    update_time: "2020/July/24",
+    update_member: "leo",
+    update_description: `
+    Adjust support currency<br>
+    <br>
+    Add currency<br>
+    MBCH(MillionBitcoinCash)<br>
+    MLTC(MillionLiteCoin)<br>
+    KZT(Kazakhstani Tenge)<br>
+    TND(TND)<br>
+    CAD(Canadian Dollar)<br>
+    <br>
+    Because Restricted Areas<br>
+    Remove currency<br>
+    TWD(Taiwan Doller)<br>
+    HKD(Hong Kong Dollars)<br>
+    USD(United States Dollar)<br>
+    `
 }
 ]
 
@@ -109,6 +128,25 @@ const up_his_cn = [
         update_description: `
         优化充值流程<br>
         新增注意事项说明<br>`
+    }, {
+        update_time: "2020/July/24",
+        update_member: "leo",
+        update_description: `
+        调整支援币种<br>
+        <br>
+        新增币种<br>
+        MBCH(毫比特币现金)<br>
+        MLTC(毫莱特币)<br>
+        KZT(哈萨克斯坦坚戈)<br>
+        TND(突尼斯第纳尔)<br>
+        CAD(加拿大元)<br>
+        <br>
+        因为限制地区<br>
+        移除币种<br>
+        TWD(新台币)<br>
+        HKD(港币)<br>
+        USD(美元)<br>
+        `
     }
     
 ]
