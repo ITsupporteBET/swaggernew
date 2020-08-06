@@ -586,7 +586,7 @@
                       "username": {
                         "$ref": "#/definitions/username"
                       },
-                      "sucRefundList": {
+                      "sucRefundSeqNoList": {
                         "type": "array",
                         "description": "成功进行投注退款处理的处理列表。\n 如果所有处理失败，请返回空数组。",
                         "items": {

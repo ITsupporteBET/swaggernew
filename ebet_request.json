@@ -586,7 +586,7 @@
                       "username": {
                         "$ref": "#/definitions/username"
                       },
-                      "sucRefundList": {
+                      "sucRefundSeqNoList": {
                         "type": "array",
                         "description": "Details of successful bet refund processing.\n If all processing fails, please return empty array",
                         "items": {
