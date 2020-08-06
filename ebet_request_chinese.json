@@ -531,12 +531,12 @@
         }
       }
     },
-    "/autoRefundBatch": {
+    "/autoBatchRefund": {
       "post": {
         "tags": ["API used by single wallet"],
         "summary": "自动通知处理投注失败的退款",
-        "description": "定時检查失败的投注记录，并将其发送到渠道以批量处理退款。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/autoRefundBatch",
-        "operationId": "autoRefundBatch",
+        "description": "定時检查失败的投注记录，并将其发送到渠道以批量处理退款。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/autoBatchRefund",
+        "operationId": "autoBatchRefund",
         "consumes": ["application/json"],
         "produces": ["application/json"],
         "parameters": [{
@@ -562,7 +562,7 @@
                 },
                 "event": {
                   "type": "string",
-                  "example": "autoRefundBatch",
+                  "example": "autoBatchRefund",
                   "description": "API 名称"
                 },
                 "seqNo": {
@@ -1112,7 +1112,7 @@
         }
       }
     },
-    "autoRefundBatch_batchRefundList": {
+    "autoBatchRefund_batchRefundList": {
       "type": "object",
       "properties": {
         "seqNo": {
@@ -1162,7 +1162,7 @@
         },
         "event": {
           "type": "string",
-          "example": "autoRefundBatch",
+          "example": "autoBatchRefund",
           "description": "API 名称"
         },
         "timestamp": {
@@ -1177,7 +1177,7 @@
           "type": "array",
           "description": "退款清单",
           "items": {
-            "$ref": "#/definitions/autoRefundBatch_batchRefundList"
+            "$ref": "#/definitions/autoBatchRefund_batchRefundList"
           }
         }
       }

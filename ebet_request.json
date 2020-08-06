@@ -531,12 +531,12 @@
         }
       }
     },
-    "/autoRefundBatch": {
+    "/autoBatchRefund": {
       "post": {
         "tags": ["API used by single wallet"],
         "summary": "Automatic refund",
-        "description": "Regularly check the records of failed bets and send them to the channel to process refunds in batches.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/autoRefundBatch",
-        "operationId": "autoRefundBatch",
+        "description": "Regularly check the records of failed bets and send them to the channel to process refunds in batches.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/autoBatchRefund",
+        "operationId": "autoBatchRefund",
         "consumes": ["application/json"],
         "produces": ["application/json"],
         "parameters": [{
@@ -562,7 +562,7 @@
                 },
                 "event": {
                   "type": "string",
-                  "example": "autoRefundBatch",
+                  "example": "autoBatchRefund",
                   "description": "API name"
                 },
                 "seqNo": {
@@ -1112,7 +1112,7 @@
         }
       }
     },
-    "autoRefundBatch_batchRefundList": {
+    "autoBatchRefund_batchRefundList": {
       "type": "object",
       "properties": {
         "seqNo": {
@@ -1162,7 +1162,7 @@
         },
         "event": {
           "type": "string",
-          "example": "autoRefundBatch",
+          "example": "autoBatchRefund",
           "description": "API name"
         },
         "timestamp": {
@@ -1177,7 +1177,7 @@
           "type": "array",
           "description": "List of refunds",
           "items": {
-            "$ref": "#/definitions/autoRefundBatch_batchRefundList"
+            "$ref": "#/definitions/autoBatchRefund_batchRefundList"
           }
         }
       }
