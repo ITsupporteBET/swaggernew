@@ -933,7 +933,7 @@
         "brokerageRequired": {
           "type": "boolean",
           "example": true,
-          "description": "是否為免佣金百家乐。 只有百家乐才會有此参数"
+          "description": "是否為免佣金百家乐。 只有百家乐派彩才會有此参数"
         },
         "results": {
           "type": "array",

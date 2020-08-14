@@ -933,7 +933,7 @@
         "brokerageRequired": {
           "type": "boolean",
           "example": true,
-          "description": "Whether it is commission baccarat. Only Baccarat has this parameter."
+          "description": "Whether it is commission baccarat. Only Baccarat payout has this parameter."
         },
         "results": {
           "type": "array",
