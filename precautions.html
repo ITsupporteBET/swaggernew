@@ -67,7 +67,31 @@
     <h2>4. 游戏登入</h2>
     <span>登入游戏接口支持http以及https，若要<code>使用https 需做申请</code>。</span><br>
     <br>
-    <h2>5. 备注</h2>
+    <h2>5. 用戶名组成</h2>
+    <h4>組成规则</h4>
+    <span>
+    ebet接受的username的内容为<code>小写英文、数字和特定符号</code>。
+    若使用大写英文会被<code>强制转为小写英文</code>。
+    </span><br><br>
+    <h4>組成建议</h4>
+    <span>1.建议username是由小写英文和数字组成。</span><br>
+    <span>2.建议使用的长度为25字元长度。</span><br>
+    <span>3.特定符號為："@"、"_"、"-"、"."，其他符号请避免使用，避免出现问题。</span><br>
+    <br>
+    <h2>6. Token组成</h2>
+    <span>
+      此說明適用accessToken和sessionToken。
+    </span><br><br>
+    <h4>組成规则</h4>
+    <span>
+      渠道可以自行定义参数值和生命周期。。
+    </span><br><br>
+    <h4>組成建议</h4>
+    <span>1.建议是由大小写英文和数字组成。</span><br>
+    <span>2.建议每次使用后更新为新的参数值。</span><br>
+    <span>3.建议固定一组参数值提供给ebet重复测试使用。</span><br>
+    <br><br>
+    <h2>7. 备注</h2>
     <span>您在eBET做任何操作（例如：登入eBET游戏、向eBET发送API请求等），若收到http的错误（例如：403、502、504等），或其他未提及之错误，请向eBET人员寻求协助。</span><br>
     <br>`;
         } else {
@@ -102,7 +126,31 @@
     <h2>4. Game Login</h2>
     <span>The login game interface supports http and https. To use https, please contact eBET staff for assistance.</span><br>
     <br>
-    <h2>5. Remark</h2>
+    <h2>5. Username composition</h2>
+    <h4>Composition rules</h4>
+    <span>
+    The content of username accepted by ebet is <code>lowercase English, numbers and specific symbols.</code>
+    If you use uppercase English, <code>you will be forced to convert to lowercase English.</code>
+    </span><br><br>
+    <h4>Composition suggestion</h4>
+    <span>1.It is recommended that username is composed of lowercase English and numbers.</span><br>
+    <span>2.The recommended length is up to 25 characters.</span><br>
+    <span>3.The specific symbols are: "@", "_", "-", ".", please avoid using other symbols to avoid problems.</span><br>
+    <br>
+    <h2>6. Token composition</h2>
+    <span>
+      This description applies to accessToken and sessionToken.
+    </span><br><br>
+    <h4>Composition rules</h4>
+    <span>
+      Channel can define parameter values and life cycles by themselves. 
+    </span><br><br>
+    <h4>Composition suggestion</h4>
+    <span>1.The suggestion is composed of uppercase and lowercase English and numbers.</span><br>
+    <span>2.It is recommended to update to the new parameter value after each use.</span><br>
+    <span>3.It is recommended to fix a set of parameter values to ebet for repeated testing.</span><br>
+    <br><br>
+    <h2>7. Remark</h2>
     <span>When you do any operation on eBET (ex: login to eBET game, send API request to eBET), and if you receive http status code errors (ex: 403, 502, 504... etc.) or any other errors that are not listed above, please contact eBET staff for assistance.</span><br>
     <br>`;
         }
