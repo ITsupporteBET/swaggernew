@@ -33,6 +33,7 @@
   <script src="js/header.js"></script>
   <script src="js/header_css.js"></script>
   <!-- <script src="js/block.js"></script> -->
+  <script src="js/config.js"></script>
   <script>
      const web_context = document.getElementById('container');
 
@@ -91,7 +92,16 @@
     <span>2.建议每次使用后更新为新的参数值。</span><br>
     <span>3.建议固定一组参数值提供给ebet重复测试使用。</span><br>
     <br><br>
-    <h2>7. 备注</h2>
+    <h2>7. 建议配置</h2>
+    <table class="config" data-height="300">
+            <thead>
+                <tr>
+                    <th data-field="config_name"></th>
+                    <th data-field="config_value">建议配置</th>
+                </tr>
+            </thead>
+        </table><br>
+    <h2>8. 备注</h2>
     <span>您在eBET做任何操作（例如：登入eBET游戏、向eBET发送API请求等），若收到http的错误（例如：403、502、504等），或其他未提及之错误，请向eBET人员寻求协助。</span><br>
     <br>`;
         } else {
@@ -150,7 +160,16 @@
     <span>2.It is recommended to update to the new parameter value after each use.</span><br>
     <span>3.It is recommended to fix a set of parameter values to ebet for repeated testing.</span><br>
     <br><br>
-    <h2>7. Remark</h2>
+    <h2>7. Recommended configuration</h2>
+    <table class="config" data-height="300">
+            <thead>
+                <tr>
+                    <th data-field="config_name"></th>
+                    <th data-field="config_value">Recommended configuration</th>
+                </tr>
+            </thead>
+        </table><br>
+    <h2>8. Remark</h2>
     <span>When you do any operation on eBET (ex: login to eBET game, send API request to eBET), and if you receive http status code errors (ex: 403, 502, 504... etc.) or any other errors that are not listed above, please contact eBET staff for assistance.</span><br>
     <br>`;
         }
