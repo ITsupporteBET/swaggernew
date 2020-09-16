@@ -75,6 +75,13 @@ Add tableType descriptions for Lottery<br>
     HKD(Hong Kong Dollars)<br>
     USD(United States Dollar)<br>
     `
+}, {
+    update_time: "2020/Sep/16",
+    update_member: "leo",
+    update_description: `
+    Because Restricted Areas<br>
+    Remove currency<br>
+    KHR(Cambodian Riel<br>`
 }
 ]
 
@@ -84,14 +91,14 @@ const up_his_cn = [
         update_time: "2020/Feb/20",
         update_member: "leo",
         update_description: `
-增加游戏财富大转盘的相关说明<br>
-增加userbethistory的回传参数：maxPayout：财富大转盘相关<br>
-增加getbetlimit的回传参数：财富大转盘相关<br>
-增加updatebetlimit的请求参数：财富大转盘相关<br>
-增加API loginslot：它可以直接登入slot游戏<br>
-增加API slotgamelist：它可以取得slot游戏清单<br>
-增加API callback：用于OAuth登入<br>
-增加语系：德语、法语、土耳其语<br>`
+        增加游戏财富大转盘的相关说明<br>
+        增加userbethistory的回传参数：maxPayout：财富大转盘相关<br>
+        增加getbetlimit的回传参数：财富大转盘相关<br>
+        增加updatebetlimit的请求参数：财富大转盘相关<br>
+        增加API loginslot：它可以直接登入slot游戏<br>
+        增加API slotgamelist：它可以取得slot游戏清单<br>
+        增加API callback：用于OAuth登入<br>
+        增加语系：德语、法语、土耳其语<br>`
     }, {
         update_time: "2020/Feb/27",
         update_member: "leo",
@@ -143,6 +150,13 @@ const up_his_cn = [
         HKD(港币)<br>
         USD(美元)<br>
         `
+    }, {
+        update_time: "2020/Sep/16",
+        update_member: "leo",
+        update_description: `
+        因为限制地区<br>
+        移除币种<br>
+        KHR(柬埔寨瑞尔)<br>`
     }
     
 ]
