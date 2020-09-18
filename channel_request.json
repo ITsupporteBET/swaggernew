@@ -1102,22 +1102,22 @@
                       "moreLeftMin": {
                         "type": "number",
                         "format": "double",
-                        "description": "MoreLeft minimum bet limit.\n Only sic-bo."
+                        "description": "Two same number minimum bet limit.\n Only sic-bo."
                       },
                       "moreLeftMax": {
                         "type": "number",
                         "format": "double",
-                        "description": "MoreLeft maximum bet limit.\n Only sic-bo."
+                        "description": "Two same number maximum bet limit.\n Only sic-bo."
                       },
                       "moreRightMin": {
                         "type": "number",
                         "format": "double",
-                        "description": "MoreRight minimum bet limit.\n Only sic-bo."
+                        "description": "Three different number minimum bet limit.\n Only sic-bo."
                       },
                       "moreRightMax": {
                         "type": "number",
                         "format": "double",
-                        "description": "MoreRight maximum bet limit.\n Only sic-bo."
+                        "description": "Three different number maximum bet limit.\n Only sic-bo."
                       },
                       "redMin": {
                         "type": "number",
@@ -3015,22 +3015,22 @@
         "moreLeftMin": {
           "type": "number",
           "format": "double",
-          "description": "MoreLeft minimum bet limit.\n Only sic-bo."
+          "description": "Two same number minimum bet limit.\n Only sic-bo."
         },
         "moreLeftMax": {
           "type": "number",
           "format": "double",
-          "description": "MoreLeft maximum bet limit.\n Only sic-bo."
+          "description": "Two same number maximum bet limit.\n Only sic-bo."
         },
         "moreRightMin": {
           "type": "number",
           "format": "double",
-          "description": "MoreRight minimum bet limit.\n Only sic-bo."
+          "description": "Three different number minimum bet limit.\n Only sic-bo."
         },
         "moreRightMax": {
           "type": "number",
           "format": "double",
-          "description": "MoreRight maximum bet limit.\n Only sic-bo."
+          "description": "Three different number maximum bet limit.\n Only sic-bo."
         },
         "redMin": {
           "type": "number",
