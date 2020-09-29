@@ -1073,7 +1073,7 @@
       }
     },
     "body_6": {
-      "required": ["resultList"],
+      "required": ["refundList"],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -1103,7 +1103,7 @@
           "example": "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
           "description": "Signature. String splicing: username+timestamp"
         },
-        "resultList": {
+        "refundList": {
           "type": "array",
           "description": "Refund details",
           "items": {
