@@ -89,37 +89,55 @@
   },
   "host": "virtserver.swaggerhub.com",
   "basePath": "/ITtoppathsupport/test03/1.0.0",
-  "tags": [{
-    "name": "API used by transfer wallet",
-    "description": "eBET提供给转帐钱包所使用的API"
-  }, {
-    "name": "API used by single wallet",
-    "description": "eBET提供给单钱包所使用的API"
-  }],
-  "schemes": ["http"],
+  "tags": [
+    {
+      "name": "API used by transfer wallet",
+      "description": "eBET提供给转帐钱包所使用的API"
+    },
+    {
+      "name": "API used by single wallet",
+      "description": "eBET提供给单钱包所使用的API"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/RegisterOrLoginReq": {
       "post": {
-        "tags": ["API used by transfer wallet"],
+        "tags": [
+          "API used by transfer wallet"
+        ],
         "summary": "转帐钱包使用的验证用户登录",
         "description": "此api用于验证用户登录。\n 将请求直接发送到渠道提供的服务器URL。",
         "operationId": "RegisterOrLoginReq",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET 请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET 请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["accessToken", "status", "subChannelId", "username"],
+              "required": [
+                "accessToken",
+                "status",
+                "subChannelId",
+                "username"
+              ],
               "properties": {
                 "accessToken": {
                   "$ref": "#/definitions/accessToken"
@@ -149,21 +167,29 @@
     },
     "/UserInfo": {
       "post": {
-        "tags": ["API used by transfer wallet"],
+        "tags": [
+          "API used by transfer wallet"
+        ],
         "summary": "核对用户信息",
         "description": "此api用于确认用户信息。\n 在RegisterOrLoginReq响应成功后，它将发送请求。\n 响应失败不会影响玩家登录",
         "operationId": "UserInfo",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET 请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_1"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET 请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_1"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
@@ -180,26 +206,43 @@
     },
     "/registerOrLogin": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "单钱包使用的验证用户登录",
         "description": "此api用于验证用户登录。\n 发送请求至接收地址是渠道的服务器url + api。 E.g. http://127.0.0.1/registerOrLogin",
         "operationId": "registerOrLogin",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET 请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_2"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET 请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_2"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["accessToken", "currency", "event", "seqNo", "sessionToken", "status", "subChannelId", "username"],
+              "required": [
+                "accessToken",
+                "currency",
+                "event",
+                "seqNo",
+                "sessionToken",
+                "status",
+                "subChannelId",
+                "username"
+              ],
               "properties": {
                 "accessToken": {
                   "$ref": "#/definitions/accessToken"
@@ -240,26 +283,40 @@
     },
     "/syncCredit": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "同步用户金额",
         "description": "此api是用于确认用户当前的金额。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/syncCredit",
         "operationId": "syncCredit",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET 请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_3"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET 请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_3"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["event", "money", "seqNo", "status", "username"],
+              "required": [
+                "event",
+                "money",
+                "seqNo",
+                "status",
+                "username"
+              ],
               "properties": {
                 "username": {
                   "$ref": "#/definitions/username"
@@ -295,26 +352,41 @@
     },
     "/increaseCredit": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "通知用户金额变动",
         "description": "该API是用于通知渠道更改玩家金额。\n Note 1: seqNo是**唯一值**。 避免重复处理金額，请勿记录相同的支出seqNo。\n Note 2:关于派彩，我们有一个**retry**机制（此机制仅适用于派彩）。如果之前已经成功处理过，请向eBET返回201（重复seqNo）或200（成功但不更改玩家金额）。 \n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/increaseCredit",
         "operationId": "increaseCredit",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET 请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_4"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET 请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_4"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["event", "money", "moneyBefore", "seqNo", "status", "username"],
+              "required": [
+                "event",
+                "money",
+                "moneyBefore",
+                "seqNo",
+                "status",
+                "username"
+              ],
               "properties": {
                 "username": {
                   "$ref": "#/definitions/username"
@@ -353,26 +425,39 @@
     },
     "/queryIncreaseCreditRecord": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "查询increaseCredit的纪录",
         "description": "该API用于查询渠道数据库中的increaseCredit的处理状态。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/queryIncreaseCreditRecord",
         "operationId": "queryIncreaseCreditRecord",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET 请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_5"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET 请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_5"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["event", "seqNo", "status", "username"],
+              "required": [
+                "event",
+                "seqNo",
+                "status",
+                "username"
+              ],
               "properties": {
                 "seqNo": {
                   "$ref": "#/definitions/seqNo"
@@ -453,26 +538,39 @@
     },
     "/refundSingleWallet": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "手动通知处理投注失败的退款",
         "description": "此API是eBET对失败投注進行手动退款请求。\n发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/refundSingleWallet",
         "operationId": "refundSingleWallet",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET 请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_6"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET 请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_6"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["event", "seqNo", "status", "timestamp"],
+              "required": [
+                "event",
+                "seqNo",
+                "status",
+                "timestamp"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -533,26 +631,40 @@
     },
     "/autoBatchRefund": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "自动通知处理投注失败的退款",
         "description": "定時检查失败的投注记录，并将其发送到渠道以批量处理退款。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/autoBatchRefund",
         "operationId": "autoBatchRefund",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET 请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_7"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET 请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_7"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["event", "refundResultList", "seqNo", "status", "timestamp"],
+              "required": [
+                "event",
+                "refundResultList",
+                "seqNo",
+                "status",
+                "timestamp"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -924,7 +1036,14 @@
         },
         "srcResults": {
           "type": "array",
-          "example": [46, 47, null, 51, 51, null],
+          "example": [
+            46,
+            47,
+            null,
+            51,
+            51,
+            null
+          ],
           "description": "荷官开牌结果。 百家乐、龙虎、牛牛请参考牌面代码",
           "items": {
             "type": "integer"
@@ -937,7 +1056,14 @@
         },
         "results": {
           "type": "array",
-          "example": [60, 88, 71, 83, 62, 61],
+          "example": [
+            60,
+            88,
+            71,
+            83,
+            62,
+            61
+          ],
           "description": "中奖项目",
           "items": {
             "type": "integer"
@@ -955,10 +1081,43 @@
           "description": "派彩时间(毫秒)。 格式为Unix"
         },
         "betList": {
-            "$ref": "#/definitions/increaseCredit_betList"
+          "$ref": "#/definitions/increaseCredit_betList"
         },
         "modifyBetList": {
-            "$ref": "#/definitions/increaseCredit_betList"
+          "type": "array",
+          "description": "仅type = 37才有此参数",
+          "items": {
+            "type": "object",
+            "properties": {
+              "betType": {
+                "type": "integer",
+                "format": "int64",
+                "example": 80,
+                "description": "投注牌型"
+              },
+              "betMoney": {
+                "type": "number",
+                "format": "double",
+                "example": 100.0,
+                "description": "投注金额。 当betMoney = 0时，视为下注失败。"
+              },
+              "seqNo": {
+                "type": "string",
+                "example": "seqNoBetseqNoBet",
+                "description": "投注请求的序号。 只有派彩的事件，才需要此字段。"
+              },
+              "payout": {
+                "type": "number",
+                "format": "double",
+                "example": 0.0,
+                "description": "派彩金额。 只有派彩的事件，才需要此字段。"
+              },
+              "number": {
+                "type": "string",
+                "description": "游戏下注的号码。 只有特定项目才会有此字段"
+              }
+            }
+          }
         }
       }
     },
@@ -1009,8 +1168,8 @@
           "description": "签名。 字符串拼接: seqNo+event+channelId+timestamp+username+money"
         },
         "detail": {
-            "$ref": "#/definitions/increaseCredit_detail"
-          }
+          "$ref": "#/definitions/increaseCredit_detail"
+        }
       }
     },
     "body_5": {
@@ -1073,7 +1232,9 @@
       }
     },
     "body_6": {
-      "required": ["resultList"],
+      "required": [
+        "resultList"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"

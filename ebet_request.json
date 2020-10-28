@@ -89,37 +89,55 @@
   },
   "host": "virtserver.swaggerhub.com",
   "basePath": "/ITtoppathsupport/test03/1.0.0",
-  "tags": [{
-    "name": "API used by transfer wallet",
-    "description": "eBET provides several APIs for transfer wallet."
-  }, {
-    "name": "API used by single wallet",
-    "description": "eBET provides an API for single wallet."
-  }],
-  "schemes": ["http"],
+  "tags": [
+    {
+      "name": "API used by transfer wallet",
+      "description": "eBET provides several APIs for transfer wallet."
+    },
+    {
+      "name": "API used by single wallet",
+      "description": "eBET provides an API for single wallet."
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/RegisterOrLoginReq": {
       "post": {
-        "tags": ["API used by transfer wallet"],
+        "tags": [
+          "API used by transfer wallet"
+        ],
         "summary": "Verify user login",
         "description": "This api is used to verify user login.\n It will send the request directly to the server url provided by the channel.",
         "operationId": "RegisterOrLoginReq",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET Request",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "successful",
             "schema": {
-              "required": ["accessToken", "status", "subChannelId", "username"],
+              "required": [
+                "accessToken",
+                "status",
+                "subChannelId",
+                "username"
+              ],
               "properties": {
                 "accessToken": {
                   "$ref": "#/definitions/accessToken"
@@ -149,21 +167,29 @@
     },
     "/UserInfo": {
       "post": {
-        "tags": ["API used by transfer wallet"],
+        "tags": [
+          "API used by transfer wallet"
+        ],
         "summary": "Check user information",
         "description": "This api is used to confirm user information.\n It will send the request after the RegisterOrLoginReq response is successful.\n Its failure to implement does not affect player login",
         "operationId": "UserInfo",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET Request",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_1"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_1"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "successful",
@@ -180,26 +206,43 @@
     },
     "/registerOrLogin": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "Verify user login",
         "description": "This api is used to verify user login.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/registerOrLogin",
         "operationId": "registerOrLogin",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET Request",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_2"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_2"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "successful",
             "schema": {
-              "required": ["accessToken", "currency", "event", "seqNo", "sessionToken", "status", "subChannelId", "username"],
+              "required": [
+                "accessToken",
+                "currency",
+                "event",
+                "seqNo",
+                "sessionToken",
+                "status",
+                "subChannelId",
+                "username"
+              ],
               "properties": {
                 "accessToken": {
                   "$ref": "#/definitions/accessToken"
@@ -240,26 +283,40 @@
     },
     "/syncCredit": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "Synchronize user's money",
         "description": "This api is to confirm the user's current amount of money.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/syncCredit",
         "operationId": "syncCredit",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET Request",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_3"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_3"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "successful",
             "schema": {
-              "required": ["event", "money", "seqNo", "status", "username"],
+              "required": [
+                "event",
+                "money",
+                "seqNo",
+                "status",
+                "username"
+              ],
               "properties": {
                 "username": {
                   "$ref": "#/definitions/username"
@@ -295,26 +352,41 @@
     },
     "/increaseCredit": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "Notification of change of user money amount",
         "description": "This API is a notification channel for changing player money.\n Note 1: seqNo is **unique value**. Avoid repeated processing of money, do not record the same payout seqNo.\n Note 2: For payouts, we have a **retry** mechanism (this mechanism is only available for payouts, there is no such mechanism for betting). If it has been processed successfully before, please return 201 (seqNo repeated) or 200 (successful but not changing the player amount) to eBET for subsequent requests.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/increaseCredit",
         "operationId": "increaseCredit",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET Request",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_4"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_4"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "successful",
             "schema": {
-              "required": ["event", "money", "moneyBefore", "seqNo", "status", "username"],
+              "required": [
+                "event",
+                "money",
+                "moneyBefore",
+                "seqNo",
+                "status",
+                "username"
+              ],
               "properties": {
                 "username": {
                   "$ref": "#/definitions/username"
@@ -353,26 +425,39 @@
     },
     "/queryIncreaseCreditRecord": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "Query increaseCredit records",
         "description": "This API is for querying the processing status of increaseCredit in the channel's database.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/queryIncreaseCreditRecord",
         "operationId": "queryIncreaseCreditRecord",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET Request",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_5"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_5"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "successful",
             "schema": {
-              "required": ["event", "seqNo", "status", "username"],
+              "required": [
+                "event",
+                "seqNo",
+                "status",
+                "username"
+              ],
               "properties": {
                 "seqNo": {
                   "$ref": "#/definitions/seqNo"
@@ -453,26 +538,39 @@
     },
     "/refundSingleWallet": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "Manual refund",
         "description": "This API is eBET's manual refund request for failed bets.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/refundSingleWallet",
         "operationId": "refundSingleWallet",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET Request",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_6"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_6"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "successful",
             "schema": {
-              "required": ["event", "seqNo", "status", "timestamp"],
+              "required": [
+                "event",
+                "seqNo",
+                "status",
+                "timestamp"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -533,26 +631,40 @@
     },
     "/autoBatchRefund": {
       "post": {
-        "tags": ["API used by single wallet"],
+        "tags": [
+          "API used by single wallet"
+        ],
         "summary": "Automatic refund",
         "description": "Regularly check the records of failed bets and send them to the channel to process refunds in batches.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/autoBatchRefund",
         "operationId": "autoBatchRefund",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "eBET Request",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_7"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "eBET Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_7"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "successful",
             "schema": {
-              "required": ["event", "refundResultList", "seqNo", "status", "timestamp"],
+              "required": [
+                "event",
+                "refundResultList",
+                "seqNo",
+                "status",
+                "timestamp"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -924,7 +1036,14 @@
         },
         "srcResults": {
           "type": "array",
-          "example": [46, 47, null, 51, 51, null],
+          "example": [
+            46,
+            47,
+            null,
+            51,
+            51,
+            null
+          ],
           "description": "The flop result. Baccarat, Dragon Tiger, Niu Niu query card code",
           "items": {
             "type": "integer"
@@ -937,7 +1056,14 @@
         },
         "results": {
           "type": "array",
-          "example": [60, 88, 71, 83, 62, 61],
+          "example": [
+            60,
+            88,
+            71,
+            83,
+            62,
+            61
+          ],
           "description": "Winning bet items",
           "items": {
             "type": "integer"
@@ -955,10 +1081,43 @@
           "description": "Payout time. Used to milliseconds. Format is Unix Time"
         },
         "betList": {
-            "$ref": "#/definitions/increaseCredit_betList"
+          "$ref": "#/definitions/increaseCredit_betList"
         },
         "modifyBetList": {
-            "$ref": "#/definitions/increaseCredit_betList"
+          "type": "array",
+          "description": "Only type = 37 has this parameter.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "betType": {
+                "type": "integer",
+                "format": "int64",
+                "example": 80,
+                "description": "Bet item"
+              },
+              "betMoney": {
+                "type": "number",
+                "format": "double",
+                "example": 100.0,
+                "description": "Bet amount. When betMoney = 0, the bet failed."
+              },
+              "seqNo": {
+                "type": "string",
+                "example": "seqNoBetseqNoBet",
+                "description": "The sequence number of the bet request. This parameter is only available for payouts."
+              },
+              "payout": {
+                "type": "number",
+                "format": "double",
+                "example": 0.0,
+                "description": "Payout amount. This parameter is only available when payout."
+              },
+              "number": {
+                "type": "string",
+                "description": "Bet number. This parameter is only available for specific items."
+              }
+            }
+          }
         }
       }
     },
@@ -1009,7 +1168,7 @@
           "description": "Signature. String splicing : seqNo+event+channelId+timestamp+username+money"
         },
         "detail": {
-            "$ref": "#/definitions/increaseCredit_detail"
+          "$ref": "#/definitions/increaseCredit_detail"
         }
       }
     },
@@ -1073,7 +1232,9 @@
       }
     },
     "body_6": {
-      "required": ["resultList"],
+      "required": [
+        "resultList"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"

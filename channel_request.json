@@ -631,7 +631,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull \n 23:Fortune Wheel"
+                        "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull \n 7:Fortune Wheel"
                       },
                       "playerMin": {
                         "type": "number",
@@ -1406,7 +1406,7 @@
                 "updateGameList": {
                   "type": "array",
                   "example": [1],
-                  "description": "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull (niuniu)\n 23:Fortune Wheel",
+                  "description": "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull (niuniu)\n 7:Fortune Wheel",
                   "items": {
                     "type": "integer"
                   }
@@ -2532,7 +2532,7 @@
         "gameType": {
           "type": "integer",
           "example":1,
-          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull \n 23:Fortune Wheel"
+          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull \n 7:Fortune Wheel"
         },
         "playerMin": {
           "type": "number",
