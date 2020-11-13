@@ -158,7 +158,7 @@
       "post": {
         "tags": ["API used by transfer wallet"],
         "summary": "reharge",
-        "description": "This API notifies eBET to process when the user's wallet amount is changed.\n Note: It returns success to indicate that a notification has been received, but processing is not complete.\n Note: There is no upper limit.",
+        "description": "This API notifies eBET to process when the user's wallet amount is changed.\n Note: It returns success to indicate that a notification has been received, but processing is not complete.\n Note: There is no upper limit. \n Note: The ebet amount is only calculated to the second decimal place",
         "operationId": "recharge",
         "consumes": ["application/json"],
         "produces": ["application/json"],
