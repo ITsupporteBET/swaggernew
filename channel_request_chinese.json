@@ -127,6 +127,14 @@
             <td class=\"tg-0pky\">&nbsp;<code>5006</code></td>\n
             <td class=\"tg-0pky\">&nbsp;游戏中无法提领</td>\n
         </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5009</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;该游戏未开放（目前仅未申请正式老虎机会出现此错误代码）</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5010</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;渠道请求非该渠道申请币种</td>\n
+        </tr>\n
     </table>\n",
     "version": "1.0.0",
     "title": "Channel request"
