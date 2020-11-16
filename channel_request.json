@@ -128,6 +128,14 @@
             <td class=\"tg-0pky\">&nbsp;<code>5006</code></td>\n
             <td class=\"tg-0pky\">&nbsp;Unable to extract in the game</td>\n
         </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5009</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;The game is not open (This error code now only happen when not applicable official slot)</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5010</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Channel currency request parameter not apply for the channel setting</td>\n
+        </tr>\n
     </table>\n",
     "version": "1.0.0",
     "title": "Channel request"
@@ -150,7 +158,7 @@
       "post": {
         "tags": ["API used by transfer wallet"],
         "summary": "reharge",
-        "description": "This API notifies eBET to process when the user's wallet amount is changed.\n Note: It returns success to indicate that a notification has been received, but processing is not complete.\n Note: There is no upper limit.",
+        "description": "This API notifies eBET to process when the user's wallet amount is changed.\n Note: It returns success to indicate that a notification has been received, but processing is not complete.\n Note: There is no upper limit. \n Note: The ebet amount is only calculated to the second decimal place",
         "operationId": "recharge",
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -631,7 +639,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull \n 23:Fortune Wheel"
+                        "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull \n 7:Fortune Wheel"
                       },
                       "playerMin": {
                         "type": "number",
@@ -1406,7 +1414,7 @@
                 "updateGameList": {
                   "type": "array",
                   "example": [1],
-                  "description": "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull (niuniu)\n 23:Fortune Wheel",
+                  "description": "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull (niuniu)\n 7:Fortune Wheel",
                   "items": {
                     "type": "integer"
                   }
@@ -2532,7 +2540,7 @@
         "gameType": {
           "type": "integer",
           "example":1,
-          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull \n 23:Fortune Wheel"
+          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull \n 7:Fortune Wheel"
         },
         "playerMin": {
           "type": "number",

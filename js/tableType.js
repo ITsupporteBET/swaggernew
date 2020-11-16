@@ -43,6 +43,12 @@ const tableType = [{
 }, {
     code: "23",
     GameType: "Fortune Wheel"
+}, {
+    code: "24",
+    GameType: ""
+}, {
+    code: "25",
+    GameType: ""
 }
 ]
 
@@ -56,5 +62,7 @@ const tableType_cn = [
     { "code": "7", "GameType": "区块链百家乐" },
     { "code": "8", "GameType": "牛牛" },
     { "code": "22", "GameType": "彩票" },
-    { "code": "23", "GameType": "财富大转盘" }
+    { "code": "23", "GameType": "财富大转盘" },
+    { "code": "24", "GameType": "21点(电子)" },
+    { "code": "25", "GameType": "21点(真人)" }
 ]

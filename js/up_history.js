@@ -82,6 +82,17 @@ Add tableType descriptions for Lottery<br>
     Because Restricted Areas<br>
     Remove currency<br>
     KHR(Cambodian Riel<br>`
+}, {
+    update_time: "2020/OCT/26",
+    update_member: "leo",
+    update_description: `
+    API increaseCredit brokerageRequired update instructions<br>`
+}, {
+    update_time: "2020/NOV/13",
+    update_member: "leo",
+    update_description: `
+    Add Token login example<br>
+    Add new channel request error code<br>`
 }
 ]
 
@@ -157,6 +168,17 @@ const up_his_cn = [
         因为限制地区<br>
         移除币种<br>
         KHR(柬埔寨瑞尔)<br>`
+    }, {
+        update_time: "2020/OCT/26",
+        update_member: "leo",
+        update_description: `
+        API increaseCredit brokerageRequired 更新说明<br>`
+    }, {
+        update_time: "2020/NOV/13",
+        update_member: "leo",
+        update_description: `
+        新增Token登入范例<br>
+        新增渠道请求错误代码<br>`
     }
     
 ]

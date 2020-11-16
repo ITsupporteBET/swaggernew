@@ -127,6 +127,14 @@
             <td class=\"tg-0pky\">&nbsp;<code>5006</code></td>\n
             <td class=\"tg-0pky\">&nbsp;游戏中无法提领</td>\n
         </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5009</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;该游戏未开放（目前仅未申请正式老虎机会出现此错误代码）</td>\n
+        </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5010</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;渠道请求非该渠道申请币种</td>\n
+        </tr>\n
     </table>\n",
     "version": "1.0.0",
     "title": "Channel request"
@@ -149,7 +157,7 @@
       "post": {
         "tags": ["多钱包使用的API"],
         "summary": "充值",
-        "description": "此api为用户要变更金额，通知ebet处理。\n Note: 它返回成功是表示已接收到通知，但处理未完成。\n Note: 没有限定额度上限。",
+        "description": "此api为用户要变更金额，通知ebet处理。\n Note: 它返回成功是表示已接收到通知，但处理未完成。\n Note: 没有限定额度上限。\n Note: ebet金额只计算到小数点第二位",
         "operationId": "recharge",
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -630,7 +638,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 23:财富大转盘"
+                        "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘"
                       },
                       "playerMin": {
                         "type": "number",
@@ -1405,7 +1413,7 @@
                 "updateGameList": {
                   "type": "array",
                   "example": [1],
-                  "description": "更新投注限额游戏的代号:\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 23:财富大转盘",
+                  "description": "更新投注限额游戏的代号:\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘",
                   "items": {
                     "type": "integer"
                   }
@@ -2533,7 +2541,7 @@
         "gameType": {
           "type": "integer",
           "example":1,
-          "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 23:财富大转盘"
+          "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘"
         },
         "playerMin": {
           "type": "number",
