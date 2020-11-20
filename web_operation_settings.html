@@ -45,7 +45,7 @@
     <br>
     <h3>2. Token login</h3>
     <span>The function is to jump from the channel’s APP or web to eBET web Add username and accessToken to the login link</span><br>
-    <span>url example : http://<provide by ebet>?username=testmember&accessToken=testaccesstoken</span><br>
+    <span>url example : http://&lt;provide by ebet&gt;?username=testmember&accessToken=testaccesstoken</span><br>
     <br>
     <h1>Other parameters that can be added</h1>
     <span>When the channel wants to use these features, add the relevant parameters to the url.</span><br>
@@ -151,7 +151,7 @@
     <h3>2. Token登入</h3>
     <span>该功能是从渠道的APP或web跳转至eBET web
 在登入的连结上加入username 和 accessToken</span><br>
-    <span>url example : http://<provide by ebet>?username=testmember&accessToken=testaccesstoken</span><br>
+    <span>url example : http://&lt;eBET提供的H5 Game连结&gt;?username=testmember&accessToken=testaccesstoken</span><br>
     <br>
     <h1>其他可添加的参数</h1>
     <span>当想使用这些功能时，在url添加相关参数即可</span><br>
@@ -171,24 +171,24 @@
     <span>参数值请参考上表。</span><br>
     <span>該参数<code>只适用于PC H5页面</code>且只能输入一个参数值。</span><br>
     <span>进入ebet游戏后仍可切换至其他游戏。</span><br>
-    <span>url example : http://&lt;provide by ebet&gt;&dgt=1</span><br>
+    <span>url example : http://&lt;eBET提供的H5 Game连结&gt;&dgt=1</span><br>
     <img style="width: 100%;" src="img/dgt.jpg" alt=""><br>
     <br>
     <h5>gameType</h5>
     <span>参数值请参考上表。</span><br>
     <span>适用任意平台页面。</span><br>
     <span>输入一个参数值時，为独立介面。</span><br>
-    <span>url example 1 : http://&lt;provide by ebet&gt;&gameType=1</span><br>
+    <span>url example 1 : http://&lt;eBET提供的H5 Game连结&gt;&gameType=1</span><br>
     <img style="width: 100%;" src="img/gametype.jpg" alt=""><br>
     <br>
     <span>可输入多个参数值，进入ebet游戏后只会显示特定游戏。</span><br>
-    <span>url example 2 : http://&lt;provide by ebet&gt;&gameType=1,2,3,4</span><br>
+    <span>url example 2 : http://&lt;eBET提供的H5 Game连结&gt;&gameType=1,2,3,4</span><br>
     <img style="width: 100%;" src="img/gametype1234.jpg" alt=""><br>
     <br>
     <h3>2. 进入游戏桌</h3>
     <h5>tableCode</h5>
     <span>可直接进入指定的游戏桌，tableCode详细清单请和客服人员索取。</span><br>
-    <span>url example : http://&lt;provide by ebet&gt;&tableCode=B1</span><br>
+    <span>url example : http://&lt;eBET提供的H5 Game连结&gt;&tableCode=B1</span><br>
     <br>
     <span>slot游戏有另外的连结，请使用api：loginslot。</span><br>
     <br>
@@ -213,7 +213,7 @@
     <br>
     <span>只适用于Mobile H5</span><br>
     <span>未添加此参数时，<code>默认竖屏</code>。</span><br>
-    <span>url example : http://&lt;provide by ebet&gt;&orientation=1</span><br>
+    <span>url example : http://&lt;eBET提供的H5 Game连结&gt;&orientation=1</span><br>
     <br>
     <h3>4. 进入游戏时的语言设定</h3>
     <h5>language</h5>
@@ -227,12 +227,12 @@
       </thead>
     </table>
     <br>
-    <span>url example : http://&lt;provide by ebet&gt;&language=en_us</span><br>
+    <span>url example : http://&lt;eBET提供的H5 Game连结&gt;&language=en_us</span><br>
     <br>
     <h3>5. 试玩登入</h3>
     <h5>mode</h5>
     <span>携带该字串<code> mode=trial </code>可以直接使用试玩帐号登入游戏</span><br>
-    <span>url example : http://&lt;provide by ebet&gt;&mode=trial</span><br>
+    <span>url example : http://&lt;eBET提供的H5 Game连结&gt;&mode=trial</span><br>
     <br>
     <h3>6. 离开游戏后的介面</h3>
     <h5>exitUrl</h5>
