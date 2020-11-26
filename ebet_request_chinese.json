@@ -1232,13 +1232,9 @@
       }
     },
     "body_6": {
-<<<<<<< HEAD
-      "required": ["refundList"],
-=======
       "required": [
-        "resultList"
+        "refundList"
       ],
->>>>>>> cad3baced14e3131d1f50d18410e5a112fb28515
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
