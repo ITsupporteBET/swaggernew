@@ -57,8 +57,8 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">新增游戏
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="blackjack.html">21点</a>
                         <a class="dropdown-item" href="fortune_wheel.html">财富大转盘</a>
-                        <a class="dropdown-item" href="lottery_ticket.html">彩票</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -143,8 +143,8 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New game
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="blackjack.html">BlackJack</a>
                         <a class="dropdown-item" href="fortune_wheel.html">Fortune Wheel</a>
-                        <a class="dropdown-item" href="lottery_ticket.html">Lottery</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
