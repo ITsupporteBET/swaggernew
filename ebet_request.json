@@ -97,6 +97,10 @@
     {
       "name": "API used by single wallet",
       "description": "eBET provides an API for single wallet."
+    },
+    {
+      "name": "Common API",
+      "description": "APIs that any wallet can use."
     }
   ],
   "schemes": [
@@ -725,6 +729,38 @@
           }
         }
       }
+    },
+    "/api/netCheck": {
+      "post": {
+        "tags": ["Common API"],
+        "summary": "The purpose of this API is to monitor whether the server connection of the partner is normal",
+        "description": "This API is used by eBET to actively send requests to partners\n Send to url: server location provided by partner",
+        "operationId": "netCheck",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "request",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_8"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "required": ["status"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1340,6 +1376,16 @@
           "items": {
             "$ref": "#/definitions/autoBatchRefund_batchRefundList"
           }
+        }
+      }
+    },
+    "body_8": {
+      "required": ["event"],
+      "properties": {
+        "event": {
+          "type": "string",
+          "example": "netCheck",
+          "description": "API name"
         }
       }
     }

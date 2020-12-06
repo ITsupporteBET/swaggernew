@@ -97,6 +97,10 @@
     {
       "name": "API used by single wallet",
       "description": "eBET提供给单钱包所使用的API"
+    },
+    {
+      "name": "通用API",
+      "description": "任何钱包都可以使用的API。"
     }
   ],
   "schemes": [
@@ -725,6 +729,38 @@
           }
         }
       }
+    },
+    "/api/netCheck": {
+      "post": {
+        "tags": ["通用API"],
+        "summary": "该API目的为监控检测渠道的server连线是否正常",
+        "description": "此API为e​​BET方主动向渠道发送请求\n 发送至url : 渠道提供的server位置",
+        "operationId": "netCheck",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "请求",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/body_8"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": ["apiVersion", "status"],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1340,6 +1376,16 @@
           "items": {
             "$ref": "#/definitions/autoBatchRefund_batchRefundList"
           }
+        }
+      }
+    },
+    "body_8": {
+      "required": ["event"],
+      "properties": {
+        "event": {
+          "type": "string",
+          "example": "netCheck",
+          "description": "API名称"
         }
       }
     }
