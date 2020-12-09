@@ -52,8 +52,12 @@ const gameType = [
     {
         "code": "23",
         "Description": "Fortune Wheel"
+    }, 
+    {
+        "code": "24",
+        "Description": "Black Jack"
     }
-    ];
+];
 
 const gameType_cn = [
     {
@@ -95,12 +99,13 @@ const gameType_cn = [
     {
         "code": "23",
         "Description": "财富大转盘"
-    },
+    }, 
+    { "code": "24", "Description": "21点(电子)" }
 
 ];
 
 if (window.localStorage.getItem('lang') == "cn") {
-$(function () {
+    $(function () {
         $('.orientation').bootstrapTable({
             data: orientation_cn
         });
@@ -120,7 +125,7 @@ const orientation = [
         "Description": "Horizontal screen",
         "Picture": "<img style=\"width: 100%;\" src=\"img/Horizontal.jpg\">"
     }
-        ];
+];
 
 const orientation_cn = [
     {

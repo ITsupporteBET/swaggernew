@@ -346,3 +346,35 @@ const fortune_wheelf_cn = [
     { betting_items: "双", Odds: "1赔1.25" },
     { betting_items: "2X & 8X", Odds: "1赔25" }
 ]
+
+if (window.localStorage.getItem('lang') == "cn") {
+
+    $(function () {//固定赔率
+        $('.blackjack').bootstrapTable({
+            data: blackjack_cn
+        });
+    });
+    } else {
+        $(function () {//固定赔率
+            $('.blackjack').bootstrapTable({
+                data: blackjack
+            });
+        });
+    }
+    
+    
+    const blackjack = [
+        { betting_items: "Win the banker", Odds: "1:1" },
+        { betting_items: "Open BlackJack to win the banker", Odds: "1.5:1" },
+        { betting_items: "Insurance payout", Odds: "Insurance 2:1" },
+        { betting_items: "Tie", Odds: "Return bet amount" },
+        { betting_items: "Surrender", Odds: "Return half the amount bet" },
+    ]
+    
+    const blackjack_cn = [
+        { betting_items: "赢庄家", Odds: "1赔1" },
+        { betting_items: "开出 BlackJack 赢庄家", Odds: "1赔1.5" },
+        { betting_items: "保险获利", Odds: "保险金1赔2" },
+        { betting_items: "平手", Odds: "退回本金" },
+        { betting_items: "投降", Odds: "退回本金的一半" },
+    ]

@@ -113,7 +113,7 @@
         </tr>\n
         <tr>\n
             <td class=\"tg-0pky\">&nbsp;<code>5002</code></td>\n
-            <td class=\"tg-0pky\">&nbsp;余额不足，取款失败</td>\n
+            <td class=\"tg-0pky\">&nbsp;余额不足，取款失败(或该帐号已被冻结、禁止取款)</td>\n
         </tr>\n
         <tr>\n
             <td class=\"tg-0pky\">&nbsp;<code>5003</code></td>\n
@@ -2096,6 +2096,10 @@
           "items": {
             "type": "integer"
           }
+        },
+        "surrender": {
+          "type": "integer",
+          "description": "投降派彩(只有21点才會有此参数)"
         },
         "playerCards": {
           "type": "array",

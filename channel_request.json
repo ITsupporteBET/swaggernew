@@ -113,7 +113,7 @@
         </tr>\n
         <tr>\n
             <td class=\"tg-0pky\">&nbsp;<code>5002</code></td>\n
-            <td class=\"tg-0pky\">&nbsp;Not enough cash</td>\n
+            <td class=\"tg-0pky\">&nbsp;Not enough cash(Or the account has been banned and also forbidden to withdraw money)</td>\n
         </tr>\n
         <tr>\n
             <td class=\"tg-0pky\">&nbsp;<code>5003</code></td>\n
@@ -2095,6 +2095,10 @@
           "items": {
             "type": "integer"
           }
+        },
+        "surrender": {
+          "type": "integer",
+          "description": "Surrender payout(Only Black Jack payout has this parameter.)"
         },
         "playerCards": {
           "type": "array",
