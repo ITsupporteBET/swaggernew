@@ -734,7 +734,7 @@
       "post": {
         "tags": ["通用API"],
         "summary": "该API目的为监控检测渠道的server连线是否正常",
-        "description": "此API为e​​BET方主动向渠道发送请求\n 发送至url : 渠道提供的server位置",
+        "description": "該API僅用於檢測渠道接收api的server狀態。\n 會将请求直接发送到渠道提供的服务器URL。\n 備註：在網路狀態不穩時，eBET人員會手動請求確認。",
         "operationId": "netCheck",
         "consumes": ["application/json"],
         "produces": ["application/json"],

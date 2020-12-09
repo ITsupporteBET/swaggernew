@@ -734,7 +734,7 @@
       "post": {
         "tags": ["Common API"],
         "summary": "The purpose of this API is to monitor whether the server connection of the partner is normal",
-        "description": "This API is used by eBET to actively send requests to partners\n Send to url: server location provided by partner",
+        "description": "This API is only used to detect the server status of the channel receiving the API. \n The request will be sent directly to the server URL provided by the channel. \n Note: When the network status is unstable, eBET staff will manually request confirmation.",
         "operationId": "netCheck",
         "consumes": ["application/json"],
         "produces": ["application/json"],
