@@ -93,6 +93,11 @@ Add tableType descriptions for Lottery<br>
     update_description: `
     Add Token login example<br>
     Add new channel request error code<br>`
+}, {
+    update_time: "2020/DEC/10",
+    update_member: "leo",
+    update_description: `
+    Add API :netCheck<br>`
 }
 ]
 
@@ -179,6 +184,11 @@ const up_his_cn = [
         update_description: `
         新增Token登入范例<br>
         新增渠道请求错误代码<br>`
+    }, {
+        update_time: "2020/DEC/10",
+        update_member: "leo",
+        update_description: `
+        新增的API :netCheck<br>`
     }
     
 ]
