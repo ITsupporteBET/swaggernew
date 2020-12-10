@@ -730,7 +730,7 @@
         }
       }
     },
-    "/api/netCheck": {
+    "/netCheck": {
       "post": {
         "tags": ["Common API"],
         "summary": "The purpose of this API is to monitor whether the server connection of the partner is normal",

@@ -730,7 +730,7 @@
         }
       }
     },
-    "/api/netCheck": {
+    "/netCheck": {
       "post": {
         "tags": ["通用API"],
         "summary": "该API目的为监控检测渠道的server连线是否正常",
