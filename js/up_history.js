@@ -102,7 +102,7 @@ Add tableType descriptions for Lottery<br>
     update_time: "2020/DEC/18",
     update_member: "leo",
     update_description: `
-    Remove BullBull and Fortune Wheel<br>`
+    Bullbull and Fortune wheel were removed.<br>`
 }
 ]
 
