@@ -1080,7 +1080,7 @@
             51,
             null
           ],
-          "description": "The flop result. Baccarat, Dragon Tiger, Niu Niu query card code",
+          "description": "The flop result. Baccarat, Dragon Tiger query card code",
           "items": {
             "type": "integer"
           }

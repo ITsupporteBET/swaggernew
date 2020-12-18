@@ -58,7 +58,9 @@ if (window.localStorage.getItem('lang') == "cn") {
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="blackjack.html">21点</a>
+                        <!--
                         <a class="dropdown-item" href="fortune_wheel.html">财富大转盘</a>
+                        -->
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -144,7 +146,9 @@ if (window.localStorage.getItem('lang') == "cn") {
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="blackjack.html">BlackJack</a>
+                        <!--
                         <a class="dropdown-item" href="fortune_wheel.html">Fortune Wheel</a>
+                        -->
                     </div>
                 </li>
                 <li class="nav-item dropdown">

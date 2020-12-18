@@ -639,7 +639,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull \n 7:Fortune Wheel"
+                        "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette"
                       },
                       "playerMin": {
                         "type": "number",
@@ -2058,8 +2058,8 @@
         },
         "gameName": {
           "type": "string",
-          "description": "Game name.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat\n 8: BullBull\n 23:  FortuneWheel",
-          "enum": ["baccarat", "dragon-tiger", "sic-bo", "roulette", "slot", "blockchain-baccarat", "bullbull", "fortune-wheel"]
+          "description": "Game name.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat",
+          "enum": ["baccarat", "dragon-tiger", "sic-bo", "roulette", "slot", "blockchain-baccarat"]
         },
         "betMap": {
           "type": "array",

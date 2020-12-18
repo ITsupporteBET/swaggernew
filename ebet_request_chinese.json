@@ -1080,7 +1080,7 @@
             51,
             null
           ],
-          "description": "荷官开牌结果。 百家乐、龙虎、牛牛请参考牌面代码",
+          "description": "荷官开牌结果。 百家乐、龙虎请参考牌面代码",
           "items": {
             "type": "integer"
           }

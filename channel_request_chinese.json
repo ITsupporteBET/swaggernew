@@ -638,7 +638,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘"
+                        "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘"
                       },
                       "playerMin": {
                         "type": "number",
@@ -2059,8 +2059,8 @@
         },
         "gameName": {
           "type": "string",
-          "description": "游戏名称。\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat\n 8: BullBull\n 23:  FortuneWheel",
-          "enum": ["baccarat", "dragon-tiger", "sic-bo", "roulette", "slot", "blockchain-baccarat", "bullbull", "fortune-wheel"]
+          "description": "游戏名称。\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat",
+          "enum": ["baccarat", "dragon-tiger", "sic-bo", "roulette", "slot", "blockchain-baccarat", ]
         },
         "betMap": {
           "type": "array",

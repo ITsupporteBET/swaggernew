@@ -33,12 +33,6 @@ const URL_PARAMETER = [{
     "parameter_description": "携带该字串(mode=trial)可以直接使用试玩帐号登入游戏",
     "parameter_example": "http://<provide by ebet>&mode=trial"
 
-}, {
-    "title": "离开游戏后跳转的连结",
-    "help_message": "",
-    "parameter_name": "exitUrl",
-    "parameter_description": "携带该参数并在后面添加离开的网址，就可以在玩家退出或断线游戏时，进入指定页面。/n离开的网址需要做encode，例如：https://www.google.com => https%3A%2F%2Fwww.google.com/n要使用此参数有问题时，请和ebet技术人员请求协助确认/n",
-    "parameter_example": "http://<provide by ebet>&exitUrl=<provide by channel>"
 }]
 
 

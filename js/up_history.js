@@ -98,6 +98,11 @@ Add tableType descriptions for Lottery<br>
     update_member: "leo",
     update_description: `
     Add API :netCheck<br>`
+}, {
+    update_time: "2020/DEC/18",
+    update_member: "leo",
+    update_description: `
+    Remove BullBull and Fortune Wheel<br>`
 }
 ]
 
@@ -189,6 +194,11 @@ const up_his_cn = [
         update_member: "leo",
         update_description: `
         新增的API :netCheck<br>`
+    }, {
+        update_time: "2020/DEC/18",
+        update_member: "leo",
+        update_description: `
+        移除牛牛和财富大转盘<br>`
     }
     
 ]
