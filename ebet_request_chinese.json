@@ -360,7 +360,7 @@
           "API used by single wallet"
         ],
         "summary": "通知用户金额变动",
-        "description": "该API是用于通知渠道更改玩家金额。\n Note 1: seqNo是**唯一值**。 避免重复处理金額，请勿记录相同的支出seqNo。\n Note 2:关于派彩，我们有一个**retry**机制（此机制仅适用于派彩）。如果之前已经成功处理过，请向eBET返回201（重复seqNo）或200（成功但不更改玩家金额）。 \n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/increaseCredit",
+        "description": "该API是用于通知渠道更改玩家金额。\n Note 1: seqNo是**唯一值**。 避免重复处理金額，请勿记录相同的支出seqNo。\n Note 2:我们有一个**retry**机制。如果之前已经成功处理过，请向eBET返回201（重复seqNo）。 \n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/increaseCredit",
         "operationId": "increaseCredit",
         "consumes": [
           "application/json"
