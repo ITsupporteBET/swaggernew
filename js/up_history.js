@@ -103,6 +103,13 @@ Add tableType descriptions for Lottery<br>
     update_member: "leo",
     update_description: `
     Bullbull and Fortune wheel were removed.<br>`
+}, {
+    update_time: "2020/DEC/30",
+    update_member: "leo",
+    update_description: `
+    Add increaseCredit description<br>
+    Add Treasure parameter<br>
+    `
 }
 ]
 
@@ -199,6 +206,13 @@ const up_his_cn = [
         update_member: "leo",
         update_description: `
         移除牛牛和财富大转盘<br>`
+    }, {
+        update_time: "2020/DEC/30",
+        update_member: "leo",
+        update_description: `
+        新增increaseCredit说明<br>
+        新增宝箱活动参数<br>
+        `
     }
     
 ]
