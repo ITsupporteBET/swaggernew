@@ -1550,6 +1550,10 @@
                       "bonusName": {
                         "type": "string",
                         "description": "活动名称。 仅在tradeType = 23,24时出现"
+                      },
+                      "tradeType": {
+                        "type": "integer",
+                        "description": "事务代码"
                       }
                     }
                   }

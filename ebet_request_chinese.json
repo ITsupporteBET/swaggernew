@@ -1154,6 +1154,16 @@
               }
             }
           }
+        },
+        "eventBonusType": {
+          "type": "integer",
+          "example": 1,
+          "description": "活动奖励类型(只有 type = 38 才需要此字段。)"
+        },
+        "eventBonusCode": {
+          "type": "string",
+          "example": "test-bonus",
+          "description": "活动奖励名称(只有 type = 38 才需要此字段。)"
         }
       }
     },

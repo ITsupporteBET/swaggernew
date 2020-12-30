@@ -1154,6 +1154,16 @@
               }
             }
           }
+        },
+        "eventBonusType": {
+          "type": "integer",
+          "example": 1,
+          "description": "Event bonus type.(Only type = 38 has this parameter.)"
+        },
+        "eventBonusCode": {
+          "type": "string",
+          "example": "test-bonus",
+          "description": "Event bouns name.(Only type = 38 has this parameter.)"
         }
       }
     },

@@ -101,6 +101,12 @@ const type = [
     "Type": "Reissue difference amount",
     "description": "Reissue the difference after the correction round result",
     "Occurrence": "After the round result is corrected, the payout amount needs to be recalculated and the difference reissued"
+  },
+  {
+    "Code": 38,
+    "Type": "Treasure",
+    "description": "eBET event: Treasure",
+    "Occurrence": "Treasure bonus will be issued at the end of the round"
   }
 ]
 
@@ -121,5 +127,6 @@ const type_cn = [
   { "Code": "24", "Type": "限量红包", "description": "发送限量红包的纪录", "Occurrence": "1.ebet人员在后台设定达成条件<br>2.达到条件后随机发送" },
   { "Code": "27", "Type": "预扣", "description": "预扣", "Occurrence": "投注指定投注项目时，预先扣除的金额" },
   { "Code": "28", "Type": "预扣返还", "description": "预扣返还", "Occurrence": "返还剩余的预先扣除金额" },
-  { "Code": "37", "Type": "补发金额", "description": "补发牌局结果修正后的差额", "Occurrence": "牌局结果修正后需重新计算派彩金额并补发差额" }
+  { "Code": "37", "Type": "补发金额", "description": "补发牌局结果修正后的差额", "Occurrence": "牌局结果修正后需重新计算派彩金额并补发差额" },
+  { "Code": "38", "Type": "宝箱奖金发派", "description": "宝箱活动的奖金发派", "Occurrence": "牌局结束后会发放宝箱活动的奖金" }
 ]
