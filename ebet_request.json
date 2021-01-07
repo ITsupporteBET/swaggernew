@@ -1164,6 +1164,16 @@
           "type": "string",
           "example": "test-bonus",
           "description": "Event bouns name.(Only type = 38 has this parameter.)"
+        },
+        "betStopTime": {
+          "type": "integer",
+          "example": 1577808030000,
+          "description": "Bet stop time. Used to milliseconds. Format is Unix Time. This parameter is only available for payouts."
+        },
+        "matchId": {
+          "type": "integer",
+          "example": 2000,
+          "description": "Match code. Format is Unix Time. Only type = 8 or 9 has this parameter."
         }
       }
     },

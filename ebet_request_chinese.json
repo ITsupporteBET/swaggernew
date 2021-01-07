@@ -1164,6 +1164,16 @@
           "type": "string",
           "example": "test-bonus",
           "description": "活动奖励名称(只有 type = 38 才需要此字段。)"
+        },
+        "betStopTime": {
+          "type": "integer",
+          "example": 1577808030000,
+          "description": "下注停止时间(毫秒)。 格式为Unix(只有派彩的事件，才需要此字段。)"
+        },
+        "matchId": {
+          "type": "integer",
+          "example": 2000,
+          "description": "大赛代码。 格式为Unix(只有 type = 8或9 才需要此字段。)"
         }
       }
     },
