@@ -110,6 +110,14 @@ Add tableType descriptions for Lottery<br>
     Add increaseCredit description<br>
     Add Treasure parameter<br>
     `
+}, {
+    update_time: "2021/JAN/07",
+    update_member: "leo",
+    update_description: `
+    Added increaseCredit detail parameter<br>
+    betStopTime<br>
+    matchId<br>
+    `
 }
 ]
 
@@ -213,6 +221,13 @@ const up_his_cn = [
         新增increaseCredit说明<br>
         新增宝箱活动参数<br>
         `
+    }, {
+        update_time: "2021/JAN/07",
+        update_member: "leo",
+        update_description: `
+        新增increaseCredit detail参数<br>
+        betStopTime<br>
+        matchId<br>
+        `
     }
-    
 ]
