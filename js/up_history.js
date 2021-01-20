@@ -118,6 +118,14 @@ Add tableType descriptions for Lottery<br>
     betStopTime<br>
     matchId<br>
     `
+}, {
+    update_time: "2021/JAN/20",
+    update_member: "leo",
+    update_description: `
+    1. Update userbethistory description<br>
+    2. Added increaseCredit request parameter<br>
+    3. Added autoBatchRefund request parameter<br>
+    `
 }
 ]
 
@@ -228,6 +236,14 @@ const up_his_cn = [
         新增increaseCredit detail参数<br>
         betStopTime<br>
         matchId<br>
+        `
+    }, {
+        update_time: "2021/JAN/20",
+        update_member: "leo",
+        update_description: `
+        1. userbethistory 更新说明<br>
+        2. 新增 increaseCredit 请求参数<br>
+        3. 新增 autoBatchRefund 请求参数<br>
         `
     }
 ]

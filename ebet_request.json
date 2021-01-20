@@ -1028,6 +1028,11 @@
         "number": {
           "type": "string",
           "description": "Bet number. This parameter is only available for specific items."
+        },
+        "betId": {
+          "type": "string",
+          "description": "Bet ID",
+          "example": "seqNoBetseqNoBet-80"
         }
       }
     },
@@ -1348,6 +1353,12 @@
           "format": "double",
           "example": 1000.0,
           "description": "Refund amount. This value is positive."
+        },"detail": {
+          "type": "array",
+          "description":"Details of bet refund list",
+          "items": {
+            "$ref": "#/definitions/autoBatchRefund_batchRefundList_detail"
+          }
         }
       }
     },
@@ -1406,6 +1417,27 @@
           "type": "string",
           "example": "netCheck",
           "description": "API name"
+        }
+      }
+    },"autoBatchRefund_batchRefundList_detail":{
+      "type": "object",
+      "properties":{
+        "betId": {
+          "type": "string",
+          "description": "Bet ID",
+          "example": "seqNoBetseqNoBet-80"
+        },
+        "betType": {
+          "type": "integer",
+          "format": "int64",
+          "example": 80,
+          "description": "Bet item"
+        },
+        "money": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "Bet amount."
         }
       }
     }

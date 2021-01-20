@@ -19,7 +19,7 @@
     <div id="header"></div>
 
     <div class="container">
-        
+
         <div id="container"></div>
 
     </div>
@@ -34,10 +34,10 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
     <script src="js/header.js"></script>
     <script src="js/header_css.js"></script>
@@ -58,9 +58,16 @@
 
             <span>
                 更新项目<br>
-                新增increaseCredit detail参数<br>
-                betStopTime<br>
-                matchId<br>
+                新增increaseCredit > detail > betList 参数<br>
+                betId<br>
+                <br>
+                新增 autoBatchRefund > batchRefundList 参数<br>
+                detail<br>
+                <br>
+                新增 autoBatchRefund > batchRefundList > detail 参数<br>
+                betId<br>
+                betType<br>
+                money<br>
             </span>
             <br>
             <table class="up_his" data-height="500">
@@ -75,9 +82,16 @@
         } else {
             web_context.innerHTML = `
             <span>
-                Added increaseCredit detail parameter<br>
-                betStopTime<br>
-                matchId<br>
+                Added increaseCredit > detail > betList parameter<br>
+                betId<br>
+                <br>
+                Added autoBatchRefund > batchRefundList parameter<br>
+                detail<br>
+                <br>
+                Added autoBatchRefund > batchRefundList > detail parameter<br>
+                betId<br>
+                betType<br>
+                money<br>
             </span>
             <br>
             <table class="up_his" data-height="500">

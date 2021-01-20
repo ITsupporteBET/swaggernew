@@ -1028,6 +1028,11 @@
         "number": {
           "type": "string",
           "description": "游戏下注的号码。 只有特定项目才会有此字段"
+        },
+        "betId": {
+          "type": "string",
+          "description": "投注ID",
+          "example": "seqNoBetseqNoBet-80"
         }
       }
     },
@@ -1348,6 +1353,12 @@
           "format": "double",
           "example": 1000.0,
           "description": "退款金额。 此值为正。"
+        },"detail": {
+          "type": "array",
+          "description":"退款明細",
+          "items": {
+            "$ref": "#/definitions/autoBatchRefund_batchRefundList_detail"
+          }
         }
       }
     },
@@ -1406,6 +1417,27 @@
           "type": "string",
           "example": "netCheck",
           "description": "API名称"
+        }
+      }
+    },"autoBatchRefund_batchRefundList_detail":{
+      "type": "object",
+      "properties":{
+        "betId": {
+          "type": "string",
+          "description": "投注ID",
+          "example": "seqNoBetseqNoBet-80"
+        },
+        "betType": {
+          "type": "integer",
+          "format": "int64",
+          "example": 80,
+          "description": "投注牌型"
+        },
+        "money": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "投注金额"
         }
       }
     }
