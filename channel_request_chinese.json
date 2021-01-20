@@ -473,7 +473,7 @@
       "post": {
         "tags": ["通用API"],
         "summary": "用户投注记录",
-        "description": "该API用于查询在特定时间段内记录的投注。\n Note: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)",
+        "description": "该API用于查询在特定时间段内记录的投注。\n Note 1: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: 建议带以下参数 betStatus:1 以查询成功的记录",
         "operationId": "userbethistory",
         "consumes": ["application/json"],
         "produces": ["application/json"],
