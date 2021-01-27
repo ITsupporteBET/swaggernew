@@ -2058,6 +2058,7 @@
       "properties": {
         "gameType": {
           "type": "integer",
+          "example":1,
           "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat\n 8: BullBull\n 23:  FortuneWheel"
         },
         "gameName": {
