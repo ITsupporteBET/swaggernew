@@ -1122,7 +1122,10 @@
           "description": "Payout time. Used to milliseconds. Format is Unix Time"
         },
         "betList": {
+          "type": "array",
+          "items": {
           "$ref": "#/definitions/increaseCredit_betList"
+        }
         },
         "modifyBetList": {
           "type": "array",

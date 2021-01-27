@@ -141,35 +141,49 @@
   },
   "host": "virtserver.swaggerhub.com",
   "basePath": "/ITtoppathsupport/test01/1.0.0",
-  "tags": [{
-    "name": "多钱包使用的API",
-    "description": "eBET提供了几种用于转账钱包的API。"
-  }, {
-    "name": "单钱包使用的API",
-    "description": "eBET提供单个钱包的API。"
-  }, {
-    "name": "通用API",
-    "description": "任何钱包都可以使用的API。"
-  }],
-  "schemes": ["http"],
+  "tags": [
+    {
+      "name": "多钱包使用的API",
+      "description": "eBET提供了几种用于转账钱包的API。"
+    },
+    {
+      "name": "单钱包使用的API",
+      "description": "eBET提供单个钱包的API。"
+    },
+    {
+      "name": "通用API",
+      "description": "任何钱包都可以使用的API。"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/api/recharge": {
       "post": {
-        "tags": ["多钱包使用的API"],
+        "tags": [
+          "多钱包使用的API"
+        ],
         "summary": "充值",
         "description": "此api为用户要变更金额，通知ebet处理。\n Note: 它返回成功是表示已接收到通知，但处理未完成。\n Note: 没有限定额度上限。\n Note: ebet金额只计算到小数点第二位",
         "operationId": "recharge",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
@@ -198,21 +212,29 @@
     },
     "/api/rechargestatus": {
       "post": {
-        "tags": ["多钱包使用的API"],
+        "tags": [
+          "多钱包使用的API"
+        ],
         "summary": "充值状态",
         "description": "此api为检查ebet是否有收到并处理完成充值请求。",
         "operationId": "rechargestatus",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_1"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_1"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
@@ -235,26 +257,37 @@
     },
     "/api/getusermoney": {
       "post": {
-        "tags": ["多钱包使用的API"],
+        "tags": [
+          "多钱包使用的API"
+        ],
         "summary": "获取用户资金",
         "description": "此api为查询一段时间内有登入的用户金额。\n Note: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)",
         "operationId": "getusermoney",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_2"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_2"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "status"],
+              "required": [
+                "apiVersion",
+                "status"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -263,22 +296,25 @@
                   "$ref": "#/definitions/apiVersion"
                 },
                 "results": {
-                  "type": "object",
-                  "description": "记录.",
-                  "properties": {
-                    "username": {
-                      "$ref": "#/definitions/username"
-                    },
-                    "money": {
-                      "type": "number",
-                      "format": "double",
-                      "example": 543.21,
-                      "description": "用户的金額"
-                    },
-                    "wallet": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/definitions/wallet"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "description": "记录.",
+                    "properties": {
+                      "username": {
+                        "$ref": "#/definitions/username"
+                      },
+                      "money": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 543.21,
+                        "description": "用户的金額"
+                      },
+                      "wallet": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/wallet"
+                        }
                       }
                     }
                   }
@@ -291,26 +327,37 @@
     },
     "/api/getseqnorecord": {
       "post": {
-        "tags": ["单钱包使用的API"],
+        "tags": [
+          "单钱包使用的API"
+        ],
         "summary": "获取seqno记录",
         "description": "此api为取得ebet纪录为失败的序列编号。",
         "operationId": "getseqnorecord",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_3"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_3"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "status"],
+              "required": [
+                "apiVersion",
+                "status"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -371,26 +418,37 @@
     },
     "/api/syncuser": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "创建用户",
         "description": "创建新用户",
         "operationId": "syncuser",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_4"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_4"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "status"],
+              "required": [
+                "apiVersion",
+                "status"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -409,26 +467,43 @@
     },
     "/api/userinfo": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "用户信息",
         "description": "查询用户信息",
         "operationId": "userinfo",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_5"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_5"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "channelId", "money", "status", "subChannelId", "userId", "username", "wallet"],
+              "required": [
+                "apiVersion",
+                "channelId",
+                "money",
+                "status",
+                "subChannelId",
+                "userId",
+                "username",
+                "wallet"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -471,26 +546,40 @@
     },
     "/api/userbethistory": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "用户投注记录",
         "description": "该API用于查询在特定时间段内记录的投注。\n Note 1: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: 建议带以下参数 betStatus:1 以查询成功的记录",
         "operationId": "userbethistory",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_6"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_6"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "betHistories", "count", "remainingVisits", "status"],
+              "required": [
+                "apiVersion",
+                "betHistories",
+                "count",
+                "remainingVisits",
+                "status"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -518,26 +607,42 @@
     },
     "/api/getcurrentluzhu": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "牌局結果路書",
         "description": "回传当前已经结束的 30 笔牌局结果且转换成路书资讯",
         "operationId": "getcurrentluzhu",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_7"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_7"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "count", "remainingVisits", "status", "tableCode", "tableSubType", "tableType"],
+              "required": [
+                "apiVersion",
+                "count",
+                "remainingVisits",
+                "status",
+                "tableCode",
+                "tableSubType",
+                "tableType"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -565,7 +670,9 @@
                 "luzhuList": {
                   "type": "array",
                   "example": [
-                    [68]
+                    [
+                      68
+                    ]
                   ],
                   "description": "每局开牌结果。仅当count> 0时才会显示此参数。",
                   "items": {
@@ -578,7 +685,9 @@
                 "luzhuStat": {
                   "type": "array",
                   "example": [
-                    ["draw"]
+                    [
+                      "draw"
+                    ]
                   ],
                   "description": "每局结果。仅当count> 0时才会显示此参数。",
                   "items": {
@@ -596,26 +705,40 @@
     },
     "/api/getbetlimit": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "取得下注限制",
         "description": "取得用户在各房间类型设置的投注限制清单",
         "operationId": "getbetlimit",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_8"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_8"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "channelId", "limit", "status", "username"],
+              "required": [
+                "apiVersion",
+                "channelId",
+                "limit",
+                "status",
+                "username"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -1377,26 +1500,40 @@
     },
     "/api/updatebetlimit": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "更新下注限制",
         "description": "变更用户在各房间类型设置的投注限制清单。\n 可以只修改特定游戏的投注限额，例如：只修改百家乐的投注限额。",
         "operationId": "updatebetlimit",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_9"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_9"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "channelId", "status", "updateGameList", "username"],
+              "required": [
+                "apiVersion",
+                "channelId",
+                "status",
+                "updateGameList",
+                "username"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -1412,7 +1549,9 @@
                 },
                 "updateGameList": {
                   "type": "array",
-                  "example": [1],
+                  "example": [
+                    1
+                  ],
                   "description": "更新投注限额游戏的代号:\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘",
                   "items": {
                     "type": "integer"
@@ -1426,26 +1565,38 @@
     },
     "/api/userBetTracer": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "用户投注详情连结",
         "description": "提供用户投注历史的URL。\n 链接屏幕显示游戏名称，下注日期，下注金额，派彩金额，牌局号，会员下注类型（文字+图标）和牌局结果类型（文字+图标）。 与eBET后台投注详情相同。\n\n URL path 的規則:\n 1.细单页面连结\n 2.用户名称(userName)\n 3.渠道ID(channelId)\n 4.牌局号(roundCode)\n 5.語系(lang)\n 6.加入display=1可以关闭有效投注栏位\n 7.签名signature (需由渠道用GET method自行添加上去)\n 产生的规则为 RSA (channelId+username+roundCode+lang)",
         "operationId": "userBetTracer",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_10"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_10"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "path", "status"],
+              "required": [
+                "apiVersion",
+                "path",
+                "status"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -1466,26 +1617,40 @@
     },
     "/api/usertransaction": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "用户交易记录",
         "description": "此api用于查询一段时间内登录用户的当前金额。\n Note: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)",
         "operationId": "usertransaction",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_11"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_11"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "count", "remainingVisits", "status", "transactions"],
+              "required": [
+                "apiVersion",
+                "count",
+                "remainingVisits",
+                "status",
+                "transactions"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -1566,26 +1731,44 @@
     },
     "/api/userbetsummary": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "用户摘要",
         "description": "此api是查询时间段内的总计报告。\n Note: 仅记录成功投注和成功派彩的记录。\n 预设时间段是当天。",
         "operationId": "userbetsummary",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_12"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_12"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "count", "endTime", "remainingVisits", "startTime", "status", "totalBet", "totalPayout", "totalWithholding"],
+              "required": [
+                "apiVersion",
+                "count",
+                "endTime",
+                "remainingVisits",
+                "startTime",
+                "status",
+                "totalBet",
+                "totalPayout",
+                "totalWithholding"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -1637,26 +1820,37 @@
     },
     "/api/totaluserbetsummary": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "总用户摘要",
         "description": "查询用户投注历史",
         "operationId": "totaluserbetsummary",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "该API用于查询每个游戏中每个玩家的下注数量，下注金額，有效下注和盈余。\n 搜索期不能超过7天。",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_13"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "该API用于查询每个游戏中每个玩家的下注数量，下注金額，有效下注和盈余。\n 搜索期不能超过7天。",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_13"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "status"],
+              "required": [
+                "apiVersion",
+                "status"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -1729,26 +1923,37 @@
     },
     "/api/logout": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "登出",
         "description": "为让玩家离开ebet游戏。\n Note: 必须在eBET后台启用相关功能才能使用。",
         "operationId": "logout",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_14"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_14"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "status"],
+              "required": [
+                "apiVersion",
+                "status"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -1764,26 +1969,38 @@
     },
     "/api/loginslot": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "登入老虎机游戏",
         "description": "获取链接以直接登录到老虎机游戏。\n Note: 使用此方法仍会发送验证登录请求。 只有成功验证后，才会提供登录链接。",
         "operationId": "logslot",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_15"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_15"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "slotURL", "status"],
+              "required": [
+                "apiVersion",
+                "slotURL",
+                "status"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -1804,26 +2021,38 @@
     },
     "/api/slotgamelist": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "老虎机游戏清单",
         "description": "获取老虎机游戏列表。",
         "operationId": "slotgamelist",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "请求",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_16"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "请求",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_16"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "slotGames", "status"],
+              "required": [
+                "apiVersion",
+                "slotGames",
+                "status"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -1870,30 +2099,47 @@
           }
         }
       }
-
     },
     "/api/callback": {
       "post": {
-        "tags": ["通用API"],
+        "tags": [
+          "通用API"
+        ],
         "summary": "登入通知",
         "description": "Channels can use their own login portal if the channel does not want to go through eBET's login portal.\n The channel must request this API to notify eBET to let the player log in to the game after verifying the player.\n Note: Need to provide link and eBET should be set to open on the backend.",
         "operationId": "callback",
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [{
-          "in": "body",
-          "name": "body",
-          "description": "Request",
-          "required": false,
-          "schema": {
-            "$ref": "#/definitions/body_17"
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_17"
+            }
           }
-        }],
+        ],
         "responses": {
           "200": {
             "description": "成功",
             "schema": {
-              "required": ["apiVersion", "channelId", "money", "status", "subChannelId", "timestamp", "userId", "username", "wallet"],
+              "required": [
+                "apiVersion",
+                "channelId",
+                "money",
+                "status",
+                "subChannelId",
+                "timestamp",
+                "userId",
+                "username",
+                "wallet"
+              ],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -2064,7 +2310,14 @@
         "gameName": {
           "type": "string",
           "description": "游戏名称。\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat",
-          "enum": ["baccarat", "dragon-tiger", "sic-bo", "roulette", "slot", "blockchain-baccarat", ]
+          "enum": [
+            "baccarat",
+            "dragon-tiger",
+            "sic-bo",
+            "roulette",
+            "slot",
+            "blockchain-baccarat",
+          ]
         },
         "betMap": {
           "type": "array",
@@ -2095,7 +2348,12 @@
         },
         "judgeResult": {
           "type": "array",
-          "example": [60, 70, 82, 63],
+          "example": [
+            60,
+            70,
+            82,
+            63
+          ],
           "description": "中奖奖项。\n 牛牛: 开牌结果。",
           "items": {
             "type": "integer"
@@ -2107,7 +2365,11 @@
         },
         "playerCards": {
           "type": "array",
-          "example": [1, 6, 29],
+          "example": [
+            1,
+            6,
+            29
+          ],
           "description": "只有百家乐.。 闲的开牌结果。",
           "items": {
             "type": "integer"
@@ -2120,7 +2382,11 @@
         },
         "bankerCard": {
           "type": "array",
-          "example": [14, 38, 7],
+          "example": [
+            14,
+            38,
+            7
+          ],
           "description": "只有百家乐.。 庄的开牌结果。",
           "items": {
             "type": "integer"
@@ -2259,7 +2525,14 @@
       "description": "投注详细信息。"
     },
     "body": {
-      "required": ["channelId", "money", "rechargeReqId", "signature", "timestamp", "username"],
+      "required": [
+        "channelId",
+        "money",
+        "rechargeReqId",
+        "signature",
+        "timestamp",
+        "username"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -2293,7 +2566,11 @@
       }
     },
     "body_1": {
-      "required": ["channelId", "rechargeReqId", "signature"],
+      "required": [
+        "channelId",
+        "rechargeReqId",
+        "signature"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -2312,7 +2589,11 @@
       }
     },
     "body_2": {
-      "required": ["channelId", "signature", "username"],
+      "required": [
+        "channelId",
+        "signature",
+        "username"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -2357,7 +2638,11 @@
       }
     },
     "body_3": {
-      "required": ["channelId", "signature", "timestamp"],
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -2397,7 +2682,11 @@
       }
     },
     "body_4": {
-      "required": ["channelId", "signature", "username"],
+      "required": [
+        "channelId",
+        "signature",
+        "username"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -2419,7 +2708,12 @@
       }
     },
     "body_5": {
-      "required": ["channelId", "signature", "timestamp", "username"],
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp",
+        "username"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -2439,7 +2733,11 @@
       }
     },
     "body_6": {
-      "required": ["channelId", "signature", "timestamp"],
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -2497,7 +2795,14 @@
       }
     },
     "body_7": {
-      "required": ["channelId", "signature", "tableCode", "tableSubType", "tableType", "timestamp"],
+      "required": [
+        "channelId",
+        "signature",
+        "tableCode",
+        "tableSubType",
+        "tableType",
+        "timestamp"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -2524,7 +2829,12 @@
       }
     },
     "body_8": {
-      "required": ["channelId", "signature", "timestamp", "username"],
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp",
+        "username"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -2548,7 +2858,7 @@
       "properties": {
         "gameType": {
           "type": "integer",
-          "example":1,
+          "example": 1,
           "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘"
         },
         "playerMin": {
@@ -3292,7 +3602,13 @@
       }
     },
     "body_9": {
-      "required": ["channelId", "limit", "signature", "timestamp", "username"],
+      "required": [
+        "channelId",
+        "limit",
+        "signature",
+        "timestamp",
+        "username"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -3319,7 +3635,11 @@
       }
     },
     "body_10": {
-      "required": ["channelId", "signature", "timestamp"],
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -3352,7 +3672,11 @@
       }
     },
     "body_11": {
-      "required": ["channelId", "signature", "timestamp"],
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -3386,7 +3710,10 @@
         },
         "tradeType": {
           "type": "array",
-          "example": [23, 24],
+          "example": [
+            23,
+            24
+          ],
           "description": "交易记录类型",
           "items": {
             "type": "integer"
@@ -3395,7 +3722,11 @@
       }
     },
     "body_12": {
-      "required": ["channelId", "signature", "timestamp"],
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -3440,7 +3771,15 @@
       }
     },
     "body_13": {
-      "required": ["channelId", "endTimeStr", "pageNum", "pageSize", "signature", "startTimeStr", "timestamp"],
+      "required": [
+        "channelId",
+        "endTimeStr",
+        "pageNum",
+        "pageSize",
+        "signature",
+        "startTimeStr",
+        "timestamp"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -3479,7 +3818,12 @@
       }
     },
     "body_14": {
-      "required": ["channelId", "signature", "timestamp", "username"],
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp",
+        "username"
+      ],
       "properties": {
         "username": {
           "$ref": "#/definitions/username"
@@ -3499,7 +3843,15 @@
       }
     },
     "body_15": {
-      "required": ["channelId", "gameID", "loginEventType", "providerId", "signature", "timestamp", "username"],
+      "required": [
+        "channelId",
+        "gameID",
+        "loginEventType",
+        "providerId",
+        "signature",
+        "timestamp",
+        "username"
+      ],
       "properties": {
         "username": {
           "$ref": "#/definitions/username"
@@ -3554,7 +3906,11 @@
       }
     },
     "body_16": {
-      "required": ["channelId", "signature", "timestamp"],
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp"
+      ],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -3570,7 +3926,13 @@
       }
     },
     "body_17": {
-      "required": ["accessToken", "channelId", "signature", "timestamp", "username"],
+      "required": [
+        "accessToken",
+        "channelId",
+        "signature",
+        "timestamp",
+        "username"
+      ],
       "properties": {
         "username": {
           "$ref": "#/definitions/username"
