@@ -87,7 +87,7 @@ const sicbo = [
     { sicbo: "7 or 14", Odds: "12:1" },
     { sicbo: "8 or 13/Two Dice Pair", Odds: "8:1" },
     { sicbo: "9 to 12", Odds: "6:1" },
-    { sicbo: "Triple(Specific)", Odds: "30:3" },
+    { sicbo: "Triple(Specific)", Odds: "150:1" },
     { sicbo: "Any Triple", Odds: "24:1" },
     { sicbo: "Two Dice Combinations", Odds: "5:1" },
     { sicbo: "Single NumBer", Odds: "1:1 (Single Dice) 2:1 (Double Dice) 3:1 (Triple Dice)" },
@@ -103,7 +103,7 @@ const sicbo_cn = [
     { "sicbo": "7点或14点", "Odds": "1赔12" },
     { "sicbo": "8点或13点/长牌（对子）", "Odds": "1赔8" },
     { "sicbo": "9点 - 12点", "Odds": "1赔6" },
-    { "sicbo": "围骰", "Odds": "3赔30" },
+    { "sicbo": "围骰", "Odds": "1赔150" },
     { "sicbo": "全围", "Odds": "1赔24" },
     { "sicbo": "短牌（组合）", "Odds": "1赔5" },
     { "sicbo": "单点数", "Odds": "1赔1（开出一个）1赔2（开出二个）1赔3（开出三个）" },
@@ -336,15 +336,15 @@ $(function () {//固定赔率
 
 
 const fortune_wheelf = [
-    { betting_items: "ODD", Odds: "0.75:1" },
-    { betting_items: "EVEN", Odds: "1.25:1" },
-    { betting_items: "2X & 8X", Odds: "25:1" }
+    { betting_items: "Side Bet - ODD", Odds: "0.75:1" },
+    { betting_items: "Side Bet - EVEN", Odds: "1.25:1" },
+    { betting_items: "Side Bet - Multiplier", Odds: "25:1" }
 ]
 
 const fortune_wheelf_cn = [
-    { betting_items: "单", Odds: "1赔0.75" },
-    { betting_items: "双", Odds: "1赔1.25" },
-    { betting_items: "2X & 8X", Odds: "1赔25" }
+    { betting_items: "邊注-单", Odds: "1赔0.75" },
+    { betting_items: "邊注-双", Odds: "1赔1.25" },
+    { betting_items: "邊注-乘倍指數", Odds: "1赔25" }
 ]
 
 if (window.localStorage.getItem('lang') == "cn") {
