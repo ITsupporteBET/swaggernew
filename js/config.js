@@ -23,7 +23,7 @@ const config = [{
 }, {
     config_name: "Recommended mobile version",
     config_value: `
-    iOS 11.3 or later<br>
+    iOS 13 or later<br>
     Android 8 or later<br>`
 }, {
     config_name: "Recommended browser",
@@ -55,7 +55,7 @@ const config_cn = [{
 }, {
     config_name: "建议手机版本",
     config_value: `
-    iOS 11.3以上<br>
+    iOS 13以上<br>
     Android 8以上<br>`
 }, {
     config_name: "建议浏览器",
