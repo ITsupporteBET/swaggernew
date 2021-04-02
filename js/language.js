@@ -39,10 +39,10 @@ const language= [
         "language": "vi_vn",
         "description": "Ting Vit"
     },
-    {
-        "language": "ko_kr",
-        "description": "Korean"
-    },
+    // {
+    //     "language": "ko_kr",
+    //     "description": "Korean"
+    // },
     {
         "language": "ta_in",
         "description": "Tamil language"
@@ -100,7 +100,7 @@ const language_cn = [
     { "language": "en_us", "description": "英文" },
     { "language": "ms_my", "description": "马来文" },
     { "language": "vi_vn", "description": "越南语" },
-    { "language": "ko_kr", "description": "韩文" },
+    // { "language": "ko_kr", "description": "韩文" },
     { "language": "ta_in", "description": "坦米尔语" },
     { "language": "ja_jp", "description": "日语" },
     { "language": "in_id", "description": "印度尼西亚文" },
