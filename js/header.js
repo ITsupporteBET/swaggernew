@@ -169,6 +169,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         API
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="apinote.html">API considerations</a>
                         <a class="dropdown-item" href="ebet_request.html">eBET request</a>
                         <a class="dropdown-item" href="channel_request.html">Channel request</a>
                         <a class="dropdown-item" href="common_parameter.html">Common parameter description</a>
