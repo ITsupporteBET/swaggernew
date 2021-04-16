@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="eBET API Document" />
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="verify" content="index,follow" />
+    <title>eBET</title>
+    <div id="h_css"></div>
 </head>
 <body>
     <form >
@@ -53,5 +62,141 @@
         <span style="color: red;">红色：此API是由渠道发送相关请求</span><br>
         请在上线前确认API是否都已实施且可以正常收发
     </form>
+    <div id="header"></div>
+
+    <div class="container">
+      <div id="container"></div>
+    </div>
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/header_css.js"></script>
+    <script src="js/betting_opposites.js"></script>
+    <script>
+      const web_context = document.getElementById('container');
+  
+      if (window.localStorage.getItem('lang') == "cn") {
+        web_context.innerHTML = `<h1>签名组成</h1><br>
+      <span>1. eBET提供的钥匙格式为PEM。若渠道使用C#，请转换成XML。</span><br>
+      <span>2. 由特定参数值做字串串接，透过RSA加密方式后组成签名字串。</span><br>
+      <span>3. 若特定参数为非必要参数且请求时没有该参数时，可以略过该参数，例如：由username+timestamp組成的簽名，沒有username時可以只使用timestamp作转换</span><br>
+        <br>
+  
+        <h1>时间格式字串</h1><br>
+      <span>
+        eBET server DB纪录的时间为<code>北京时间(EAT)</code><br />
+        eBET server接受的时间格式字串如下：<br />
+        <code>yyyy-MM-dd HH:mm:ss ( UTC+8 ) 和yyyy-MM-ddTHH:mm:ssZ ( UTC+0 )</code><br />
+        e.g.1 要被转化的时间：北京时间2019-08-01 04:00:00 ( UTC+8 )<br />
+        转化过后为：2019-07-31T20:00:00Z (UTC+0)<br />
+        e.g.2 要被转化的时间：美东时间2019-07-31 12:00:00 ( UTC-5 )<br />
+        转化过后为：<br />
+        2019-07-31T17:00:00Z (UTC+0)或2019-08-01 01:00:00 ( UTC+8 )<br />
+      </span><br>
+  
+  
+      <h1>有效投注</h1><br>
+      <span>
+        一般来说，总投注等于有效投注，但若发生下列状况，则会使有效投注比总投注的金额少，甚至是"0"
+      </span><br><br>
+      <h2>1. 对投</h2><br>
+      <span>
+        当玩家在一局中投注中同时有下列注项的时候，会相互抵销，例如：玩家如果分别下注到 庄 10 个筹码以及闲 20 个筹码，则有效投注为闲 10 个筹码(庄闲会抵销)，但是 投注总额则为 30 个筹码。
+      </span><br><br>
+      <table class="betting_opposites" data-height="300">
+              <thead>
+                  <tr>
+                      <th data-field="baccarat">百家乐</th>
+                      <th data-field="dragon_tiger">龙虎</th>
+                      <th data-field="roulette">轮盘</th>
+                      <th data-field="sicbo">骰宝</th>
+                  </tr>
+              </thead>
+          </table><br>
+  
+      <h2>2. 龙虎开和</h2><br>
+      <span>当龙虎该局开和，龙虎的下注金退回一半，有效投注也以一半计算，不被对投情形影响，例如：龙下注100 虎下注200 开和就退回下注金150 有效投注150 (50+100)</span><br><br>
+      <h2>3. 免佣百家乐庄家6点赢</h2><br>
+  
+      <span>当免佣百家乐庄家以6点赢，有效投注为下注的一半，例如：庄下注100，6点胜出，有效投注为 50。但若有对投情形，则以对投计算优先，例如：庄下注200、闲下注100，6点胜出，有效投注为 50 [(200-100)/2]。</span><br><br>
+      <span>派彩部分，若庄家是以牌面6点胜出，赔率为1：0.5；若庄家以非牌面六点胜出，赔率是1：1。</span><br><br>`;
+    
+      } else {
+        web_context.innerHTML = `<h1>Signature composition</h1><br>
+      <span>1. The key format provided by eBET is PEM. If your channel uses C #, convert it to XML.</span><br>
+      <span>2. Strings are concatenated with specific parameter values, which are then formed into a signature string
+        through RSA encryption.</span><br>
+      <span>3. If a specific parameter is not required and it is not available when requested, it can be ignored, for
+        example: by A username + timestamp signature. Without username, you can only use timestamp change RSA</span><br>
+        <br>
+  
+        <h1>Time Format String</h1><br>
+      <span>
+        The time recorded by eBET server DB is <code>Beijing time (EAT)</code><br />
+        The time format strings accepted by eBET server are as follows:<br />
+        <code>yyyy-MM-dd HH: mm: ss (UTC + 8) and yyyy-MM-ddTHH: mm: ssZ (UTC + 0)</code><br />
+        e.g.1 Time to be converted: Beijing time 2019-08-01 04:00:00 (UTC + 8)<br />
+        After conversion: 2019-07-31T20: 00: 00Z (UTC + 0)<br />
+        e.g.2 Time to be converted: 2019-07-31 12:00:00 Eastern Time (UTC-5)<br />
+        After conversion:<br />
+        2019-07-31T17: 00: 00Z (UTC + 0) or 2019-08-01 01:00:00 (UTC + 8)<br />
+  
+      </span><br>
+  
+  
+      <h1>Valid betting instructions</h1><br>
+      <span>
+        Generally, the total bet equal to the effective bet. However, if the
+        following conditions occur, the effective bet will be less than the total bet,
+        or even "0"
+      </span><br><br>
+  
+      <h2>1. Betting opposites：</h2><br>
+      <span>
+        When the player bets banker and player on the
+        Baccarat, bets dragon and tiger on the Dragon-tiger, bets big and small or
+        single and double on the Sic-bo and bets red and black, big and small or
+        single and double on the Roulette, they will offset each other.
+        For example, if the player bets to Bank 10 chips and Player 20 For chips,
+        the Valid Bet is Player 10 (Bank and Player will be offset). but the Total
+        Amount of bets is 30.
+      </span><br><br>
+      <table class="betting_opposites" data-height="300">
+              <thead>
+                  <tr>
+                      <th data-field="baccarat">baccarat</th>
+                      <th data-field="dragon_tiger">dragon / tiger</th>
+                      <th data-field="roulette">roulette</th>
+                      <th data-field="sicbo">sicbo</th>
+                  </tr>
+              </thead>
+          </table><br>
+  
+      <h2>2. Dragon Tiger is draw：</h2><br>
+      <span>When the Dragon Tiger is draw, the bet is
+        refunded in half, and the valid bet is also calculated in half, which will not
+        be affected by the first situation.
+        For example: Dragon bet 100, Tiger bet 200, draw back the bet of gold
+        150, valid bet 150 (50+100)</span><br><br>
+      <h2>3. No commission Baccarat banker 6 wins：</h2><br>
+        <span>When the non-commissioned
+        Baccarat banker wins by 6 points, the effective bet is half of the bet.
+        For example: the banker bets 100, 6 points to win, and the effective bet
+        is 50.
+        However, if there is a first case, it is first calculated in the first case.
+        For example, the banker bet 200 and the player bet 100, the banker wins
+        6 points, and the effective bet is 50. [(200-100)/2]</span><br><br>
+        
+        <span>About banker payout , if Baccarat banker wins by 6 points, the odds are 1:0.5; if not , the odds are 1:1.</span><br><br>`;
+      }
+    </script>
 </body>
 </html>
