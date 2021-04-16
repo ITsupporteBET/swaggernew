@@ -138,28 +138,66 @@
         </table>
         <br>
   
-      <span style="color: blue;">蓝色：此API是由eBET发送相关请求</span><br>
-      <span style="color: red;">红色：此API是由渠道发送相关请求</span><br><br>
-      <span>请在上线前确认API是否都已实施且可以正常收发</span><br>
-      
+        <span class="text-primary">蓝色：此API是由eBET发送相关请求</span><br>
+        <span class="text-danger">红色：此API是由渠道发送相关请求</span><br><br>
+        <span>请在上线前确认API是否都已实施且可以正常收发</span><br>
       `;
 
         } else {
             web_context.innerHTML = `
-        <h1>以下为必要实作的API</h1><br>
+            <h1>以下为必要实作的API</h1><br>
       
-        <table class="betting_opposites" data-height="300">
-              <thead>
-                  <tr>
-                      <th data-field="baccarat">百家乐</th>
-                      <th data-field="dragon_tiger">龙虎</th>
-                      <th data-field="roulette">轮盘</th>
-                  </tr>
-              </thead>
-          </table><br>
+      <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">API用途</th>
+                    <th scope="col">转帐钱包</th>
+                    <th scope="col">单一钱包</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>验证用户登入</td>
+                    <td class="text-primary">RegisterOrLoginReq</td>
+                    <td class="text-primary">registerOrLogin</td>
+                </tr>
+                <tr>
+                    <td>确认用户金额</td>
+                    <td class="text-danger">userinfo</td>
+                    <td class="text-primary">syncCredit</td>
+                </tr>
+                <tr>
+                    <td>查询牌局纪录</td>
+                    <td class="text-danger">userbethistory</td>
+                    <td class="text-danger">userbethistory</td>
+                </tr>
+                <tr>
+                    <td>查询金额变化纪录</td>
+                    <td class="text-danger">usertransaction</td>
+                    <td class="text-primary">queryIncreaseCreditRecord</td>
+                </tr>
+                <tr>
+                    <td>金额变化通知</td>
+                    <td></td>
+                    <td class="text-primary">increaseCredit</td>
+                </tr>
+                <tr>
+                    <td>退款通知</td>
+                    <td></td>
+                    <td class="text-primary">refundSingleWallet</td>
+                </tr>
+                <tr>
+                    <td>转入/转出</td>
+                    <td class="text-danger">recharge <br> rechargestatus</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
   
-      <span>当龙虎该局开和，龙虎的下注金退回一半，有效投注也以一半计算，不被对投情形影响，例如：龙下注100 虎下注200 开和就退回下注金150 有效投注150 (50+100)</span><br><br>
-      <span>当免佣百家乐庄家以6点赢，有效投注为下注的一半，例如：庄下注100，6点胜出，有效投注为 50。但若有对投情形，则以对投计算优先，例如：庄下注200、闲下注100，6点胜出，有效投注为 50 [(200-100)/2]。</span><br><br>
+        <span class="text-primary">蓝色：此API是由eBET发送相关请求</span><br>
+        <span class="text-danger">红色：此API是由渠道发送相关请求</span><br><br>
+        <span>请在上线前确认API是否都已实施且可以正常收发</span><br>
         `;
         }
     </script>
