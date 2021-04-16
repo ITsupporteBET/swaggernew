@@ -80,6 +80,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         API
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="apinote.html">API注意事项</a>
                     <a class="dropdown-item" href="ebet_request.html">eBET请求</a>
                     <a class="dropdown-item" href="channel_request.html">渠道请​​求</a>
                     <a class="dropdown-item" href="common_parameter.html">共用参数说明</a>

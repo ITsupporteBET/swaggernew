@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <form >
+        <table border="1" cellpadding='10';>
+            <colgroup span="1" style="background-color:#2bff00;"></colgroup>
+            <caption><u><b><h1>以下为必要实作的API</h1></b></u></caption>
+            <tr align="center" style="background-color: #FFD700;">
+                <th>API用途</th>
+                <th>转帐钱包</th>
+                <th>单一钱包</th>
+            </tr>
+            <tr align="center">
+                <th>验证用户登入</th>
+                <td style="color: blue;">RegisterOrLoginReq</td>
+                <td style="color: blue;">registerOrLogin</td>
+            </tr>
+            <tr align="center">
+                <th>确认用户金额</th>
+                <td style="color: red;">userinfo</td>
+                <td style="color: blue;">syncCredit</td>
+            </tr>
+            <tr align="center">
+                <th>查询牌局纪录</th>
+                <td style="color: red;">userbethistory</td>
+                <td style="color: red;">userbethistory</td>
+            </tr>
+            <tr align="center">
+                <th>查询金额变化纪录</th>
+                <td style="color: red;">usertransaction</td>
+                <td style="color: blue;">queryIncreaseCreditRecord</td>
+            </tr>
+            <tr align="center">
+                <th>金额变化通知</th>
+                <td></td>
+                <td style="color: blue;">increaseCredit</td>
+            </tr>
+            <tr align="center">
+                <th>退款通知</th>
+                <td></td>
+                <td style="color: blue;">refundSingleWallet</td>
+            </tr>
+            <tr align="center">
+                <th>转入/转出</th>
+                <td style="color: red;">recharge<br>rechargestatus</td>
+                <td></td>
+            </tr>
+        </table>
+        <span style="color: blue;">蓝色：此API是由eBET发送相关请求</span><br>
+        <span style="color: red;">红色：此API是由渠道发送相关请求</span><br>
+        请在上线前确认API是否都已实施且可以正常收发
+    </form>
+</body>
+</html>
