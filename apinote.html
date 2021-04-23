@@ -94,49 +94,49 @@
 
         } else {
             web_context.innerHTML = `
-            <h1>以下为必要实作的API</h1><br>
+            <h1>The following is the required API</h1><br>
       
       <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th scope="col">API用途</th>
-                    <th scope="col">转帐钱包</th>
-                    <th scope="col">单一钱包</th>
+                    <th scope="col">API usage</th>
+                    <th scope="col">Transfer wallet</th>
+                    <th scope="col">Single wallet</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>验证用户登入</td>
+                    <td>Verify user login</td>
                     <td class="text-primary">RegisterOrLoginReq</td>
                     <td class="text-primary">registerOrLogin</td>
                 </tr>
                 <tr>
-                    <td>确认用户金额</td>
+                    <td>Confirm user amount</td>
                     <td class="text-danger">userinfo</td>
                     <td class="text-primary">syncCredit</td>
                 </tr>
                 <tr>
-                    <td>查询牌局纪录</td>
+                    <td>Query round records</td>
                     <td class="text-danger">userbethistory</td>
                     <td class="text-danger">userbethistory</td>
                 </tr>
                 <tr>
-                    <td>查询金额变化纪录</td>
+                    <td>Check the account balance record</td>
                     <td class="text-danger">usertransaction</td>
                     <td class="text-primary">queryIncreaseCreditRecord</td>
                 </tr>
                 <tr>
-                    <td>金额变化通知</td>
+                    <td>Notification of account balance</td>
                     <td></td>
                     <td class="text-primary">increaseCredit</td>
                 </tr>
                 <tr>
-                    <td>退款通知</td>
+                    <td>Refund notice</td>
                     <td></td>
                     <td class="text-primary">refundSingleWallet</td>
                 </tr>
                 <tr>
-                    <td>转入/转出</td>
+                    <td>Transfer in/out</td>
                     <td class="text-danger">recharge <br> rechargestatus</td>
                     <td></td>
                 </tr>
@@ -144,9 +144,9 @@
         </table>
         <br>
   
-        <span class="text-primary">蓝色：此API是由eBET发送相关请求</span><br>
-        <span class="text-danger">红色：此API是由渠道发送相关请求</span><br><br>
-        <span>请在上线前确认API是否都已实施且可以正常收发</span><br>
+        <span class="text-primary">Blue：This API is request by eBET</span><br>
+        <span class="text-danger">Red：This API is request by channel</span><br><br>
+        <span>Please confirm whether all APIs have been implemented and could request and receive normally before going online</span><br>
         `;
         }
     </script>
