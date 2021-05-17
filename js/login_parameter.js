@@ -37,10 +37,10 @@ const gameType = [
         "code": "5",
         "Description": "Slot"
     },
-    {
-        "code": "6",
-        "Description": "Trial slot"
-    },
+    // {
+    //     "code": "6",
+    //     "Description": "Trial slot"
+    // },
     {
         "code": "7",
         "Description": "Blockchain baccarat"
@@ -84,10 +84,10 @@ const gameType_cn = [
         "code": "5",
         "Description": "老虎机"
     },
-    {
-        "code": "6",
-        "Description": "试玩老虎机"
-    },
+    // {
+    //     "code": "6",
+    //     "Description": "试玩老虎机"
+    // },
     {
         "code": "7",
         "Description": "区块链百家乐"
