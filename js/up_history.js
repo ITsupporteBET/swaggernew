@@ -126,6 +126,12 @@ Add tableType descriptions for Lottery<br>
     2. Added increaseCredit request parameter<br>
     3. Added autoBatchRefund request parameter<br>
     `
+}, {
+    update_time: "2021/MAY/24",
+    update_member: "leo",
+    update_description: `
+    Remove the slot game trial mode, dgt=6, gameType=6<br>
+    `
 }
 ]
 
@@ -244,6 +250,12 @@ const up_his_cn = [
         1. userbethistory 更新说明<br>
         2. 新增 increaseCredit 请求参数<br>
         3. 新增 autoBatchRefund 请求参数<br>
+        `
+    }, {
+        update_time: "2021/MAY/24",
+        update_member: "leo",
+        update_description: `
+        移除老虎机试玩模式, dgt=6, gameType=6<br>
         `
     }
 ]
