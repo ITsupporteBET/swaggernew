@@ -132,6 +132,12 @@ Add tableType descriptions for Lottery<br>
     update_description: `
     Remove the slot game trial mode, dgt=6, gameType=6<br>
     `
+}, {
+    update_time: "2021/MAY/27",
+    update_member: "leo",
+    update_description: `
+    Update rechargestatus description<br>
+    `
 }
 ]
 
@@ -256,6 +262,12 @@ const up_his_cn = [
         update_member: "leo",
         update_description: `
         移除老虎机试玩模式, dgt=6, gameType=6<br>
+        `
+    }, {
+        update_time: "2021/MAY/27",
+        update_member: "leo",
+        update_description: `
+        rechargestatus 更新说明<br>
         `
     }
 ]
