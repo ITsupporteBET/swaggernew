@@ -216,7 +216,7 @@
           "多钱包使用的API"
         ],
         "summary": "充值状态",
-        "description": "此api为检查ebet是否有收到并处理完成充值请求。",
+        "description": "此api为检查ebet是否有收到并处理完成充值请求。\n 若rechargeStatus返回-1，可能為我方系統還沒寫入數據庫。 \n 請貴司再多請求2次做最後確認(建議貴司隔5秒後再做請求)，如最後仍返回-1，请向eBET人员寻求协助。",
         "operationId": "rechargestatus",
         "consumes": [
           "application/json"

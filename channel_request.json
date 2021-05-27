@@ -201,7 +201,7 @@
       "post": {
         "tags": ["API used by transfer wallet"],
         "summary": "rechargestatus",
-        "description": "This API is to check whether eBET has received and processed the recharge request.",
+        "description": "This API is to check whether eBET has received and processed the recharge request. \n If rechargeStatus returns -1, it may be because the data has not been written into the database yet.  \n Please kindly request 2 more times for final confirmation (it is recommended that you make the request after 5 seconds). \n If it still returns -1 at the end, please ask eBET staff for assistance.",
         "operationId": "rechargestatus",
         "consumes": ["application/json"],
         "produces": ["application/json"],
