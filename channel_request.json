@@ -474,7 +474,7 @@
       "post": {
         "tags": ["Common API"],
         "summary": "userbethistory",
-        "description": "This API is for querying bets recorded in a specific time period.\n Note 1: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: It is recommended to bring the following parameters **betStatus:1** query only successful records.",
+        "description": "This API is for querying bets recorded in a specific time period.\n Note 1: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: Please bring the following parameters **betStatus:1** query only successful records.",
         "operationId": "userbethistory",
         "consumes": ["application/json"],
         "produces": ["application/json"],
@@ -2439,7 +2439,7 @@
       }
     },
     "body_6": {
-      "required": ["channelId", "signature", "timestamp"],
+      "required": ["channelId", "signature", "timestamp","betStatus"],
       "properties": {
         "channelId": {
           "$ref": "#/definitions/channelId"
@@ -2449,6 +2449,11 @@
         },
         "signature": {
           "$ref": "#/definitions/signature"
+        },
+        "betStatus": {
+          "type": "integer",
+          "example": 1,
+          "description": "Check the betting status. Default is all records\n 0: query only failed records\n 1: query only successful records"
         },
         "username": {
           "$ref": "#/definitions/username"
@@ -2470,11 +2475,6 @@
         },
         "pageSize": {
           "$ref": "#/definitions/pageSize"
-        },
-        "betStatus": {
-          "type": "integer",
-          "example": 1,
-          "description": "Check the betting status. Default is all records\n 0: query only failed records\n 1: query only successful records"
         },
         "roundCode": {
           "$ref": "#/definitions/roundCode"
