@@ -46,7 +46,13 @@ const currency =
         { "currency": "COP", "description": "Peso colombiano" },
         { "currency": "KZT", "description": "Kazakhstani Tenge" },
         { "currency": "TND", "description": "TND" },
-        { "currency": "CAD", "description": "Canadian Dollar" }
+        { "currency": "CAD", "description": "Canadian Dollar" },
+        { "currency": "NOK", "description": "Norwegian krone" },
+        { "currency": "NZD", "description": "New Zealand dollar" },
+        { "currency": "CHF", "description": "Swiss franc" },
+        { "currency": "DKK", "description": "Danish krone" },
+        { "currency": "SEK", "description": "Swedish krona" },
+        { "currency": "ZAR", "description": "South African rand" }
     ]
 
 const currency_cn = [
@@ -81,6 +87,12 @@ const currency_cn = [
     { "currency": "COP", "description": "哥伦比亚比索" },
     { "currency": "KZT", "description": "哈萨克斯坦坚戈" },
     { "currency": "TND", "description": "突尼斯第纳尔" },
-    { "currency": "CAD", "description": "加拿大元" }
+    { "currency": "CAD", "description": "加拿大元" },
+    { "currency": "NOK", "description": "挪威克朗" },
+    { "currency": "NZD", "description": "新西兰元" },
+    { "currency": "CHF", "description": "瑞士法郎" },
+    { "currency": "DKK", "description": "丹麦克朗" },
+    { "currency": "SEK", "description": "瑞典克朗" },
+    { "currency": "ZAR", "description": "南非兰特" }
 
 ]

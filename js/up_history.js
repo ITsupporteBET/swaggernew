@@ -217,7 +217,17 @@ const up_his_cn = [
         update_time: "2020/OCT/26",
         update_member: "leo",
         update_description: `
-        API increaseCredit brokerageRequired 更新说明<br>`
+        API increaseCredit brokerageRequired 更新说明<br>
+        调整支援币种<br>
+        <br>
+        新增币种<br>
+        NOK(挪威克朗)<br>
+        NZD(新西兰元)<br>
+        CHF(瑞士法郎)<br>
+        DKK(丹麦克朗)<br>
+        SEK(瑞典克朗)<br>
+        ZAR(南非兰特)<br>
+        `
     }, {
         update_time: "2020/NOV/13",
         update_member: "leo",
