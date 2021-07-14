@@ -86,7 +86,17 @@ Add tableType descriptions for Lottery<br>
     update_time: "2020/OCT/26",
     update_member: "leo",
     update_description: `
-    API increaseCredit brokerageRequired update instructions<br>`
+    API increaseCredit brokerageRequired update instructions<br>
+    Adjust support currency<br>
+    <br>
+    Add currency<br>
+    NOK(Norwegian krone)<br>
+    NZD(New Zealand dollar)<br>
+    CHF(Swiss franc)<br>
+    DKK(Danish krone)<br>
+    SEK(Swedish krona)<br>
+    ZAR(South African rand)<br>
+    `
 }, {
     update_time: "2020/NOV/13",
     update_member: "leo",
