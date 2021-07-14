@@ -2,41 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="author" content="eBET API Document" />
-    <meta name="robots" content="index,follow" />
-    <meta name="google" content="index,follow" />
-    <meta name="googlebot" content="index,follow" />
-    <meta name="verify" content="index,follow" />
-    <title>eBET</title>
-    <div id="h_css"></div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="eBET API Document" />
+  <meta name="robots" content="index,follow" />
+  <meta name="google" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <meta name="verify" content="index,follow" />
+  <title>eBET</title>
+  <div id="h_css"></div>
 </head>
 
 <body>
-    <div id="header"></div>
-    <div class="container">
-        <div id="container"></div>
+  <div id="header"></div>
+  <div class="container">
+    <div id="container"></div>
 
-    </div>
+  </div>
 
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
-    <script src="js/header.js"></script>
-    <script src="js/header_css.js"></script>
-    <!-- <script src="js/block.js"></script> -->
-    <script src="js/login_parameter.js"></script>
-    <script src="js/language.js"></script>
-    <script>
-        //        en
-        const web_context = document.getElementById('container');
-        web_context.innerHTML = `<h1>Game login instructions</h1>
+  <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/header_css.js"></script>
+  <!-- <script src="js/block.js"></script> -->
+  <script src="js/login_parameter.js"></script>
+  <script src="js/language.js"></script>
+  <script>
+    //        en
+    const web_context = document.getElementById('container');
+    web_context.innerHTML = `<h1>Game login instructions</h1>
     <span>Use the link provided by eBET to go to the eBET client website
       h5 game login link: &lt;H5 Game link provided by eBET&gt;</span><br>
     <br>
@@ -100,6 +103,7 @@
     <h5>language</h5>
     <span>Carry this parameter and <code>already set the open language on the backend</code></span>to change the language of the
     interface.<br>
+    <span><code>This parameter applies only to the first Member Login.</code>This parameter is only applicable to the first login of the member.Subsequent users need to switch the language, please use client to change the language</span><br>
     <table class="language" data-height="280">
       <thead>
         <tr>
@@ -117,11 +121,11 @@
     <span>url example : http://&lt;provide by ebet&gt;&mode=trial</span><br>
     <br>`;
 
-    </script>
-    <script>
-        if (window.localStorage.getItem('lang') == "cn") {
+  </script>
+  <script>
+    if (window.localStorage.getItem('lang') == "cn") {
 
-            web_context.innerHTML = `<h1>游戏登入说明</h1>
+      web_context.innerHTML = `<h1>游戏登入说明</h1>
     <span>使用eBET提供的连结可以到eBET client网页h5游戏登入连结：&lt;eBET提供的H5 Game连结&gt;</span><br>
     <br>
     <h3>1. 一般登入</h3>
@@ -182,6 +186,7 @@
     <h3>4. 进入游戏时的语言设定</h3>
     <h5>language</h5>
     <span>携带该参数<code>并有在申请后台开放的语言</code>，可以使介面变更语言<br>
+    <span><code>该参数仅适用于第一次会员登入</code>，后续切换语言请用户使用前台语言变更<br>
     <table class="language" data-height="280">
       <thead>
         <tr>
@@ -198,11 +203,11 @@
     <span>携带该字串<code> mode=trial </code>可以直接使用试玩帐号登入游戏</span><br>
     <span>url example : http://&lt;eBET提供的H5 Game连结&gt;&mode=trial</span><br>
     <br>`;
-        } else {
+    } else {
 
-        }
+    }
 
-    </script>
+  </script>
 </body>
 
 </html>
