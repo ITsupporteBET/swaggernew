@@ -160,7 +160,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         -->
 
                         <a class="dropdown-item" href="bullbull.html">BullBull</a>
-                        
+
                         <!--
                         <a class="dropdown-item" href="fortune_wheel.html">Fortune Wheel</a>
                         -->
