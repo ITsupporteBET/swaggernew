@@ -146,6 +146,12 @@ Add tableType descriptions for Lottery<br>
     update_time: "2021/MAY/27",
     update_member: "leo",
     update_description: `
+    Add relevant API descriptions for rechargestatus<br>
+    `
+}, {
+    update_time: "2021/MAY/27",
+    update_member: "leo",
+    update_description: `
     Add relevant API descriptions for BullBull<br>
     `
 }
@@ -290,7 +296,7 @@ const up_his_cn = [
         rechargestatus 更新说明<br>
         `
     }, {
-        update_time: "2021/JUL/14",
+        update_time: "2021/JUL/15",
         update_member: "leo",
         update_description: `
         增加游戏牛牛的相关说明<br>
