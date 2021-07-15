@@ -58,10 +58,10 @@
 
             <span>
                 更新项目<br>
-                rechargestatus 更新说明<br>
+                增加游戏牛牛的相关说明<br>
                 受影响的API :<br>
-                单钱包 : 没有影响<br>
-                转帐钱包 : rechargestatus 更新说明<br>
+                单钱包 : 单钱包渠道需要开启牛牛游戏，请先参考对接api文档，如有需要我方会另行协助贵司开通<br>
+                转帐钱包 : 没有影响<br>
             </span>
             <br>
             <table class="up_his" data-height="500">
@@ -72,15 +72,17 @@
                         <th data-field="update_description">更新说明</th>
                     </tr>
                 </thead>
-            </table>`
+            </table>
+            `
         } else {
             web_context.innerHTML = `
             <span>
                 Update information<br>
                 Update rechargestatus description<br>
                 Affected APIs:<br>
-                Single wallet: No impact<br>
-                Transfer Wallet: rechargestatus description<br>
+                Single wallet: If you want to open Bull Bull game for your single wallet channel,
+please refer to the api document first, then we will assist you to complete the integration.<br>
+                Transfer Wallet: No impact<br>
             </span>
             <br>
             <table class="up_his" data-height="500">
@@ -91,7 +93,8 @@
                         <th data-field="update_description">update description</th>
                     </tr>
                 </thead>
-            </table>`
+            </table>
+            `
         }
     </script>
 </body>
