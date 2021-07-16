@@ -63,7 +63,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         <a class="dropdown-item" href="liveblackjack.html">真人21点</a>
                         -->
                         
-                        <a href="javascript:window.location.reload(true)" class="dropdown-item" href="bullbull.html">牛牛</a>
+                        <a href="javascript:window.location.reload(true)" class="dropdown-item" href="bullbull.html">牛牛123</a>
                         
                         <!--
                         <a class="dropdown-item" href="fortune_wheel.html">财富大转盘</a>
