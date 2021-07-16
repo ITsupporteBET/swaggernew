@@ -57,13 +57,13 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">新增游戏
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="javascript:window.location.reload()" class="dropdown-item" href="blackjack.html">电子21点</a>
+                        <a href="javascript:window.location.reload(true)" class="dropdown-item" href="blackjack.html">电子21点111</a>
                         
                         <!--
-                        <a class="dropdown-item" href="liveblackjack.html">真人21点123</a>
+                        <a class="dropdown-item" href="liveblackjack.html">真人21点</a>
                         -->
                         
-                        <a href="javascript:window.location.reload()" class="dropdown-item" href="bullbull.html">牛牛</a>
+                        <a href="javascript:window.location.reload(true)" class="dropdown-item" href="bullbull.html">牛牛</a>
                         
                         <!--
                         <a class="dropdown-item" href="fortune_wheel.html">财富大转盘</a>
