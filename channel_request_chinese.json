@@ -3869,12 +3869,12 @@
         },
         "gameID": {
           "type": "string",
-          "example": "dragon-tiger-luck",
+          "example": "NG-1026",
           "description": "老虎机游戏ID"
         },
         "providerId": {
           "type": "string",
-          "example": "pgsoft",
+          "example": "genesis",
           "description": "老虎机游戏供应商ID"
         },
         "loginEventType": {
@@ -3902,7 +3902,7 @@
         },
         "language": {
           "type": "string",
-          "example": "en_us",
+          "example": "zh",
           "description": "用户语言"
         }
       }
