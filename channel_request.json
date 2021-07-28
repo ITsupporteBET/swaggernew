@@ -1840,27 +1840,27 @@
                     "properties": {
                       "gameID": {
                         "type": "string",
-                        "example": "win-win-won",
+                        "example": "LGP-0003",
                         "description": "slot game id"
                       },
                       "english": {
                         "type": "string",
-                        "example": "WIN WIN WON",
+                        "example": "Emperor's Diamonds",
                         "description": "English name of slot game"
                       },
                       "chinese": {
                         "type": "string",
-                        "example": "旺旺旺",
+                        "example": "满天飞",
                         "description": "Chinese name of slot game"
                       },
                       "providerId": {
                         "type": "string",
-                        "example": "pgsoft",
+                        "example": "genesis",
                         "description": "slot game vendor id"
                       },
                       "releaseDate": {
                         "type": "string",
-                        "example": "2018-08-14",
+                        "example": "2021-07-23",
                         "description": "Release date"
                       }
                     }

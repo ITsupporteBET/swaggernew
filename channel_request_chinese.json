@@ -2068,27 +2068,27 @@
                     "properties": {
                       "gameID": {
                         "type": "string",
-                        "example": "win-win-won",
+                        "example": "LGP-0003",
                         "description": "老虎机游戏ID"
                       },
                       "english": {
                         "type": "string",
-                        "example": "WIN WIN WON",
+                        "example": "Emperor's Diamonds",
                         "description": "老虎机游戏的英文名称"
                       },
                       "chinese": {
                         "type": "string",
-                        "example": "旺旺旺",
+                        "example": "满天飞",
                         "description": "老虎机游戏的中文名称"
                       },
                       "providerId": {
                         "type": "string",
-                        "example": "pgsoft",
+                        "example": "genesis",
                         "description": "老虎机游戏供应商ID"
                       },
                       "releaseDate": {
                         "type": "string",
-                        "example": "2018-08-14",
+                        "example": "2021-07-23",
                         "description": "发布日期"
                       }
                     }
