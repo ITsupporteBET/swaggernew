@@ -158,7 +158,7 @@ Add tableType descriptions for Lottery<br>
     update_time: "2021/JUL/28",
     update_member: "leo",
     update_description: `
-    Add relevant API descriptions for Genesis老虎机<br>
+    Add relevant API descriptions for Genesis slot<br>
     `
 }
 ]
@@ -311,7 +311,7 @@ const up_his_cn = [
         update_time: "2021/JUL/28",
         update_member: "leo",
         update_description: `
-        增加游戏老虎机游戏相关说明<br>
+        增加游戏Genesis老虎机游戏相关说明<br>
         `
     }
 ]
