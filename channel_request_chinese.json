@@ -2010,7 +2010,7 @@
                 },
                 "slotURL": {
                   "type": "string",
-                  "example": "https://m.pg-demo.com/dragon-tiger-luck/index.html?bet_type=1&language=zh_cn&operator_player_session=47f3252d4bed570db97334a1378a6276-6815&operator_token=3f88464afacfa9cc07be0d181a5e631",
+                  "example": "https://ugc.rongfakj.com/NG-1026/HTML5/index.html?turbo=true&mode=real&partner=be6c07f5-827c-4e76-8223-f3bda46f5a02&session=cppzzrex-xa450978331-4e055c951c834ae8a14960876&language=zh-hans&gs=nurgs-RMX&partnerCode=EBET&referer=ugc.rongfakj.com&refererRetries=0",
                   "description": "登入老虎机游戏的连结。"
                 }
               }
