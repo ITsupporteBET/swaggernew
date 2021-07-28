@@ -58,6 +58,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="blackjack.html">电子21点</a>
+                        <a class="dropdown-item" href="slot.html">Genesis老虎机</a>
                         
                         <!--
                         <a class="dropdown-item" href="liveblackjack.html">真人21点</a>
@@ -154,6 +155,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="blackjack.html">BlackJack</a>
+                        <a class="dropdown-item" href="slot.html">Genesis slot</a>
 
                         <!--
                         <a class="dropdown-item" href="liveblackjack.html">Live BlackJack </a>

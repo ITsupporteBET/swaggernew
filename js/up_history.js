@@ -149,10 +149,16 @@ Add tableType descriptions for Lottery<br>
     Add relevant API descriptions for rechargestatus<br>
     `
 }, {
-    update_time: "2021/MAY/27",
+    update_time: "2021/JUL/15",
     update_member: "leo",
     update_description: `
     Add relevant API descriptions for BullBull<br>
+    `
+}, {
+    update_time: "2021/JUL/28",
+    update_member: "leo",
+    update_description: `
+    Add relevant API descriptions for Genesis老虎机<br>
     `
 }
 ]
@@ -300,6 +306,12 @@ const up_his_cn = [
         update_member: "leo",
         update_description: `
         增加游戏牛牛的相关说明<br>
+        `
+    }, {
+        update_time: "2021/JUL/28",
+        update_member: "leo",
+        update_description: `
+        增加游戏老虎机游戏相关说明<br>
         `
     }
 ]

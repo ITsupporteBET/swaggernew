@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="eBET API Document" />
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="verify" content="index,follow" />
+    <META HTTP-EQUIV="EXPIRES" CONTENT="-1">
+    <title>eBET</title>
+    <div id="h_css"></div>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="container">
+      <div id="container"></div>
+
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/header_css.js"></script>
+  <!-- <script src="js/block.js"></script> -->
+  <script>
+  const web_context = document.getElementById('container');
+
+if (window.localStorage.getItem('lang') == "cn") {
+  web_context.innerHTML =`
+  <a href="https://drive.google.com/u/1/uc?id=1VUofzIsCOLHjNnkbA6FHCwwVmb1BCGXq&export=download" type="button" class="btn btn-info">Genesis老虎机PDF下载</a>
+  <iframe src="https://drive.google.com/file/d/1VUofzIsCOLHjNnkbA6FHCwwVmb1BCGXq/preview" width="100%" height="1000"></iframe>`;
+} else {     
+  web_context.innerHTML =`
+  <a href="https://drive.google.com/u/1/uc?id=1dD2VaxbNtvWXZyq9MkVbrpGuaYs6HKd_&export=download" type="button" class="btn btn-info">Genesis slot PDF Download</a>
+  <iframe src="https://drive.google.com/file/d/1dD2VaxbNtvWXZyq9MkVbrpGuaYs6HKd_/preview" width="100%" height="1000"></iframe>`;
+}
+  </script>
+</body>
+</html>
