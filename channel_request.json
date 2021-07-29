@@ -3548,7 +3548,7 @@
         },
         "language": {
           "type": "string",
-          "example": "zh",
+          "example": "zh-hans",
           "description": "User's language"
         }
       }

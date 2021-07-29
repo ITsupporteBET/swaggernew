@@ -3902,7 +3902,7 @@
         },
         "language": {
           "type": "string",
-          "example": "zh",
+          "example": "zh-hans",
           "description": "用户语言"
         }
       }
