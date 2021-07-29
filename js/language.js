@@ -13,6 +13,21 @@ $(function () {
     });
 }
 
+if (window.localStorage.getItem('lang') == "cn") {
+
+    $(function () {
+        $('.ebetlanguage').bootstrapTable({//語系
+            data: slotlanguage_cn
+        });
+    });
+    } else {
+        $(function () {
+            $('.ebetlanguage').bootstrapTable({//語系
+                data: slotlanguage
+            });
+        });
+    }
+
 
 const language= [
     {
@@ -117,20 +132,7 @@ const language_cn = [
 ]
 
 
-if (window.localStorage.getItem('lang') == "cn") {
 
-    $(function () {
-        $('.ebetlanguage').bootstrapTable({//語系
-            data: slotlanguage_cn
-        });
-    });
-    } else {
-        $(function () {
-            $('.ebetlanguage').bootstrapTable({//語系
-                data: slotlanguage
-            });
-        });
-    }
 
     const slotlanguage_cn = [
         { "language": "zh-hans", "description": "简体中文" },
