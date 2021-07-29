@@ -47,7 +47,7 @@ if (window.localStorage.getItem('lang') == "cn") {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">首页</a>
+                    <a class="nav-link" href="index.html?ran=" onclick="this.href+=Math.random();">首页</a>
                 </li>
                 <li class="nav-item">
                         <a class="nav-link" href="precautions.html?ran=" onclick="this.href+=Math.random();">注意事项</a>
@@ -57,19 +57,19 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">新增游戏
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="blackjack.html">电子21点</a>
+                        <a class="dropdown-item" href="blackjack.html?ran=" onclick="this.href+=Math.random();">电子21点</a>
 
                         
                         <!--
-                        <a class="dropdown-item" href="liveblackjack.html">真人21点</a>
+                        <a class="dropdown-item" href="liveblackjack.html?ran=" onclick="this.href+=Math.random();">真人21点</a>
                         -->
                         
-                        <a class="dropdown-item" href="bullbull.html">牛牛</a>
+                        <a class="dropdown-item" href="bullbull.html?ran=" onclick="this.href+=Math.random();">牛牛</a>
                         
                         <!--
-                        <a class="dropdown-item" href="fortune_wheel.html">财富大转盘</a>
+                        <a class="dropdown-item" href="fortune_wheel.html?ran=" onclick="this.href+=Math.random();">财富大转盘</a>
                         -->
-                        <a class="dropdown-item" href="slot.html">Genesis老虎机</a>
+                        <a class="dropdown-item" href="slot.html?ran=" onclick="this.href+=Math.random();">Genesis老虎机</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -78,9 +78,9 @@ if (window.localStorage.getItem('lang') == "cn") {
                         操作设置
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="web_operation_settings.html">web操作设置</a>
-                        <a class="dropdown-item" href="app_operation_settings.html">app操作设置</a>
-                        <a class="dropdown-item" href="background_operation.html">数据后台说明书</a>
+                        <a class="dropdown-item" href="web_operation_settings.html?ran=" onclick="this.href+=Math.random();">web操作设置</a>
+                        <a class="dropdown-item" href="app_operation_settings.html?ran=" onclick="this.href+=Math.random();">app操作设置</a>
+                        <a class="dropdown-item" href="background_operation.html?ran=" onclick="this.href+=Math.random();">数据后台说明书</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -89,12 +89,12 @@ if (window.localStorage.getItem('lang') == "cn") {
                         API
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="apinote.html">API注意事项</a>
-                    <a class="dropdown-item" href="ebet_request.html">eBET请求</a>
-                    <a class="dropdown-item" href="channel_request.html">渠道请​​求</a>
-                    <a class="dropdown-item" href="common_parameter.html">共用参数说明</a>
-                    <a class="dropdown-item" href="parameter_description.html">参数说明</a>
-                    <a class="dropdown-item" href="game_related_instructions.html">游戏相关说明</a>
+                    <a class="dropdown-item" href="apinote.html?ran=" onclick="this.href+=Math.random();">API注意事项</a>
+                    <a class="dropdown-item" href="ebet_request.html?ran=" onclick="this.href+=Math.random();">eBET请求</a>
+                    <a class="dropdown-item" href="channel_request.html?ran=" onclick="this.href+=Math.random();">渠道请​​求</a>
+                    <a class="dropdown-item" href="common_parameter.html?ran=" onclick="this.href+=Math.random();">共用参数说明</a>
+                    <a class="dropdown-item" href="parameter_description.html?ran=" onclick="this.href+=Math.random();">参数说明</a>
+                    <a class="dropdown-item" href="game_related_instructions.html?ran=" onclick="this.href+=Math.random();">游戏相关说明</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -103,9 +103,9 @@ if (window.localStorage.getItem('lang') == "cn") {
                         备注
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a class="dropdown-item" href="faq.html">FAQ</a> -->
-                        <a class="dropdown-item" href="example.html">参考代码</a>
-                        <a class="dropdown-item" href="update.html">更新纪录</a>
+                    <!-- <a class="dropdown-item" href="faq.html?ran=" onclick="this.href+=Math.random();">FAQ</a> -->
+                        <a class="dropdown-item" href="example.html?ran=" onclick="this.href+=Math.random();">参考代码</a>
+                        <a class="dropdown-item" href="update.html?ran=" onclick="this.href+=Math.random();">更新纪录</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -145,28 +145,28 @@ if (window.localStorage.getItem('lang') == "cn") {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.html?ran=" onclick="this.href+=Math.random();">Home</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="precautions.html">Precautions</a>
+                        <a class="nav-link" href="precautions.html?ran=" onclick="this.href+=Math.random();">Precautions</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New game
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="blackjack.html">BlackJack</a>
+                        <a class="dropdown-item" href="blackjack.html?ran=" onclick="this.href+=Math.random();">BlackJack</a>
 
                         <!--
-                        <a class="dropdown-item" href="liveblackjack.html">Live BlackJack </a>
+                        <a class="dropdown-item" href="liveblackjack.html?ran=" onclick="this.href+=Math.random();">Live BlackJack </a>
                         -->
 
-                        <a class="dropdown-item" href="bullbull.html">BullBull</a>
+                        <a class="dropdown-item" href="bullbull.html?ran=" onclick="this.href+=Math.random();">BullBull</a>
 
                         <!--
-                        <a class="dropdown-item" href="fortune_wheel.html">Fortune Wheel</a>
+                        <a class="dropdown-item" href="fortune_wheel.html?ran=" onclick="this.href+=Math.random();">Fortune Wheel</a>
                         -->
-                        <a class="dropdown-item" href="slot.html">Genesis slot</a>
+                        <a class="dropdown-item" href="slot.html?ran=" onclick="this.href+=Math.random();">Genesis slot</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -174,10 +174,10 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Operation settings
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="web_operation_settings.html">Web operation settings</a>
-                        <a class="dropdown-item" href="app_operation_settings.html">App operation settings</a>
-                        <a class="dropdown-item" href="background_operation.html">Backend Office User Guide</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" onclick="this.href+=Math.random();">
+                        <a class="dropdown-item" href="web_operation_settings.html?ran=" onclick="this.href+=Math.random();">Web operation settings</a>
+                        <a class="dropdown-item" href="app_operation_settings.html?ran=" onclick="this.href+=Math.random();">App operation settings</a>
+                        <a class="dropdown-item" href="background_operation.html?ran=" onclick="this.href+=Math.random();">Backend Office User Guide</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -186,12 +186,12 @@ if (window.localStorage.getItem('lang') == "cn") {
                         API
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="apinote.html">API considerations</a>
-                        <a class="dropdown-item" href="ebet_request.html">eBET request</a>
-                        <a class="dropdown-item" href="channel_request.html">Channel request</a>
-                        <a class="dropdown-item" href="common_parameter.html">Common parameter description</a>
-                        <a class="dropdown-item" href="parameter_description.html">Parameter description</a>
-                        <a class="dropdown-item" href="game_related_instructions.html">Game related instructions</a>
+                        <a class="dropdown-item" href="apinote.html?ran=" onclick="this.href+=Math.random();">API considerations</a>
+                        <a class="dropdown-item" href="ebet_request.html?ran=" onclick="this.href+=Math.random();">eBET request</a>
+                        <a class="dropdown-item" href="channel_request.html?ran=" onclick="this.href+=Math.random();">Channel request</a>
+                        <a class="dropdown-item" href="common_parameter.html?ran=" onclick="this.href+=Math.random();">Common parameter description</a>
+                        <a class="dropdown-item" href="parameter_description.html?ran=" onclick="this.href+=Math.random();">Parameter description</a>
+                        <a class="dropdown-item" href="game_related_instructions.html?ran=" onclick="this.href+=Math.random();">Game related instructions</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -200,9 +200,9 @@ if (window.localStorage.getItem('lang') == "cn") {
                         Remark
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a class="dropdown-item" href="faq.html">FAQ</a> -->
-                        <a class="dropdown-item" href="example.html">Reference Code</a>
-                        <a class="dropdown-item" href="update.html">Update history</a>
+                    <!-- <a class="dropdown-item" href="faq.html?ran=" onclick="this.href+=Math.random();">FAQ</a> -->
+                        <a class="dropdown-item" href="example.html?ran=" onclick="this.href+=Math.random();">Reference Code</a>
+                        <a class="dropdown-item" href="update.html?ran=" onclick="this.href+=Math.random();">Update history</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
