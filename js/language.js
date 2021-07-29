@@ -13,6 +13,21 @@ $(function () {
     });
 }
 
+if (window.localStorage.getItem('lang') == "cn") {//slot language 參數
+
+    $(function () {
+        $('.slotlanguage').bootstrapTable({//語系
+            data: slotlanguage_cn
+        });
+    });
+    } else {
+        $(function () {
+            $('.slotlanguage').bootstrapTable({//語系
+                data: slotlanguage
+            });
+        });
+    }
+
 
 
 
@@ -119,20 +134,6 @@ const slotlanguage_cn = [
 ]
 
 
-if (window.localStorage.getItem('lang') == "cn") {
-
-    $(function () {
-        $('.slotlanguage').bootstrapTable({//語系
-            data: slotlanguage_cn
-        });
-    });
-    } else {
-        $(function () {
-            $('.slotlanguage').bootstrapTable({//語系
-                data: slotlanguage
-            });
-        });
-    }
 
 
     const slotlanguage_cn = [
