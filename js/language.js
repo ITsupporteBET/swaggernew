@@ -121,18 +121,18 @@ if (window.localStorage.getItem('lang') == "cn") {
 
     $(function () {
         $('.ebetlanguage').bootstrapTable({//語系
-            data: ebetlanguage_cn
+            data: slotlanguage_cn
         });
     });
     } else {
         $(function () {
             $('.ebetlanguage').bootstrapTable({//語系
-                data: ebetlanguage
+                data: slotlanguage
             });
         });
     }
 
-    const ebetlanguage_cn = [
+    const slotlanguage_cn = [
         { "language": "zh-hans", "description": "简体中文" },
         { "language": "vi", "description": "越南语" },
         { "language": "th", "description": "泰文" },
@@ -143,7 +143,7 @@ if (window.localStorage.getItem('lang') == "cn") {
         { "language": "es", "description": "西班牙语" }
     ]
 
-    const ebetlanguage = [
+    const slotlanguage = [
         { "language": "zh-hans", "description": "Chinese Simplified" },
         { "language": "vi", "description": "Ting Vit" },
         { "language": "th", "description": "Thai" },
