@@ -122,13 +122,13 @@ const slotlanguage_cn = [
 if (window.localStorage.getItem('lang') == "cn") {
 
     $(function () {
-        $('.ebetlanguage').bootstrapTable({//語系
+        $('.slotlanguage').bootstrapTable({//語系
             data: slotlanguage_cn
         });
     });
     } else {
         $(function () {
-            $('.ebetlanguage').bootstrapTable({//語系
+            $('.slotlanguage').bootstrapTable({//語系
                 data: slotlanguage
             });
         });
