@@ -50,7 +50,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                     <a class="nav-link" href="index.html">首页</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="precautions.html">注意事项</a>
+                        <a class="nav-link" href="precautions.html?ran="Math.random();>注意事项</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
