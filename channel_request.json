@@ -1664,7 +1664,7 @@
                 },
                 "transactions": {
                   "type": "array",
-                  "description": "Transaction record",
+                  "description": "Transactionrecord",
                   "items": {
                     "type": "object",
                     "properties": {

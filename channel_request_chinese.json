@@ -3687,7 +3687,7 @@
           "$ref": "#/definitions/timestamp"
         },
         "signature": {
-          "$ref": "#/definitions/signature"
+          "$ref": "#/definitions/signature "
         },
         "username": {
           "$ref": "#/definitions/username"
