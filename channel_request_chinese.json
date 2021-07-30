@@ -2305,7 +2305,7 @@
       "properties": {
         "gameType": {
           "type": "integer",
-          "example":1,
+          "example": 1,
           "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 7: 区块链百家乐\n 8: 牛牛\n 23: 财富大转盘"
         },
         "gameName": {
@@ -3687,7 +3687,7 @@
           "$ref": "#/definitions/timestamp"
         },
         "signature": {
-          "$ref": "#/definitions/signature2"
+          "$ref": "#/definitions/signature"
         },
         "username": {
           "$ref": "#/definitions/username"
