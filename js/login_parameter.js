@@ -23,7 +23,7 @@ const gameType = [
     // { "code": "7", "Description": "Blockchain baccarat" },
     { "code": "8", "Description": "BullBull" },
     // { "code": "23", "Description": "Fortune Wheel" },
-    { "code": "24", "Description": "Black Jack" },
+    { "code": "24", "Description": "Virtual Blackjack" },
     // { "code": "24", "Description": "Live Black Jack" }
 ];
 

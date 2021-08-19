@@ -2303,11 +2303,11 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Black Jack"
+          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Virtual Blackjack"
         },
         "gameName": {
           "type": "string",
-          "description": "Game name.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Black Jack",
+          "description": "Game name.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Virtual Blackjack",
           "enum": [
             "baccarat",
             "dragon-tiger",
@@ -2315,7 +2315,7 @@
             "roulette",
             "bullbull",
             "fortunewheel",
-            "black jack"
+            "Virtual Blackjack"
           ]
         },
         "betMap": {
