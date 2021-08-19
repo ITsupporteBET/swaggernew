@@ -24,7 +24,7 @@ const gameType = [
     { "code": "8", "Description": "BullBull" },
     // { "code": "23", "Description": "Fortune Wheel" },
     { "code": "24", "Description": "Black Jack" },
-    { "code": "24", "Description": "Live Black Jack" }
+    // { "code": "24", "Description": "Live Black Jack" }
 ];
 
 const gameType_cn = [
@@ -39,7 +39,7 @@ const gameType_cn = [
     { "code": "8", "Description": "牛牛" },
     // { "code": "23", "Description": "财富大转盘" },
     { "code": "24", "Description": "21点(电子)" },
-    { "code": "25", "Description": "真人21点" }
+    // { "code": "25", "Description": "真人21点" }
 
 ];
 
