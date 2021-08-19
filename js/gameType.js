@@ -12,7 +12,7 @@ const gameType= [
     // {code: "22",GameType: "Lottery"}, 
     // {code: "23",GameType: "Fortune Wheel"}, 
     {code: "24",GameType: "Black Jack"}, 
-    {code: "25",GameType: "Live Black Jack"}
+    // {code: "25",GameType: "Live Black Jack"}
 ]
 
 const gameType_cn = [
@@ -29,5 +29,5 @@ const gameType_cn = [
     // { "code": "22", "GameType": "彩票" },
     // { "code": "23", "GameType": "财富大转盘" },
     { "code": "24", "GameType": "电子21点" },
-    { "code": "24", "GameType": "真人21点" }
+    // { "code": "24", "GameType": "真人21点" }
 ]
