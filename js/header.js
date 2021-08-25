@@ -60,15 +60,12 @@ if (window.localStorage.getItem('lang') == "cn") {
                         <a class="dropdown-item" href="blackjack.html?ran=" onclick="this.href+=Math.random();">电子21点</a>
 
                         
-                        <!--
                         <a class="dropdown-item" href="liveblackjack.html?ran=" onclick="this.href+=Math.random();">真人21点</a>
-                        -->
                         
                         <a class="dropdown-item" href="bullbull.html?ran=" onclick="this.href+=Math.random();">牛牛</a>
                         
-                        <!--
                         <a class="dropdown-item" href="fortune_wheel.html?ran=" onclick="this.href+=Math.random();">财富大转盘</a>
-                        -->
+
                         <a class="dropdown-item" href="slot.html?ran=" onclick="this.href+=Math.random();">Genesis老虎机</a>
                     </div>
                 </li>
@@ -157,15 +154,12 @@ if (window.localStorage.getItem('lang') == "cn") {
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="blackjack.html?ran=" onclick="this.href+=Math.random();">Virtual Blackjack</a>
 
-                        <!--
                         <a class="dropdown-item" href="liveblackjack.html?ran=" onclick="this.href+=Math.random();">Live BlackJack </a>
-                        -->
 
                         <a class="dropdown-item" href="bullbull.html?ran=" onclick="this.href+=Math.random();">BullBull</a>
 
-                        <!--
                         <a class="dropdown-item" href="fortune_wheel.html?ran=" onclick="this.href+=Math.random();">Fortune Wheel</a>
-                        -->
+
                         <a class="dropdown-item" href="slot.html?ran=" onclick="this.href+=Math.random();">Genesis slot</a>
                     </div>
                 </li>
