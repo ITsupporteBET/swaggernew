@@ -10,9 +10,9 @@ const gameType= [
     // {code: "7",GameType: "Blockchain baccarat"}, 
     {code: "8",GameType: "BullBull"}, 
     // {code: "22",GameType: "Lottery"}, 
-    // {code: "23",GameType: "Fortune Wheel"}, 
+    {code: "23",GameType: "Fortune Wheel"}, 
     {code: "24",GameType: "Virtual Blackjack"}, 
-    // {code: "25",GameType: "Live Black Jack"}
+    {code: "25",GameType: "Live Black Jack"}
 ]
 
 const gameType_cn = [
@@ -24,10 +24,10 @@ const gameType_cn = [
     { "code": "0", "GameType": "多台(仅提供登入用)" },
     { "code": "5", "GameType": "老虎机" },
     // { "code": "6", "GameType": "试玩老虎机" },
-    { "code": "7", "GameType": "区块链百家乐" },
+    // { "code": "7", "GameType": "区块链百家乐" },
     { "code": "8", "GameType": "牛牛" },
     // { "code": "22", "GameType": "彩票" },
-    // { "code": "23", "GameType": "财富大转盘" },
+    { "code": "23", "GameType": "财富大转盘" },
     { "code": "24", "GameType": "电子21点" },
-    // { "code": "24", "GameType": "真人21点" }
+    { "code": "25", "GameType": "真人21点" }
 ]
