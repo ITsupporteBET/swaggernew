@@ -1711,3 +1711,122 @@ const blackjack_cn = [
     { "code": "6003", "description": "(保留项)" }
 ]
 
+//Live Blackjack
+
+if (window.localStorage.getItem('lang') == "cn") {
+    $(function () {
+        $('.liveblackjack').bootstrapTable({
+            data: liveblackjack_cn
+        });
+    });
+} else {
+    $(function () {
+        $('.liveblackjack').bootstrapTable({
+            data: liveblackjack
+        });
+    });
+}
+
+const liveblackjack = [
+    { "code": "6011", "description": "player1 Hand1" },
+    { "code": "6012", "description": "player1 Hand2" },
+    { "code": "6021", "description": "player2 Hand1" },
+    { "code": "6022", "description": "player2 Hand2" },
+    { "code": "6031", "description": "player3 Hand1" },
+    { "code": "6032", "description": "player3 Hand2" },
+    { "code": "6041", "description": "player4 Hand1" },
+    { "code": "6042", "description": "player4 Hand2" },
+    { "code": "6051", "description": "player5 Hand1" },
+    { "code": "6052", "description": "player5 Hand2" },
+    { "code": "6061", "description": "player6 Hand1" },
+    { "code": "6062", "description": "player6 Hand2" },
+    { "code": "6071", "description": "player7 Hand1" },
+    { "code": "6072", "description": "player7 Hand2" },
+    { "code": "60112", "description": "player1 Hand1 Double" },
+    { "code": "60122", "description": "player1 Hand2 Double" },
+    { "code": "60212", "description": "player2 Hand1 Double" },
+    { "code": "60222", "description": "player2 Hand2 Double" },
+    { "code": "60312", "description": "player3 Hand1 Double" },
+    { "code": "60322", "description": "player3 Hand2 Double" },
+    { "code": "60412", "description": "player4 Hand1 Double" },
+    { "code": "60422", "description": "player4 Hand2 Double" },
+    { "code": "60512", "description": "player5 Hand1 Double" },
+    { "code": "60522", "description": "player5 Hand2 Double" },
+    { "code": "60612", "description": "player6 Hand1 Double" },
+    { "code": "60622", "description": "player6 Hand2 Double" },
+    { "code": "60712", "description": "player7 Hand1 Double" },
+    { "code": "60722", "description": "player7 Hand2 Double" },
+    { "code": "60100", "description": "player1 Insurance" },
+    { "code": "60200", "description": "player2 Insurance" },
+    { "code": "60300", "description": "player3 Insurance" },
+    { "code": "60400", "description": "player4 Insurance" },
+    { "code": "60500", "description": "player5 Insurance" },
+    { "code": "60600", "description": "player6 Insurance" },
+    { "code": "60700", "description": "player7 Insurance" },
+    { "code": "60101", "description": "player1 Pairs" },
+    { "code": "60201", "description": "player2 Pairs" },
+    { "code": "60301", "description": "player3 Pairs" },
+    { "code": "60401", "description": "player4 Pairs" },
+    { "code": "60501", "description": "player5 Pairs" },
+    { "code": "60601", "description": "player6 Pairs" },
+    { "code": "60701", "description": "player7 Pairs" },
+    { "code": "60102", "description": "player1 ThreeCard" },
+    { "code": "60202", "description": "player2 ThreeCard" },
+    { "code": "60302", "description": "player3 ThreeCard" },
+    { "code": "60402", "description": "player4 ThreeCard" },
+    { "code": "60502", "description": "player5 ThreeCard" },
+    { "code": "60602", "description": "player6 ThreeCard" },
+    { "code": "60702", "description": "player7 ThreeCard" }
+]
+
+const liveblackjack_cn = [
+    { "code": "6011", "description": "座位 1 的第 1 手牌" },
+    { "code": "6012", "description": "座位 1 的第 2 手牌" },
+    { "code": "6021", "description": "座位 2 的第 1 手牌" },
+    { "code": "6022", "description": "座位 2 的第 2 手牌" },
+    { "code": "6031", "description": "座位 3 的第 1 手牌" },
+    { "code": "6032", "description": "座位 3 的第 2 手牌" },
+    { "code": "6041", "description": "座位 4 的第 1 手牌" },
+    { "code": "6042", "description": "座位 4 的第 2 手牌" },
+    { "code": "6051", "description": "座位 5 的第 1 手牌" },
+    { "code": "6052", "description": "座位 5 的第 2 手牌" },
+    { "code": "6061", "description": "座位 6 的第 1 手牌" },
+    { "code": "6062", "description": "座位 6 的第 2 手牌" },
+    { "code": "6071", "description": "座位 7 的第 1 手牌" },
+    { "code": "6072", "description": "座位 7 的第 2 手牌" },
+    { "code": "60112", "description": "座位 1 的第 1 手牌 加倍" },
+    { "code": "60122", "description": "座位 1 的第 2 手牌 加倍" },
+    { "code": "60212", "description": "座位 2 的第 1 手牌 加倍" },
+    { "code": "60222", "description": "座位 2 的第 2 手牌 加倍" },
+    { "code": "60312", "description": "座位 3 的第 1 手牌 加倍" },
+    { "code": "60322", "description": "座位 3 的第 2 手牌 加倍" },
+    { "code": "60412", "description": "座位 4 的第 1 手牌 加倍" },
+    { "code": "60422", "description": "座位 4 的第 2 手牌 加倍" },
+    { "code": "60512", "description": "座位 5 的第 1 手牌 加倍" },
+    { "code": "60522", "description": "座位 5 的第 2 手牌 加倍" },
+    { "code": "60612", "description": "座位 6 的第 1 手牌 加倍" },
+    { "code": "60622", "description": "座位 6 的第 2 手牌 加倍" },
+    { "code": "60712", "description": "座位 7 的第 1 手牌 加倍" },
+    { "code": "60722", "description": "座位 7 的第 2 手牌 加倍" },
+    { "code": "60100", "description": "座位 1 有买 保险" },
+    { "code": "60200", "description": "座位 2 有买 保险" },
+    { "code": "60300", "description": "座位 3 有买 保险" },
+    { "code": "60400", "description": "座位 4 有买 保险" },
+    { "code": "60500", "description": "座位 5 有买 保险" },
+    { "code": "60600", "description": "座位 6 有买 保险" },
+    { "code": "60700", "description": "座位 7 有买 保险" },
+    { "code": "60101", "description": "座位 1 出现 对子" },
+    { "code": "60201", "description": "座位 2 出现 对子" },
+    { "code": "60301", "description": "座位 3 出现 对子" },
+    { "code": "60401", "description": "座位 4 出现 对子" },
+    { "code": "60501", "description": "座位 5 出现 对子" },
+    { "code": "60601", "description": "座位 6 出现 对子" },
+    { "code": "60701", "description": "座位 7 出现 对子" },
+    { "code": "60102", "description": "座位 1 出现 21+3" },
+    { "code": "60202", "description": "座位 2 出现 21+3" },
+    { "code": "60302", "description": "座位 3 出现 21+3" },
+    { "code": "60402", "description": "座位 4 出现 21+3" },
+    { "code": "60502", "description": "座位 5 出现 21+3" },
+    { "code": "60602", "description": "座位 6 出现 21+3" },
+    { "code": "60702", "description": "座位 7 出现 21+3" }
+]
