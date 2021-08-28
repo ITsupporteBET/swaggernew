@@ -22,9 +22,9 @@ const gameType = [
     // { "code": "6", "Description": "Trial slot" },
     // { "code": "7", "Description": "Blockchain baccarat" },
     { "code": "8", "Description": "BullBull" },
-    // { "code": "23", "Description": "Fortune Wheel" },
+    { "code": "23", "Description": "Fortune Wheel" },
     { "code": "24", "Description": "Virtual Blackjack" },
-    // { "code": "24", "Description": "Live Black Jack" }
+    { "code": "24", "Description": "Live Blackjack" }
 ];
 
 const gameType_cn = [
@@ -37,9 +37,9 @@ const gameType_cn = [
     // {"code": "6","Description": "试玩老虎机"},
     // { "code": "7", "Description": "区块链百家乐" },
     { "code": "8", "Description": "牛牛" },
-    // { "code": "23", "Description": "财富大转盘" },
+    { "code": "23", "Description": "财富大转盘" },
     { "code": "24", "Description": "21点(电子)" },
-    // { "code": "25", "Description": "真人21点" }
+    { "code": "25", "Description": "真人21点" }
 
 ];
 
