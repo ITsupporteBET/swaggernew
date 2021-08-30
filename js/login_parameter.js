@@ -24,7 +24,7 @@ const gameType = [
     { "code": "8", "Description": "BullBull" },
     { "code": "23", "Description": "Fortune Wheel" },
     { "code": "24", "Description": "Virtual Blackjack" },
-    { "code": "24", "Description": "Live Blackjack" }
+    { "code": "25", "Description": "Live Blackjack" }
 ];
 
 const gameType_cn = [
