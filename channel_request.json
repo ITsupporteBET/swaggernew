@@ -759,7 +759,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette"
+                        "description": "Game type.\n 1:Baccarat \n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:BullBUll\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack"
                       },
                       "playerMin": {
                         "type": "number",

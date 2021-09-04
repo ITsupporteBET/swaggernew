@@ -57,7 +57,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">新增游戏
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="blackjack.html?ran=" onclick="this.href+=Math.random();">电子21点</a>
+                        <a class="dropdown-item" href="virtual_blackjack.html?ran=" onclick="this.href+=Math.random();">电子21点</a>
 
                         
                         <a class="dropdown-item" href="liveblackjack.html?ran=" onclick="this.href+=Math.random();">真人21点</a>
@@ -152,7 +152,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New game
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="blackjack.html?ran=" onclick="this.href+=Math.random();">Virtual Blackjack</a>
+                        <a class="dropdown-item" href="virtual_blackjack.html?ran=" onclick="this.href+=Math.random();">Virtual Blackjack</a>
 
                         <a class="dropdown-item" href="liveblackjack.html?ran=" onclick="this.href+=Math.random();">Live BlackJack </a>
 
