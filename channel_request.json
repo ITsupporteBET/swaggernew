@@ -1407,6 +1407,16 @@
                         "format": "double",
                         "description": "BetPlayer3 maximum bet limit.\n Only niuniu."
                       },
+                      "bet_Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "bet Minimum bet limit.\n Only Virtual Blackjack & Live Blackjack."
+                      },
+                      "bet_Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "bet Maximum bet limit.\n Only Virtual Blackjack & Live Blackjack."
+                      },
                       "betPlayer3DoubleMin": {
                         "type": "number",
                         "format": "double",
