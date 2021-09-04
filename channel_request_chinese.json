@@ -3533,6 +3533,16 @@
           "format": "double",
           "description": "闲3翻倍 最高下注限额。\n 只有牛牛。"
         },
+        "bet_Min": {
+          "type": "number",
+          "format": "double",
+          "description": "投注最小下注限制.\n 只有电子21点，真人21点。"
+        },
+        "bet_Max": {
+          "type": "number",
+          "format": "double",
+          "description": "投注最大下注限制.\n 只有电子21点，真人21点。"
+        },
         "number_1Min": {
           "type": "number",
           "format": "double",
