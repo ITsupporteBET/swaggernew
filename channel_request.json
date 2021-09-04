@@ -759,7 +759,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "Game type.\n 1:Baccarat \n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:BullBUll\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack"
+                        "description": "Game type.\n 1:Baccarat - VIP table \n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:BullBUll\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack"
                       },
                       "playerMin": {
                         "type": "number",
@@ -2869,7 +2869,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull \n 7:Fortune Wheel"
+          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:BullBUll\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack"
         },
         "playerMin": {
           "type": "number",
@@ -3538,6 +3538,16 @@
           "type": "number",
           "format": "double",
           "description": "BetPlayer3Double maximum bet limit.\n Only niuniu."
+        },
+        "bet_Min": {
+          "type": "number",
+          "format": "double",
+          "description": "bet Minimum bet limit.\n Only Virtual Blackjack & Live Blackjack."
+        },
+        "bet_Max": {
+          "type": "number",
+          "format": "double",
+          "description": "bet Maximum bet limit.\n Only Virtual Blackjack & Live Blackjack."
         },
         "number_1Min": {
           "type": "number",
