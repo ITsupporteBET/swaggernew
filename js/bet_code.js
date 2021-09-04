@@ -954,27 +954,27 @@ const Fortune_Wheel = [{
 
 const Fortune_Wheel_cn = [{
     "betCode": "400",
-    "description": "数字1"
+    "description": "号码1"
 },
 {
     "betCode": "401",
-    "description": "数字2"
+    "description": "号码2"
 },
 {
     "betCode": "402",
-    "description": "数字5"
+    "description": "号码5"
 },
 {
     "betCode": "403",
-    "description": "数字10"
+    "description": "号码10"
 },
 {
     "betCode": "404",
-    "description": "数字20"
+    "description": "号码20"
 },
 {
     "betCode": "405",
-    "description": "数字40"
+    "description": "号码40"
 },
 {
     "betCode": "406",
@@ -1621,7 +1621,7 @@ const ticket_PickValue_cn = [
 ];
 
 
-//blackjack
+//blackjack 電子21
 
 if (window.localStorage.getItem('lang') == "cn") {
     $(function () {

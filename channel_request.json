@@ -2313,11 +2313,11 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Virtual Blackjack"
+          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Virtual Blackjack\n 25: Live Blackjack"
         },
         "gameName": {
           "type": "string",
-          "description": "Game name.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Virtual Blackjack",
+          "description": "Game name.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Virtual Blackjack\n 25: Live Blackjack",
           "enum": [
             "baccarat",
             "dragon-tiger",
@@ -2325,7 +2325,8 @@
             "roulette",
             "bullbull",
             "fortunewheel",
-            "Virtual Blackjack"
+            "virtual blackjack",
+            "live Blackjack"
           ]
         },
         "betMap": {
@@ -2790,7 +2791,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat\n 8: BullBull\n 23: FortuneWheel\n 24: Virtual Blackjack"
+          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat\n 8: BullBull\n 23: FortuneWheel\n 24: Virtual Blackjack\n 25: Live Blackjack"
         },
         "judgeTime": {
           "type": "integer",
