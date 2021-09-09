@@ -3787,7 +3787,7 @@
         "judgeTime": {
           "type": "integer",
           "example": 1,
-          "description": "Judgment query time. Default is 1\n 0: Payout time\n 1: Bet time"
+          "description": "Judgment query time. Default is 0\n 0: Payout time\n 1: Bet time"
         }
       }
     },
@@ -3834,7 +3834,7 @@
         "judgeTime": {
           "type": "integer",
           "example": 1,
-          "description": "Judgment query time. Default is 1\n 0: Payout time\n 1: Bet time"
+          "description": "Judgment query time. Default is 0\n 0: Payout time\n 1: Bet time"
         }
       }
     },

@@ -3780,7 +3780,7 @@
         "judgeTime": {
           "type": "integer",
           "example": 1,
-          "description": "判断查询时间。默认为1\n 0: 派彩时间\n 1: 投��时间"
+          "description": "判断查询时间。默认为0\n 0: 派彩时间\n 1: 投��时间"
         }
       }
     },
@@ -3827,7 +3827,7 @@
         "judgeTime": {
           "type": "integer",
           "example": 1,
-          "description": "判断查询时间。默认为1\n 0: 派彩时间\n 1: 投注时间"
+          "description": "判断查询时间。默认为0\n 0: 派彩时间\n 1: 投注时间"
         }
       }
     },
