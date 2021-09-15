@@ -30,7 +30,7 @@
                     </td>
                 </tr>
                 <td>
-                    <button style="display: block;" type="submit" onclick="tosubmimit()" name="run" value="產生簽名" align="absmiddle">
+                    <button style="display: block;" type="submit" onclick="tosubmit()" name="run" value="產生簽名" align="absmiddle">
                 </td>
                 </tr>
             </table>
@@ -53,7 +53,7 @@
         <script src="js/header.js"></script>
         <script src="js/header_css.js"></script>
         <script>
-            function tosubmimit(){
+            function tosubmit(){
                 $("#postreq").submit;
             }
         </script>
@@ -63,7 +63,7 @@
                     target:'#response',
                 };
             });
-            $('"#postreq"').submit(function(){
+            $('#postreq').submit(function(){
                 $(this).ajaxSubmit(options);
                 return false;
             });
