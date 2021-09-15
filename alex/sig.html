@@ -7,22 +7,7 @@
 </head>
 
 <body>
-    <script>
-        $("#formreq").submit(function (event) {
-            event.preventDefault(); //prevent default action 
-            var post_url = $(this).attr("action"); //get form action url
-            var request_method = $(this).attr("method"); //get form GET/POST method
-            var form_data = $(this).serialize(); //Encode form elements for submission
-
-            $.ajax({
-                url: post_url,
-                type: request_method,
-                data: form_data
-            }).done(function (response) { //
-                $("#response").html(response);
-            });
-        });
-    </script>
+    
     <body bgcolor="#DDDDDD">
         <form id="formreq" method="POST" action="ts_result_1.php" target="result">
             <table>
@@ -76,6 +61,22 @@
         <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
         <script src="js/header.js"></script>
         <script src="js/header_css.js"></script>
+        <script>
+            $("#formreq").submit(function (event) {
+                event.preventDefault(); //prevent default action 
+                var post_url = $(this).attr("action"); //get form action url
+                var request_method = $(this).attr("method"); //get form GET/POST method
+                var form_data = $(this).serialize(); //Encode form elements for submission
+    
+                $.ajax({
+                    url: post_url,
+                    type: request_method,
+                    data: form_data
+                }).done(function (response) { //
+                    $("#response").html(response);
+                });
+            });
+        </script>
         
     </body>
 
