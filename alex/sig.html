@@ -4,10 +4,26 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>簽名驗證</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $("form").on("submit", function (event) {
+                event.preventDefault();
+
+                var formValues = $(this).serialize();
+
+                $.post("ts_result_1.php", formValues, function (data) {
+                    // Display the returned data in browser
+                    $("#response").html(data);
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
-    
+
     <body bgcolor="#DDDDDD">
         <form method="POST" target="result">
             <table>
@@ -50,8 +66,7 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
             </script>
@@ -61,23 +76,10 @@
         <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
         <script src="js/header.js"></script>
         <script src="js/header_css.js"></script>
-        <script>
-            $("#formreq").submit(function (event) {
-                event.preventDefault(); //prevent default action 
-                var form_data = $(this).serialize(); //Encode form elements for submission
-    
-                $.ajax({
-                    headers: "Content-type: application/x-www-form-urlencoded",
-                    url: 'ts_result_1.php',
-                    type: 'POST',
-                    data: form_data
-                }).done(function (response) { //
-                    $("#response").html(response);
-                    return false;
-                });
-            });
-        </script>
-        
+        <!-- <script src="https://cdn.jsdelivr.net/gh/jquery-form/form@4.3.0/dist/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script> -->
+
+
+
     </body>
 
 </html>
