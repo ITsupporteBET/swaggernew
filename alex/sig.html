@@ -9,7 +9,7 @@
 <body>
 
     <body bgcolor="#DDDDDD">
-        <form method="POST" action="ts_result_1.php" target="result">
+        <form id="formreq" method="POST" action="ts_result_1.php" target="result">
             <table>
                 <tr>
                     <td>
@@ -30,7 +30,7 @@
                     </td>
                 </tr>
                 <td>
-                    <input id="formreq" type="submit" name="run" value="產生簽名" align="absmiddle">
+                    <input type="submit" name="run" value="產生簽名" align="absmiddle">
                     <!-- <input type="submit" name="run" value="驗證簽名" align="absmiddle"> -->
                     <!-- <input type="submit" name="run" value="產生字串" align="absmiddle"> -->
                 </td>
@@ -62,10 +62,18 @@
         <script src="js/header.js"></script>
         <script src="js/header_css.js"></script>
         <script>
-            $(document).ready(function () {
-                $("#formreq").click(function () {
-                    htmlobj = $.ajax({ url: "ts_result_1.php", async: false });
-                    $("#response").html(htmlobj.responseText);
+            $("#formreq").submit(function (event) {
+                event.preventDefault(); //prevent default action 
+                var post_url = $(this).attr("action"); //get form action url
+                var request_method = $(this).attr("method"); //get form GET/POST method
+                var form_data = $(this).serialize(); //Encode form elements for submission
+
+                $.ajax({
+                    url: post_url,
+                    type: request_method,
+                    data: form_data
+                }).done(function (response) { //
+                    $("#response").html(response);
                 });
             });
         </script>
