@@ -67,6 +67,7 @@
                 var form_data = $(this).serialize(); //Encode form elements for submission
     
                 $.ajax({
+                    headers: "Content-type: application/x-www-form-urlencoded",
                     url: 'ts_result_1.php',
                     type: 'POST',
                     data: form_data
