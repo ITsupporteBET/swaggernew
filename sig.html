@@ -16,7 +16,7 @@
 <body>
     <div id="header"></div>
     <div class="container">
-      <iframe src="./signature/index.html" scrolling="yes"></iframe>
+      <div id="container"></div>
 
     </div>
 
@@ -35,6 +35,48 @@
   <script src="js/header.js"></script>
   <script src="js/header_css.js"></script>
   <!-- <script src="js/block.js"></script> -->
-  
+  <script>
+  const web_context = document.getElementById('container');
+
+if (window.localStorage.getItem('lang') == "cn") {
+  web_context.innerHTML =`
+  <form method="POST" action="./signature/result.php" target="result" >
+        <table>
+            <tr>
+                <td>
+                    Composed string ：<input type="text" name="string" size=100 value=""><br>
+                    Verify signature：<input type="text" name="signature" size=100 value=""><br>
+                    key：<textarea name="key" cols="115" rows="6" required></textarea> 
+                </td>
+            </tr>
+                <td>
+                    <input type="submit" name="run" value="签名产生Signature generation" align="absmiddle">
+                    <input type="submit" name="run" value="验证签名Verify signature" align="absmiddle">
+                </td>
+            </tr>
+        </table>
+    </form>
+  `;
+} else {     
+  web_context.innerHTML =`
+  <form method="POST" action="./signature/result.php" target="result" >
+        <table>
+            <tr>
+                <td>
+                    Composed string ：<input type="text" name="string" size=100 value=""><br>
+                    Verify signature：<input type="text" name="signature" size=100 value=""><br>
+                    key：<textarea name="key" cols="115" rows="6" required></textarea> 
+                </td>
+            </tr>
+                <td>
+                    <input type="submit" name="run" value="Signature generation" align="absmiddle">
+                    <input type="submit" name="run" value="Verify signature" align="absmiddle">
+                </td>
+            </tr>
+        </table>
+    </form>
+  `;
+}
+  </script>
 </body>
 </html>
