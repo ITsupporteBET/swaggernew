@@ -9,7 +9,7 @@
 <body>
 
     <body bgcolor="#DDDDDD">
-        <form id="postreq" method="POST" action="ts_result_1.php" target="result">
+        <form id="formreq" method="POST" action="ts_result_1.php" target="result">
             <table>
                 <tr>
                     <td>
@@ -30,12 +30,21 @@
                     </td>
                 </tr>
                 <td>
-                    <input style="display: block;" type="submit" onclick="tosubmit()" name="run" value="產生簽名" align="absmiddle">
+                    <input type="submit" name="run" value="產生簽名" align="absmiddle">
+                    <!-- <input type="submit" name="run" value="驗證簽名" align="absmiddle"> -->
+                    <!-- <input type="submit" name="run" value="產生字串" align="absmiddle"> -->
                 </td>
                 </tr>
             </table>
         </form>
-        <div id="response"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -43,7 +52,6 @@
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-            <script src="http://malsup.github.io/jquery.form.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
             </script>
@@ -54,23 +62,25 @@
         <script src="js/header.js"></script>
         <script src="js/header_css.js"></script>
         <script>
-            function tosubmit(){
-                $("#postreq").submit;
-            }
-        </script>
-        <script>
-            $(document).ready(function(){
-                var options = {
-                    target:'#response',
-                };
-            });
-            $('#postreq').submit(function(){
-                $(this).ajaxSubmit(options);
-                return false;
-            });
-        </script>
+            $("#formreq").submit(function (e) {
+
+                e.preventDefault(); // avoid to execute the actual submit of the form.
+
+                var form = $(this);
+                var url = form.attr('action');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: form.serialize(), // serializes the form's elements.
+                    success: function (data) {
+                        alert(data); // show response from the php script.
+                    }
+                });
 
 
+            });
+        </script>
     </body>
 
 </html>
