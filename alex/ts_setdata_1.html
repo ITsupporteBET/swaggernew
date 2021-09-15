@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>簽名驗證</title>
+</head>
+<body>
+    <body bgcolor="#DDDDDD">
+    <form method="POST" action="ts_result_1.php" target="result" >
+        <table>
+            <tr>
+                <td>
+		    increasecredit(RSA): seqNo + event + channelId + timestamp + username + money<br><br>
+                    parameter1：<input type="text" name="p1" value="">
+                    parameter2：<input type="text" name="p2" value="">
+                    parameter3：<input type="text" name="p3" value=""><br><br>
+                    parameter4：<input type="text" name="p4" value="">
+                    parameter5：<input type="text" name="p5" value="">
+                    parameter6：<input type="text" name="p6" value=""><br><br>
+                    composed string：<input type="text" name="string" size=103 value=""><br><br>
+                    signature：<input type="text" name="signature" size=110 value=""><br><br>
+                    key：<textarea name="key" cols="70" rows="10"></textarea>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    request(increaseCredit)：<textarea name="request" cols="80" rows="10"></textarea>
+                </td>
+            </tr>
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="run" value="產生簽名" align="absmiddle">&nbsp;&nbsp;<input type="submit" name="run" value="驗證簽名" align="absmiddle">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="run" value="產生字串" align="absmiddle">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
