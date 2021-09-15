@@ -30,7 +30,7 @@
                     </td>
                 </tr>
                 <td>
-                    <button type="submit" onclick="tosubmimit()" name="run" value="產生簽名" align="absmiddle">
+                    <button style="display: block;" type="submit" onclick="tosubmimit()" name="run" value="產生簽名" align="absmiddle">
                 </td>
                 </tr>
             </table>
@@ -60,7 +60,7 @@
         <script>
             $(document).ready(function(){
                 var options = {
-                    target:'response',
+                    target:'#response',
                 };
             });
             $('"#postreq"').submit(function(){
