@@ -9,7 +9,7 @@
 <body>
     
     <body bgcolor="#DDDDDD">
-        <form method="POST" action="ts_result_1.php" target="result">
+        <form method="POST"  target="result">
             <table>
                 <tr>
                     <td>
@@ -64,13 +64,11 @@
         <script>
             $("#formreq").submit(function (event) {
                 event.preventDefault(); //prevent default action 
-                var post_url = $(this).attr("action"); //get form action url
-                var request_method = $(this).attr("method"); //get form GET/POST method
                 var form_data = $(this).serialize(); //Encode form elements for submission
     
                 $.ajax({
-                    url: post_url,
-                    type: request_method,
+                    url: 'ts_result_1.php',
+                    type: 'POST',
                     data: form_data
                 }).done(function (response) { //
                     $("#response").html(response);
