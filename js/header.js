@@ -102,6 +102,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <!-- <a class="dropdown-item" href="faq.html?ran=" onclick="this.href+=Math.random();">FAQ</a> -->
                         <a class="dropdown-item" href="example.html?ran=" onclick="this.href+=Math.random();">参考代码</a>
+                        <a class="dropdown-item" href="signature.html?ran=" onclick="this.href+=Math.random();">签名测试</a>
                         <a class="dropdown-item" href="update.html?ran=" onclick="this.href+=Math.random();">更新纪录</a>
                     </div>
                 </li>
@@ -196,6 +197,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <!-- <a class="dropdown-item" href="faq.html?ran=" onclick="this.href+=Math.random();">FAQ</a> -->
                         <a class="dropdown-item" href="example.html?ran=" onclick="this.href+=Math.random();">Reference Code</a>
+                        <a class="dropdown-item" href="signature.html?ran=" onclick="this.href+=Math.random();">Signature test</a>
                         <a class="dropdown-item" href="update.html?ran=" onclick="this.href+=Math.random();">Update history</a>
                     </div>
                 </li>
