@@ -60,7 +60,7 @@ switch ($_POST["run"]){
 
 
 
-    case "产生签名/Generate signature":
+    case "Generate signature":
         if($plaintext == ""){
             echo "未輸入字串，無法產生簽名<br/>";
             return false;
@@ -77,7 +77,7 @@ switch ($_POST["run"]){
         
 
 
-    case "驗證簽名":
+    case "Verify signature":
         if($_POST["key"] == ""){
             echo "key為空值，無法做驗證";
             break;
