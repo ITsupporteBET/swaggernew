@@ -79,11 +79,15 @@ switch ($_POST["run"]){
 
     case "Verify signature":
         if($_POST["key"] == ""){
-            echo "key為空值，無法做驗證";
+            echo "key為空值，無法做驗證(No key)";
             break;
         }
         if($_POST["signature"] == ""){
-            echo "signature為空值，無法做驗證";
+            echo "signature為空值，無法做驗證(No signature)";
+            break;
+        }
+        if($_POST["string"] == ""){
+            echo "composed string為空值，無法做驗證(No omposed string)";
             break;
         }
         $signature = $_POST["signature"];
