@@ -20,7 +20,7 @@ function verify_signature1($plaintext,$signature){
     $rsa -> loadKey($publickey);
     $rsa -> setSignatureMode(CRYPT_RSA_SIGNATURE_PKCS1);
     $rsa -> setHash("md5");
-    return $rsa->verify($plaintext, base64_decode($signature)) ? '通過(verified)' : '失敗(unverified)';
+    return $rsa->verify($plaintext, base64_decode($signature)) ? '通过(verified)' : '失败(unverified)';
 }
 
 //確認輸入資料
@@ -62,16 +62,16 @@ switch ($_POST["run"]){
 
     case "Generate signature":
         if($plaintext == ""){
-            echo "未輸入字串，無法產生簽名(No omposed string)<br/>";
+            echo "未输入字串，无法产生签名(No omposed string)<br/>";
             return false;
         }
         if($_POST["key"] == ""){
-            echo "key為空值，無法做簽名(No key)";
+            echo "key为空值，无法产生签名(No key)";
             break;
         }
         $compositionsignature = get_signature1($plaintext);
-        echo "組成的字串(Composed string)：".$plaintext."<br/>";
-        echo "組成的簽名(Composition signature)：".$compositionsignature."<br/>";
+        echo "组成的字串(Composed string)：".$plaintext."<br/>";
+        echo "组成的签名(Composition signature)：".$compositionsignature."<br/>";
         break;
         
         
@@ -79,21 +79,21 @@ switch ($_POST["run"]){
 
     case "Verify signature":
         if($_POST["key"] == ""){
-            echo "key為空值，無法做驗證(No key)";
+            echo "key为空值，无法做验证(No key)";
             break;
         }
         if($_POST["signature"] == ""){
-            echo "signature為空值，無法做驗證(No signature)";
+            echo "signature为空值，无法做验证(No signature)";
             break;
         }
         if($_POST["string"] == ""){
-            echo "composed string為空值，無法做驗證(No omposed string)";
+            echo "composed string为空值，无法做验证(No omposed string)";
             break;
         }
         $signature = $_POST["signature"];
         $testsignature = verify_signature1($plaintext,$signature);
-        echo "要驗證的簽名(Verify signature)：".$signature."<br/>";
-        echo "驗證的結果(Verification result)：".$testsignature."<br/>";
+        echo "要验证的签名(Verify signature)：".$signature."<br/>";
+        echo "验证的结果(Verification result)：".$testsignature."<br/>";
         break;
     default:
         echo "ERROR!";
