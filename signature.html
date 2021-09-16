@@ -140,31 +140,7 @@
             </span>
             </div>
 
-            <h2 id="oauth_title">oAuth JS 窗口关闭</h2>
-            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#oauth">oAuth JS 窗口关闭</button>
-            <div id="oauth" class="collapse">
-            <span class="code" id="oauth_text">
-                    &lt;script type="text/javascript"&gt;<br>
-                    if(window.AndroidBridge)<br>
-                    {<br>
-                    // native -android app<br>
-                    window.AndroidBridge.closeWebview();<br>
-                    }<br>
-                    else if(window.webkit)<br>
-                    {<br>
-                    // native -ios app<br>
-                    window.webkit.messageHandlers.closeOauthLogin.postMessage(null);<br>
-                    }<br>
-                    else<br>
-                    {<br>
-                    // h5<br>
-                    parent.postMessage({<br>
-                    msg: "closeOauthLogin"<br>
-                    }, "*");<br>
-                    }<br>
-                    &lt;script&gt;
-            </span>
-            </div>`;
+            `;
     } else {
         web_context.innerHTML = `
             <h1 id="rsa_title">RSA Code Implementation Reference</h1><br>
@@ -255,32 +231,7 @@
                     echo $rsa->verify($plaintext, base64_decode($signature)) ? 'verified' : 'unverified';<br>
             </span>
             </div>
-
-            <h2 id="oauth_title">oAuth JS Window frame</h2>
-            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#oauth">oAuth JS Window frame</button>
-            <div id="oauth" class="collapse">
-            <span class="code" id="oauth_text">
-                    &lt;script type="text/javascript"&gt;<br>
-                    if(window.AndroidBridge)<br>
-                    {<br>
-                    // native -android app<br>
-                    window.AndroidBridge.closeWebview();<br>
-                    }<br>
-                    else if(window.webkit)<br>
-                    {<br>
-                    // native -ios app<br>
-                    window.webkit.messageHandlers.closeOauthLogin.postMessage(null);<br>
-                    }<br>
-                    else<br>
-                    {<br>
-                    // h5<br>
-                    parent.postMessage({<br>
-                    msg: "closeOauthLogin"<br>
-                    }, "*");<br>
-                    }<br>
-                    &lt;script&gt;
-            </span>
-            </div>`;
+            `;
     }
 </script>
 
