@@ -62,11 +62,11 @@ switch ($_POST["run"]){
 
     case "Generate signature":
         if($plaintext == ""){
-            echo "未輸入字串，無法產生簽名<br/>";
+            echo "未輸入字串，無法產生簽名(No omposed string)<br/>";
             return false;
         }
         if($_POST["key"] == ""){
-            echo "key為空值，無法做簽名";
+            echo "key為空值，無法做簽名(No key)";
             break;
         }
         $compositionsignature = get_signature1($plaintext);
