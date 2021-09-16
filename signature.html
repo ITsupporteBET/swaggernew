@@ -18,6 +18,7 @@
   <div id="header"></div>
   <div class="container">
     <div id="container"></div>
+    <div id="footer"></div>
     <iframe width="100%" height="300px" src="./alex/ts_setdata.html"></iframe>
     <iframe width="100%" src="" name="result"></iframe>
   </div>
@@ -43,8 +44,247 @@
   <script src="./js/header.js"></script>
   <script src="./js/header_css.js"></script>
 
+
   <script>
     const web_context = document.getElementById('container');
+
+    if (window.localStorage.getItem('lang') == "cn") {
+        web_context.innerHTML = `
+            <h1 id="rsa_title">RSA代码实作参考</h1><br>
+
+            <h2>C# RSA 实现方法</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#crsa">C# RSA 实现方法</button>
+            <div id="crsa" class="collapse">
+            <span class="code" id="crsa_text">
+                    //私钥匙加密<br>
+                    public static string SignAndHash(string dataToSign ,string privatekey)<br>
+                    {<br>
+                    UnicodeEncoding ByteConverter = new UnicodeEncoding();<br>
+                    RSACryptoServiceProvider RSAProvider = new RSACryptoServiceProvider();<br>
+                    var encoder = new UTF8Encoding();<br>
+                    byte[] plaintext = encoder.GetBytes(dataToSign);<br>
+                    RSAProvider.FromXmlString(privatekey);<br>
+                    RSAParameters priKey = RSAProvider.ExportParameters(true);<br>
+                    RSAProvider.ImportParameters(priKey);<br>
+                    byte[] sign = RSAProvider.SignData(plaintext, CryptoConfig.MapNameToOID("MD5"));<br>
+                    return Convert.ToBase64String(sign);<br>
+                    }<br>
+                    //公钥匙验证<br>
+                    public static bool VerifySignedHash(string dataToSign, string SignedData, string public_key)
+                    {<br>
+                    try{<br>
+                    UnicodeEncoding ByteConverter = new UnicodeEncoding();<br>
+                    var encoder = new UTF8Encoding();<br>
+                    RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider();<br>
+                    RSAParameters priKey = RSAalg.ExportParameters(true);<br>
+                    RSAalg.ImportParameters(priKey);<br>
+                    RSAalg.FromXmlString(public_key);<br>
+                    byte[] plaintext = encoder.GetBytes(dataToSign);<br>
+                    return RSAalg.VerifyData(plaintext, CryptoConfig.MapNameToOID("MD5"),<br>
+                    Convert.FromBase64String(SignedData));<br>
+                    }catch (CryptographicException e){ Console.WriteLine(e.Message + " <br>
+                    Error!!!");<br>
+                    Console.ReadLine();<br>
+                    return false;}}<br>
+            </span>
+            </div>
+
+            <h2>JAVA RSA 实现方法</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#javarrsa">JAVA RSA 实现方法</button>
+            <div id="javarrsa" class="collapse">
+            <span class="code" id="javarsa_text">
+                    //私钥匙加密<br>
+                    public static String sign(byte[] data,String privateKey)throws NoSuchAlgorithmException,<br>
+                    InvalidKeySpecException, InvalidKeyException, SignatureException <br>
+                    {byte[] keyBytes = Base64.getDecoder().decode(privateKey.getBytes());<br>
+                    PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(keyBytes);<br>
+                    KeyFactory keyFactory = KeyFactory.getInstance("RSA");<br>
+                    PrivateKey priKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);<br>
+                    Signature signature = Signature.getInstance("MD5withRSA");<br>
+                    signature.initSign(priKey);<br>
+                    signature.update(data);<br>
+                    return new String(Base64.getEncoder().encode(signature.sign())); }<br>
+                    //公钥匙验证<br>
+                    public static boolean verify(byte[] data,String publicKey,String sign)throws Exception{<br>
+                    byte[] keyBytes = Base64.getDecoder().decode(publicKey.getBytes());<br>
+                    X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(keyBytes);<br>
+                    KeyFactory keyFactory = KeyFactory.getInstance("RSA");<br>
+                    PublicKey publicKey2 = keyFactory.generatePublic(x509EncodedKeySpec);<br>
+                    Signature signature = Signature.getInstance("MD5withRSA");<br>
+                    signature.initVerify(publicKey2);<br>
+                    signature.update(data);<br>
+                    return signature.verify(Base64.getDecoder().decode(sign));<br>
+                    }<br>
+            </span>
+            </div>
+
+            <h2 id="phprsa_title">PHP RSA 实现方法</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#phprsa">PHP RSA 实现方法</button>
+            <div id="phprsa" class="collapse">
+            <span class="code" id="phprsa_text">
+                    RSA PHP URL：https://github.com/phpseclib/phpseclib/tree/1.0<br>
+                    //私钥匙加密<br>
+                    $rsa = new Crypt_RSA();<br>
+                    $rsa→loadKey(xxx）;//xxx private key<br>
+                    $rsa→setSignatureMode(CRYPT_RSA_SIGNATURE_PKCS1);<br>
+                    $rsa→setHash("md5");<br>
+                    $signature = $rsa→sign($plaintext); <br>
+                    echo base64_encode($signature);<br>
+                    //公钥匙验证<br>
+                    $rsa = new Crypt_RSA();<br>
+                    $rsa->loadKey('publickey');<br>
+                    $rsa→setSignatureMode(CRYPT_RSA_SIGNATURE_PKCS1);<br>
+                    $rsa→setHash("md5");<br>
+                    echo $rsa->verify($plaintext, base64_decode($signature)) ? 'verified' : 'unverified';<br>
+            </span>
+            </div>
+
+            <h2 id="oauth_title">oAuth JS 窗口关闭</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#oauth">oAuth JS 窗口关闭</button>
+            <div id="oauth" class="collapse">
+            <span class="code" id="oauth_text">
+                    &lt;script type="text/javascript"&gt;<br>
+                    if(window.AndroidBridge)<br>
+                    {<br>
+                    // native -android app<br>
+                    window.AndroidBridge.closeWebview();<br>
+                    }<br>
+                    else if(window.webkit)<br>
+                    {<br>
+                    // native -ios app<br>
+                    window.webkit.messageHandlers.closeOauthLogin.postMessage(null);<br>
+                    }<br>
+                    else<br>
+                    {<br>
+                    // h5<br>
+                    parent.postMessage({<br>
+                    msg: "closeOauthLogin"<br>
+                    }, "*");<br>
+                    }<br>
+                    &lt;script&gt;
+            </span>
+            </div>`;
+    } else {
+        web_context.innerHTML = `
+            <h1 id="rsa_title">RSA Code Implementation Reference</h1><br>
+
+            <h2>C# user login authentication web api</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#crsa">C# user login authentication web api</button>
+            <div id="crsa" class="collapse">
+            <span class="code" id="crsa_text">
+                    //private Key encrypt<br>
+                    public static string SignAndHash(string dataToSign ,string privatekey)<br>
+                    {<br>
+                    UnicodeEncoding ByteConverter = new UnicodeEncoding();<br>
+                    RSACryptoServiceProvider RSAProvider = new RSACryptoServiceProvider();<br>
+                    var encoder = new UTF8Encoding();<br>
+                    byte[] plaintext = encoder.GetBytes(dataToSign);<br>
+                    RSAProvider.FromXmlString(privatekey);<br>
+                    RSAParameters priKey = RSAProvider.ExportParameters(true);<br>
+                    RSAProvider.ImportParameters(priKey);<br>
+                    byte[] sign = RSAProvider.SignData(plaintext, CryptoConfig.MapNameToOID("MD5"));<br>
+                    return Convert.ToBase64String(sign);<br>
+                    }<br>
+                    //public Key verify<br>
+                    public static bool VerifySignedHash(string dataToSign, string SignedData, string public_key)
+                    {<br>
+                    try{<br>
+                    UnicodeEncoding ByteConverter = new UnicodeEncoding();<br>
+                    var encoder = new UTF8Encoding();<br>
+                    RSACryptoServiceProvider RSAalg = new RSACryptoServiceProvider();<br>
+                    RSAParameters priKey = RSAalg.ExportParameters(true);<br>
+                    RSAalg.ImportParameters(priKey);<br>
+                    RSAalg.FromXmlString(public_key);<br>
+                    byte[] plaintext = encoder.GetBytes(dataToSign);<br>
+                    return RSAalg.VerifyData(plaintext, CryptoConfig.MapNameToOID("MD5"),<br>
+                    Convert.FromBase64String(SignedData));<br>
+                    }catch (CryptographicException e){ Console.WriteLine(e.Message + " <br>
+                    Error!!!");<br>
+                    Console.ReadLine();<br>
+                    return false;}}<br>
+            </span>
+            </div>
+
+            <h2>JAVA user login authentication web api</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#javarrsa">JAVA user login authentication web api</button>
+            <div id="javarrsa" class="collapse">
+            <span class="code" id="javarsa_text">
+                    // private Key encrypt<br>
+                    public static String sign(byte[] data,String privateKey)throws NoSuchAlgorithmException,<br>
+                    InvalidKeySpecException, InvalidKeyException, SignatureException <br>
+                    {byte[] keyBytes = Base64.getDecoder().decode(privateKey.getBytes());<br>
+                    PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(keyBytes);<br>
+                    KeyFactory keyFactory = KeyFactory.getInstance("RSA");<br>
+                    PrivateKey priKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);<br>
+                    Signature signature = Signature.getInstance("MD5withRSA");<br>
+                    signature.initSign(priKey);<br>
+                    signature.update(data);<br>
+                    return new String(Base64.getEncoder().encode(signature.sign())); }<br>
+                    //public Key verify<br>
+                    public static boolean verify(byte[] data,String publicKey,String sign)throws Exception{<br>
+                    byte[] keyBytes = Base64.getDecoder().decode(publicKey.getBytes());<br>
+                    X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(keyBytes);<br>
+                    KeyFactory keyFactory = KeyFactory.getInstance("RSA");<br>
+                    PublicKey publicKey2 = keyFactory.generatePublic(x509EncodedKeySpec);<br>
+                    Signature signature = Signature.getInstance("MD5withRSA");<br>
+                    signature.initVerify(publicKey2);<br>
+                    signature.update(data);<br>
+                    return signature.verify(Base64.getDecoder().decode(sign));<br>
+                    }<br>
+            </span>
+            </div>
+
+            <h2 id="phprsa_title">PHP user authentication web api</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#phprsa">PHP user authentication web api</button>
+            <div id="phprsa" class="collapse">
+            <span class="code" id="phprsa_text">
+                    RSA PHP URL：https://github.com/phpseclib/phpseclib/tree/1.0<br>
+                    // private Key encrypt<br>
+                    $rsa = new Crypt_RSA();<br>
+                    $rsa→loadKey(xxx）;//xxx private key<br>
+                    $rsa→setSignatureMode(CRYPT_RSA_SIGNATURE_PKCS1);<br>
+                    $rsa→setHash("md5");<br>
+                    $signature = $rsa→sign($plaintext); <br>
+                    echo base64_encode($signature);<br>
+                    // public Key verify<br>
+                    $rsa = new Crypt_RSA();<br>
+                    $rsa->loadKey('publickey');<br>
+                    $rsa→setSignatureMode(CRYPT_RSA_SIGNATURE_PKCS1);<br>
+                    $rsa→setHash("md5");<br>
+                    echo $rsa->verify($plaintext, base64_decode($signature)) ? 'verified' : 'unverified';<br>
+            </span>
+            </div>
+
+            <h2 id="oauth_title">oAuth JS Window frame</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#oauth">oAuth JS Window frame</button>
+            <div id="oauth" class="collapse">
+            <span class="code" id="oauth_text">
+                    &lt;script type="text/javascript"&gt;<br>
+                    if(window.AndroidBridge)<br>
+                    {<br>
+                    // native -android app<br>
+                    window.AndroidBridge.closeWebview();<br>
+                    }<br>
+                    else if(window.webkit)<br>
+                    {<br>
+                    // native -ios app<br>
+                    window.webkit.messageHandlers.closeOauthLogin.postMessage(null);<br>
+                    }<br>
+                    else<br>
+                    {<br>
+                    // h5<br>
+                    parent.postMessage({<br>
+                    msg: "closeOauthLogin"<br>
+                    }, "*");<br>
+                    }<br>
+                    &lt;script&gt;
+            </span>
+            </div>`;
+    }
+</script>
+
+  <script>
+    const web_context = document.getElementById('footer');
 
     if (window.localStorage.getItem('lang') == "cn") {
       web_context.innerHTML = `<h1>签名测试（供参考）</h1><br>`;
