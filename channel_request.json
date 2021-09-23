@@ -3570,15 +3570,45 @@
           "format": "double",
           "description": "BetPlayer3Double maximum bet limit.\n Only niuniu."
         },
-        "bet_Min": {
+        "baseBet_Min": {
           "type": "number",
           "format": "double",
           "description": "bet Minimum bet limit.\n Only Virtual Blackjack & Live Blackjack."
         },
-        "bet_Max": {
+        "baseBet_Max": {
           "type": "number",
           "format": "double",
           "description": "bet Maximum bet limit.\n Only Virtual Blackjack & Live Blackjack."
+        },
+        "sideBet_Min": {
+          "type": "number",
+          "format": "double",
+          "description": "Side bets Minimum bet limit.\n Only Virtual Blackjack & Live Blackjack."
+        },
+        "sideBet_Max": {
+          "type": "number",
+          "format": "double",
+          "description": "Side bets Maximum bet limit.\n Only Virtual Blackjack & Live Blackjack."
+        },
+        "pairsBet_Min": {
+          "type": "number",
+          "format": "double",
+          "description": "Perfect Pair Minimum bet limit.\n Only Virtual Blackjack & Live Blackjack."
+        },
+        "pairsBet_Max": {
+          "type": "number",
+          "format": "double",
+          "description": "Perfect Pair Maximum bet limit.\n Only Virtual Blackjack & Live Blackjack."
+        },
+        "threecardBet_Min": {
+          "type": "number",
+          "format": "double",
+          "description": "21+3 Minimum bet limit.\n Only Virtual Blackjack & Live Blackjack."
+        },
+        "threecardBet_Max": {
+          "type": "number",
+          "format": "double",
+          "description": "21+3 Maximum bet limit.\n Only Virtual Blackjack & Live Blackjack."
         },
         "number_1Min": {
           "type": "number",
