@@ -3073,91 +3073,109 @@
         "dragonMin": {
           "type": "number",
           "format": "double",
+          "example": 10.0,
           "description": "Dragon minimum bet limit.\n Only dragon-tiger."
         },
         "dragonMax": {
           "type": "number",
           "format": "double",
+          "example": 1000.0,
           "description": "Dragon maximum bet limit.\n Only dragon-tiger."
         },
         "tigerMin": {
           "type": "number",
           "format": "double",
+          "example": 1000.0,
           "description": "Tiger minimum bet limit.\n Only dragon-tiger."
         },
         "tigerMax": {
           "type": "number",
           "format": "double",
+          "example": 1000.0,
           "description": "Tiger maximum bet limit.\n Only dragon-tiger."
         },
         "dragonOddMin": {
           "type": "number",
           "format": "double",
+          "example": 10.0,
           "description": "DragonOdd minimum bet limit.\n Only dragon-tiger."
         },
         "dragonOddMax": {
           "type": "number",
           "format": "double",
+          "example": 1000.0,
           "description": "DragonOdd maximum bet limit.\n Only dragon-tiger."
         },
         "dragonEvenMin": {
           "type": "number",
           "format": "double",
+          "example": 10.0,
           "description": "DragonEven minimum bet limit.\n Only dragon-tiger."
         },
         "dragonEvenMax": {
           "type": "number",
           "format": "double",
+          "example": 1000.0,
           "description": "DragonEven maximum bet limit.\n Only dragon-tiger."
         },
         "tigerOddMin": {
           "type": "number",
           "format": "double",
+          "example": 10.0,
           "description": "TigerOdd minimum bet limit.\n Only dragon-tiger."
         },
         "tigerOddMax": {
           "type": "number",
           "format": "double",
+          "example": 1000.0,
           "description": "TigerOdd maximum bet limit.\n Only dragon-tiger."
         },
         "tigerEvenMin": {
           "type": "number",
           "format": "double",
+          "example": 10.0,
           "description": "TigerEven minimum bet limit.\n Only dragon-tiger."
         },
         "tigerEvenMax": {
           "type": "number",
           "format": "double",
+          "example": 1000.0,
           "description": "TigerEven maximum bet limit.\n Only dragon-tiger."
         },
         "dragonBlackMin": {
           "type": "number",
           "format": "double",
+          "example": 10.0,
           "description": "DragonBlack minimum bet limit.\n Only dragon-tiger."
         },
         "dragonBlackMax": {
           "type": "number",
           "format": "double",
+          "example": 1000.0,
           "description": "DragonBlack maximum bet limit.\n Only dragon-tiger."
         },
         "dragonRedMin": {
           "type": "number",
           "format": "double",
+          "example": 10.0,
           "description": "DragonRed minimum bet limit.\n Only dragon-tiger."
         },
         "dragonRedMax": {
           "type": "number",
           "format": "double",
+          "example": 1000.0,
           "description": "DragonRed maximum bet limit.\n Only dragon-tiger."
         },
         "tigerBlackMin": {
           "type": "number",
           "format": "double",
+          "example": 10.0,
           "description": "TigerBlack minimum bet limit.\n Only dragon-tiger."
         },
         "tigerBlackMax": {
           "type": "number",
           "format": "double",
+          "example": 1000.0,
           "description": "TigerBlack maximum bet limit.\n Only dragon-tiger."
         },
         "tigerRedMin": {
