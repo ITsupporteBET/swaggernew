@@ -160,6 +160,12 @@ Add tableType descriptions for Lottery<br>
     update_description: `
     Add relevant API descriptions for Genesis slot<br>
     `
+}, {
+    update_time: "2021/SEP/23",
+    update_member: "leo",
+    update_description: `
+    Add relevant API parameter descriptions for Virtual Blackjack & Live Blackjack<br>
+    `
 }
 ]
 
@@ -312,6 +318,12 @@ const up_his_cn = [
         update_member: "leo",
         update_description: `
         增加游戏Genesis老虎机游戏相关说明<br>
+        `
+    }, {
+        update_time: "2021/SEP/23",
+        update_member: "leo",
+        update_description: `
+        增加游戏电子21点，真人21点相关参数<br>
         `
     }
 ]

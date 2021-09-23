@@ -1407,15 +1407,45 @@
                         "format": "double",
                         "description": "BetPlayer3 maximum bet limit.\n Only niuniu."
                       },
-                      "bet_Min": {
+                      "baseBet_Min": {
                         "type": "number",
                         "format": "double",
                         "description": "bet Minimum bet limit.\n Only Virtual Blackjack & Live Blackjack."
                       },
-                      "bet_Max": {
+                      "baseBet_Max": {
                         "type": "number",
                         "format": "double",
                         "description": "bet Maximum bet limit.\n Only Virtual Blackjack & Live Blackjack."
+                      },
+                      "sideBet_Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "Side Bets Minimum bet limit.\n Only Live Blackjack."
+                      },
+                      "sideBet_Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "Side Bets Maximum bet limit.\n Only Live Blackjack."
+                      },
+                      "pairsBet_Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "Perfect Pair Minimum bet limit.\n Only Live Blackjack."
+                      },
+                      "pairsBet_Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "Perfect Pair Maximum bet limit.\n Only Live Blackjack."
+                      },
+                      "threecardBet_Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "21+3 bet Minimum bet limit.\n Only Live Blackjack."
+                      },
+                      "threecardBet_Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "21+3 bet Maximum bet limit.\n Only Live Blackjack."
                       },
                       "betPlayer3DoubleMin": {
                         "type": "number",

@@ -3533,15 +3533,45 @@
           "format": "double",
           "description": "闲3翻倍 最高下注限额。\n 只有牛牛。"
         },
-        "bet_Min": {
+        "baseBet_Min": {
           "type": "number",
           "format": "double",
-          "description": "投注最小下注限制.\n 只有电子21点，真人21点。"
+          "description": "投注/底注最小下注限制.\n 只有电子21点，真人21点。"
         },
-        "bet_Max": {
+        "baseBet_Max": {
           "type": "number",
           "format": "double",
-          "description": "投注最大下注限制.\n 只有电子21点，真人21点。"
+          "description": "投注/底注最大下注限制.\n 只有电子21点，真人21点。"
+        },
+        "sideBet_Min": {
+          "type": "number",
+          "format": "double",
+          "description": "旁注投注最大下注限制.\n 只有真人21点。"
+        },
+        "sideBet_Max": {
+          "type": "number",
+          "format": "double",
+          "description": "旁注投注最大下注限制.\n 只有真人21点。"
+        },
+        "pairsBet_Min": {
+          "type": "number",
+          "format": "double",
+          "description": "完美对子投注最大下注限制.\n 只有真人21点。"
+        },
+        "pairsBet_Max": {
+          "type": "number",
+          "format": "double",
+          "description": "完美对子投注最大下注限制.\n 只有真人21点。"
+        },
+        "threecardBet_Min": {
+          "type": "number",
+          "format": "double",
+          "description": "21+3投注最大下注限制.\n 只有真人21点。"
+        },
+        "threecardBet_Max": {
+          "type": "number",
+          "format": "double",
+          "description": "21+3投注最大下注限制.\n 只有真人21点。"
         },
         "number_1Min": {
           "type": "number",
