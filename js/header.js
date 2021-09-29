@@ -47,7 +47,7 @@ if (window.localStorage.getItem('lang') == "cn") {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html?ran=" onclick="this.href+=Math.random();">首页</a>
+                    <a class="nav-link" href="index.html" onclick="window.opener.location.reload();">首页</a>
                 </li>
                 <li class="nav-item">
                         <a class="nav-link" href="precautions.html?ran=" onclick="this.href+=Math.random();">注意事项</a>
