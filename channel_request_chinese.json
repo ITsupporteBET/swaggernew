@@ -2146,7 +2146,7 @@
           "通用API"
         ],
         "summary": "登入通知",
-        "description": "Channels can use their own login portal if the channel does not want to go through eBET's login portal.\n The channel must request this API to notify eBET to let the player log in to the game after verifying the player.\n Note: Need to provide link and eBET should be set to open on the backend.",
+        "description": "如果渠道不想通过 eBET 界面登录，则渠道可以使用自己的登录界面。\n 渠道在验证玩家后必须请求该API 通知eBET让玩家登录游戏。\n 注：渠道需提供登录界面链接，由我方后台设置开启。",
         "operationId": "callback",
         "consumes": [
           "application/json"
