@@ -323,7 +323,7 @@ const up_his_cn = [
         update_time: "2021/SEP/23",
         update_member: "leo",
         update_description: `
-        增加游戏电子21点，真人21点相关参数123123<br>
+        增加游戏电子21点，真人21点相关参数<br>
         `
     }
 ]
