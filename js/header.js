@@ -62,11 +62,11 @@ if (window.localStorage.getItem('lang') == "cn") {
                         
                         <a class="dropdown-item" href="liveblackjack.html" onclick="window.location.reload();">真人21点</a>
                         
-                        <a class="dropdown-item" href="bullbull.html" onclick="this.href+=Math.random();">牛牛</a>
+                        <a class="dropdown-item" href="bullbull.html" onclick="window.location.reload();">牛牛</a>
                         
-                        <a class="dropdown-item" href="fortune_wheel.html" onclick="this.href+=Math.random();">财富大转盘</a>
+                        <a class="dropdown-item" href="fortune_wheel.html" onclick="window.location.reload();">财富大转盘</a>
 
-                        <a class="dropdown-item" href="slot.html" onclick="this.href+=Math.random();">Genesis老虎机</a>
+                        <a class="dropdown-item" href="slot.html" onclick="window.location.reload();">Genesis老虎机</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -75,9 +75,9 @@ if (window.localStorage.getItem('lang') == "cn") {
                         操作设置
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="web_operation_settings.html" onclick="this.href+=Math.random();">web操作设置</a>
-                        <a class="dropdown-item" href="app_operation_settings.html" onclick="this.href+=Math.random();">app操作设置</a>
-                        <a class="dropdown-item" href="background_operation.html" onclick="this.href+=Math.random();">数据后台说明书</a>
+                        <a class="dropdown-item" href="web_operation_settings.html" onclick="window.location.reload();">web操作设置</a>
+                        <a class="dropdown-item" href="app_operation_settings.html" onclick="window.location.reload();">app操作设置</a>
+                        <a class="dropdown-item" href="background_operation.html" onclick="window.location.reload();">数据后台说明书</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -86,12 +86,12 @@ if (window.localStorage.getItem('lang') == "cn") {
                         API
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="apinote.html" onclick="this.href+=Math.random();">API注意事项</a>
-                    <a class="dropdown-item" href="ebet_request.html" onclick="this.href+=Math.random();">eBET请求</a>
-                    <a class="dropdown-item" href="channel_request.html" onclick="this.href+=Math.random();">渠道请​​求</a>
-                    <a class="dropdown-item" href="common_parameter.html" onclick="this.href+=Math.random();">共用参数说明</a>
-                    <a class="dropdown-item" href="parameter_description.html" onclick="this.href+=Math.random();">参数说明</a>
-                    <a class="dropdown-item" href="game_related_instructions.html" onclick="this.href+=Math.random();">游戏相关说明</a>
+                    <a class="dropdown-item" href="apinote.html" onclick="window.location.reload();">API注意事项</a>
+                    <a class="dropdown-item" href="ebet_request.html" onclick="window.location.reload();">eBET请求</a>
+                    <a class="dropdown-item" href="channel_request.html" onclick="window.location.reload();">渠道请​​求</a>
+                    <a class="dropdown-item" href="common_parameter.html" onclick="window.location.reload();">共用参数说明</a>
+                    <a class="dropdown-item" href="parameter_description.html" onclick="window.location.reload();">参数说明</a>
+                    <a class="dropdown-item" href="game_related_instructions.html" onclick="window.location.reload();">游戏相关说明</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -100,10 +100,10 @@ if (window.localStorage.getItem('lang') == "cn") {
                         备注
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a class="dropdown-item" href="faq.html" onclick="this.href+=Math.random();">FAQ</a> -->
-                        <a class="dropdown-item" href="example.html" onclick="this.href+=Math.random();">参考代码</a>
-                        <a class="dropdown-item" href="signature.html" onclick="this.href+=Math.random();">签名测试</a>
-                        <a class="dropdown-item" href="update.html" onclick="this.href+=Math.random();">更新纪录</a>
+                    <!-- <a class="dropdown-item" href="faq.html" onclick="window.location.reload();">FAQ</a> -->
+                        <a class="dropdown-item" href="example.html" onclick="window.location.reload();">参考代码</a>
+                        <a class="dropdown-item" href="signature.html" onclick="window.location.reload();">签名测试</a>
+                        <a class="dropdown-item" href="update.html" onclick="window.location.reload();">更新纪录</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -143,25 +143,25 @@ if (window.localStorage.getItem('lang') == "cn") {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html" onclick="this.href+=Math.random();">Home</a>
+                    <a class="nav-link" href="index.html" onclick="window.location.reload();">Home</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="precautions.html" onclick="this.href+=Math.random();">Precautions</a>
+                        <a class="nav-link" href="precautions.html" onclick="window.location.reload();">Precautions</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New game
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="virtual_blackjack.html" onclick="this.href+=Math.random();">Virtual Blackjack</a>
+                        <a class="dropdown-item" href="virtual_blackjack.html" onclick="window.location.reload();">Virtual Blackjack</a>
 
-                        <a class="dropdown-item" href="liveblackjack.html" onclick="this.href+=Math.random();">Live BlackJack </a>
+                        <a class="dropdown-item" href="liveblackjack.html" onclick="window.location.reload();">Live BlackJack </a>
 
-                        <a class="dropdown-item" href="bullbull.html" onclick="this.href+=Math.random();">BullBull</a>
+                        <a class="dropdown-item" href="bullbull.html" onclick="window.location.reload();">BullBull</a>
 
-                        <a class="dropdown-item" href="fortune_wheel.html" onclick="this.href+=Math.random();">Fortune Wheel</a>
+                        <a class="dropdown-item" href="fortune_wheel.html" onclick="window.location.reload();">Fortune Wheel</a>
 
-                        <a class="dropdown-item" href="slot.html" onclick="this.href+=Math.random();">Genesis slot</a>
+                        <a class="dropdown-item" href="slot.html" onclick="window.location.reload();">Genesis slot</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -169,10 +169,10 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Operation settings
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" onclick="this.href+=Math.random();">
-                        <a class="dropdown-item" href="web_operation_settings.html" onclick="this.href+=Math.random();">Web operation settings</a>
-                        <a class="dropdown-item" href="app_operation_settings.html" onclick="this.href+=Math.random();">App operation settings</a>
-                        <a class="dropdown-item" href="background_operation.html" onclick="this.href+=Math.random();">Backend Office User Guide</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" onclick="window.location.reload();">
+                        <a class="dropdown-item" href="web_operation_settings.html" onclick="window.location.reload();">Web operation settings</a>
+                        <a class="dropdown-item" href="app_operation_settings.html" onclick="window.location.reload();">App operation settings</a>
+                        <a class="dropdown-item" href="background_operation.html" onclick="window.location.reload();">Backend Office User Guide</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -181,12 +181,12 @@ if (window.localStorage.getItem('lang') == "cn") {
                         API
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="apinote.html" onclick="this.href+=Math.random();">API considerations</a>
-                        <a class="dropdown-item" href="ebet_request.html" onclick="this.href+=Math.random();">eBET request</a>
-                        <a class="dropdown-item" href="channel_request.html" onclick="this.href+=Math.random();">Channel request</a>
-                        <a class="dropdown-item" href="common_parameter.html" onclick="this.href+=Math.random();">Common parameter description</a>
-                        <a class="dropdown-item" href="parameter_description.html" onclick="this.href+=Math.random();">Parameter description</a>
-                        <a class="dropdown-item" href="game_related_instructions.html" onclick="this.href+=Math.random();">Game related instructions</a>
+                        <a class="dropdown-item" href="apinote.html" onclick="window.location.reload();">API considerations</a>
+                        <a class="dropdown-item" href="ebet_request.html" onclick="window.location.reload();">eBET request</a>
+                        <a class="dropdown-item" href="channel_request.html" onclick="window.location.reload();">Channel request</a>
+                        <a class="dropdown-item" href="common_parameter.html" onclick="window.location.reload();">Common parameter description</a>
+                        <a class="dropdown-item" href="parameter_description.html" onclick="window.location.reload();">Parameter description</a>
+                        <a class="dropdown-item" href="game_related_instructions.html" onclick="window.location.reload();">Game related instructions</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -195,10 +195,10 @@ if (window.localStorage.getItem('lang') == "cn") {
                         Remark
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a class="dropdown-item" href="faq.html" onclick="this.href+=Math.random();">FAQ</a> -->
-                        <a class="dropdown-item" href="example.html" onclick="this.href+=Math.random();">Reference Code</a>
-                        <a class="dropdown-item" href="signature.html" onclick="this.href+=Math.random();">Signature test</a>
-                        <a class="dropdown-item" href="update.html" onclick="this.href+=Math.random();">Update history</a>
+                    <!-- <a class="dropdown-item" href="faq.html" onclick="window.location.reload();">FAQ</a> -->
+                        <a class="dropdown-item" href="example.html" onclick="window.location.reload();">Reference Code</a>
+                        <a class="dropdown-item" href="signature.html" onclick="window.location.reload();">Signature test</a>
+                        <a class="dropdown-item" href="update.html" onclick="window.location.reload();">Update history</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
