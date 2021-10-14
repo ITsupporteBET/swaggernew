@@ -3851,6 +3851,12 @@
           "type": "integer",
           "example": 1,
           "description": "判断查询时间。默认为0\n 0: 派彩时间\n 1: 投��时间"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "example": 19191919,
+          "description": "用户ID"
         }
       }
     },
