@@ -3824,9 +3824,6 @@
         "username": {
           "$ref": "#/definitions/username"
         },
-        "currency": {
-          "$ref": "#/definitions/currency"
-        },
         "subChannelId": {
           "$ref": "#/definitions/subChannelId"
         },
@@ -3836,12 +3833,6 @@
         "endTimeStr": {
           "$ref": "#/definitions/endTimeStr"
         },
-        "pageNum": {
-          "$ref": "#/definitions/pageNum"
-        },
-        "pageSize": {
-          "$ref": "#/definitions/pageSize"
-        },
         "gameType": {
           "type": "integer",
           "example": 1,
@@ -3850,7 +3841,7 @@
         "judgeTime": {
           "type": "integer",
           "example": 1,
-          "description": "判断查询时间。默认为0\n 0: 派彩时间\n 1: 投��时间"
+          "description": "判断查询时间。默认为0\n 0: 派彩时间\n 1: 投注时间"
         },
         "userId": {
           "type": "integer",
