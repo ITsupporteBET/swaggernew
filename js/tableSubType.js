@@ -25,5 +25,5 @@ const tableSubType = [{
 
 const tableSubType_cn = [
     { "code": "0","GameType": "共同", "TableType": "一般桌" },
-    { "code": "1","GameType": "百家樂/n輪盤", "TableType": "VIP桌" }
+    { "code": "1","GameType": "百家樂\n輪盤", "TableType": "VIP桌" }
 ]
