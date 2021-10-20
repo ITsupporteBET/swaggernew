@@ -15,13 +15,15 @@ $(function () {
 
 const tableSubType = [{
     code: "0",
-    GameType: "General Table"
+    GameType: "Baccarat",
+    TableType: "General Table"
 }, {
     code: "1",
-    GameType: "VIP Table"
+    GameType: "百家樂/n輪盤",
+    TableType: "VIP Table"
 }]
 
 const tableSubType_cn = [
-    { "code": "0", "GameType": "一般桌" },
-    { "code": "1", "GameType": "VIP桌" }
+    { "code": "0","GameType": "共同", "TableType": "一般桌" },
+    { "code": "1","GameType": "百家樂/n輪盤", "TableType": "VIP桌" }
 ]

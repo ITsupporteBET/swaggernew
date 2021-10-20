@@ -166,13 +166,20 @@ Add tableType descriptions for Lottery<br>
     update_description: `
     Add relevant API parameter descriptions for Virtual Blackjack & Live Blackjack<br>
     `
+}, {
+    update_time: "2021/OCT/20",
+    update_member: "leo",
+    update_description: `
+    Update userbetsummary parameter<br>
+    Add relevant API parameter descriptions for Fortune Roulette<br>
+    `
 }
 ]
 
 const up_his_cn = [
 
     {
-        update_time: "2020/Feb/20",
+        update_time: "2020/Feb/27",
         update_member: "leo",
         update_description: `
         增加游戏财富大转盘的相关说明<br>
@@ -323,7 +330,14 @@ const up_his_cn = [
         update_time: "2021/SEP/23",
         update_member: "leo",
         update_description: `
-        增加游戏电子21点，真人21点相关参数~~~<br>
+        增加游戏电子21点，真人21点相关参数<br>
+        `
+    }, {
+        update_time: "2021/OCT/27",
+        update_member: "leo",
+        update_description: `
+        更新userbetsummary相关参数<br>
+        增加游戏财富轮盘相关参数<br>
         `
     }
 ]
