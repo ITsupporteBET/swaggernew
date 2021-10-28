@@ -1182,10 +1182,10 @@
           "type": "integer",
           "example": 2000,
           "description": "Match code. Format is Unix Time. Only type = 8 or 9 has this parameter."
-        },
+        }
         "withHoldingList": {
           "type": "array",
-          "description": "仅type = 28才有此参数",
+          "description": "The withholding return list will replace betList in the withholding return request. Please refer to withHoldingList",
           "items": {
             "type": "object",
             "properties": {
@@ -1193,7 +1193,7 @@
                 "type": "number",
                 "format": "double",
                 "example": 100.0,
-                "description": "預扣金额。withHolding =0时,代表預扣失败。"
+                "description": "Withholding amount. When betMoney=0, it means betting has failed."
               },
               "status": {
                 "type": "integer",
