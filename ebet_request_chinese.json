@@ -1193,40 +1193,40 @@
           "type": "integer",
           "example": 2000,
           "description": "大赛代码。 格式为Unix(只有 type = 8或9 才需要此字段。)"
-        },
-        "withHoldingList": {
-          "type": "array",
-          "description": "預扣返還列表,在预扣返还的请求中会取代 betList,详见下列 withHoldingList 表格",
-          "items": {
-            "type": "object",
-            "properties": {
-              "withHolding": {
-                "type": "number",
-                "format": "double",
-                "example": 100.0,
-                "description": "預扣金额。withHolding =0时,代表預扣失败。"
-              },
-              "status": {
-                "type": "integer",
-                "example": "1",
-                "description": "预扣状态\n 1: 成功\n 0: 失败或没有金额需要返还\n 11:退款\n 13:退款失败"
-              },
-              "betType": {
-                "type": "integer",
-                "format": "int64",
-                "example": 302,
-                "description": "投注牌型"
-              },
-              "withHoldingId": {
-                "type": "string",
-                "example": "seqNoseqNoseqNo-302",
-                "description": "預扣 ID"
-              },
-              "number": {
-                "type": "string",
-                "example": "seqNoseqNoseqNo",
-                "description": "預扣请求的序列编号"
-              }
+        }
+      },
+      "withHoldingList": {
+        "type": "array",
+        "description": "預扣返還列表,在预扣返还的请求中会取代 betList,详见下列 withHoldingList 表格",
+        "items": {
+          "type": "object",
+          "properties": {
+            "withHolding": {
+              "type": "number",
+              "format": "double",
+              "example": 100.0,
+              "description": "預扣金额。withHolding =0时,代表預扣失败。"
+            },
+            "status": {
+              "type": "integer",
+              "example": "1",
+              "description": "预扣状态\n 1: 成功\n 0: 失败或没有金额需要返还\n 11:退款\n 13:退款失败"
+            },
+            "betType": {
+              "type": "integer",
+              "format": "int64",
+              "example": 302,
+              "description": "投注牌型"
+            },
+            "withHoldingId": {
+              "type": "string",
+              "example": "seqNoseqNoseqNo-302",
+              "description": "預扣 ID"
+            },
+            "number": {
+              "type": "string",
+              "example": "seqNoseqNoseqNo",
+              "description": "預扣请求的序列编号"
             }
           }
         }
