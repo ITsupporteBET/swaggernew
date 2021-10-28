@@ -1208,7 +1208,7 @@
               },
               "status": {
                 "type": "integer",
-                "example": "1",
+                "example": 1,
                 "description": "预扣状态\n 1: 成功\n 0: 失败或没有金额需要返还\n 11:退款\n 13:退款失败"
               },
               "betType": {
@@ -1222,7 +1222,7 @@
                 "example": "seqNoseqNoseqNo-302",
                 "description": "預扣 ID"
               },
-              "number": {
+              "seqNo": {
                 "type": "string",
                 "example": "seqNoseqNoseqNo",
                 "description": "預扣请求的序列编号"

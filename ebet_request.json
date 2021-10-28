@@ -1182,7 +1182,7 @@
           "type": "integer",
           "example": 2000,
           "description": "Match code. Format is Unix Time. Only type = 8 or 9 has this parameter."
-        }
+        },
         "withHoldingList": {
           "type": "array",
           "description": "The withholding return list will replace betList in the withholding return request. Please refer to withHoldingList",
@@ -1197,24 +1197,24 @@
               },
               "status": {
                 "type": "integer",
-                "example": "1",
-                "description": "投注请求的序号。 只有派彩的事件，才需要此字段。"
+                "example": 1,
+                "description": "Withholding status\n 1: success\n 0: failure or no amount to be returned\n 11: refund\n 13: Refund failed"
               },
               "betType": {
                 "type": "integer",
                 "format": "int64",
                 "example": 302,
-                "description": "投注牌型"
+                "description": "Bet item"
               },
               "withHoldingId": {
                 "type": "string",
                 "example": "seqNoseqNoseqNo-302",
-                "description": "預扣 ID"
+                "description": "Withholding ID"
               },
-              "number": {
+              "seqNo": {
                 "type": "string",
                 "example": "seqNoseqNoseqNo",
-                "description": "預扣请求的序列编号"
+                "description": "The sequence number of the withholding request."
               }
             }
           }
