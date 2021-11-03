@@ -4165,7 +4165,10 @@
         "userList": {
           "type": "array",
           "example": ["apitest","apitest001"],
-          "description": "签名 字串拼接 :username+channelId+accessToken+timestamp"
+          "description": "用户列表",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
