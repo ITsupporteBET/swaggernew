@@ -1919,7 +1919,7 @@
                             "gameType": {
                               "type": "integer",
                               "example": 1,
-                              "description": "游戏类型"
+                              "description": "游戏类型\n 如isMerge:1 gameType则为All"
                             },
                             "gameName": {
                               "type": "string",
@@ -2903,7 +2903,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点"
+          "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 10:财富轮盘"
         },
         "playerMin": {
           "type": "number",
@@ -3895,6 +3895,11 @@
           "type": "integer",
           "example": 1,
           "description": "判断查询时间。默认为0\n 0: 派彩时间\n 1: 投注时间"
+        },
+        "isMerge": {
+          "type": "integer",
+          "example": 1,
+          "description": "是否合并用户游戏报表。默认为0\n 0: 否\n 1: 是"
         }
       }
     },

@@ -1917,7 +1917,7 @@
                             "gameType": {
                               "type": "integer",
                               "example": 1,
-                              "description": "Game type"
+                              "description": "Game type\n If request parameter isMerge is 1 gameType will be All"
                             },
                             "gameName": {
                               "type": "string",
@@ -2900,7 +2900,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:BullBUll\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack"
+          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:BullBUll\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 10:Fortune Roulette"
         },
         "playerMin": {
           "type": "number",
@@ -3919,6 +3919,11 @@
           "type": "integer",
           "example": 1,
           "description": "Judgment query time. Default is 0\n 0: Payout time\n 1: Bet time"
+        },
+        "isMerge": {
+          "type": "integer",
+          "example": 1,
+          "description": "Whether to merge user game reports. Default is 0\n 0: Payout time\n 1: Bet time"
         }
       }
     },
