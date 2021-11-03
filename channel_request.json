@@ -3968,7 +3968,7 @@
         },
         "judgeTime": {
           "type": "boolean",
-          "example": false,
+          "example": 0,
           "description": "Judgment query time. Default is false\n false: Payout time\n true: Bet time"
         },
         "isMerge": {
