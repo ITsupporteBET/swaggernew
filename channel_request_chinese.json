@@ -2233,7 +2233,7 @@
         ],
         "summary": "该 API 为批量调整用户投注限额",
         "description": "此 API 为渠道方主动向 eBET 发送请求。\n 发送至 url : eBET 的 API server 位置。",
-        "operationId": "callback",
+        "operationId": "updateBatchBetlimit",
         "consumes": [
           "application/json"
         ],
