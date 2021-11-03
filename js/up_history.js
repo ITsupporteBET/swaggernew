@@ -339,5 +339,13 @@ const up_his_cn = [
         更新userbetsummary相关参数<br>
         增加游戏财富轮盘相关参数<br>
         `
+    }, {
+        update_time: "2021/NOV/03",
+        update_member: "leo",
+        update_description: `
+        更新updatebetlimit财富轮盘相关参数<br>
+        更新totaluserbetsummary相关参数<br>
+        增加API updateBatchBetlimit<br>
+        `
     }
 ]
