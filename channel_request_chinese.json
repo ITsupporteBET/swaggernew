@@ -1919,12 +1919,12 @@
                             "gameType": {
                               "type": "integer",
                               "example": 1,
-                              "description": "游戏类型\n 如isMerge:true gameType则为All"
+                              "description": "游戏类型\n 如isMerge:true gameType则为0"
                             },
                             "gameName": {
                               "type": "string",
                               "example": "baccarat",
-                              "description": "游戏名称"
+                              "description": "游戏名称\n 如isMerge:true gameName则为All"
                             },
                             "totalBet": {
                               "type": "number",

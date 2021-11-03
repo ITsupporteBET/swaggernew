@@ -1917,12 +1917,12 @@
                             "gameType": {
                               "type": "integer",
                               "example": 1,
-                              "description": "Game type\n If request parameter isMerge is true gameType will be All"
+                              "description": "Game type\n If request parameter isMerge is true gameType will be 0"
                             },
                             "gameName": {
                               "type": "string",
                               "example": "baccarat",
-                              "description": "Game name"
+                              "description": "Game name \n If request parameter isMerge is true Game name will be All"
                             },
                             "totalBet": {
                               "type": "number",
