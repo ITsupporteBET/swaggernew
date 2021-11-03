@@ -1917,7 +1917,7 @@
                             "gameType": {
                               "type": "integer",
                               "example": 1,
-                              "description": "Game type\n If request parameter isMerge is 1 gameType will be All"
+                              "description": "Game type\n If request parameter isMerge is true gameType will be All"
                             },
                             "gameName": {
                               "type": "string",
@@ -3916,9 +3916,9 @@
           "$ref": "#/definitions/pageSize"
         },
         "judgeTime": {
-          "type": "integer",
+          "type": "boolean",
           "example": 1,
-          "description": "Judgment query time. Default is 0\n 0: Payout time\n 1: Bet time"
+          "description": "Judgment query time. Default is false\n false: Payout time\n true: Bet time"
         },
         "isMerge": {
           "type": "integer",

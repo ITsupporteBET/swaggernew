@@ -1919,7 +1919,7 @@
                             "gameType": {
                               "type": "integer",
                               "example": 1,
-                              "description": "游戏类型\n 如isMerge:1 gameType则为All"
+                              "description": "游戏类型\n 如isMerge:true gameType则为All"
                             },
                             "gameName": {
                               "type": "string",
@@ -2162,6 +2162,92 @@
             "required": false,
             "schema": {
               "$ref": "#/definitions/body_17"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": [
+                "apiVersion",
+                "channelId",
+                "money",
+                "status",
+                "subChannelId",
+                "timestamp",
+                "userId",
+                "username",
+                "wallet"
+              ],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "channelId": {
+                  "$ref": "#/definitions/channelId"
+                },
+                "subChannelId": {
+                  "$ref": "#/definitions/subChannelId"
+                },
+                "username": {
+                  "$ref": "#/definitions/username"
+                },
+                "userId": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 1919191919,
+                  "description": "用户ID"
+                },
+                "money": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100000.01,
+                  "description": "用户的金額"
+                },
+                "timestamp": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 1577808000,
+                  "description": "当前时间。以秒为单位。格式为Unix Time。"
+                },
+                "wallet": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/wallet"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/updateBatchBetlimit": {
+      "post": {
+        "tags": [
+          "通用API"
+        ],
+        "summary": "该 API 为批量调整用户投注限额",
+        "description": "此 API 为渠道方主动向 eBET 发送请求。\n 发送至 url : eBET 的 API server 位置。",
+        "operationId": "callback",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_18"
             }
           }
         ],
@@ -2897,7 +2983,7 @@
         }
       }
     },
-    "apiupdatebetlimit_limit": {
+    "ebetlimit_limit": {
       "type": "object",
       "properties": {
         "gameType": {
@@ -3713,7 +3799,7 @@
           "type": "array",
           "description": "限额清单",
           "items": {
-            "$ref": "#/definitions/apiupdatebetlimit_limit"
+            "$ref": "#/definitions/ebetlimit_limit"
           }
         }
       }
@@ -3897,9 +3983,9 @@
           "description": "判断查询时间。默认为0\n 0: 派彩时间\n 1: 投注时间"
         },
         "isMerge": {
-          "type": "integer",
-          "example": 1,
-          "description": "是否合并用户游戏报表。默认为0\n 0: 否\n 1: 是"
+          "type": "boolean",
+          "example": true,
+          "description": "是否合并用户游戏报表。默认为false\n false: 否\n true: 是"
         }
       }
     },
@@ -4043,6 +4129,42 @@
         "signature": {
           "type": "string",
           "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名 字串拼接 :username+channelId+accessToken+timestamp"
+        }
+      }
+    },
+    "body_18": {
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp",
+        "userList"
+      ],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1987654321,
+          "description": "当前时间。以秒为单位。格式为Unix Time。"
+        },
+        "limit": {
+          "type": "array",
+          "description": "限额资讯，请参考 limit 表",
+          "items": {
+            "$ref": "#/definitions/ebetlimit_limit"
+          }
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名 字串拼接 :username+channelId+accessToken+timestamp"
+        },
+        "userList": {
+          "type": "array",
+          "example": ["apitest","apitest001"],
           "description": "签名 字串拼接 :username+channelId+accessToken+timestamp"
         }
       }
