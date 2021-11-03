@@ -1936,6 +1936,12 @@
                               "example": 100.0,
                               "description": "Total valid bets"
                             },
+                            "totalPayout": {
+                              "type": "number",
+                              "format": "double",
+                              "example": 200.0,
+                              "description": "Total Payout"
+                            },
                             "totalBalance": {
                               "type": "number",
                               "format": "double",

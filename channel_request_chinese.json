@@ -1938,6 +1938,12 @@
                               "example": 100.0,
                               "description": "总有效投注"
                             },
+                            "totalPayout": {
+                              "type": "number",
+                              "format": "double",
+                              "example": 200.0,
+                              "description": "总派彩 "
+                            },
                             "totalBalance": {
                               "type": "number",
                               "format": "double",
