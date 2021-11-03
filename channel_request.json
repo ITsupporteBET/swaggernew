@@ -2223,6 +2223,57 @@
           }
         }
       }
+    },
+    "/api/updateBatchBetlimit": {
+      "post": {
+        "tags": [
+          "Common API"
+        ],
+        "summary": "This API is for batch adjustment of user betting limits",
+        "description": "This API is used by partner to actively send requests to eBET \n Send to url: API server location provided by eBET \n Method of use: send json format by post \n Remark: \n 1. The default is to update up to 1000 people at a time \n  2. The default interval between each request is 10 minutes",
+        "operationId": "updateBatchBetlimit",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_18"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response status.",
+            "schema": {
+              "required": [],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "channelId": {
+                  "$ref": "#/definitions/channelId"
+                },
+                "updateGameList": {
+                  "type": "integer",
+                  "example": 1,
+                  "description": "Game code to update betting limit:\n 1: Baccarat - VIP table\n 2: Baccarat - Normal table\n 3:Dragon Tiger\n 4: Sic Bo\n 5: Roulette\n 6: Bull Bull\n 7: Fortune Wheel\n 8: BlackJack\n 9: Live Blackjack\n 10: Fortune Roulette"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -2894,7 +2945,7 @@
         }
       }
     },
-    "apiupdatebetlimit_limit": {
+    "ebetlimit_limit": {
       "type": "object",
       "properties": {
         "gameType": {
@@ -3728,7 +3779,7 @@
           "type": "array",
           "description": "Limit List",
           "items": {
-            "$ref": "#/definitions/apiupdatebetlimit_limit"
+            "$ref": "#/definitions/ebetlimit_limit"
           }
         }
       }
@@ -4068,6 +4119,46 @@
           "type": "string",
           "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
           "description": "Signature. String splicing :username+channelId+accessToken+timestamp"
+        }
+      }
+    },
+    "body_18": {
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp",
+        "userList",
+        "limit"
+      ],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1987654321,
+          "description": "Current time. In seconds. Format is Unix Time."
+        },
+        "userList": {
+          "type": "array",
+          "example": ["apitest","apitest001"],
+          "description": "User list",
+          "items": {
+            "type": "string"
+          }
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "Signature. String splicing :channelId+timestamp"
+        },
+        "limit": {
+          "type": "array",
+          "description": "Limit List . Please refer to limit.",
+          "items": {
+            "$ref": "#/definitions/ebetlimit_limit"
+          }
         }
       }
     },

@@ -2232,7 +2232,7 @@
           "通用API"
         ],
         "summary": "该 API 为批量调整用户投注限额",
-        "description": "此 API 为渠道方主动向 eBET 发送请求。\n 发送至 url : eBET 的 API server 位置。",
+        "description": "此 API 为渠道方主动向 eBET 发送请求。\n 发送至 url : eBET 的 API server 位置。\n 备注：\n 1.预设一次最多更新 1000 人 \n 2.预设每次请求需间隔 10 分钟",
         "operationId": "updateBatchBetlimit",
         "consumes": [
           "application/json"
@@ -2255,13 +2255,7 @@
           "200": {
             "description": "成功",
             "schema": {
-              "required": [
-                "apiVersion",
-                "channelId",
-                "updateGameList",
-                "status",
-                "timestamp"
-              ],
+              "required": [],
               "properties": {
                 "status": {
                   "$ref": "#/definitions/status"
@@ -2271,6 +2265,11 @@
                 },
                 "channelId": {
                   "$ref": "#/definitions/channelId"
+                },
+                "updateGameList": {
+                  "type": "integer",
+                  "example": 1,
+                  "description": "游戏类型。\n 1: 百家乐 -一般桌\n 2: 百家乐 -VIP桌\n 3:龙虎\n 4: 骰宝\n 5: 轮盘\n 6: 牛牛\n 7: 财富大转盘\n 8: 电子21点\n 9: 真人21点\n 10: 财富轮盘"
                 }
               }
             }
@@ -4104,7 +4103,8 @@
         "channelId",
         "signature",
         "timestamp",
-        "userList"
+        "userList",
+        "limit"
       ],
       "properties": {
         "channelId": {
@@ -4116,24 +4116,24 @@
           "example": 1987654321,
           "description": "当前时间。以秒为单位。格式为Unix Time。"
         },
-        "limit": {
-          "type": "array",
-          "description": "限额资讯，请参考 limit 表",
-          "items": {
-            "$ref": "#/definitions/ebetlimit_limit"
-          }
-        },
-        "signature": {
-          "type": "string",
-          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
-          "description": "签名 字串拼接 :username+channelId+accessToken+timestamp"
-        },
         "userList": {
           "type": "array",
           "example": ["apitest","apitest001"],
           "description": "用户列表",
           "items": {
             "type": "string"
+          }
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名 字串拼接 :username+channelId"
+        },
+        "limit": {
+          "type": "array",
+          "description": "限额资讯，请参考 limit 表",
+          "items": {
+            "$ref": "#/definitions/ebetlimit_limit"
           }
         }
       }
