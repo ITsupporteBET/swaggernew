@@ -1950,7 +1950,9 @@
                             },
                             "count": {
                               "type": "integer",
-                              "example": 1,
+                              "example": [
+                                1
+                              ],
                               "description": "Total number of bets"
                             }
                           }
