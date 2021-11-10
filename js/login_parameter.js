@@ -38,7 +38,7 @@ const gameType_cn = [
     // { "code": "7", "Description": "区块链百家乐" },
     { "code": "8", "Description": "牛牛" },
     { "code": "23", "Description": "财富大转盘" },
-    { "code": "24", "Description": "21点(电子)" },
+    { "code": "24", "Description": "电子21点" },
     { "code": "25", "Description": "真人21点" }
 
 ];
