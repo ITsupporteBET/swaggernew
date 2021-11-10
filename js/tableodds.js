@@ -51,7 +51,8 @@ const roulette = [
     { roulette_game: "Split Bet", Odds: "17:1" },
     { roulette_game: "StreetBet/3 numbers Bet", Odds: "11:1" },
     { roulette_game: "Corner Bet/4 numbers", Odds: "8:1" },
-    { roulette_game: "Line Bet", Odds: "5:1" }
+    { roulette_game: "Line Bet", Odds: "5:1" },
+    { roulette_game: "Fortune roulette Straight Up", Odds: "30:1-500:1" }
 ]
 
 const roulette_cn = [
@@ -61,7 +62,8 @@ const roulette_cn = [
     { "roulette_game": "分注", "Odds": "1赔17" },
     { "roulette_game": "街注/三数", "Odds": "1赔11" },
     { "roulette_game": "角注/四个号码", "Odds": "1赔8" },
-    { "roulette_game": "线注", "Odds": "1赔5" }
+    { "roulette_game": "线注", "Odds": "1赔5" },
+    { "roulette_game": "财富轮盘直接注", "Odds": "1赔30 - 1赔500" }
 ]
 
 if (window.localStorage.getItem('lang') == "cn") {
