@@ -1836,24 +1836,24 @@ const liveblackjack_cn = [
 if (window.localStorage.getItem('lang') == "cn") {
     $(function () {
         $('.virtualgames').bootstrapTable({
-            data: liveblackjack_cn
+            data: virtualgames_cn
         });
     });
 } else {
     $(function () {
         $('.virtualgames').bootstrapTable({
-            data: liveblackjack
+            data: virtualgames
         });
     });
 }
 
-const slot = [
+const virtualgames = [
     { "code": "601", "description": "Virtual games common bet code" },
     //{ "code": "651", "description": "Virtual games no corresponding bet code for payout" },
     //{ "code": "652", "description": "Virtual games have same bet code for payout" }
 ]
 
-const slot_cn = [
+const virtualgames_cn = [
     { "code": "601", "description": "电子游戏通用注别" },
     //{ "code": "651", "description": "电子游戏派彩无对应注别" },
     //{ "code": "652", "description": "电子游戏派彩在重覆的注別" }
