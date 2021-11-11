@@ -3982,7 +3982,7 @@
         "isMerge": {
           "type": "boolean",
           "example": true,
-          "description": "Whether to merge user game reports. Default is false\n 0: Payout time\n true: Bet time"
+          "description": "Whether to merge user game reports. Default is false\n 0: Not merge\n true: Merge"
         }
       }
     },
