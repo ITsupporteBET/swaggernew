@@ -704,7 +704,7 @@ if (window.localStorage.getItem('lang') == "cn") {
 
 const roulette = [{
     betCode: "200",
-    description: "straight up"
+    description: "straight up / Fortune roulette Straight Up"
 },
 {
     betCode: "201",
@@ -766,7 +766,7 @@ const roulette = [{
 
 const roulette_cn = [{
     "betCode": "200",
-    "description": "直接注"
+    "description": "直接注 / 财富轮盘直接注"
 },
 {
     "betCode": "201",
