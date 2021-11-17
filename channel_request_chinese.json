@@ -1601,7 +1601,7 @@
             }
           },
           "4039": {
-            "description": "代表limit格式有误。\n Noted: 如limit本身为空或是没带limit则仍为4025"
+            "description": "代表limit格式有误。\n Noted: 如limit本身为空或是无limit参数则仍为4025"
           }
         }
       }
@@ -2286,7 +2286,7 @@
             }
           },
           "4039": {
-            "description": "代表limit格式有误。\n Noted: 如limit本身为空或是没带limit则仍为4025"
+            "description": "代表limit格式有误。\n Noted: 如limit本身为空或是无limit参数则仍为4025"
           }
         }
       }
