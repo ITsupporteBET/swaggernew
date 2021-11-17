@@ -69,6 +69,8 @@ if (window.localStorage.getItem('lang') == "cn") {
                         <a class="dropdown-item" href="slot.html" onclick="window.location.reload();">Genesis老虎机</a>
 
                         <a class="dropdown-item" href="fortune_roulette.html" onclick="window.location.reload();">财富轮盘</a>
+
+                        <a class="dropdown-item" href="minigame.html" onclick="window.location.reload();">财富轮盘</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
