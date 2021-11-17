@@ -2322,7 +2322,7 @@
             "schema": {
               "required": [],
               "properties": {
-                "slotURL": {
+                "url": {
                   "type": "string",
                   "example": "https://test.shrb.vip?token=9dc16aabc787431234ee50aa62ea6dc1-171291&gamecode=dice&platform=pc&lang=zh_cn&mode=live",
                   "description": "登入游戏的连结。"
