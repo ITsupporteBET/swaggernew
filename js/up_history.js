@@ -173,8 +173,15 @@ Add tableType descriptions for Lottery<br>
     Update userbetsummary parameter<br>
     Add relevant API parameter descriptions for Fortune Roulette<br>
     `
+}, {
+    update_time: "2021/NOV/17",
+    update_member: "leo",
+    update_description: `
+    Add relevant API descriptions for Mini-game<br>
+    `
 }
 ]
+
 
 const up_his_cn = [
 
@@ -346,6 +353,12 @@ const up_his_cn = [
         更新updatebetlimit财富轮盘相关参数<br>
         更新totaluserbetsummary相关参数<br>
         增加API updateBatchBetlimit<br>
+        `
+    }, {
+        update_time: "2021/NOV/17",
+        update_member: "leo",
+        update_description: `
+        增加游戏迷你游戏相关参数<br>
         `
     }
 ]

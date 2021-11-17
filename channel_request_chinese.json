@@ -2290,6 +2290,59 @@
           }
         }
       }
+    },
+    "/api/loginTableGame": {
+      "post": {
+        "tags": [
+          "通用API"
+        ],
+        "summary": "此 api 为取得直接登入迷你游戏的连结",
+        "description": "使用此方式仍会发送验证登入请求，验证成功才提供登入连结。",
+        "operationId": "loginTableGame",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_19"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": [],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "channelId": {
+                  "$ref": "#/definitions/channelId"
+                },
+                "updateGameList": {
+                  "type": "integer",
+                  "example": [
+                    1
+                  ],
+                  "description": "游戏类型。\n 1: 百家乐 -一般桌\n 2: 百家乐 -VIP桌\n 3:龙虎\n 4: 骰宝\n 5: 轮盘\n 6: 牛牛\n 7: 财富大转盘\n 8: 电子21点\n 9: 真人21点\n 10: 财富轮盘"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -2336,7 +2389,7 @@
     },
     "signature": {
       "type": "string",
-      "description": "签名。 字串拼接：username+timestamp\n Note: 如果没有用户名，可以单独使用timestamp",
+      "description": "签名。 字串拼接：username+timestamp \n Note: 如API用户名参数非必要，可以单独使用timestamp",
       "example": "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ=="
     },
     "signature2": {
@@ -4149,6 +4202,69 @@
           "items": {
             "$ref": "#/definitions/ebetlimit_limit"
           }
+        }
+      }
+    },
+    "body_19": {
+      "required": [
+        "channelId",
+        "gameID",
+        "loginEventType",
+        "providerId",
+        "signature",
+        "timestamp",
+        "username"
+      ],
+      "properties": {
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
+        },
+        "gameID": {
+          "type": "string",
+          "example": "dice",
+          "description": "电子游戏 ID"
+        },
+        "providerId": {
+          "type": "string",
+          "example": "wayi",
+          "description": "电子游戏供应商 ID"
+        },
+        "loginEventType": {
+          "type": "integer",
+          "example": 1,
+          "description": "登录方式：\n 1: 普通登录\n 4: Token 登录"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "pwd": {
+          "type": "string",
+          "example": "password",
+          "description": "密码 for login. 当loginEventType = 1时必需"
+        },
+        "token": {
+          "type": "string",
+          "example": "",
+          "description": "AccessToken for 登录. 当loginEventType = 4时必需"
+        },
+        "ip": {
+          "type": "string",
+          "example": "127.0.0.1",
+          "description": "登录IP"
+        },
+        "language": {
+          "type": "string",
+          "example": "zh_cn",
+          "description": "用户语言"
         }
       }
     },
