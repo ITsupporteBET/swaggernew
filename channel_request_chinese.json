@@ -1544,7 +1544,7 @@
           "通用API"
         ],
         "summary": "更新下注限制",
-        "description": "变更用户在各房间类型设置的投注限制清单。\n 可以只修改特定游戏的投注限额，例如：只修改百家乐的投注限额。",
+        "description": "变更用户在各房间类型设置的投注限制清单。\n 可以只修改特定游戏的投注限额，例如：只修改百家乐的投注限额。\n Noted：4039 ",
         "operationId": "updatebetlimit",
         "consumes": [
           "application/json"
@@ -1599,6 +1599,9 @@
                 }
               }
             }
+          },
+          "4039": {
+            "description": "代表limit格式有误。\n Noted: 如limit本身为空或是没带limit则仍为4025"
           }
         }
       }
@@ -2281,6 +2284,9 @@
                 }
               }
             }
+          },
+          "4039": {
+            "description": "代表limit格式有误。\n Noted: 如limit本身为空或是没带limit则仍为4025"
           }
         }
       }
