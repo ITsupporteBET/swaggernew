@@ -2288,6 +2288,54 @@
           }
         }
       }
+    },
+    "/api/loginTableGame": {
+      "post": {
+        "tags": [
+          "通用API"
+        ],
+        "summary": "Get a link to log in to the mini-game directly.",
+        "description": "Note: using this method will still send a verification login request. A login link will only be provided after successful verification",
+        "operationId": "loginTableGame",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_19"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "required": [],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "example": "https://test.shrb.vip?token=9dc16aabc787431234ee50aa62ea6dc1-171291&gamecode=dice&platform=pc&lang=zh_cn&mode=live",
+                  "description": "Link to mini-games."
+                },
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -4173,6 +4221,69 @@
           "items": {
             "$ref": "#/definitions/ebetlimit_limit"
           }
+        }
+      }
+    },
+    "body_19": {
+      "required": [
+        "channelId",
+        "gameID",
+        "loginEventType",
+        "providerId",
+        "signature",
+        "timestamp",
+        "username"
+      ],
+      "properties": {
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
+        },
+        "gameID": {
+          "type": "string",
+          "example": "dice",
+          "description": "Electronic game ID"
+        },
+        "providerId": {
+          "type": "string",
+          "example": "wayi",
+          "description": "Electronic game vendor ID"
+        },
+        "loginEventType": {
+          "type": "integer",
+          "example": 1,
+          "description": "Login method:\n 1: Normal login\n 4: Token login"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "pwd": {
+          "type": "string",
+          "example": "password",
+          "description": "Password for login. Required when loginEventType = 1"
+        },
+        "token": {
+          "type": "string",
+          "example": "",
+          "description": "AccessToken for login. Required when loginEventType = 4"
+        },
+        "ip": {
+          "type": "string",
+          "example": "127.0.0.1",
+          "description": "Login ip"
+        },
+        "language": {
+          "type": "string",
+          "example": "zh_cn",
+          "description": "The language used by the user. Please refer to language."
         }
       }
     },

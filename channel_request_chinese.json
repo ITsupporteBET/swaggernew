@@ -2510,7 +2510,7 @@
             82,
             63
           ],
-          "description": "中奖奖项。\n 牛牛: 开牌结果。",
+          "description": "中奖奖项。\n 牛牛: 开牌结果。\n 部分电子游戏不提供。",
           "items": {
             "type": "integer"
           }
