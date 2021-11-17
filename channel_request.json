@@ -4272,7 +4272,7 @@
         },
         "token": {
           "type": "string",
-          "example": "",
+          "example": "tokentokentoken",
           "description": "AccessToken for login. Required when loginEventType = 4"
         },
         "ip": {

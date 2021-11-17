@@ -4248,7 +4248,7 @@
         },
         "token": {
           "type": "string",
-          "example": "",
+          "example": "tokentokentoken",
           "description": "AccessToken for 登录. 当loginEventType = 4时必需"
         },
         "ip": {
