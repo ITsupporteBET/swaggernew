@@ -2330,13 +2330,6 @@
                 },
                 "channelId": {
                   "$ref": "#/definitions/channelId"
-                },
-                "updateGameList": {
-                  "type": "integer",
-                  "example": [
-                    1
-                  ],
-                  "description": "游戏类型。\n 1: 百家乐 -一般桌\n 2: 百家乐 -VIP桌\n 3:龙虎\n 4: 骰宝\n 5: 轮盘\n 6: 牛牛\n 7: 财富大转盘\n 8: 电子21点\n 9: 真人21点\n 10: 财富轮盘"
                 }
               }
             }
