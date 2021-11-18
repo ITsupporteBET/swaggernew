@@ -2244,6 +2244,10 @@
                 },
                 "apiVersion": {
                   "$ref": "#/definitions/apiVersion"
+                },
+                "message": {
+                  "type": "string",
+                  "description": "Error message."
                 }
               }
             }
