@@ -1604,6 +1604,60 @@
         }
       }
     },
+    "/api/updateBatchBetlimit": {
+      "post": {
+        "tags": [
+          "Common API"
+        ],
+        "summary": "This API is for batch adjustment of user betting limits",
+        "description": "This API is used by partner to actively send requests to eBET \n Send to url: API server location provided by eBET \n Method of use: send json format by post \n Remark: \n 1. The default is to update up to 1000 people at a time \n  2. The default interval between each request is 10 minutes",
+        "operationId": "updateBatchBetlimit",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_18"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response status.",
+            "schema": {
+              "required": [],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "channelId": {
+                  "$ref": "#/definitions/channelId"
+                },
+                "updateGameList": {
+                  "type": "integer",
+                  "example": 1,
+                  "description": "Game code to update betting limit:\n 1: Baccarat - VIP table\n 2: Baccarat - Normal table\n 3:Dragon Tiger\n 4: Sic Bo\n 5: Roulette\n 6: Bull Bull\n 7: Fortune Wheel\n 8: BlackJack\n 9: Live Blackjack\n 10: Fortune Roulette"
+                }
+              }
+            }
+          },
+          "4039": {
+            "description": "It means that the limit format is incorrect. \n Noted: If limit is empty or no limit parameter, it will still be 4025."
+          }
+        }
+      }
+    },
     "/api/userBetTracer": {
       "post": {
         "tags": [
@@ -2149,6 +2203,54 @@
         }
       }
     },
+    "/api/loginTableGame": {
+      "post": {
+        "tags": [
+          "通用API"
+        ],
+        "summary": "Get a link to log in to the mini-game directly.",
+        "description": "Note: using this method will still send a verification login request. A login link will only be provided after successful verification",
+        "operationId": "loginTableGame",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_19"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "required": [],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "example": "https://test.shrb.vip?token=9dc16aabc787431234ee50aa62ea6dc1-171291&gamecode=dice&platform=pc&lang=zh_cn&mode=live",
+                  "description": "Link to mini-games."
+                },
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/callback": {
       "post": {
         "tags": [
@@ -2228,108 +2330,6 @@
                   "items": {
                     "$ref": "#/definitions/wallet"
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/updateBatchBetlimit": {
-      "post": {
-        "tags": [
-          "Common API"
-        ],
-        "summary": "This API is for batch adjustment of user betting limits",
-        "description": "This API is used by partner to actively send requests to eBET \n Send to url: API server location provided by eBET \n Method of use: send json format by post \n Remark: \n 1. The default is to update up to 1000 people at a time \n  2. The default interval between each request is 10 minutes",
-        "operationId": "updateBatchBetlimit",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Request",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/body_18"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Response status.",
-            "schema": {
-              "required": [],
-              "properties": {
-                "status": {
-                  "$ref": "#/definitions/status"
-                },
-                "apiVersion": {
-                  "$ref": "#/definitions/apiVersion"
-                },
-                "channelId": {
-                  "$ref": "#/definitions/channelId"
-                },
-                "updateGameList": {
-                  "type": "integer",
-                  "example": 1,
-                  "description": "Game code to update betting limit:\n 1: Baccarat - VIP table\n 2: Baccarat - Normal table\n 3:Dragon Tiger\n 4: Sic Bo\n 5: Roulette\n 6: Bull Bull\n 7: Fortune Wheel\n 8: BlackJack\n 9: Live Blackjack\n 10: Fortune Roulette"
-                }
-              }
-            }
-          },
-          "4039": {
-            "description": "It means that the limit format is incorrect. \n Noted: If limit is empty or no limit parameter, it will still be 4025."
-          }
-        }
-      }
-    },
-    "/api/loginTableGame": {
-      "post": {
-        "tags": [
-          "通用API"
-        ],
-        "summary": "Get a link to log in to the mini-game directly.",
-        "description": "Note: using this method will still send a verification login request. A login link will only be provided after successful verification",
-        "operationId": "loginTableGame",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Request",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/body_19"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful",
-            "schema": {
-              "required": [],
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "example": "https://test.shrb.vip?token=9dc16aabc787431234ee50aa62ea6dc1-171291&gamecode=dice&platform=pc&lang=zh_cn&mode=live",
-                  "description": "Link to mini-games."
-                },
-                "status": {
-                  "$ref": "#/definitions/status"
-                },
-                "apiVersion": {
-                  "$ref": "#/definitions/apiVersion"
                 }
               }
             }

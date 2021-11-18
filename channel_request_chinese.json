@@ -1606,6 +1606,62 @@
         }
       }
     },
+    "/api/updateBatchBetlimit": {
+      "post": {
+        "tags": [
+          "通用API"
+        ],
+        "summary": "该 API 为批量调整用户投注限额",
+        "description": "此 API 为渠道方主动向 eBET 发送请求。\n 发送至 url : eBET 的 API server 位置。\n 备注：\n 1.预设一次最多更新 1000 人 \n 2.预设每次请求需间隔 10 分钟",
+        "operationId": "updateBatchBetlimit",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_18"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": [],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                },
+                "channelId": {
+                  "$ref": "#/definitions/channelId"
+                },
+                "updateGameList": {
+                  "type": "integer",
+                  "example": [
+                    1
+                  ],
+                  "description": "游戏类型。\n 1: 百家乐 -一般桌\n 2: 百家乐 -VIP桌\n 3:龙虎\n 4: 骰宝\n 5: 轮盘\n 6: 牛牛\n 7: 财富大转盘\n 8: 电子21点\n 9: 真人21点\n 10: 财富轮盘"
+                }
+              }
+            }
+          },
+          "4039": {
+            "description": "代表limit格式有误。\n Noted: 如limit本身为空或是无limit参数则仍为4025"
+          }
+        }
+      }
+    },
     "/api/userBetTracer": {
       "post": {
         "tags": [
@@ -2149,6 +2205,54 @@
         }
       }
     },
+    "/api/loginTableGame": {
+      "post": {
+        "tags": [
+          "通用API"
+        ],
+        "summary": "此 api 为取得直接登入迷你游戏的连结",
+        "description": "使用此方式仍会发送验证登入请求，验证成功才提供登入连结。",
+        "operationId": "loginTableGame",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_19"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": [],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "example": "https://test.shrb.vip?token=9dc16aabc787431234ee50aa62ea6dc1-171291&gamecode=dice&platform=pc&lang=zh_cn&mode=live",
+                  "description": "登入游戏的连结。"
+                },
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/callback": {
       "post": {
         "tags": [
@@ -2228,110 +2332,6 @@
                   "items": {
                     "$ref": "#/definitions/wallet"
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/updateBatchBetlimit": {
-      "post": {
-        "tags": [
-          "通用API"
-        ],
-        "summary": "该 API 为批量调整用户投注限额",
-        "description": "此 API 为渠道方主动向 eBET 发送请求。\n 发送至 url : eBET 的 API server 位置。\n 备注：\n 1.预设一次最多更新 1000 人 \n 2.预设每次请求需间隔 10 分钟",
-        "operationId": "updateBatchBetlimit",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Request",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/body_18"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "成功",
-            "schema": {
-              "required": [],
-              "properties": {
-                "status": {
-                  "$ref": "#/definitions/status"
-                },
-                "apiVersion": {
-                  "$ref": "#/definitions/apiVersion"
-                },
-                "channelId": {
-                  "$ref": "#/definitions/channelId"
-                },
-                "updateGameList": {
-                  "type": "integer",
-                  "example": [
-                    1
-                  ],
-                  "description": "游戏类型。\n 1: 百家乐 -一般桌\n 2: 百家乐 -VIP桌\n 3:龙虎\n 4: 骰宝\n 5: 轮盘\n 6: 牛牛\n 7: 财富大转盘\n 8: 电子21点\n 9: 真人21点\n 10: 财富轮盘"
-                }
-              }
-            }
-          },
-          "4039": {
-            "description": "代表limit格式有误。\n Noted: 如limit本身为空或是无limit参数则仍为4025"
-          }
-        }
-      }
-    },
-    "/api/loginTableGame": {
-      "post": {
-        "tags": [
-          "通用API"
-        ],
-        "summary": "此 api 为取得直接登入迷你游戏的连结",
-        "description": "使用此方式仍会发送验证登入请求，验证成功才提供登入连结。",
-        "operationId": "loginTableGame",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Request",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/body_19"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "成功",
-            "schema": {
-              "required": [],
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "example": "https://test.shrb.vip?token=9dc16aabc787431234ee50aa62ea6dc1-171291&gamecode=dice&platform=pc&lang=zh_cn&mode=live",
-                  "description": "登入游戏的连结。"
-                },
-                "status": {
-                  "$ref": "#/definitions/status"
-                },
-                "apiVersion": {
-                  "$ref": "#/definitions/apiVersion"
                 }
               }
             }
