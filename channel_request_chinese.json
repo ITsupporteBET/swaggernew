@@ -4193,7 +4193,7 @@
         "signature": {
           "type": "string",
           "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
-          "description": "签名 字串拼接 :username+channelId"
+          "description": "签名 字串拼接 :channelId+timestamp"
         },
         "limit": {
           "type": "array",
