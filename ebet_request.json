@@ -1075,6 +1075,11 @@
           "example": 100.0,
           "description": "Valid bet"
         },
+        "withHoldingSeqNo": {
+          "type": "string",
+          "example": "seqNoBetseqNoBet",
+          "description": "BullBull Withholding refund request seqNo, only type=11 have this parameter"
+        },
         "srcResults": {
           "type": "array",
           "example": [
