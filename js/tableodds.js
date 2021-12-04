@@ -352,20 +352,20 @@ const fortune_wheelf_cn = [
 if (window.localStorage.getItem('lang') == "cn") {
 
     $(function () {//固定赔率
-        $('.blackjack').bootstrapTable({
-            data: blackjack_cn
+        $('.virtual_blackjack').bootstrapTable({
+            data: virtual_blackjack_cn
         });
     });
     } else {
         $(function () {//固定赔率
-            $('.blackjack').bootstrapTable({
-                data: blackjack
+            $('.virtualb_lackjack').bootstrapTable({
+                data: virtual_blackjack
             });
         });
     }
     
     
-    const blackjack = [
+    const virtual_blackjack = [
         { betting_items: "Win the banker", Odds: "1:1" },
         { betting_items: "Open BlackJack to win the banker", Odds: "1.5:1" },
         { betting_items: "Insurance payout", Odds: "Insurance 2:1" },
@@ -373,7 +373,7 @@ if (window.localStorage.getItem('lang') == "cn") {
         { betting_items: "Surrender", Odds: "Return half the amount bet" },
     ]
     
-    const blackjack_cn = [
+    const virtual_blackjack_cn = [
         { betting_items: "赢庄家", Odds: "1赔1" },
         { betting_items: "开出 BlackJack 赢庄家", Odds: "1赔1.5" },
         { betting_items: "保险获利", Odds: "保险金1赔2" },
