@@ -351,13 +351,57 @@ const fortune_wheelf_cn = [
 
 if (window.localStorage.getItem('lang') == "cn") {
 
-    $(function () {//固定赔率
+    $(function () {
+        $('.live_blackjack').bootstrapTable({
+            data: live_blackjack_cn
+        });
+    });
+    } else {
+        $(function () {
+            $('.live_blackjack').bootstrapTable({
+                data: live_blackjack
+            });
+        });
+    }
+    
+    
+    const live_blackjack = [
+        { betting_items: "Win the banker", Odds: "1:1" },
+        { betting_items: "Open BlackJack to win the banker", Odds: "1.5:1" },
+        { betting_items: "Insurance payout", Odds: "Insurance 2:1" },
+        { betting_items: "Perfect Pair", Odds: "25:1" },
+        { betting_items: "Same-colored Pair", Odds: "12:1" },
+        { betting_items: "Mixed Pair", Odds: "6:1" },
+        { betting_items: "Flush Three of a Kind", Odds: "100:1" },
+        { betting_items: "Straight Flush", Odds: "40:1" },
+        { betting_items: "Three of a Kind", Odds: "30:1" },
+        { betting_items: "Straight", Odds: "10:1" },
+        { betting_items: "Flush", Odds: "5:1" }
+    ]
+    
+    const live_blackjack_cn = [
+        { betting_items: "赢庄家", Odds: "1赔1" },
+        { betting_items: "开出 BlackJack 赢庄家", Odds: "1赔1.5" },
+        { betting_items: "保险获利", Odds: "保险金1赔2" },
+        { betting_items: "完美对子", Odds: "1赔25" },
+        { betting_items: "同色对子", Odds: "1赔12" },
+        { betting_items: "混合对子", Odds: "1赔6" },
+        { betting_items: "同花三条", Odds: "1赔100" },
+        { betting_items: "同花", Odds: "1赔40" },
+        { betting_items: "三条", Odds: "1赔30" },
+        { betting_items: "顺子", Odds: "1赔10" },
+        { betting_items: "同花", Odds: "1赔5" }
+    ]
+
+if (window.localStorage.getItem('lang') == "cn") {
+
+    $(function () {
         $('.virtual_blackjack').bootstrapTable({
             data: virtual_blackjack_cn
         });
     });
     } else {
-        $(function () {//固定赔率
+        $(function () {
             $('.virtualb_lackjack').bootstrapTable({
                 data: virtual_blackjack
             });
@@ -370,7 +414,7 @@ if (window.localStorage.getItem('lang') == "cn") {
         { betting_items: "Open BlackJack to win the banker", Odds: "1.5:1" },
         { betting_items: "Insurance payout", Odds: "Insurance 2:1" },
         { betting_items: "Tie", Odds: "Return bet amount" },
-        { betting_items: "Surrender", Odds: "Return half the amount bet" },
+        { betting_items: "Surrender", Odds: "Return half the amount bet" }
     ]
     
     const virtual_blackjack_cn = [
@@ -378,5 +422,5 @@ if (window.localStorage.getItem('lang') == "cn") {
         { betting_items: "开出 BlackJack 赢庄家", Odds: "1赔1.5" },
         { betting_items: "保险获利", Odds: "保险金1赔2" },
         { betting_items: "平手", Odds: "退回本金" },
-        { betting_items: "投降", Odds: "退回本金的一半" },
+        { betting_items: "投降", Odds: "退回本金的一半" }
     ]
