@@ -179,6 +179,14 @@ Add tableType descriptions for Lottery<br>
     update_description: `
     Add relevant API descriptions for Mini-game<br>
     `
+}, {
+    update_time: "2021/DEC/22",
+    update_member: "leo",
+    update_description: `
+    Single wallet / Transfer Wallet:<br>
+    Update “totaluserbetsummary" response parameter "gameName"<br>
+    Update “userbethistory" response parameter "gameName"<br>
+    `
 }
 ]
 
@@ -359,6 +367,14 @@ const up_his_cn = [
         update_member: "leo",
         update_description: `
         增加游戏迷你游戏相关参数<br>
+        `
+    }, {
+        update_time: "2021/DEC/17",
+        update_member: "leo",
+        update_description: `
+        单钱包 / 转帐钱包：<br>
+        更新API：「 totaluserbetsummary 」的回传参数 ：gameName<br>
+        更新API：「 userbethistory 」的回传参数 ：gameName<br>
         `
     }
 ]
