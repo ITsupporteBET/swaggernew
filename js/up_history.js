@@ -369,7 +369,7 @@ const up_his_cn = [
         增加游戏迷你游戏相关参数<br>
         `
     }, {
-        update_time: "2021/DEC/17",
+        update_time: "2021/DEC/22",
         update_member: "leo",
         update_description: `
         单钱包 / 转帐钱包：<br>
