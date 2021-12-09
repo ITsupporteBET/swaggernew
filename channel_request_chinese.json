@@ -1983,7 +1983,7 @@
                             "gameName": {
                               "type": "string",
                               "example": "baccarat",
-                              "description": "游戏名称\n 如isMerge:true gameName则为All"
+                              "description": "游戏名称\n 如isMerge:true gameName则为All\n 1: baccarat\n 2: dragon-tiger\n 3: sic- bo\n 4: roulette\n 5: slot\n 8: bull-bull\n 23:  fortune-wheel\n 24: black-jack-electronic\n 25: black-jack-live\n 27: mini-game"
                             },
                             "totalBet": {
                               "type": "number",
@@ -2463,18 +2463,18 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点"
+          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点\n 27: 迷你游戏"
         },
         "gameName": {
           "type": "string",
-          "description": "游戏名称。\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Virtual Blackjack\n 25: Live Blackjack",
+          "description": "游戏名称。\n 1: baccarat\n 2: dragon-tiger\n 3: sic- bo\n 4: roulette\n 5: slot\n 8: bull-bull\n 23:  fortune-wheel\n 24: black-jack-electronic\n 25: black-jack-live\n 27: mini-game",
           "enum": [
             "baccarat",
             "dragon-tiger",
             "sic-bo",
             "roulette",
-            "bullbull",
-            "fortunewheel",
+            "bull bull",
+            "fortune wheel",
             "virtual blackjack",
             "live blackjack"
           ]
@@ -2941,7 +2941,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点"
+          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点\n 27: 迷你游戏"
         },
         "judgeTime": {
           "type": "integer",

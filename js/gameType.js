@@ -1,6 +1,6 @@
 const gameType= [
     {code: "-1",GameType: "Games Lobby"},
-    {code: "0",GameType: "multi-Baccarat"},
+    {code: "0",GameType: "Multi Baccarat"},
     {code: "1",GameType: "Baccarat"}, 
     {code: "2",GameType: "Dragon Tiger"},
     {code: "3",GameType: "Roulette"}, 
@@ -8,12 +8,12 @@ const gameType= [
     {code: "5",GameType: "Slot"},
     // {code: "6",GameType: "Trial slot"},
     // {code: "7",GameType: "Blockchain baccarat"}, 
-    {code: "8",GameType: "BullBull"}, 
+    {code: "8",GameType: "Bull Bull"}, 
     // {code: "22",GameType: "Lottery"}, 
     {code: "23",GameType: "Fortune Wheel"}, 
     {code: "24",GameType: "Virtual Blackjack"}, 
     {code: "25",GameType: "Live Black Jack"},
-    {code: "27",GameType: "Mini-game"}
+    {code: "27",GameType: "Mini Game"}
 ]
 
 const gameType_cn = [

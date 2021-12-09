@@ -759,7 +759,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "Game type.\n 1:Baccarat - VIP table \n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:BullBUll\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack"
+                        "description": "Game type.\n 1:Baccarat - VIP table \n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack"
                       },
                       "playerMin": {
                         "type": "number",
@@ -1360,52 +1360,52 @@
                       "betPlayer1Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer1 minimum bet limit.\n Only niuniu."
+                        "description": "BetPlayer1 minimum bet limit.\n Only Bull Bull."
                       },
                       "betPlayer1Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer1 maximum bet limit.\n Only niuniu."
+                        "description": "BetPlayer1 maximum bet limit.\n Only Bull Bull."
                       },
                       "betPlayer1DoubleMin": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer1Double minimum bet limit.\n Only niuniu."
+                        "description": "BetPlayer1Double minimum bet limit.\n Only Bull Bull."
                       },
                       "betPlayer1DoubleMax": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer1Double maximum bet limit.\n Only niuniu."
+                        "description": "BetPlayer1Double maximum bet limit.\n Only Bull Bull."
                       },
                       "betPlayer2Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer2 minimum bet limit.\n Only niuniu."
+                        "description": "BetPlayer2 minimum bet limit.\n Only Bull Bull."
                       },
                       "betPlayer2Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer2 maximum bet limit.\n Only niuniu."
+                        "description": "BetPlayer2 maximum bet limit.\n Only Bull Bull."
                       },
                       "betPlayer2DoubleMin": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer2Double minimum bet limit.\n Only niuniu."
+                        "description": "BetPlayer2Double minimum bet limit.\n Only Bull Bull."
                       },
                       "betPlayer2DoubleMax": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer2Double maximum bet limit.\n Only niuniu."
+                        "description": "BetPlayer2Double maximum bet limit.\n Only Bull Bull."
                       },
                       "betPlayer3Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer3 minimum bet limit.\n Only niuniu."
+                        "description": "BetPlayer3 minimum bet limit.\n Only Bull Bull."
                       },
                       "betPlayer3Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer3 maximum bet limit.\n Only niuniu."
+                        "description": "BetPlayer3 maximum bet limit.\n Only Bull Bull."
                       },
                       "baseBet_Min": {
                         "type": "number",
@@ -1450,12 +1450,12 @@
                       "betPlayer3DoubleMin": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer3Double minimum bet limit.\n Only niuniu."
+                        "description": "BetPlayer3Double minimum bet limit.\n Only Bull Bull."
                       },
                       "betPlayer3DoubleMax": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer3Double maximum bet limit.\n Only niuniu."
+                        "description": "BetPlayer3Double maximum bet limit.\n Only Bull Bull."
                       },
                       "number_1Min": {
                         "type": "number",
@@ -1590,7 +1590,7 @@
                   "example": [
                     1
                   ],
-                  "description": "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull (niuniu)\n 7:Fortune Wheel\n 8:Virtual Blackjack\n 9:Live Blackjack",
+                  "description": "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:Fortune Wheel\n 8:Virtual Blackjack\n 9:Live Blackjack",
                   "items": {
                     "type": "integer"
                   }
@@ -1979,7 +1979,7 @@
                             "gameName": {
                               "type": "string",
                               "example": "baccarat",
-                              "description": "Game name \n If request parameter isMerge is true Game name will be All"
+                              "description": "Game name \n If request parameter isMerge is true Game name will be All\n 1: baccarat\n 2: dragon-tiger\n 3: sic- bo\n 4: roulette\n 5: slot\n 8: bull-bull\n 23:  fortune-wheel\n 24: black-jack-electronic\n 25: black-jack-live\n 27: mini-game"
                             },
                             "totalBet": {
                               "type": "number",
@@ -2460,18 +2460,18 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Virtual Blackjack\n 25: Live Blackjack"
+          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: Bull Bull\n 23:  Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game"
         },
         "gameName": {
           "type": "string",
-          "description": "Game name.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: BullBull\n 23:  FortuneWheel\n 24: Virtual Blackjack\n 25: Live Blackjack",
+          "description": "Game name.\n 1: baccarat\n 2: dragon-tiger\n 3: sic- bo\n 4: roulette\n 5: slot\n 8: bull-bull\n 23:  fortune-wheel\n 24: black-jack-electronic\n 25: black-jack-live\n 27: mini-game",
           "enum": [
             "baccarat",
             "dragon-tiger",
             "sic-bo",
             "roulette",
-            "bullbull",
-            "fortunewheel",
+            "bull bull",
+            "fortune wheel",
             "virtual blackjack",
             "live Blackjack"
           ]
@@ -2511,7 +2511,7 @@
             82,
             63
           ],
-          "description": "Winning awards.\n niuniu: The result of the flop.",
+          "description": "Winning awards.\n Bull Bull: The result of the flop.",
           "items": {
             "type": "integer"
           }
@@ -2582,7 +2582,7 @@
         "niuniuWithHoldingTotal": {
           "type": "number",
           "format": "double",
-          "description": "Only niuniu. Niuniu's total withholding amount."
+          "description": "Only Bull Bull. Bull Bull's total withholding amount."
         },
         "niuniuWithHoldingDetail": {
           "type": "array",
@@ -2938,7 +2938,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat\n 8: BullBull\n 23: FortuneWheel\n 24: Virtual Blackjack\n 25: Live Blackjack"
+          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat\n 8: Bull Bull\n 23: Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game"
         },
         "judgeTime": {
           "type": "integer",
@@ -3017,7 +3017,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:BullBUll\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 10:Fortune Roulette"
+          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:fortune wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 10:Fortune Roulette"
         },
         "playerMin": {
           "type": "number",
@@ -3648,62 +3648,62 @@
         "betPlayer1Min": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer1 minimum bet limit.\n Only niuniu."
+          "description": "BetPlayer1 minimum bet limit.\n Only Bull Bull."
         },
         "betPlayer1Max": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer1 maximum bet limit.\n Only niuniu."
+          "description": "BetPlayer1 maximum bet limit.\n Only Bull Bull."
         },
         "betPlayer1DoubleMin": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer1Double minimum bet limit.\n Only niuniu."
+          "description": "BetPlayer1Double minimum bet limit.\n Only Bull Bull."
         },
         "betPlayer1DoubleMax": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer1Double maximum bet limit.\n Only niuniu."
+          "description": "BetPlayer1Double maximum bet limit.\n Only Bull Bull."
         },
         "betPlayer2Min": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer2 minimum bet limit.\n Only niuniu."
+          "description": "BetPlayer2 minimum bet limit.\n Only Bull Bull."
         },
         "betPlayer2Max": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer2 maximum bet limit.\n Only niuniu."
+          "description": "BetPlayer2 maximum bet limit.\n Only Bull Bull."
         },
         "betPlayer2DoubleMin": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer2Double minimum bet limit.\n Only niuniu."
+          "description": "BetPlayer2Double minimum bet limit.\n Only Bull Bull."
         },
         "betPlayer2DoubleMax": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer2Double maximum bet limit.\n Only niuniu."
+          "description": "BetPlayer2Double maximum bet limit.\n Only Bull Bull."
         },
         "betPlayer3Min": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer3 minimum bet limit.\n Only niuniu."
+          "description": "BetPlayer3 minimum bet limit.\n Only Bull Bull."
         },
         "betPlayer3Max": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer3 maximum bet limit.\n Only niuniu."
+          "description": "BetPlayer3 maximum bet limit.\n Only Bull Bull."
         },
         "betPlayer3DoubleMin": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer3Double minimum bet limit.\n Only niuniu."
+          "description": "BetPlayer3Double minimum bet limit.\n Only Bull Bull."
         },
         "betPlayer3DoubleMax": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer3Double maximum bet limit.\n Only niuniu."
+          "description": "BetPlayer3Double maximum bet limit.\n Only Bull Bull."
         },
         "baseBet_Min": {
           "type": "number",
@@ -4326,7 +4326,7 @@
           "description": "Whether win"
         }
       },
-      "description": "Only niuniu. Niuniu's results record."
+      "description": "Only Bull Bull. Bull Bull's results record."
     },
     "betHistories_niuniuWithHoldingDetail": {
       "type": "object",
@@ -4347,7 +4347,7 @@
           "description": "Withholding amount for bet item \"Player 3 Double\""
         }
       },
-      "description": "Only niuniu. Niuniu's withholding details."
+      "description": "Only Bull Bull. Bull Bull's withholding details."
     }
   }
 }
