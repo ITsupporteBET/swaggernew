@@ -1375,6 +1375,9 @@
         "sessionToken": {
           "$ref": "#/definitions/sessionToken"
         },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
         "signature": {
           "type": "string",
           "example": "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
