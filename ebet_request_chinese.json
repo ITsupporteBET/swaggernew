@@ -777,12 +777,12 @@
   "definitions": {
     "username": {
       "type": "string",
-      "description": "用户名",
+      "description": "用户名。不可使用http保留字元。",
       "example": "apitest01"
     },
     "channelId": {
       "type": "integer",
-      "description": "渠道 ID",
+      "description": "渠道 ID。",
       "example": 1
     },
     "subChannelId": {
