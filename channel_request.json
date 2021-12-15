@@ -381,9 +381,7 @@
                         "description": "Record seqNo"
                       },
                       "username": {
-                        "type": "string",
-                        "example": "apitest01",
-                        "description": "Record username"
+                        "$ref": "#/definitions/username"
                       },
                       "event": {
                         "type": "string",
@@ -2345,7 +2343,7 @@
   "definitions": {
     "username": {
       "type": "string",
-      "description": "Username.",
+      "description": "Username. Cannot use http reserved characters.",
       "example": "apitest01"
     },
     "channelId": {

@@ -766,7 +766,7 @@
   "definitions": {
     "username": {
       "type": "string",
-      "description": "Username.",
+      "description": "Username. Cannot use http reserved characters.",
       "example": "apitest01"
     },
     "channelId": {
