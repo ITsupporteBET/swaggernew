@@ -548,7 +548,7 @@
           "通用API"
         ],
         "summary": "用户投注记录",
-        "description": "该API用于查询在特定时间段内记录的投注。\n Note 1: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: 请带以下参数 betStatus:1 以查询成功的记录",
+        "description": "该API用于查询在特定时间段内记录的投注。\n Note 1: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: 请带以下参数 betStatus:1 以查询成功的记录\n Note 3: 牛牛游戏预扣请参考niuniuWithHoldingTotal",
         "operationId": "userbethistory",
         "consumes": [
           "application/json"
