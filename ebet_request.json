@@ -608,7 +608,7 @@
                   "example": 1000.0,
                   "description": "Total refund amount"
                 },
-                "refundList": {
+                "resultList": {
                   "type": "array",
                   "description": "Refund processing results.",
                   "items": {

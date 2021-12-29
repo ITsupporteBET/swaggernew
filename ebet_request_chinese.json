@@ -608,7 +608,7 @@
                   "example": 1000.0,
                   "description": "需要退款的金额"
                 },
-                "refundList": {
+                "resultList": {
                   "type": "array",
                   "description": "退款处理结果。",
                   "items": {
