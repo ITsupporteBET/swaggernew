@@ -1231,6 +1231,12 @@
                 "type": "string",
                 "example": "seqNoseqNoseqNo",
                 "description": "預扣请求的序列编号"
+              },
+              "refund": {
+                "type": "number",
+                "format": "double",
+                "example": 100.0,
+                "description": "牛牛返还金额,仅只有type=28的事件，才需要此字段。"
               }
             }
           }

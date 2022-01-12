@@ -1220,6 +1220,12 @@
                 "type": "string",
                 "example": "seqNoseqNoseqNo",
                 "description": "The sequence number of the withholding request."
+              },
+              "refund": {
+                "type": "number",
+                "format": "double",
+                "example": 100.0,
+                "description": "Refund with BullBull game,only type=28 have this parameter。"
               }
             }
           }
