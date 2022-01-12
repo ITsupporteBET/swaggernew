@@ -188,7 +188,7 @@ Add tableType descriptions for Lottery<br>
     Update “userbethistory" response parameter "gameName"<br>
     `
 }, {
-    update_time: "202/JUN/12",
+    update_time: "202/JAN/12",
     update_member: "leo",
     update_description: `
     Single wallet：<br>
@@ -384,7 +384,7 @@ const up_his_cn = [
         更新API：「 userbethistory 」的回传参数 ：gameName<br>
         `
     }, {
-        update_time: "2022/JUN/13",
+        update_time: "2022/JAN/12",
         update_member: "leo",
         update_description: `
         单钱包：<br>
