@@ -187,6 +187,13 @@ Add tableType descriptions for Lottery<br>
     Update “totaluserbetsummary" response parameter "gameName"<br>
     Update “userbethistory" response parameter "gameName"<br>
     `
+}, {
+    update_time: "202/JUN/12",
+    update_member: "leo",
+    update_description: `
+    Single wallet：<br>
+    Update “increaseCredit" response parameter "：refund (When type=28 for BullBull)<br>
+    `
 }
 ]
 
@@ -375,6 +382,13 @@ const up_his_cn = [
         单钱包 / 转帐钱包：<br>
         更新API：「 totaluserbetsummary 」的回传参数 ：gameName<br>
         更新API：「 userbethistory 」的回传参数 ：gameName<br>
+        `
+    }, {
+        update_time: "2022/JUN/13",
+        update_member: "leo",
+        update_description: `
+        单钱包：<br>
+        更新API：「 increaseCredit 」的回传参数 ：refund (When type=28 for BullBull)<br>
         `
     }
 ]
