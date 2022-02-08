@@ -2210,7 +2210,7 @@
     "/api/loginTableGame": {
       "post": {
         "tags": [
-          "通用API"
+          "Common API"
         ],
         "summary": "Get a link to log in to the mini-game directly.",
         "description": "Note: using this method will still send a verification login request. A login link will only be provided after successful verification",
