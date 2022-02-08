@@ -199,11 +199,11 @@ const up_his = [{
     update_member: "leo",
     update_description: `
     Single wallet：<br>
-    Update “userbetsummary" new response parameter<br>
+    Update “userbetsummary" new response parameter "totalBalance"<br>
     Add new api "launchUrl" for channel request<br>
     <br>
     Transfer wallet：<br>
-    Update “userbetsummary" new response parameter<br>
+    Update “userbetsummary" new response parameter "totalBalance"<br>
     Add new api "launchUrl" for channel request<br>
     `
 }
@@ -407,11 +407,11 @@ const up_his_cn = [
         update_member: "leo",
         update_description: `
         单钱包：<br>
-        API "userbetsummary" 新增回传相关参数<br>
+        API "userbetsummary" 新增回传相关参数 "totalBalance"<br>
         新增渠道请求API "launchUrl"<br>
         <br>
         转帐钱包：
-        API "userbetsummary" 新增回传相关参数<br>
+        API "userbetsummary" 新增回传相关参数 "totalBalance"<br>
         新增渠道请求API "launchUrl"<br>
         `
     }
