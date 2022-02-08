@@ -1908,6 +1908,12 @@
                   "format": "int64",
                   "example": 1577894400000,
                   "description": "查询的结束时间。以毫秒为单位。格式为Unix Time。"
+                },
+                "totalBalance": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100.0,
+                  "description": "總盈餘"
                 }
               }
             }
@@ -2334,6 +2340,58 @@
                   "items": {
                     "$ref": "#/definitions/wallet"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/launchUrl": {
+      "post": {
+        "tags": [
+          "通用API"
+        ],
+        "summary": "获得最新的 H5 游戏域名",
+        "description": "该 API 目的是让伙伴获得最新的 H5 游戏域名。",
+        "operationId": "launchUrl",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_20"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": [
+                "status",
+                "launchUrl",
+                "apiVersion"
+              ],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "launchUrl": {
+                  "type": "string",
+                  "example": "test01.ebet-b2b.com",
+                  "description": "H5 游戏连结。"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
                 }
               }
             }
@@ -4263,6 +4321,24 @@
           "type": "string",
           "example": "zh_cn",
           "description": "用户语言"
+        }
+      }
+    },
+    "body_20": {
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp"
+      ],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
         }
       }
     },

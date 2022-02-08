@@ -1904,6 +1904,12 @@
                   "format": "int64",
                   "example": 1577894400000,
                   "description": "The end of the search period. Used in milliseconds. The format is Unix Time"
+                },
+                "totalBalance": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100.0,
+                  "description": "總盈餘"
                 }
               }
             }
@@ -2001,7 +2007,7 @@
                               "type": "number",
                               "format": "double",
                               "example": 100.0,
-                              "description": "Total surplus, calculation formula (bet-payout)"
+                              "description": "Total surplus"
                             },
                             "count": {
                               "type": "integer",
@@ -2332,6 +2338,58 @@
                   "items": {
                     "$ref": "#/definitions/wallet"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/launchUrl": {
+      "post": {
+        "tags": [
+          "Common API"
+        ],
+        "summary": "Get the latest H5 game domain.",
+        "description": "The purpose of this API is to let partners get the latest H5 game domain name.",
+        "operationId": "launchUrl",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_20"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": [
+                "status",
+                "launchUrl",
+                "apiVersion"
+              ],
+              "properties": {
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "launchUrl": {
+                  "type": "string",
+                  "example": "test01.ebet-b2b.com",
+                  "description": "H5 Game Url。"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
                 }
               }
             }
@@ -4287,6 +4345,24 @@
           "type": "string",
           "example": "zh_cn",
           "description": "The language used by the user. Please refer to language."
+        }
+      }
+    },
+    "body_20": {
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp"
+      ],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "$ref": "#/definitions/signature"
         }
       }
     },
