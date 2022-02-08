@@ -56,9 +56,14 @@
         if (window.localStorage.getItem('lang') == "cn") {
             web_context.innerHTML = `
 
-            <span>
-            单钱包：<br>
-            更新API：「 increaseCredit 」的回传参数 ：refund (When type=28 for BullBull)<br>
+        <span>
+        单钱包：<br>
+        API "userbetsummary" 新增回传相关参数<br>
+        新增渠道请求API "launchUrl"<br>
+        <br>
+        转帐钱包：
+        API "userbetsummary" 新增回传相关参数<br>
+        新增渠道请求API "launchUrl"<br>
             </span>
             <br>
             <table class="up_his" data-height="500">
@@ -73,11 +78,15 @@
             `
         } else {
             web_context.innerHTML = `
-            <span>
+        <span>
             Single wallet：<br>
-            Update “increaseCredit" response parameter "：refund (When type=28 for BullBull)<br>
-
-            </span>
+    Update “userbetsummary" new response parameter<br>
+    Add new api "launchUrl" for channel request<br>
+    <br>
+    Transfer wallet：<br>
+    Update “userbetsummary" new response parameter<br>
+    Add new api "launchUrl" for channel request<br>
+        </span>
             <br>
             <table class="up_his" data-height="500">
                 <thead>

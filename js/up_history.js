@@ -16,21 +16,21 @@ const up_his = [{
     update_time: "2020/Feb/20",
     update_member: "leo",
     update_description: `
-Add relevant API descriptions for Fortune Wheel<br>
-Add the parameter maxPayout of userbethistory for Fortune Wheel<br>
-Add the parameter of getbetlimit for Fortune Wheel<br>
-Add the parameter of updatebetlimit for Fortune Wheel<br>
-Add API loginslot: It can login to slot games directly<br>
-Add API slotgamelist: It can get the list of slot games<br>
-Add API callback: Apply for OAuth login<br>
-Add languages: German, French, Turkish<br>`
+    Add relevant API descriptions for Fortune Wheel<br>
+    Add the parameter maxPayout of userbethistory for Fortune Wheel<br>
+    Add the parameter of getbetlimit for Fortune Wheel<br>
+    Add the parameter of updatebetlimit for Fortune Wheel<br>
+    Add API loginslot: It can login to slot games directly<br>
+    Add API slotgamelist: It can get the list of slot games<br>
+    Add API callback: Apply for OAuth login<br>
+    Add languages: German, French, Turkish<br>`
 }, {
     update_time: "2020/Feb/27",
     update_member: "leo",
     update_description: `
-Add relevant API descriptions for Lottery<br>
-Add gameType descriptions for Lottery<br>
-Add tableType descriptions for Lottery<br>
+    Add relevant API descriptions for Lottery<br>
+    Add gameType descriptions for Lottery<br>
+    Add tableType descriptions for Lottery<br>
 `
 }, {
     update_time: "2020/Mar/12",
@@ -193,6 +193,18 @@ Add tableType descriptions for Lottery<br>
     update_description: `
     Single wallet：<br>
     Update “increaseCredit" response parameter "：refund (When type=28 for BullBull)<br>
+    `
+}, {
+    update_time: "202/FEB/08",
+    update_member: "leo",
+    update_description: `
+    Single wallet：<br>
+    Update “userbetsummary" new response parameter<br>
+    Add new api "launchUrl" for channel request<br>
+    <br>
+    Transfer wallet：<br>
+    Update “userbetsummary" new response parameter<br>
+    Add new api "launchUrl" for channel request<br>
     `
 }
 ]
@@ -389,6 +401,18 @@ const up_his_cn = [
         update_description: `
         单钱包：<br>
         更新API：「 increaseCredit 」的回传参数 ：refund (When type=28 for BullBull)<br>
+        `
+    }, {
+        update_time: "2022/FEB/08",
+        update_member: "leo",
+        update_description: `
+        单钱包：<br>
+        API "userbetsummary" 新增回传相关参数<br>
+        新增渠道请求API "launchUrl"<br>
+        <br>
+        转帐钱包：
+        API "userbetsummary" 新增回传相关参数<br>
+        新增渠道请求API "launchUrl"<br>
         `
     }
 ]
