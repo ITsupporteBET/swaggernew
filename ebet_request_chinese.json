@@ -1086,7 +1086,7 @@
           "example": 100.0,
           "description": "有效投注"
         },
-        "withHoldingSeqNo": {
+        "withholdingSeqNo": {
           "type": "string",
           "example": "seqNoBetseqNoBet",
           "description": "牛牛預扣投注退款请求(type=27)的序号。 只有type=11的事件，才需要此字段。"

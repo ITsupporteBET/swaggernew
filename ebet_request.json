@@ -1075,7 +1075,7 @@
           "example": 100.0,
           "description": "Valid bet"
         },
-        "withHoldingSeqNo": {
+        "withholdingSeqNo": {
           "type": "string",
           "example": "seqNoBetseqNoBet",
           "description": "BullBull Withholding refund request seqNo, only type=11 have this parameter"
