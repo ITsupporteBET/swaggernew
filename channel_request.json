@@ -4352,7 +4352,8 @@
       "required": [
         "channelId",
         "signature",
-        "timestamp"
+        "timestamp",
+        "currency"
       ],
       "properties": {
         "channelId": {
@@ -4365,6 +4366,14 @@
           "type": "string",
           "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
           "description": "Signature. String splicing :channelId+timestamp"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "china": {
+          "type": "integer",
+          "example": 1,
+          "description": "0: Not for china channel\n 1: For china channel"
         }
       }
     },

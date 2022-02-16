@@ -4328,7 +4328,8 @@
       "required": [
         "channelId",
         "signature",
-        "timestamp"
+        "timestamp",
+        "currency"
       ],
       "properties": {
         "channelId": {
@@ -4341,6 +4342,14 @@
           "type": "string",
           "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
           "description": "签名 字串拼接 :channelId+timestamp"
+        },
+        "currency": {
+          "$ref": "#/definitions/currency"
+        },
+        "china": {
+          "type": "integer",
+          "example": 1,
+          "description": "0: 非中国区域渠道\n 1: 中国区域渠道"
         }
       }
     },
