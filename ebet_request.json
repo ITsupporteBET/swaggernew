@@ -1136,36 +1136,7 @@
           "type": "array",
           "description": "Only type = 37 has this parameter.",
           "items": {
-            "type": "object",
-            "properties": {
-              "betType": {
-                "type": "integer",
-                "format": "int64",
-                "example": 80,
-                "description": "Bet item"
-              },
-              "betMoney": {
-                "type": "number",
-                "format": "double",
-                "example": 100.0,
-                "description": "Bet amount. When betMoney = 0, the bet failed."
-              },
-              "seqNo": {
-                "type": "string",
-                "example": "seqNoBetseqNoBet",
-                "description": "The sequence number of the bet request. This parameter is only available for payouts."
-              },
-              "payout": {
-                "type": "number",
-                "format": "double",
-                "example": 0.0,
-                "description": "Payout amount. This parameter is only available when payout."
-              },
-              "number": {
-                "type": "string",
-                "description": "Bet number. This parameter is only available for specific items."
-              }
-            }
+            "$ref": "#/definitions/increaseCredit_betList"
           }
         },
         "eventBonusType": {
