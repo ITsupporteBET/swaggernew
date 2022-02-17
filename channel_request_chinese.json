@@ -4349,7 +4349,7 @@
         "china": {
           "type": "integer",
           "example": 1,
-          "description": "0: 非中国区域渠道\n 1: 中国区域渠道"
+          "description": "1: 中国加速域名"
         }
       }
     },

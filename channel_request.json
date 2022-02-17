@@ -4373,7 +4373,7 @@
         "china": {
           "type": "integer",
           "example": 1,
-          "description": "0: Not for china channel\n 1: For china channel"
+          "description": "1: For china accelerated domain name"
         }
       }
     },
