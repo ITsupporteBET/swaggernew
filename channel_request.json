@@ -4373,7 +4373,7 @@
         "china": {
           "type": "integer",
           "example": 1,
-          "description": "1: For china accelerated domain name"
+          "description": "Determine the region where the game is offered. The region that provides the game will be determined based on the currency if this parameter is not added. \n 1: For china accelerated domain name"
         }
       }
     },

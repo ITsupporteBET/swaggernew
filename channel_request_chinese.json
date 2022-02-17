@@ -4349,7 +4349,7 @@
         "china": {
           "type": "integer",
           "example": 1,
-          "description": "1: 中国加速域名"
+          "description": "判断提供游戏的地区。不加此参数则根据货币判断提供游戏的地区。\n 1: 中国加速域名"
         }
       }
     },
