@@ -1147,36 +1147,7 @@
           "type": "array",
           "description": "仅type = 37才有此参数",
           "items": {
-            "type": "object",
-            "properties": {
-              "betType": {
-                "type": "integer",
-                "format": "int64",
-                "example": 80,
-                "description": "投注牌型"
-              },
-              "betMoney": {
-                "type": "number",
-                "format": "double",
-                "example": 100.0,
-                "description": "投注金额。 当betMoney = 0时，视为下注失败。"
-              },
-              "seqNo": {
-                "type": "string",
-                "example": "seqNoBetseqNoBet",
-                "description": "投注请求的序号。 只有派彩的事件，才需要此字段。"
-              },
-              "payout": {
-                "type": "number",
-                "format": "double",
-                "example": 0.0,
-                "description": "派彩金额。 只有派彩的事件，才需要此字段。"
-              },
-              "number": {
-                "type": "string",
-                "description": "游戏下注的号码。 只有特定项目才会有此字段"
-              }
-            }
+            "$ref": "#/definitions/increaseCredit_betList"
           }
         },
         "eventBonusType": {
