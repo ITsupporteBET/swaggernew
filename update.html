@@ -57,13 +57,10 @@
             web_context.innerHTML = `
 
         <span>
-        单钱包：<br>
-        API "userbetsummary" 新增回传相关参数 "totalBalance"<br>
-        新增渠道请求API "launchUrl"<br>
-        <br>
-        转帐钱包：
-        API "userbetsummary" 新增回传相关参数 "totalBalance"<br>
-        新增渠道请求API "launchUrl"<br>
+            单钱包 及 转帐钱包：
+            更新API"launchUrl"请求参数："currency" 及 "china"
+            - 渠道请求参数"currency"更改为必要添加。
+            - 新增渠道请求之参数"china"。
             </span>
             <br>
             <table class="up_his" data-height="500">
@@ -79,13 +76,10 @@
         } else {
             web_context.innerHTML = `
         <span>
-            Single wallet：<br>
-    Update “userbetsummary" new response parameter "totalBalance"<br>
-    Add new api "launchUrl" for channel request<br>
-    <br>
-    Transfer wallet：<br>
-    Update “userbetsummary" new response parameter "totalBalance"<br>
-    Add new api "launchUrl" for channel request<br>
+        Single Wallet & Transfer Wallet :<br>
+        Update API request parameters for launchUrl : "currency" & "china"<br>
+        - The channel request parameter "currency" change to necessary.<br>
+        - Add new parameter "china" for channel request.<br>
         </span>
             <br>
             <table class="up_his" data-height="500">
