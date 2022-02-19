@@ -206,6 +206,15 @@ const up_his = [{
     Update “userbetsummary" new response parameter "totalBalance"<br>
     Add new api "launchUrl" for channel request<br>
     `
+}, {
+    update_time: "202/FEB/17",
+    update_member: "leo",
+    update_description: `
+    Single Wallet & Transfer Wallet :<br>
+    Update API request parameters for launchUrl : "currency" & "china"<br>
+    - The channel request parameter "currency" change to necessary.<br>
+    - Add new parameter "china" for channel request.<br>
+    `
 }
 ]
 
@@ -413,6 +422,15 @@ const up_his_cn = [
         转帐钱包：
         API "userbetsummary" 新增回传相关参数 "totalBalance"<br>
         新增渠道请求API "launchUrl"<br>
+        `
+    }, {
+        update_time: "2022/FEB/17",
+        update_member: "leo",
+        update_description: `
+        单钱包 及 转帐钱包：<br>
+        更新API"launchUrl"请求参数："currency" 及 "china"<br>
+        - 渠道请求参数"currency"更改为必要添加。<br>
+        - 新增渠道请求之参数"china"。<br>
         `
     }
 ]

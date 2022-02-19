@@ -1033,6 +1033,12 @@
           "type": "string",
           "description": "Bet ID",
           "example": "seqNoBetseqNoBet-80"
+        },
+        "odds": {
+          "type": "number",
+          "format": "double",
+          "example": 1.2345,
+          "description": "Odds."
         }
       }
     },

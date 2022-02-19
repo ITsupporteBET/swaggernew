@@ -1044,6 +1044,12 @@
           "type": "string",
           "description": "投注ID",
           "example": "seqNoBetseqNoBet-80"
+        },
+        "odds": {
+          "type": "number",
+          "format": "double",
+          "example": 1.2345,
+          "description": "赔率。"
         }
       }
     },
