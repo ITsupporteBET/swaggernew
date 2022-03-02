@@ -210,10 +210,8 @@ const up_his = [{
     update_time: "202/FEB/17",
     update_member: "leo",
     update_description: `
-    Single Wallet & Transfer Wallet :<br>
-    Update API request parameters for launchUrl : "currency" & "china"<br>
-    - The channel request parameter "currency" change to necessary.<br>
-    - Add new parameter "china" for channel request.<br>
+    Single wallet: Add “increaseCredit" new parameter for Mini-game<br>
+    Transfer Wallet: No affect<br>
     `
 }
 ]
@@ -431,6 +429,13 @@ const up_his_cn = [
         更新API"launchUrl"请求参数："currency" 及 "china"<br>
         - 渠道请求参数"currency"更改为必要添加。<br>
         - 新增渠道请求之参数"china"。<br>
+        `
+    }, {
+        update_time: "2022/MAR/02",
+        update_member: "leo",
+        update_description: `
+        单钱包:eBET请求API "increaseCredit" 迷你游戏新增相关参数<br>
+        转帐钱包：无影响<br>
         `
     }
 ]
