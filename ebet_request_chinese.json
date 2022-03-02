@@ -1049,7 +1049,7 @@
           "type": "number",
           "format": "double",
           "example": 1.2345,
-          "description": "赔率。"
+          "description": "赔率。仅小游戏有此参数。"
         }
       }
     },

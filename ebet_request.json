@@ -1038,7 +1038,7 @@
           "type": "number",
           "format": "double",
           "example": 1.2345,
-          "description": "Odds."
+          "description": "Odds. Only for Mini-game."
         }
       }
     },
