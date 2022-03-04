@@ -96,6 +96,10 @@ const up_his = [{
     DKK(Danish krone)<br>
     SEK(Swedish krona)<br>
     ZAR(South African rand)<br>
+    BDT(Bangladeshi taka)<br>
+    PKR(Pakistani Rupee)<br>
+    SZL(Lilangeni)<br>
+    UAH(Hryvnia)<br>    
     `
 }, {
     update_time: "2020/NOV/13",
@@ -303,6 +307,10 @@ const up_his_cn = [
         DKK(丹麦克朗)<br>
         SEK(瑞典克朗)<br>
         ZAR(南非兰特)<br>
+        BDT(孟加拉塔卡)<br>
+        PKR(巴基斯坦卢比)<br>
+        SZL(斯威士兰里兰吉尼)<br>
+        UAH(格里夫纳)<br>
         `
     }, {
         update_time: "2020/NOV/13",

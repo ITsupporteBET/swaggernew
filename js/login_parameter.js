@@ -24,7 +24,8 @@ const gameType = [
     { "code": "8", "Description": "BullBull" },
     { "code": "23", "Description": "Fortune Wheel" },
     { "code": "24", "Description": "Virtual Blackjack" },
-    { "code": "25", "Description": "Live Blackjack" }
+    { "code": "25", "Description": "Live Blackjack" },
+    { "code": "27", "Description": "Mini-game" }
 ];
 
 const gameType_cn = [
@@ -39,7 +40,8 @@ const gameType_cn = [
     { "code": "8", "Description": "牛牛" },
     { "code": "23", "Description": "财富大转盘" },
     { "code": "24", "Description": "电子21点" },
-    { "code": "25", "Description": "真人21点" }
+    { "code": "25", "Description": "真人21点" },
+    { "code": "25", "Description": "迷你游戏" }
 
 ];
 

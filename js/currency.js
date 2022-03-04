@@ -52,7 +52,11 @@ const currency =
         { "currency": "CHF", "description": "Swiss franc" },
         { "currency": "DKK", "description": "Danish krone" },
         { "currency": "SEK", "description": "Swedish krona" },
-        { "currency": "ZAR", "description": "South African rand" }
+        { "currency": "ZAR", "description": "South African rand" },
+        { "currency": "BDT", "description": "Bangladeshi taka" },
+        { "currency": "PKR", "description": "Pakistani Rupee" },
+        { "currency": "SZL", "description": "Lilangeni" },
+        { "currency": "UAH", "description": "Hryvnia" }
     ]
 
 const currency_cn = [
@@ -93,6 +97,10 @@ const currency_cn = [
     { "currency": "CHF", "description": "瑞士法郎" },
     { "currency": "DKK", "description": "丹麦克朗" },
     { "currency": "SEK", "description": "瑞典克朗" },
-    { "currency": "ZAR", "description": "南非兰特" }
+    { "currency": "ZAR", "description": "南非兰特" },
+    { "currency": "BDT", "description": "孟加拉塔卡" },
+    { "currency": "PKR", "description": "巴基斯坦卢比" },
+    { "currency": "SZL", "description": "斯威士兰里兰吉尼" },
+    { "currency": "UAH", "description": "格里夫纳" }
 
 ]
