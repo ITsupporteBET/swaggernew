@@ -217,6 +217,12 @@ const up_his = [{
     Single wallet: Add “increaseCredit" new parameter for Mini-game<br>
     Transfer Wallet: No affect<br>
     `
+}, {
+    update_time: "202/MAR/17",
+    update_member: "leo",
+    update_description: `
+    Common API: Update channel request “launchUrl" response parameter : launchUrl<br>
+    `
 }
 ]
 
@@ -444,6 +450,12 @@ const up_his_cn = [
         update_description: `
         单钱包:eBET请求API "increaseCredit" 迷你游戏新增相关参数<br>
         转帐钱包：无影响<br>
+        `
+    }, {
+        update_time: "2022/MAR/17",
+        update_member: "leo",
+        update_description: `
+        共同API：渠道请求API "launchUrl" 更新回传相关参数 : launchUrl<br>
         `
     }
 ]
