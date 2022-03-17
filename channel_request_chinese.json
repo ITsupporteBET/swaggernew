@@ -2353,7 +2353,7 @@
           "通用API"
         ],
         "summary": "获得最新的 H5 游戏域名",
-        "description": "该 API 目的是让伙伴获得最新的 H5 游戏域名。",
+        "description": "该 API 目的是让伙伴获得最新的 H5 游戏连结。",
         "operationId": "launchUrl",
         "consumes": [
           "application/json"
@@ -2387,7 +2387,7 @@
                 },
                 "launchUrl": {
                   "type": "string",
-                  "example": "test01.ebet-b2b.com",
+                  "example": "https://test01.ebet-b2b.com/h5/12345",
                   "description": "H5 游戏连结。"
                 },
                 "apiVersion": {

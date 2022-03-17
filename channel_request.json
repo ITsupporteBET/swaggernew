@@ -2350,8 +2350,8 @@
         "tags": [
           "Common API"
         ],
-        "summary": "Get the latest H5 game domain.",
-        "description": "The purpose of this API is to let partners get the latest H5 game domain name.",
+        "summary": "Get the latest H5 game link.",
+        "description": "The purpose of this API is to let partners get the latest H5 game link.",
         "operationId": "launchUrl",
         "consumes": [
           "application/json"
@@ -2385,7 +2385,7 @@
                 },
                 "launchUrl": {
                   "type": "string",
-                  "example": "test01.ebet-b2b.com",
+                  "example": "https://test01.ebet-b2b.com/h5/12345",
                   "description": "H5 Game Url。"
                 },
                 "apiVersion": {
