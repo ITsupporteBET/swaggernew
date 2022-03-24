@@ -2387,7 +2387,7 @@
                 },
                 "launchUrl": {
                   "type": "string",
-                  "example": "https://test01.ebet-b2b.com/h5/12345",
+                  "example": "https://test01.ebet-b2b.com/h5/test01",
                   "description": "H5 游戏连结。"
                 },
                 "apiVersion": {
