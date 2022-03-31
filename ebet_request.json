@@ -1470,18 +1470,18 @@
           "description": "Bet amount."
         },
         "betId": {
-          "type": "string",
+          "type": "string2",
           "description": "Bet ID",
           "example": "seqNoBetseqNoBet-60"
         },
         "betType": {
-          "type": "integer",
+          "type": "integer2",
           "format": "int64",
           "example": 60,
           "description": "Bet item 2"
         },
         "money": {
-          "type": "number",
+          "type": "number2",
           "format": "double",
           "example": 800,
           "description": "Bet amount."
