@@ -1369,7 +1369,7 @@
       "properties": {
         "seqNo": {
           "type": "string",
-          "example": "seqNoBetseqNoRefund",
+          "example": "autoBatchRefundseqNo",
           "description": "Refund bet sequence number"
         },
         "username": {
@@ -1466,7 +1466,24 @@
         "money": {
           "type": "number",
           "format": "double",
-          "example": 1000.0,
+          "example": 200,
+          "description": "Bet amount."
+        },
+        "betId": {
+          "type": "string",
+          "description": "Bet ID",
+          "example": "seqNoBetseqNoBet-60"
+        },
+        "betType": {
+          "type": "integer",
+          "format": "int64",
+          "example": 60,
+          "description": "Bet item 2"
+        },
+        "money": {
+          "type": "number",
+          "format": "double",
+          "example": 800,
           "description": "Bet amount."
         }
       }
