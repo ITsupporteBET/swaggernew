@@ -639,7 +639,7 @@
           "API used by single wallet"
         ],
         "summary": "Automatic refund",
-        "description": "Regularly check the records of failed bets and send them to the channel to process refunds in batches.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/autoBatchRefund \n PS. \n 1.Parameter detail may contain plural betId/betType/money \n 2.Parameter detail > money total is refundMoney \n 3.Only refund bet fail but payout success record",
+        "description": "Regularly check the records of failed bets and send them to the channel to process refunds in batches.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/autoBatchRefund \n Note 1.Parameter detail may contain plural betId/betType/money \n Note 2.Parameter detail > money total is refundMoney \n Note 3.Only refund bet fail but payout success record",
         "operationId": "autoBatchRefund",
         "consumes": [
           "application/json"
