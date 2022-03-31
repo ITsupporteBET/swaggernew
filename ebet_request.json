@@ -1455,12 +1455,12 @@
         "betId": {
           "type": "string",
           "description": "Bet ID",
-          "example": ["seqNoBetseqNoBet-80","seqNoBetseqNoBet-60"]
+          "example": "seqNoBetseqNoBet-80"
         },
         "betType": {
           "type": "integer",
           "format": "int64",
-          "example": [80,60],
+          "example": 80,
           "description": "Bet item"
         },
         "money": {
