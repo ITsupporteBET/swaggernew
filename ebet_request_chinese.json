@@ -639,7 +639,7 @@
           "API used by single wallet"
         ],
         "summary": "自动通知处理投注失败的退款",
-        "description": "定時检查失败的投注记录，并将其发送到渠道以批量处理退款。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/autoBatchRefund \n PS. \n 1. detail 內可能包含复数 betId/betType/money \n 2. detail > money 总金额为 refundMoney \n 3. 仅退款派彩成功的注单",
+        "description": "定時检查失败的投注记录，并将其发送到渠道以批量处理退款。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/autoBatchRefund \n PS. \n 1.detail 內可能包含复数 betId/betType/money \n 2.detail > money 总金额为 refundMoney \n 3.仅退款派彩成功的注单",
         "operationId": "autoBatchRefund",
         "consumes": [
           "application/json"
