@@ -1455,7 +1455,8 @@
         "betId": {
           "type": "string",
           "description": "Bet ID",
-          "example": "seqNoBetseqNoBet-80"
+          "example": "seqNoBetseqNoBet-80",
+          "example2": "seqNoBetseqNoBet-60"
         },
         "betType": {
           "type": "integer",
