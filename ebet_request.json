@@ -1455,7 +1455,7 @@
         "betId": {
           "type": "string",
           "description": "Bet ID",
-          "example": ["seqNoBetseqNoBet-80","seqNoBetseqNoBet-60"]
+          "example": "seqNoBetseqNoBet-80"
         },
         "betType": {
           "type": "integer",
@@ -1468,6 +1468,12 @@
           "format": "double",
           "example": 200,
           "description": "Bet amount."
+        },
+        "betId": {
+          "type": "string",
+          "description": "Bet ID",
+          "example": "seqNoBetseqNoBet-80",
+          "operationId":"autoBatchRefund"
         }
       }
     }
