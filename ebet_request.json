@@ -1455,35 +1455,18 @@
         "betId": {
           "type": "string",
           "description": "Bet ID",
-          "example": "seqNoBetseqNoBet-80"
+          "example": ["seqNoBetseqNoBet-80","seqNoBetseqNoBet-60"]
         },
         "betType": {
           "type": "integer",
           "format": "int64",
-          "example": 80,
+          "example": [80,60],
           "description": "Bet item"
         },
         "money": {
           "type": "number",
           "format": "double",
           "example": 200,
-          "description": "Bet amount."
-        },
-        "betId": {
-          "type": "string2",
-          "description": "Bet ID",
-          "example": "seqNoBetseqNoBet-60"
-        },
-        "betType": {
-          "type": "integer2",
-          "format": "int64",
-          "example": 60,
-          "description": "Bet item 2"
-        },
-        "money": {
-          "type": "number2",
-          "format": "double",
-          "example": 800,
           "description": "Bet amount."
         }
       }
