@@ -1369,7 +1369,7 @@
       "properties": {
         "seqNo": {
           "type": "string",
-          "example": "autoBatchRefundseqNo",
+          "example": "BetfailRefundseqNo",
           "description": "Refund bet sequence number"
         },
         "username": {
@@ -1413,7 +1413,9 @@
           "$ref": "#/definitions/sessionToken"
         },
         "seqNo": {
-          "$ref": "#/definitions/seqNo"
+          "type": "string",
+          "description": "eBET sequence number. Please return the same value.",
+          "example": "autoBatchRefundseqNo"
         },
         "currency": {
           "$ref": "#/definitions/currency"
@@ -1455,7 +1457,7 @@
         "betId": {
           "type": "string",
           "description": "Bet ID",
-          "example": "seqNoBetseqNoBet-80"
+          "example": "BetfailRefundseqNo-80"
         },
         "betType": {
           "type": "integer",

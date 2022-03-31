@@ -639,7 +639,7 @@
           "API used by single wallet"
         ],
         "summary": "自动通知处理投注失败的退款",
-        "description": "定時检查失败的投注记录，并将其发送到渠道以批量处理退款。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/autoBatchRefund \n PS. \n 1.detail 內可能包含复数 betId/betType/money \n 2.detail > money 总金额为 refundMoney",
+        "description": "定時检查失败的投注记录，并将其发送到渠道以批量处理退款。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/autoBatchRefund \n PS. \n 1.detail 內可能包含复数 betId/betType/money \n detail > money 总金额为 refundMoney",
         "operationId": "autoBatchRefund",
         "consumes": [
           "application/json"
@@ -682,7 +682,9 @@
                   "description": "API 名称"
                 },
                 "seqNo": {
-                  "$ref": "#/definitions/seqNo"
+                  "type": "string",
+                  "description": "eBET的序列号。 请返回相同的值。",
+                  "example": "autoBatchRefundseqNo"
                 },
                 "refundResultList": {
                   "type": "array",
@@ -1380,7 +1382,7 @@
       "properties": {
         "seqNo": {
           "type": "string",
-          "example": "seqNoBetseqNoRefund",
+          "example": "BetfailRefundseqNo",
           "description": "退款投注序列号"
         },
         "username": {
@@ -1425,7 +1427,9 @@
           "$ref": "#/definitions/sessionToken"
         },
         "seqNo": {
-          "$ref": "#/definitions/seqNo"
+          "type": "string",
+          "description": "eBET的序列号。 请返回相同的值。",
+          "example": "autoBatchRefundseqNo"
         },
         "currency": {
           "$ref": "#/definitions/currency"
@@ -1470,7 +1474,7 @@
         "betId": {
           "type": "string",
           "description": "投注ID",
-          "example": "seqNoBetseqNoBet-80"
+          "example": "BetfailRefundseqNo-80"
         },
         "betType": {
           "type": "integer",
