@@ -1039,6 +1039,12 @@
           "format": "double",
           "example": 1.2345,
           "description": "Odds. Only for Mini-game when payout (type:2)."
+        },
+        "validBet": {
+          "type": "number",
+          "format": "double",
+          "example": 100.0,
+          "description": "Valid bets for each bet item. \n This parameter will be based on the calculation rules of valid bets, please refer to the page: Parameter description - Valid betting instructions. \n Only for payout (type:2) request."
         }
       }
     },

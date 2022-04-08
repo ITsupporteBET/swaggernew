@@ -218,10 +218,12 @@ const up_his = [{
     Transfer Wallet: No affect<br>
     `
 }, {
-    update_time: "202/MAR/17",
+    update_time: "202/APR/20",
     update_member: "leo",
     update_description: `
-    Common API: Update channel request “launchUrl" response parameter : launchUrl<br>
+    Affected API:<br>
+    Single wallet: Add “increaseCredit" new parameter when payout(type=2) request<br>
+    Transfer Wallet: No affect<br>
     `
 }
 ]
@@ -456,6 +458,14 @@ const up_his_cn = [
         update_member: "leo",
         update_description: `
         共同API：渠道请求API "launchUrl" 更新回传相关参数 : launchUrl<br>
+        `
+    }, {
+        update_time: "2022/APR/20",
+        update_member: "leo",
+        update_description: `
+        API：<br>
+        单钱包:eBET请求API "increaseCredit" 派彩请求(type=2)新增相关参数<br>
+        转帐钱包：无影响<br>
         `
     }
 ]
