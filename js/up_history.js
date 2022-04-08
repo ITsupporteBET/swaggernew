@@ -192,14 +192,14 @@ const up_his = [{
     Update “userbethistory" response parameter "gameName"<br>
     `
 }, {
-    update_time: "202/JAN/12",
+    update_time: "2022/JAN/12",
     update_member: "leo",
     update_description: `
     Single wallet：<br>
     Update “increaseCredit" response parameter "：refund (When type=28 for BullBull)<br>
     `
 }, {
-    update_time: "202/FEB/08",
+    update_time: "2022/FEB/08",
     update_member: "leo",
     update_description: `
     Single wallet：<br>
@@ -211,18 +211,19 @@ const up_his = [{
     Add new api "launchUrl" for channel request<br>
     `
 }, {
-    update_time: "202/FEB/17",
+    update_time: "2022/FEB/17",
     update_member: "leo",
     update_description: `
     Single wallet: Add “increaseCredit" new parameter for Mini-game<br>
     Transfer Wallet: No affect<br>
     `
 }, {
-    update_time: "202/APR/20",
+    update_time: "2022/APR/20",
     update_member: "leo",
     update_description: `
     Affected API:<br>
     Single wallet: Add “increaseCredit" new parameter when payout(type=2) request<br>
+    API > increaseCredit > detail > betList > validBet<br>
     Transfer Wallet: No affect<br>
     `
 }
@@ -465,6 +466,7 @@ const up_his_cn = [
         update_description: `
         API：<br>
         单钱包:eBET请求API "increaseCredit" 派彩请求(type=2)新增相关参数<br>
+        API > increaseCredit > detail > betList > validBet<br>
         转帐钱包：无影响<br>
         `
     }
