@@ -1909,7 +1909,7 @@
                   "type": "number",
                   "format": "double",
                   "example": 100.0,
-                  "description": "總盈餘"
+                  "description": "Total surplus"
                 }
               }
             }
