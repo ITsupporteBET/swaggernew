@@ -1828,7 +1828,7 @@
           "Common API"
         ],
         "summary": "userbetsummary",
-        "description": "This api is the total report in the query time period.\n Note: Only the records of successful bets and successful payouts are counted.\n The preset time period is the current day.",
+        "description": "This api is the total report in the query time period.\n Note 1: Only the records of successful bets and successful payouts are counted.\n The preset time period is the current day.\n Note 2: totalBalance = totalPayout - (totalBet + totalWithholding)",
         "operationId": "userbetsummary",
         "consumes": [
           "application/json"
