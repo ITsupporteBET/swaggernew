@@ -1832,7 +1832,7 @@
           "通用API"
         ],
         "summary": "用户摘要",
-        "description": "此api是查询时间段内的总计报告。\n Note: 仅记录成功投注和成功派彩的记录。\n 预设时间段是当天。\n Note 2: totalBalance = totalPayout - (totalBet + totalWithholding)",
+        "description": "此api是查询时间段内的总计报告。\n Note 1: 仅记录成功投注和成功派彩的记录。\n 预设时间段是当天。\n Note 2: totalBalance = totalPayout - (totalBet + totalWithholding)",
         "operationId": "userbetsummary",
         "consumes": [
           "application/json"
