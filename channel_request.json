@@ -2351,7 +2351,7 @@
           "Common API"
         ],
         "summary": "Get the latest H5 game link.",
-        "description": "The purpose of this API is to let partners get the latest H5 game link.",
+        "description": "The purpose of this API is to let partners get the latest H5 game link. \n Noted: If not CNY channel Please ignore the parameter <code>china</code>",
         "operationId": "launchUrl",
         "consumes": [
           "application/json"

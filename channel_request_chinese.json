@@ -2353,7 +2353,7 @@
           "通用API"
         ],
         "summary": "获得最新的 H5 游戏域名",
-        "description": "该 API 目的是让伙伴获得最新的 H5 游戏连结。",
+        "description": "该 API 目的是让伙伴获得最新的 H5 游戏连结。 \n Noted: 非人民币渠道请忽略<code>china</code>参数",
         "operationId": "launchUrl",
         "consumes": [
           "application/json"
