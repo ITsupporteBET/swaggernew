@@ -214,7 +214,7 @@
           "API used by single wallet"
         ],
         "summary": "Verify user login",
-        "description": "This api is used to verify user login.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/registerOrLogin",
+        "description": "This api is used to verify user login.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/registerOrLogin \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/registerOrLogin\" target=\"_blank\">Demo request & response</a>",
         "operationId": "registerOrLogin",
         "consumes": [
           "application/json"
@@ -291,7 +291,7 @@
           "API used by single wallet"
         ],
         "summary": "Synchronize user's money",
-        "description": "This api is to confirm the user's current amount of money.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/syncCredit",
+        "description": "This api is to confirm the user's current amount of money.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/syncCredit \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/syncCredit\" target=\"_blank\">Demo request & response</a>",
         "operationId": "syncCredit",
         "consumes": [
           "application/json"
@@ -360,7 +360,7 @@
           "API used by single wallet"
         ],
         "summary": "Notification of change of user money amount",
-        "description": "This API is a notification channel for changing player money.\n Note 1: seqNo is **unique value**. Avoid repeated processing of money, do not record the same payout seqNo.\n Note 2: We have a **retry** mechanism. If it has been processed successfully before, please return 201 (seqNo repeated).\n Note 3: If the network occurs or your system returns a system error and the system is busy, we will try to resend **3 times**. \n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/increaseCredit",
+        "description": "This API is a notification channel for changing player money.\n Note 1: seqNo is **unique value**. Avoid repeated processing of money, do not record the same payout seqNo.\n Note 2: We have a **retry** mechanism. If it has been processed successfully before, please return 201 (seqNo repeated).\n Note 3: If the network occurs or your system returns a system error and the system is busy, we will try to resend **3 times**. \n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/increaseCredit \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/increaseCredit\" target=\"_blank\">Demo request & response</a>",
         "operationId": "increaseCredit",
         "consumes": [
           "application/json"
@@ -433,7 +433,7 @@
           "API used by single wallet"
         ],
         "summary": "Query increaseCredit records",
-        "description": "This API is for querying the processing status of increaseCredit in the channel's database.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/queryIncreaseCreditRecord",
+        "description": "This API is for querying the processing status of increaseCredit in the channel's database.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/queryIncreaseCreditRecord \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/queryIncreaseCreditRecord\" target=\"_blank\">Demo request & response</a>",
         "operationId": "queryIncreaseCreditRecord",
         "consumes": [
           "application/json"
@@ -546,7 +546,7 @@
           "API used by single wallet"
         ],
         "summary": "Manual refund",
-        "description": "This API is eBET's manual refund request for failed bets.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/refundSingleWallet",
+        "description": "This API is eBET's manual refund request for failed bets.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/refundSingleWallet \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/refundSingleWallet\" target=\"_blank\">Demo request & response</a>",
         "operationId": "refundSingleWallet",
         "consumes": [
           "application/json"
@@ -639,7 +639,7 @@
           "API used by single wallet"
         ],
         "summary": "Automatic refund",
-        "description": "Regularly check the records of failed bets and send them to the channel to process refunds in batches.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/autoBatchRefund \n Note 1.Parameter detail may contain plural betId/betType/money \n Note 2.Parameter detail > money total is refundMoney \n Note 3.Only refund bet fail but payout success record",
+        "description": "Regularly check the records of failed bets and send them to the channel to process refunds in batches.\n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/autoBatchRefund \n Note 1.Parameter detail may contain plural betId/betType/money \n Note 2.Parameter detail > money total is refundMoney \n Note 3.Only refund bet fail but payout success record \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/autoBatchRefund\" target=\"_blank\">Demo request & response</a>",
         "operationId": "autoBatchRefund",
         "consumes": [
           "application/json"

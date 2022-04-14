@@ -329,7 +329,7 @@
           "API used by single wallet"
         ],
         "summary": "getseqnorecord",
-        "description": "This api is query failed seqNo in eBET database.",
+        "description": "This api is query failed seqNo in eBET database. Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/getseqnorecord\" target=\"_blank\">Demo request & response</a>",
         "operationId": "getseqnorecord",
         "consumes": [
           "application/json"

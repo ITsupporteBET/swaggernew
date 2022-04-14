@@ -214,7 +214,7 @@
           "API used by single wallet"
         ],
         "summary": "单钱包使用的验证用户登录",
-        "description": "此api用于验证用户登录。\n 发送请求至接收地址是渠道的服务器url + api。 E.g. http://127.0.0.1/registerOrLogin",
+        "description": "此api用于验证用户登录。\n 发送请求至接收地址是渠道的服务器url + api。 E.g. http://127.0.0.1/registerOrLogin \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/registerOrLogin\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "registerOrLogin",
         "consumes": [
           "application/json"
@@ -291,7 +291,7 @@
           "API used by single wallet"
         ],
         "summary": "同步用户金额",
-        "description": "此api是用于确认用户当前的金额。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/syncCredit",
+        "description": "此api是用于确认用户当前的金额。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/syncCredit \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/syncCredit\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "syncCredit",
         "consumes": [
           "application/json"
@@ -433,7 +433,7 @@
           "API used by single wallet"
         ],
         "summary": "查询increaseCredit的纪录",
-        "description": "该API用于查询渠道数据库中的increaseCredit的处理状态。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/queryIncreaseCreditRecord",
+        "description": "该API用于查询渠道数据库中的increaseCredit的处理状态。\n 发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/queryIncreaseCreditRecord \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/queryIncreaseCreditRecord\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "queryIncreaseCreditRecord",
         "consumes": [
           "application/json"
@@ -546,7 +546,7 @@
           "API used by single wallet"
         ],
         "summary": "手动通知处理投注失败的退款",
-        "description": "此API是eBET对失败投注進行手动退款请求。\n发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/refundSingleWallet",
+        "description": "此API是eBET对失败投注進行手动退款请求。\n发送请求至接收地址是渠道的服务器url + api E.g. http://127.0.0.1/refundSingleWallet \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/refundSingleWallet\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "refundSingleWallet",
         "consumes": [
           "application/json"
