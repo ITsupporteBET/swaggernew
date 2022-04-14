@@ -166,7 +166,7 @@
           "API used by transfer wallet"
         ],
         "summary": "reharge",
-        "description": "This API notifies eBET to process when the user's wallet amount is changed.\n Note: It returns success to indicate that a notification has been received, but processing is not complete.\n Note: There is no upper limit. \n Note: The ebet amount is only calculated to the second decimal place",
+        "description": "This API notifies eBET to process when the user's wallet amount is changed.\n Note: It returns success to indicate that a notification has been received, but processing is not complete.\n Note: There is no upper limit. \n Note: The ebet amount is only calculated to the second decimal place \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/recharge\" target=\"_blank\">Demo request & response</a>",
         "operationId": "recharge",
         "consumes": [
           "application/json"
@@ -217,7 +217,7 @@
           "API used by transfer wallet"
         ],
         "summary": "rechargestatus",
-        "description": "This API is to check whether eBET has received and processed the recharge request. \n If rechargestatus returns -1, it may be because the data has not been written into the database yet.  \n Please kindly request 2 more times for final confirmation. \n (it is recommended that you make the request after 5 seconds). \n If it still returns -1 at last, please ask eBET staff for assistance.",
+        "description": "This API is to check whether eBET has received and processed the recharge request. \n If rechargestatus returns -1, it may be because the data has not been written into the database yet.  \n Please kindly request 2 more times for final confirmation. \n (it is recommended that you make the request after 5 seconds). \n If it still returns -1 at last, please ask eBET staff for assistance. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/rechargestatus\" target=\"_blank\">Demo request & response</a>",
         "operationId": "rechargestatus",
         "consumes": [
           "application/json"
@@ -262,7 +262,7 @@
           "API used by transfer wallet"
         ],
         "summary": "getusermoney",
-        "description": "This api is to query the current amount of money for users who have logged in within a period of time.\n Note: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)",
+        "description": "This api is to query the current amount of money for users who have logged in within a period of time.\n Note: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize) \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/getusermoney\" target=\"_blank\">Demo request & response</a>",
         "operationId": "getusermoney",
         "consumes": [
           "application/json"
@@ -418,7 +418,7 @@
           "Common API"
         ],
         "summary": "syncuser",
-        "description": "New player registration",
+        "description": "New player registration \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/syncuser\" target=\"_blank\">Demo request & response</a>",
         "operationId": "syncuser",
         "consumes": [
           "application/json"
@@ -467,7 +467,7 @@
           "Common API"
         ],
         "summary": "userinfo",
-        "description": "Query user information",
+        "description": "Query user information \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userinfo\" target=\"_blank\">Demo request & response</a>",
         "operationId": "userinfo",
         "consumes": [
           "application/json"
@@ -546,7 +546,7 @@
           "Common API"
         ],
         "summary": "userbethistory",
-        "description": "This API is for querying bets recorded in a specific time period.\n Note 1: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: Please bring the following parameters **betStatus:1** query only successful records.\n Note 3: Please refer to niuniuWithHoldingTotal for BullBull game withholding.",
+        "description": "This API is for querying bets recorded in a specific time period.\n Note 1: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: Please bring the following parameters **betStatus:1** query only successful records.\n Note 3: Please refer to niuniuWithHoldingTotal for BullBull game withholding. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbethistory\" target=\"_blank\">Demo request & response</a>",
         "operationId": "userbethistory",
         "consumes": [
           "application/json"
@@ -607,7 +607,7 @@
           "Common API"
         ],
         "summary": "getcurrentluzhu",
-        "description": "The 30 game records that have ended so far and converted into luzhu information",
+        "description": "The 30 game records that have ended so far and converted into luzhu information \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/getcurrentluzhu\" target=\"_blank\">Demo request & response</a>",
         "operationId": "getcurrentluzhu",
         "consumes": [
           "application/json"
@@ -705,7 +705,7 @@
           "Common API"
         ],
         "summary": "getbetlimit",
-        "description": "Get user bet limit in each game",
+        "description": "Get user bet limit in each game \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/getbetlimit\" target=\"_blank\">Demo request & response</a>",
         "operationId": "getbetlimit",
         "consumes": [
           "application/json"
@@ -1540,7 +1540,7 @@
           "Common API"
         ],
         "summary": "updatebetlimit",
-        "description": "Update user bet limit in each game",
+        "description": "Update user bet limit in each game \n Noted: Response 4039 mean wrong format in parameter <code>limit</code> \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/updatebetlimit\" target=\"_blank\">Demo request & response</a>",
         "operationId": "updatebetlimit",
         "consumes": [
           "application/json"
@@ -1608,7 +1608,7 @@
           "Common API"
         ],
         "summary": "This API is for batch adjustment of user betting limits",
-        "description": "This API is used by partner to actively send requests to eBET \n Send to url: API server location provided by eBET \n Method of use: send json format by post \n Remark: \n 1. The default is to update up to 1000 people at a time \n  2. The default interval between each request is 10 minutes",
+        "description": "This API is used by partner to actively send requests to eBET \n Send to url: API server location provided by eBET \n Method of use: send json format by post \n Noted 1. The default is to update up to 1000 people at a time \n Noted 2. The default interval between each request is 10 minutes \n Noted 3: Response <code>4039</code> mean wrong format in parameter <code>limit</code> \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/updateBatchBetlimit\" target=\"_blank\">Demo request & response</a>",
         "operationId": "updateBatchBetlimit",
         "consumes": [
           "application/json"
@@ -1662,7 +1662,7 @@
           "Common API"
         ],
         "summary": "userBetTracer",
-        "description": "Provides the URL of the user's betting history.\n The link screen displays the game name, bet date, bet amount, payout amount, round number, member bet type (text + icon), and the result card type (text + icon). As with eBET background betting details.\n\n URL path rules:\n 1.Page link\n 2.username\n 3.channelId\n 4.roundCode\n 5.lang\n 6.Add display = 1 to turn off the valid betting field\n 7.signature (need to be added by the channel using the GET method)\n The resulting rule is RSA (channelId+username+roundCode+lang)",
+        "description": "Provides the URL of the user's betting history.\n The link screen displays the game name, bet date, bet amount, payout amount, round number, member bet type (text + icon), and the result card type (text + icon). As with eBET background betting details.\n\n URL path rules:\n 1.Page link\n 2.username\n 3.channelId\n 4.roundCode\n 5.lang\n 6.Add display = 1 to turn off the valid betting field\n 7.signature (need to be added by the channel using the GET method)\n The resulting rule is RSA (channelId+username+roundCode+lang) \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userBetTracer\" target=\"_blank\">Demo request & response</a>",
         "operationId": "userBetTracer",
         "consumes": [
           "application/json"
@@ -1714,7 +1714,7 @@
           "Common API"
         ],
         "summary": "usertransaction",
-        "description": "This api is to query the current amount of money for users who have logged in within a period of time.\n Note: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)",
+        "description": "This api is to query the current amount of money for users who have logged in within a period of time.\n Note: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize) \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/usertransaction\" target=\"_blank\">Demo request & response</a>",
         "operationId": "usertransaction",
         "consumes": [
           "application/json"
@@ -1828,7 +1828,7 @@
           "Common API"
         ],
         "summary": "userbetsummary",
-        "description": "This api is the total report in the query time period.\n Note 1: Only the records of successful bets and successful payouts are counted.\n The preset time period is the current day.\n Note 2: totalBalance = totalPayout - (totalBet + totalWithholding)",
+        "description": "This api is the total report in the query time period.\n Note 1: Only the records of successful bets and successful payouts are counted.\n The preset time period is the current day.\n Note 2: totalBalance = totalPayout - (totalBet + totalWithholding) \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbetsummary\" target=\"_blank\">Demo request & response</a>",
         "operationId": "userbetsummary",
         "consumes": [
           "application/json"
@@ -1923,7 +1923,7 @@
           "Common API"
         ],
         "summary": "totaluserbetsummary",
-        "description": "Query user betting history",
+        "description": "Query user betting history \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/totaluserbetsummary\" target=\"_blank\">Demo request & response</a>",
         "operationId": "totaluserbetsummary",
         "consumes": [
           "application/json"
@@ -2034,7 +2034,7 @@
           "Common API"
         ],
         "summary": "logout",
-        "description": "Take the player away from the eBET game.\n Note: The related functions must be enabled in the eBET background to use.",
+        "description": "Take the player away from the eBET game.\n Note: The related functions must be enabled in the eBET background to use. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/logout\" target=\"_blank\">Demo request & response</a>",
         "operationId": "logout",
         "consumes": [
           "application/json"
@@ -2080,7 +2080,7 @@
           "Common API"
         ],
         "summary": "loginslot",
-        "description": "Get a link to log in to the slot game directly.\n Note: using this method will still send a verification login request. A login link will only be provided after successful verification.",
+        "description": "Get a link to log in to the slot game directly.\n Note: using this method will still send a verification login request. A login link will only be provided after successful verification. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/loginslot\" target=\"_blank\">Demo request & response</a>",
         "operationId": "loginslot",
         "consumes": [
           "application/json"
@@ -2132,7 +2132,7 @@
           "Common API"
         ],
         "summary": "slotgamelist",
-        "description": "Get a list of slot games.",
+        "description": "Get a list of slot games. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/SlotGameList\" target=\"_blank\">Demo request & response</a>",
         "operationId": "slotgamelist",
         "consumes": [
           "application/json"
@@ -2213,7 +2213,7 @@
           "Common API"
         ],
         "summary": "Get a link to log in to the mini-game directly.",
-        "description": "Note: using this method will still send a verification login request. A login link will only be provided after successful verification",
+        "description": "Note: using this method will still send a verification login request. A login link will only be provided after successful verification \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/loginTableGame\" target=\"_blank\">Demo request & response</a>",
         "operationId": "loginTableGame",
         "consumes": [
           "application/json"
@@ -2265,7 +2265,7 @@
           "Common API"
         ],
         "summary": "callback",
-        "description": "Channels can use their own login portal if the channel does not want to go through eBET's login portal.\n The channel must request this API to notify eBET to let the player log in to the game after verifying the player.\n Note: Need to provide link and eBET should be set to open on the backend.",
+        "description": "Channels can use their own login portal if the channel does not want to go through eBET's login portal.\n The channel must request this API to notify eBET to let the player log in to the game after verifying the player.\n Note: Need to provide link and eBET should be set to open on the backend. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/callback\" target=\"_blank\">Demo request & response</a>",
         "operationId": "callback",
         "consumes": [
           "application/json"

@@ -113,7 +113,7 @@
           "API used by transfer wallet"
         ],
         "summary": "Verify user login",
-        "description": "This api is used to verify user login.\n It will send the request directly to the server url provided by the channel.",
+        "description": "This api is used to verify user login.\n It will send the request directly to the server url provided by the channel. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/RegisterOrLoginReq\" target=\"_blank\">Demo request & response</a>",
         "operationId": "RegisterOrLoginReq",
         "consumes": [
           "application/json"
@@ -175,7 +175,7 @@
           "API used by transfer wallet"
         ],
         "summary": "Check user information",
-        "description": "This api is used to confirm user information.\n It will send the request after the RegisterOrLoginReq response is successful.\n Its failure to implement does not affect player login",
+        "description": "This api is used to confirm user information.\n It will send the request after the RegisterOrLoginReq response is successful.\n Its failure to implement does not affect player login \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/UserInfo%20for%20Transfer%20wallet\" target=\"_blank\">Demo request & response</a>",
         "operationId": "UserInfo",
         "consumes": [
           "application/json"

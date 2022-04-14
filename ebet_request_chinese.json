@@ -175,7 +175,7 @@
           "API used by transfer wallet"
         ],
         "summary": "核对用户信息",
-        "description": "此api用于确认用户信息。\n 在RegisterOrLoginReq响应成功后，它将发送请求。\n 响应失败不会影响玩家登录",
+        "description": "此api用于确认用户信息。\n 在RegisterOrLoginReq响应成功后，它将发送请求。\n 响应失败不会影响玩家登录 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/UserInfo%20for%20Transfer%20wallet\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "UserInfo",
         "consumes": [
           "application/json"
@@ -843,7 +843,7 @@
         "eventType": {
           "type": "integer",
           "example": 1,
-          "description": "登录方式:\n 1:普通登录\n 3:Applink登录\n 4:Token登录"
+          "description": "登录方式:\n 1:普通登录\n 3:Applink登录\n 4:Token登录 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/RegisterOrLoginReq\" target=\"_blank\">请求&回应范例</a>"
         },
         "channelId": {
           "$ref": "#/definitions/channelId"

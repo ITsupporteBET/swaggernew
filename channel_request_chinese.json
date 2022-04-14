@@ -165,7 +165,7 @@
           "多钱包使用的API"
         ],
         "summary": "充值",
-        "description": "此api为用户要变更金额，通知ebet处理。\n Note: 它返回成功是表示已接收到通知，但处理未完成。\n Note: 没有限定额度上限。\n Note: ebet金额只计算到小数点第二位",
+        "description": "此api为用户要变更金额，通知ebet处理。\n Note: 它返回成功是表示已接收到通知，但处理未完成。\n Note: 没有限定额度上限。\n Note: ebet金额只计算到小数点第二位 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/recharge\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "recharge",
         "consumes": [
           "application/json"
@@ -216,7 +216,7 @@
           "多钱包使用的API"
         ],
         "summary": "充值状态",
-        "description": "此api为检查ebet是否有收到并处理完成充值请求。\n 若rechargestatus返回-1，可能為我方系統還沒寫入數據庫。 \n 請貴司再多請求2次做最後確認(建議貴司隔5秒後再做請求)，如最後仍返回-1，请向eBET人员寻求协助。",
+        "description": "此api为检查ebet是否有收到并处理完成充值请求。\n 若rechargestatus返回-1，可能為我方系統還沒寫入數據庫。 \n 請貴司再多請求2次做最後確認(建議貴司隔5秒後再做請求)，如最後仍返回-1，请向eBET人员寻求协助。 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/rechargestatus\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "rechargestatus",
         "consumes": [
           "application/json"
@@ -261,7 +261,7 @@
           "多钱包使用的API"
         ],
         "summary": "获取用户资金",
-        "description": "此api为查询一段时间内有登入的用户金额。\n Note: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)",
+        "description": "此api为查询一段时间内有登入的用户金额。\n Note: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize) \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/getusermoney\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "getusermoney",
         "consumes": [
           "application/json"
@@ -419,7 +419,7 @@
         "tags": [
           "通用API"
         ],
-        "summary": "创建用户",
+        "summary": "创建用户 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/syncuser\" target=\"_blank\">请求&回应范例</a>",
         "description": "创建新用户",
         "operationId": "syncuser",
         "consumes": [
@@ -469,7 +469,7 @@
           "通用API"
         ],
         "summary": "用户信息",
-        "description": "查询用户信息",
+        "description": "查询用户信息 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userinfo\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "userinfo",
         "consumes": [
           "application/json"
@@ -548,7 +548,7 @@
           "通用API"
         ],
         "summary": "用户投注记录",
-        "description": "该API用于查询在特定时间段内记录的投注。\n Note 1: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: 请带以下参数 betStatus:1 以查询成功的记录\n Note 3: 牛牛游戏预扣请参考niuniuWithHoldingTotal",
+        "description": "该API用于查询在特定时间段内记录的投注。\n Note 1: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: 请带以下参数 betStatus:1 以查询成功的记录\n Note 3: 牛牛游戏预扣请参考niuniuWithHoldingTotal \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbethistory\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "userbethistory",
         "consumes": [
           "application/json"
@@ -609,7 +609,7 @@
           "通用API"
         ],
         "summary": "牌局結果路書",
-        "description": "回传当前已经结束的 30 笔牌局结果且转换成路书资讯",
+        "description": "回传当前已经结束的 30 笔牌局结果且转换成路书资讯 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/getcurrentluzhu\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "getcurrentluzhu",
         "consumes": [
           "application/json"
@@ -707,7 +707,7 @@
           "通用API"
         ],
         "summary": "取得下注限制",
-        "description": "取得用户在各房间类型设置的投注限制清单",
+        "description": "取得用户在各房间类型设置的投注限制清单 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/getbetlimit\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "getbetlimit",
         "consumes": [
           "application/json"
@@ -1542,7 +1542,7 @@
           "通用API"
         ],
         "summary": "更新下注限制",
-        "description": "变更用户在各房间类型设置的投注限制清单。\n 可以只修改特定游戏的投注限额，例如：只修改百家乐的投注限额。\n Noted：4039 ",
+        "description": "变更用户在各房间类型设置的投注限制清单。\n 可以只修改特定游戏的投注限额，例如：只修改百家乐的投注限额。\n Noted：回传 <code>4039</code>代表参数<code>limit</code>格式有误 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/updatebetlimit\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "updatebetlimit",
         "consumes": [
           "application/json"
@@ -1610,7 +1610,7 @@
           "通用API"
         ],
         "summary": "该 API 为批量调整用户投注限额",
-        "description": "此 API 为渠道方主动向 eBET 发送请求。\n 发送至 url : eBET 的 API server 位置。\n 备注：\n 1.预设一次最多更新 1000 人 \n 2.预设每次请求需间隔 10 分钟",
+        "description": "此 API 为渠道方主动向 eBET 发送请求。\n 发送至 url : eBET 的 API server 位置。\n Noted 1: 预设一次最多更新 1000 人 \n Noted 2: 预设每次请求需间隔 10 分钟 \n Noted 3: 回传 <code>4039</code> 代表参数<code>limit</code>格式有误 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/updateBatchBetlimit\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "updateBatchBetlimit",
         "consumes": [
           "application/json"
@@ -1666,7 +1666,7 @@
           "通用API"
         ],
         "summary": "用户投注详情连结",
-        "description": "提供用户投注历史的URL。\n 链接屏幕显示游戏名称，下注日期，下注金额，派彩金额，牌局号，会员下注类型（文字+图标）和牌局结果类型（文字+图标）。 与eBET后台投注详情相同。\n\n URL path 的規則:\n 1.细单页面连结\n 2.用户名称(userName)\n 3.渠道ID(channelId)\n 4.牌局号(roundCode)\n 5.語系(lang)\n 6.加入display=1可以关闭有效投注栏位\n 7.签名signature (需由渠道用GET method自行添加上去)\n 产生的规则为 RSA (channelId+username+roundCode+lang)",
+        "description": "提供用户投注历史的URL。\n 链接屏幕显示游戏名称，下注日期，下注金额，派彩金额，牌局号，会员下注类型（文字+图标）和牌局结果类型（文字+图标）。 与eBET后台投注详情相同。\n\n URL path 的規則:\n 1.细单页面连结\n 2.用户名称(userName)\n 3.渠道ID(channelId)\n 4.牌局号(roundCode)\n 5.語系(lang)\n 6.加入display=1可以关闭有效投注栏位\n 7.签名signature (需由渠道用GET method自行添加上去)\n 产生的规则为 RSA (channelId+username+roundCode+lang) \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userBetTracer\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "userBetTracer",
         "consumes": [
           "application/json"
@@ -1718,7 +1718,7 @@
           "通用API"
         ],
         "summary": "用户交易记录",
-        "description": "此api用于查询一段时间内登录用户的当前金额。\n Note: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)",
+        "description": "此api用于查询一段时间内登录用户的当前金额。\n Note: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize) \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/usertransaction\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "usertransaction",
         "consumes": [
           "application/json"
@@ -1832,7 +1832,7 @@
           "通用API"
         ],
         "summary": "用户摘要",
-        "description": "此api是查询时间段内的总计报告。\n Note 1: 仅记录成功投注和成功派彩的记录。\n 预设时间段是当天。\n Note 2: totalBalance = totalPayout - (totalBet + totalWithholding)",
+        "description": "此api是查询时间段内的总计报告。\n Note 1: 仅记录成功投注和成功派彩的记录。\n 预设时间段是当天。\n Note 2: totalBalance = totalPayout - (totalBet + totalWithholding) \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbetsummary\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "userbetsummary",
         "consumes": [
           "application/json"
@@ -1927,7 +1927,7 @@
           "通用API"
         ],
         "summary": "总用户摘要",
-        "description": "查询用户投注历史",
+        "description": "查询用户投注历史 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/totaluserbetsummary\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "totaluserbetsummary",
         "consumes": [
           "application/json"
@@ -2036,7 +2036,7 @@
           "通用API"
         ],
         "summary": "登出",
-        "description": "为让玩家离开ebet游戏。\n Note: 必须在eBET后台启用相关功能才能使用。",
+        "description": "为让玩家离开ebet游戏。\n Note: 必须在eBET后台启用相关功能才能使用。 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/logout\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "logout",
         "consumes": [
           "application/json"
@@ -2082,7 +2082,7 @@
           "通用API"
         ],
         "summary": "登入老虎机游戏",
-        "description": "获取链接以直接登录到老虎机游戏。\n Note: 使用此方法仍会发送验证登录请求。 只有成功验证后，才会提供登录链接。",
+        "description": "获取链接以直接登录到老虎机游戏。\n Note: 使用此方法仍会发送验证登录请求。 只有成功验证后，才会提供登录链接。 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/loginslot\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "logslot",
         "consumes": [
           "application/json"
@@ -2134,7 +2134,7 @@
           "通用API"
         ],
         "summary": "老虎机游戏清单",
-        "description": "获取老虎机游戏列表。",
+        "description": "获取老虎机游戏列表。 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/SlotGameList\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "slotgamelist",
         "consumes": [
           "application/json"
@@ -2215,7 +2215,7 @@
           "通用API"
         ],
         "summary": "此 api 为取得直接登入迷你游戏的连结",
-        "description": "使用此方式仍会发送验证登入请求，验证成功才提供登入连结。",
+        "description": "使用此方式仍会发送验证登入请求，验证成功才提供登入连结。 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/loginTableGame\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "loginTableGame",
         "consumes": [
           "application/json"
@@ -2267,7 +2267,7 @@
           "通用API"
         ],
         "summary": "登入通知",
-        "description": "如果渠道不想通过 eBET 界面登录，则渠道可以使用自己的登录界面。\n 渠道在验证玩家后必须请求该API 通知eBET让玩家登录游戏。\n 注：渠道需提供登录界面链接，由我方后台设置开启。",
+        "description": "如果渠道不想通过 eBET 界面登录，则渠道可以使用自己的登录界面。\n 渠道在验证玩家后必须请求该API 通知eBET让玩家登录游戏。\n 注：渠道需提供登录界面链接，由我方后台设置开启。 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/callback\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "callback",
         "consumes": [
           "application/json"
