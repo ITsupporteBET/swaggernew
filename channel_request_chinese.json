@@ -419,8 +419,8 @@
         "tags": [
           "通用API"
         ],
-        "summary": "创建用户 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/syncuser\" target=\"_blank\">请求&回应范例</a>",
-        "description": "创建新用户",
+        "summary": "创建用户",
+        "description": "创建新用户 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/syncuser\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "syncuser",
         "consumes": [
           "application/json"
