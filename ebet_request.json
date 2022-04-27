@@ -1102,7 +1102,7 @@
             51,
             null
           ],
-          "description": "The flop result. Baccarat, Dragon Tiger query card code",
+          "description": "The flop result. \n Baccarat:  A group of 3 cards, The order is the Player first and then the Banker. If the third card does not need to be handed out, will be replaced by null. \n Dragon Tiger:  A group of 2 cards,  The order is the Dragon first and then the Tiger. \n Bull Bull:  A group of 5 cards, The order is the Banker first and then the Player1, Player2, Player3. \n Please refer to the <a href=\"http://ebetapi.oplive.info/swaggernew/game_related_instructions.html\" target=\"_blank\">bet code</a>",
           "items": {
             "type": "integer"
           }
