@@ -28,6 +28,22 @@ const up_his = [
     Single wallet: Add API "userbethistory" new response parameter <br>
     Transfer Wallet:Add API "userbethistory" new response parameter <br>
     `
+}, {
+    update_time: "2022/APR/20",
+    update_member: "leo",
+    update_description: `
+    Affected API:<br>
+    Single wallet: Add “increaseCredit" new parameter when payout(type=2) request<br>
+    API > increaseCredit > detail > betList > validBet<br>
+    Transfer Wallet: No affect<br>
+    `
+}, {
+    update_time: "2022/FEB/17",
+    update_member: "leo",
+    update_description: `
+    Single wallet: Add “increaseCredit" new parameter for Mini-game<br>
+    Transfer Wallet: No affect<br>
+    `
 },{
     update_time: "2020/Feb/20",
     update_member: "leo",
@@ -226,22 +242,6 @@ const up_his = [
     Update “userbetsummary" new response parameter "totalBalance"<br>
     Add new api "launchUrl" for channel request<br>
     `
-}, {
-    update_time: "2022/FEB/17",
-    update_member: "leo",
-    update_description: `
-    Single wallet: Add “increaseCredit" new parameter for Mini-game<br>
-    Transfer Wallet: No affect<br>
-    `
-}, {
-    update_time: "2022/APR/20",
-    update_member: "leo",
-    update_description: `
-    Affected API:<br>
-    Single wallet: Add “increaseCredit" new parameter when payout(type=2) request<br>
-    API > increaseCredit > detail > betList > validBet<br>
-    Transfer Wallet: No affect<br>
-    `
 }
 ]
 
@@ -261,6 +261,21 @@ const up_his_cn = [
         userbethistory<br>
         userbethistory > API Response > betHistories > oddsMap <br>
         单钱包/转帐钱包：userbethistory新增回传参数<br>
+        `
+    }, {
+        update_time: "2022/APR/20",
+        update_member: "leo",
+        update_description: `
+        API：<br>
+        单钱包:eBET请求API "increaseCredit" 派彩请求(type=2)新增相关参数<br>
+        API > increaseCredit > detail > betList > validBet<br>
+        转帐钱包：无影响<br>
+        `
+    }, {
+        update_time: "2022/MAR/17",
+        update_member: "leo",
+        update_description: `
+        共同API：渠道请求API "launchUrl" 更新回传相关参数 : launchUrl<br>
         `
     },{
         update_time: "2020/Feb/27",
@@ -482,21 +497,6 @@ const up_his_cn = [
         update_member: "leo",
         update_description: `
         单钱包:eBET请求API "increaseCredit" 迷你游戏新增相关参数<br>
-        转帐钱包：无影响<br>
-        `
-    }, {
-        update_time: "2022/MAR/17",
-        update_member: "leo",
-        update_description: `
-        共同API：渠道请求API "launchUrl" 更新回传相关参数 : launchUrl<br>
-        `
-    }, {
-        update_time: "2022/APR/20",
-        update_member: "leo",
-        update_description: `
-        API：<br>
-        单钱包:eBET请求API "increaseCredit" 派彩请求(type=2)新增相关参数<br>
-        API > increaseCredit > detail > betList > validBet<br>
         转帐钱包：无影响<br>
         `
     }
