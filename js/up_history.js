@@ -17,16 +17,16 @@ const up_his = [
     update_time: "2022/MAY/05",
     update_member: "leo",
     update_description: `
-    Affected API:  <br>
+    Affected API: <br>
     increaseCredit
-    Address: API Request > increaseCredit > detail > betList > odds<br>
-    Single wallet: Update “increaseCredit" new parameter when payout(type=2) request description<br>
+    Address: increaseCredit > API Request > detail > betList > odds <br>
+    Single wallet: Update API “increaseCredit" parameter when payout(type=2) request description<br>
     Transfer Wallet: No affect<br>
     <br>
     userbethistory<br>
-    Address: API Response > > > > <br>
-    <br>
-    <br>
+    Address: userbethistory > API Response > betHistories > oddsMap <br>
+    Single wallet: Add API "userbethistory" new response parameter <br>
+    Transfer Wallet:Add API "userbethistory" new response parameter <br>
     `
 },{
     update_time: "2020/Feb/20",
@@ -249,6 +249,20 @@ const up_his = [
 const up_his_cn = [
 
     {
+        update_time: "2022/MAY/05",
+        update_member: "leo",
+        update_description: `
+        API：<br>
+        increaseCredit<br>
+        increaseCredit > API Request > detail > betList > odds <br>
+        单钱包：eBET请求API "increaseCredit" 派彩请求(type=2)更新参数说明<br>
+        转帐钱包：无影响<br>
+        <br>
+        userbethistory<br>
+        userbethistory > API Response > betHistories > oddsMap <br>
+        单钱包/转帐钱包：userbethistory新增回传参数<br>
+        `
+    },{
         update_time: "2020/Feb/27",
         update_member: "leo",
         update_description: `

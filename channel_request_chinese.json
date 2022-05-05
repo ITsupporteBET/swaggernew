@@ -4365,7 +4365,7 @@
         "bet item code": {
           "type": "number",
           "format": "double",
-          "example": 20.0
+          "example": "\"406\": 520000"
         }
       },
       "description": "每个投注项目的派彩金额。\n 骰宝的155.156后面会带开出的骰子点数，例如\"155:1,1,6\": 100.\n 轮盘名称后面会携带该局的点数或betTypeInterval的參數，例如\"200:17\": 3600, \"207:1\": 300, \"201:14,17\": 1800"
@@ -4423,7 +4423,7 @@
         "bet item code": {
           "type": "number",
           "format": "double",
-          "example": 0.75
+          "example": "\"407\":0.75"
         }
       },
       "description": "赔率。 \n Noted: \n 1.支援所有游戏除了老虎机 \n 2.仅派彩成功有此参数 \n 3.赔率不含投注额"
