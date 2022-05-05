@@ -2573,6 +2573,12 @@
             "type": "integer"
           }
         },
+        "oddsMap": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/betHistories_oddsMap"
+          }
+        },
         "surrender": {
           "type": "integer",
           "description": "Surrender payout(Only Black Jack payout has this parameter.)"
@@ -4434,6 +4440,17 @@
         }
       },
       "description": "Only Bull Bull. Bull Bull's withholding details."
+    },
+    "betHistories_oddsMap": {
+      "type": "object",
+      "properties": {
+        "bet item code": {
+          "type": "number",
+          "format": "double",
+          "example": 0.75
+        }
+      },
+      "description": "Odds. \n Noted: \n 1.Supports all games except slot machines. \n 2.Only when payout success round. \n 3.Odds do not include bet."
     }
   }
 }

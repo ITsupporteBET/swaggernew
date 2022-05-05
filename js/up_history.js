@@ -12,7 +12,23 @@ if (window.localStorage.getItem('lang') == "cn") {
         });
     });
 }
-const up_his = [{
+const up_his = [
+    {
+    update_time: "2022/MAY/05",
+    update_member: "leo",
+    update_description: `
+    Affected API:  <br>
+    increaseCredit
+    Address: API Request > increaseCredit > detail > betList > odds<br>
+    Single wallet: Update “increaseCredit" new parameter when payout(type=2) request description<br>
+    Transfer Wallet: No affect<br>
+    <br>
+    userbethistory<br>
+    Address: API Response > > > > <br>
+    <br>
+    <br>
+    `
+},{
     update_time: "2020/Feb/20",
     update_member: "leo",
     update_description: `

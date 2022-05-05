@@ -1038,7 +1038,7 @@
           "type": "number",
           "format": "double",
           "example": 1.2345,
-          "description": " <div id=\"odds\">Odds.</div> \n Noted: \n 1.Supports all games except slot machines. \n 2.Only when payout (type:2). \n 3.Odds do not include stake."
+          "description": "Odds. \n Noted: \n 1.Supports all games except slot machines. \n 2.Only when payout (type:2). \n 3.Odds do not include bet."
         },
         "validBet": {
           "type": "number",

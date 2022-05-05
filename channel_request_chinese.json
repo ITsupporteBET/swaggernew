@@ -2576,6 +2576,12 @@
             "type": "integer"
           }
         },
+        "oddsMap": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/betHistories_oddsMap"
+          }
+        },
         "surrender": {
           "type": "integer",
           "description": "投降派彩(只有21点才會有此参数)"
@@ -4410,6 +4416,17 @@
         }
       },
       "description": "只有牛牛。牛牛的预扣细节。"
+    },
+    "betHistories_oddsMap": {
+      "type": "object",
+      "properties": {
+        "bet item code": {
+          "type": "number",
+          "format": "double",
+          "example": 0.75
+        }
+      },
+      "description": "赔率。 \n Noted: \n 1.支援所有游戏除了老虎机 \n 2.仅派彩成功有此参数 \n 3.赔率不含投注额"
     }
   }
 }
