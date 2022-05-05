@@ -4389,7 +4389,7 @@
         "bet item code": {
           "type": "number",
           "format": "double",
-          "example": 20.0
+          "example": "\"406\": 520000"
         }
       },
       "description": "Payout amount for each bet item.\n Sic Bo's 155.156 will be followed by the number of open dice points, for example \"155: 1,1,6\": 100.\n Betting items on the roulette are followed by points or betTypeInterval codes, such as \"200: 17\": 3600, \"207: 1\": 300, \"201: 14,17\": 1800."
@@ -4447,7 +4447,7 @@
         "bet item code": {
           "type": "number",
           "format": "double",
-          "example": 0.75
+          "example": "\"407\":0.75"
         }
       },
       "description": "Odds. \n Noted: \n 1.Supports all games except slot machines. \n 2.Only when payout success round. \n 3.Odds do not include bet."
