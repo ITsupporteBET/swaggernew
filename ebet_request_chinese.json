@@ -1052,7 +1052,7 @@
           "type": "number",
           "format": "double",
           "example": 1.2345,
-          "description": "<div id=\"odds\">赔率。</div> \n Noted: \n 1.支援所有游戏除了老虎机 \n 2.仅派彩成功(type:2)有此参数 \n 3.赔率不含投注额"
+          "description": "赔率。 \n Noted: \n 1.支援所有游戏除了老虎机 \n 2.仅派彩成功(type:2)有此参数 \n 3.赔率不含投注额"
         },
         "validBet": {
           "type": "number",
