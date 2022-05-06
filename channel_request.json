@@ -4445,7 +4445,7 @@
       "type": "object",
       "properties": {
         "bet item code": {
-          "type": "number",
+          "type": "object",
           "format": "double",
           "example": "\"407\":0.75"
         }
