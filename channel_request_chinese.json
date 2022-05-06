@@ -4362,10 +4362,10 @@
     "betHistories_payoutDetail": {
       "type": "object",
       "properties": {
-        "bet item code": {
+        "406": {
           "type": "number",
           "format": "double",
-          "example": "\"406\": 520000"
+          "example": "520000"
         }
       },
       "description": "每个投注项目的派彩金额。\n 骰宝的155.156后面会带开出的骰子点数，例如\"155:1,1,6\": 100.\n 轮盘名称后面会携带该局的点数或betTypeInterval的參數，例如\"200:17\": 3600, \"207:1\": 300, \"201:14,17\": 1800"
