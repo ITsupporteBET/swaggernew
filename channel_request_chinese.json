@@ -2398,6 +2398,70 @@
           }
         }
       }
+    },
+    "/api/getroomlist": {
+      "post": {
+        "tags": [
+          "通用API"
+        ],
+        "summary": "获得最新桌台资讯",
+        "description": "该 API 目的是让伙伴获得最新桌台资讯。",
+        "operationId": "getroomlist",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_21"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": [
+              ],
+              "properties": {
+                "count": {
+                  "$ref": "#/definitions/count"
+                },
+                "tableCodes": {
+                  "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "tableCode": {
+                          "$ref": "#/definitions/tableCode"
+                        },
+                        "tableType": {
+                          "$ref": "#/definitions/tableType"
+                        },
+                        "tableSubType": {
+                          "$ref": "#/definitions/tableSubType"
+                        }
+                      }
+                    }
+                },
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -2511,6 +2575,11 @@
         }
       },
       "description": "每个钱包的余额。"
+    },
+    "tableCode": {
+      "type": "string",
+      "example": "B1",
+      "description": "游戏桌号码"
     },
     "betHistories": {
       "type": "object",
@@ -4356,6 +4425,26 @@
           "type": "integer",
           "example": 1,
           "description": "判断提供游戏的地区。不加此参数则根据货币判断提供游戏的地区。\n 1: 中国加速域名"
+        }
+      }
+    },
+    "body_21": {
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp"
+      ],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名 字串拼接 :channelId+timestamp"
         }
       }
     },
