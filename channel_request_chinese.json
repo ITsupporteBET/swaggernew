@@ -2420,7 +2420,7 @@
             "description": "Request",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/body_21"
+              "$ref": "#/definitions/body_getroomlist"
             }
           }
         ],
@@ -2450,7 +2450,7 @@
                         },
                         "isMaintain": {
                           "type": "integer",
-                          "description": "游戏桌状态。 \n 0:正常 \n 1:维护",
+                          "description": "游戏桌状态。 \n 0:开放中 \n 1:维护中",
                           "example": 0
                         }
                       }
@@ -4433,7 +4433,7 @@
         }
       }
     },
-    "body_21": {
+    "body_getroomlist": {
       "required": [
         "channelId",
         "signature",

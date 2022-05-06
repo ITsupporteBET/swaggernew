@@ -2396,6 +2396,75 @@
           }
         }
       }
+    },
+    "/api/getroomlist": {
+      "post": {
+        "tags": [
+          "Common API"
+        ],
+        "summary": "Get the latest table information.",
+        "description": "The purpose of this API is to let partners get the latest table information.",
+        "operationId": "getroomlist",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_getroomlist"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": [
+              ],
+              "properties": {
+                "count": {
+                  "$ref": "#/definitions/count"
+                },
+                "tableCodes": {
+                  "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "tableCode": {
+                          "$ref": "#/definitions/tableCode"
+                        },
+                        "tableType": {
+                          "$ref": "#/definitions/tableType"
+                        },
+                        "tableSubType": {
+                          "$ref": "#/definitions/tableSubType"
+                        },
+                        "isMaintain": {
+                          "type": "integer",
+                          "description": "Table status. \n 0:Open \n 1:Close",
+                          "example": 0
+                        }
+                      }
+                    }
+                },
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -4383,6 +4452,26 @@
         }
       }
     },
+    "body_getroomlist": {
+      "required": [
+        "channelId",
+        "signature",
+        "timestamp"
+      ],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "Signature. String splicing: channelId+timestamp"
+        }
+      }
+    },
     "betHistories_payoutDetail": {
       "type": "object",
       "properties": {
@@ -4447,22 +4536,22 @@
         "401": {
           "type": "number",
           "format": "double",
-          "description": "2"
+          "example": "2"
         },
         "403": {
           "type": "number",
           "format": "double",
-          "description": "10"
+          "example": "10"
         },
         "406": {
           "type": "number",
           "format": "double",
-          "description": "25"
+          "example": "25"
         },
         "407": {
           "type": "number",
           "format": "double",
-          "description": "0.75"
+          "example": "0.75"
         }
       },
       "description": "Odds. \n Noted: \n 1.Supports all games except slot machines. \n 2.Only when payout success round. \n 3.Odds do not include bet."
