@@ -4517,22 +4517,22 @@
         "401": {
           "type": "number",
           "format": "double",
-          "description": "2"
+          "example": "2"
         },
         "403": {
           "type": "number",
           "format": "double",
-          "description": "10"
+          "example": "10"
         },
         "406": {
           "type": "number",
           "format": "double",
-          "description": "25"
+          "example": "25"
         },
         "407": {
           "type": "number",
           "format": "double",
-          "description": "0.75"
+          "example": "0.75"
         }
       },
       "description": "赔率。 \n Noted: \n 1.支援所有游戏除了老虎机 \n 2.仅派彩成功有此参数 \n 3.赔率不含投注额"
