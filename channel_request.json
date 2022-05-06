@@ -4386,10 +4386,10 @@
     "betHistories_payoutDetail": {
       "type": "object",
       "properties": {
-        "bet item code": {
+        "406": {
           "type": "number",
           "format": "double",
-          "example": "\"406\": 520000"
+          "example": "520000"
         }
       },
       "description": "Payout amount for each bet item.\n Sic Bo's 155.156 will be followed by the number of open dice points, for example \"155: 1,1,6\": 100.\n Betting items on the roulette are followed by points or betTypeInterval codes, such as \"200: 17\": 3600, \"207: 1\": 300, \"201: 14,17\": 1800."
@@ -4444,10 +4444,25 @@
     "betHistories_oddsMap": {
       "type": "object",
       "properties": {
-        "bet item code": {
-          "type": "object",
+        "401": {
+          "type": "number",
           "format": "double",
-          "example": "\"407\":0.75"
+          "description": "2"
+        },
+        "403": {
+          "type": "number",
+          "format": "double",
+          "description": "10"
+        },
+        "406": {
+          "type": "number",
+          "format": "double",
+          "description": "25"
+        },
+        "407": {
+          "type": "number",
+          "format": "double",
+          "description": "0.75"
         }
       },
       "description": "Odds. \n Noted: \n 1.Supports all games except slot machines. \n 2.Only when payout success round. \n 3.Odds do not include bet."
