@@ -4423,7 +4423,7 @@
         "bet item code": {
           "type": "number",
           "format": "double",
-          "example": "\"401\": 2, \n \"403\": 10, \n \"406\": 25, \n \"407\":0.75"
+          "example": "\"407\":0.75"
         }
       },
       "description": "赔率。 \n Noted: \n 1.支援所有游戏除了老虎机 \n 2.仅派彩成功有此参数 \n 3.赔率不含投注额"

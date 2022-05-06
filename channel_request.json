@@ -4447,7 +4447,7 @@
         "bet item code": {
           "type": "object",
           "format": "double",
-          "example": "\"401\": 2, \n \"403\": 10, \n \"406\": 25, \n \"407\":0.75"
+          "example": "\"407\":0.75"
         }
       },
       "description": "Odds. \n Noted: \n 1.Supports all games except slot machines. \n 2.Only when payout success round. \n 3.Odds do not include bet."
