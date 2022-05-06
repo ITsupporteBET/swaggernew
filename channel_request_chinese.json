@@ -2447,6 +2447,11 @@
                         },
                         "tableSubType": {
                           "$ref": "#/definitions/tableSubType"
+                        },
+                        "isMaintain": {
+                          "type": "integer",
+                          "description": "游戏桌状态。 \n 0:正常 \n 1:维护",
+                          "example": 0
                         }
                       }
                     }
