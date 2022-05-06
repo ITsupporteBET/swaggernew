@@ -48,6 +48,10 @@
             <td class=\"tg-0pky\">&nbsp;渠道服务器在维护中</td>\n
         </tr>\n
         <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>1003</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;余额不足</td>\n
+        </tr>\n
+        <tr>\n
             <td class=\"tg-0pky\">&nbsp;<code>4003</code></td>\n
             <td class=\"tg-0pky\">&nbsp;系统繁忙，请稍后再试</td>\n
         </tr>\n

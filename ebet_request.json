@@ -48,6 +48,10 @@
             <td class=\"tg-0pky\">&nbsp;Channel under maintenance</td>\n
         </tr>\n
         <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>1003</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;Not enough balance</td>\n
+        </tr>\n
+        <tr>\n
             <td class=\"tg-0pky\">&nbsp;<code>4003</code></td>\n
             <td class=\"tg-0pky\">&nbsp;System busy, try back later</td>\n
         </tr>\n
