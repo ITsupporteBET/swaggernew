@@ -136,6 +136,10 @@
             <td class=\"tg-0pky\">&nbsp;<code>5010</code></td>\n
             <td class=\"tg-0pky\">&nbsp;Channel currency request parameter not apply for the channel setting</td>\n
         </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5011</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;This account is frozen and this action cannot be performed</td>\n
+        </tr>\n
     </table>\n",
     "version": "1.0.0",
     "title": "Channel request"

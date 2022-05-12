@@ -135,6 +135,10 @@
             <td class=\"tg-0pky\">&nbsp;<code>5010</code></td>\n
             <td class=\"tg-0pky\">&nbsp;渠道请求非该渠道申请币种</td>\n
         </tr>\n
+        <tr>\n
+            <td class=\"tg-0pky\">&nbsp;<code>5011</code></td>\n
+            <td class=\"tg-0pky\">&nbsp;这个帐号被冻结，无法进行此操作</td>\n
+        </tr>\n
     </table>\n",
     "version": "1.0.0",
     "title": "Channel request"
