@@ -2601,7 +2601,7 @@
         },
         "gameName": {
           "type": "string",
-          "description": "游戏名称。\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune-wheel\n black-jack-electronic\n black-jack-live\n mini-game",
+          "description": "游戏名称。\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot(显示游戏的gameID)\n bull-bull\n fortune-wheel\n black-jack-electronic\n black-jack-live\n mini-game(显示游戏的gameID)",
           "enum": [
             "baccarat",
             "dragon-tiger",
