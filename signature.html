@@ -140,6 +140,27 @@
             </span>
             </div>
 
+            <h2 id="nodejsrsa_title">Node.js RSA 实现方法</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#nodejsrsa">Node.js RSA 实现方法</button>
+            <div id="nodejsrsa" class="collapse">
+            <span class="code" id="nodejsrsa_text">
+                    //私钥匙加密<br>
+                    const crypto = require('crypto');<br>
+                    function sign( privateKey, validStr ) {<br>
+                      let signer = crypto.createSign('md5');<br>
+                      signer.update(validStr);<br>
+                      return signer.sign(privateKey, 'base64');<br>
+                    }<br>
+                    //公钥匙验证<br>
+                    const crypto = require('crypto');<br>
+                    function verify( publicKey, validStr, signature){<br>
+                      let verify = crypto.createVerify('md5');<br>
+                      verify.update(validStr);<br>
+                      return verify.verify(publicKey, signature, 'base64');<br>
+                    }
+            </span>
+            </div>
+
             `;
     } else {
         web_context.innerHTML = `
@@ -229,6 +250,27 @@
                     $rsa→setSignatureMode(CRYPT_RSA_SIGNATURE_PKCS1);<br>
                     $rsa→setHash("md5");<br>
                     echo $rsa->verify($plaintext, base64_decode($signature)) ? 'verified' : 'unverified';<br>
+            </span>
+            </div>
+            
+            <h2 id="nodejsrsa_title">Node.js user authentication web api</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#nodejsrsa">Node.js user authentication web api</button>
+            <div id="nodejsrsa" class="collapse">
+            <span class="code" id="nodejsrsa_text">
+                    // private Key encrypt<br>
+                    const crypto = require('crypto');<br>
+                    function sign( privateKey, validStr ) {<br>
+                      let signer = crypto.createSign('md5');<br>
+                      signer.update(validStr);<br>
+                      return signer.sign(privateKey, 'base64');<br>
+                    }<br>
+                    // public Key verify<br>
+                    const crypto = require('crypto');<br>
+                    function verify( publicKey, validStr, signature){<br>
+                      let verify = crypto.createVerify('md5');<br>
+                      verify.update(validStr);<br>
+                      return verify.verify(publicKey, signature, 'base64');<br>
+                    }
             </span>
             </div>
             `;
