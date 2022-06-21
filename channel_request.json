@@ -550,7 +550,7 @@
           "Common API"
         ],
         "summary": "userbethistory",
-        "description": "This API is for querying bets recorded in a specific time period.\n Note 1: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: Please bring the following parameters **betStatus:1** query only successful records.\n Note 3: Please refer to niuniuWithHoldingTotal for BullBull game withholding. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbethistory\" target=\"_blank\">Demo request & response</a>",
+        "description": "This API is for querying bets recorded in a specific time period.\n Note 1: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: Please bring the following parameters **betStatus:1** query only successful records.\n Note 3: Please refer to withHoldingTotal for BullBull game withholding. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbethistory\" target=\"_blank\">Demo request & response</a>",
         "operationId": "userbethistory",
         "consumes": [
           "application/json"
@@ -2715,15 +2715,15 @@
             "$ref": "#/definitions/betHistories_niuniuResult"
           }
         },
-        "niuniuWithHoldingTotal": {
+        "withHoldingTotal": {
           "type": "number",
           "format": "double",
           "description": "Only Bull Bull. Bull Bull's total withholding amount."
         },
-        "niuniuWithHoldingDetail": {
+        "withHoldingDetail": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/betHistories_niuniuWithHoldingDetail"
+            "$ref": "#/definitions/betHistories_withHoldingDetail"
           }
         },
         "maxPayout": {
@@ -2734,7 +2734,7 @@
         "payoutWithoutholding": {
           "type": "number",
           "format": "double",
-          "description": "Exclude withholding total payout amount.\n If there is no withholding amount, the parameter value will be the same as payout.\n If there is a withholding amount, the calculation formula is payout-niuniuWithholdingtotal. If the parameter value is greater than 0, the player wins, and if it is 0, the player loses money."
+          "description": "Exclude withholding total payout amount.\n If there is no withholding amount, the parameter value will be the same as payout.\n If there is a withholding amount, the calculation formula is payout-withholdingtotal. If the parameter value is greater than 0, the player wins, and if it is 0, the player loses money."
         },
         "createTime": {
           "type": "integer",
@@ -4513,7 +4513,7 @@
       },
       "description": "Only Bull Bull. Bull Bull's results record."
     },
-    "betHistories_niuniuWithHoldingDetail": {
+    "betHistories_withHoldingDetail": {
       "type": "object",
       "properties": {
         "302": {

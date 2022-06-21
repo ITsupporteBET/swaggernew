@@ -552,7 +552,7 @@
           "通用API"
         ],
         "summary": "用户投注记录",
-        "description": "该API用于查询在特定时间段内记录的投注。\n Note 1: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: 请带以下参数 betStatus:1 以查询成功的记录\n Note 3: 牛牛游戏预扣请参考niuniuWithHoldingTotal \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbethistory\" target=\"_blank\">请求&回应范例</a>",
+        "description": "该API用于查询在特定时间段内记录的投注。\n Note 1: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: 请带以下参数 betStatus:1 以查询成功的记录\n Note 3: 牛牛游戏预扣请参考withHoldingTotal \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbethistory\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "userbethistory",
         "consumes": [
           "application/json"
@@ -2723,15 +2723,15 @@
             "$ref": "#/definitions/betHistories_niuniuResult"
           }
         },
-        "niuniuWithHoldingTotal": {
+        "withHoldingTotal": {
           "type": "number",
           "format": "double",
           "description": "只有牛牛。 牛牛的预扣总额。"
         },
-        "niuniuWithHoldingDetail": {
+        "withHoldingDetail": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/betHistories_niuniuWithHoldingDetail"
+            "$ref": "#/definitions/betHistories_withHoldingDetail"
           }
         },
         "maxPayout": {
@@ -2742,7 +2742,7 @@
         "payoutWithoutholding": {
           "type": "number",
           "format": "double",
-          "description": "纯派彩总额。\n 如果没有预扣金额，则参数值将与派彩相同。\n 如果有预扣金额，则计算公式为payout-niuniuWithholdingtotal。 如果参数值大于0，则玩家获胜；如果参数值等于0是玩家输钱。"
+          "description": "纯派彩总额。\n 如果没有预扣金额，则参数值将与派彩相同。\n 如果有预扣金额，则计算公式为payout-withholdingtotal。 如果参数值大于0，则玩家获胜；如果参数值等于0是玩家输钱。"
         },
         "createTime": {
           "type": "integer",
@@ -4494,7 +4494,7 @@
       },
       "description": "只有牛牛。牛牛的结果记录。"
     },
-    "betHistories_niuniuWithHoldingDetail": {
+    "betHistories_withHoldingDetail": {
       "type": "object",
       "properties": {
         "302": {
