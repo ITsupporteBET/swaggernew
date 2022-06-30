@@ -14,6 +14,28 @@ if (window.localStorage.getItem('lang') == "cn") {
 }
 const up_his = [
     {
+        update_time: "2022/Jun/29",
+        update_member: "leo",
+        update_description: `
+        Affected API: <br>
+        userbethistory
+        Address: userbethistory >> API Responses >> "betHistories" >> "niuniuWithHoldingTotal" and "niuniuWithHoldingDetail" <br>
+        Both Single Wallet and Transfer Wallet require changing the parameter, please see the changes below. <br>
+        Single wallet/Transfer Wallet:
+        "niuniuWithHoldingTotal" => "withHoldingTotal" <br>
+        "niuniuWithHoldingDetail" => "withHoldingDetail" <br>
+        `
+    },{
+        update_time: "2022/MAY/18",
+        update_member: "leo",
+        update_description: `
+        API：<br>
+        getroomlist<br>
+        eBET partners will be able to get the TableList & TableStatus that you using at any time.<br>
+        <br>
+        Single wallet/Transfer Wallet: No affect<br>
+        `
+    },{
     update_time: "2022/MAY/05",
     update_member: "leo",
     update_description: `
@@ -247,8 +269,28 @@ const up_his = [
 
 
 const up_his_cn = [
-
     {
+        update_time: "2022/Jun/29",
+        update_member: "leo",
+        update_description: `
+        API: <br>
+        userbethistory <br>
+        userbethistory >> API Responses >> "betHistories" >> "niuniuWithHoldingTotal" & "niuniuWithHoldingDetail" <br>
+        对于单钱包及转账钱包：eBET Responses 變更参数名稱 <br>
+        "niuniuWithHoldingTotal" => "withHoldingTotal" <br>
+        "niuniuWithHoldingDetail" => "withHoldingDetail" <br>
+        `
+    },{
+        update_time: "2022/MAY/18",
+        update_member: "leo",
+        update_description: `
+        API：<br>
+        getroomlist<br>
+        易博将添加一项全新 API"getroomlist"，合作伙伴们将可随时获取您正使用中的桌台清单及状态。<br>
+        <br>
+        单钱包/转帐钱包：不受影响<br>
+        `
+    },{
         update_time: "2022/MAY/05",
         update_member: "leo",
         update_description: `
