@@ -14,6 +14,12 @@ if (window.localStorage.getItem('lang') == "cn") {
 }
 const up_his = [
     {
+        update_time: "2022/Jul/12",
+        update_member: "leo",
+        update_description: `
+        Add relevant API descriptions for Pok Deng<br>
+        `
+    },{
         update_time: "2022/Jun/29",
         update_member: "leo",
         update_description: `
@@ -270,6 +276,12 @@ const up_his = [
 
 const up_his_cn = [
     {
+        update_time: "2022/Jul/12",
+        update_member: "leo",
+        update_description: `
+        增加游戏 博丁的相关说明<br>
+        `
+    },{
         update_time: "2022/Jun/29",
         update_member: "leo",
         update_description: `
