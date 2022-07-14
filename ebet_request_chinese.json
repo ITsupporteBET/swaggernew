@@ -1120,7 +1120,7 @@
             51,
             null
           ],
-          "description": "荷官开牌结果。 \n百家乐：牌面3个一组，顺序为闲/庄，没发的牌面会以null代替 \n龙虎：牌面2个，顺序为龙/虎 \n牛牛：牌面5个一组，顺序为庄/闲1/闲2/闲3 \n请参考<a href=\"http://ebetapi.oplive.info/swaggernew/game_related_instructions.html\" target=\"_blank\">牌面代码</a>",
+          "description": "荷官开牌结果。 \n百家乐：牌面3个一组，顺序为闲/庄，没发的牌面会以null代替 \n龙虎：牌面2个，顺序为龙/虎 \n牛牛：牌面5个一组，顺序为庄/闲1/闲2/闲3 \n博丁：牌面2个一组，顺序为庄/闲1/闲2/闲3/闲4/闲5 \n请参考<a href=\"http://ebetapi.oplive.info/swaggernew/game_related_instructions.html\" target=\"_blank\">牌面代码</a>",
           "items": {
             "type": "integer"
           }
