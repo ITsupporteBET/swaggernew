@@ -1532,72 +1532,72 @@
                       "betPlayer4Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer4 minimum bet limit.\n Only pok Deng."
+                        "description": "BetPlayer4 minimum bet limit.\n Only pok deng."
                       },
                       "betPlayer4Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer4 maximum bet limit.\n Only pok Deng."
+                        "description": "BetPlayer4 maximum bet limit.\n Only pok deng."
                       },
                       "betPlayer5Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer5 minimum bet limit.\n Only pok Deng."
+                        "description": "BetPlayer5 minimum bet limit.\n Only pok deng."
                       },
                       "betPlayer5Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer5 maximum bet limit.\n Only pok Deng."
+                        "description": "BetPlayer5 maximum bet limit.\n Only pok deng."
                       },
                       "betPlayer1PairMin": {
                         "type": "number",
                         "format": "double",
-                        "description": "Player1 Pair minimum bet limit.\n Only pok Deng."
+                        "description": "Player1 Pair minimum bet limit.\n Only pok deng."
                       },
                       "betPlayer1PairMax": {
                         "type": "number",
                         "format": "double",
-                        "description": "Player1 Pair maximum bet limit.\n Only pok Deng."
+                        "description": "Player1 Pair maximum bet limit.\n Only pok deng."
                       },
                       "betPlayer2PairMin": {
                         "type": "number",
                         "format": "double",
-                        "description": "Player2 Pair minimum bet limit.\n Only pok Deng."
+                        "description": "Player2 Pair minimum bet limit.\n Only pok deng."
                       },
                       "betPlayer2PairMax": {
                         "type": "number",
                         "format": "double",
-                        "description": "Player2 Pair maximum bet limit.\n Only pok Deng."
+                        "description": "Player2 Pair maximum bet limit.\n Only pok deng."
                       },
                       "betPlayer3PairMin": {
                         "type": "number",
                         "format": "double",
-                        "description": "Player3 Pair minimum bet limit.\n Only pok Deng."
+                        "description": "Player3 Pair minimum bet limit.\n Only pok deng."
                       },
                       "betPlayer3PairMax": {
                         "type": "number",
                         "format": "double",
-                        "description": "Player3 Pair maximum bet limit.\n Only pok Deng."
+                        "description": "Player3 Pair maximum bet limit.\n Only pok deng."
                       },
                       "betPlayer4PairMin": {
                         "type": "number",
                         "format": "double",
-                        "description": "Player4 Pair minimum bet limit.\n Only pok Deng."
+                        "description": "Player4 Pair minimum bet limit.\n Only pok deng."
                       },
                       "betPlayer4PairMax": {
                         "type": "number",
                         "format": "double",
-                        "description": "Player4 Pair maximum bet limit.\n Only pok Deng."
+                        "description": "Player4 Pair maximum bet limit.\n Only pok deng."
                       },
                       "betPlayer5PairMin": {
                         "type": "number",
                         "format": "double",
-                        "description": "Player5 Pair minimum bet limit.\n Only pok Deng."
+                        "description": "Player5 Pair minimum bet limit.\n Only pok deng."
                       },
                       "betPlayer5PairMax": {
                         "type": "number",
                         "format": "double",
-                        "description": "Player5 Pair maximum bet limit.\n Only pok Deng."
+                        "description": "Player5 Pair maximum bet limit.\n Only pok deng."
                       }
                     }
                   }
@@ -4014,72 +4014,72 @@
         "betPlayer4Min": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer4 minimum bet limit.\n Only pok Deng."
+          "description": "BetPlayer4 minimum bet limit.\n Only pok deng."
         },
         "betPlayer4Max": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer4 maximum bet limit.\n Only pok Deng."
+          "description": "BetPlayer4 maximum bet limit.\n Only pok deng."
         },
         "betPlayer5Min": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer5 minimum bet limit.\n Only pok Deng."
+          "description": "BetPlayer5 minimum bet limit.\n Only pok deng."
         },
         "betPlayer5Max": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer5 maximum bet limit.\n Only pok Deng."
+          "description": "BetPlayer5 maximum bet limit.\n Only pok deng."
         },
         "betPlayer1PairMin": {
           "type": "number",
           "format": "double",
-          "description": "Player1 Pair minimum bet limit.\n Only pok Deng."
+          "description": "Player1 Pair minimum bet limit.\n Only pok deng."
         },
         "betPlayer1PairMax": {
           "type": "number",
           "format": "double",
-          "description": "Player1 Pair maximum bet limit.\n Only pok Deng."
+          "description": "Player1 Pair maximum bet limit.\n Only pok deng."
         },
         "betPlayer2PairMin": {
           "type": "number",
           "format": "double",
-          "description": "Player2 Pair minimum bet limit.\n Only pok Deng."
+          "description": "Player2 Pair minimum bet limit.\n Only pok deng."
         },
         "betPlayer2PairMax": {
           "type": "number",
           "format": "double",
-          "description": "Player2 Pair maximum bet limit.\n Only pok Deng."
+          "description": "Player2 Pair maximum bet limit.\n Only pok deng."
         },
         "betPlayer3PairMin": {
           "type": "number",
           "format": "double",
-          "description": "Player3 Pair minimum bet limit.\n Only pok Deng."
+          "description": "Player3 Pair minimum bet limit.\n Only pok deng."
         },
         "betPlayer3PairMax": {
           "type": "number",
           "format": "double",
-          "description": "Player3 Pair maximum bet limit.\n Only pok Deng."
+          "description": "Player3 Pair maximum bet limit.\n Only pok deng."
         },
         "betPlayer4PairMin": {
           "type": "number",
           "format": "double",
-          "description": "Player4 Pair minimum bet limit.\n Only pok Deng."
+          "description": "Player4 Pair minimum bet limit.\n Only pok deng."
         },
         "betPlayer4PairMax": {
           "type": "number",
           "format": "double",
-          "description": "Player4 Pair maximum bet limit.\n Only pok Deng."
+          "description": "Player4 Pair maximum bet limit.\n Only pok deng."
         },
         "betPlayer5PairMin": {
           "type": "number",
           "format": "double",
-          "description": "Player5 Pair minimum bet limit.\n Only pok Deng."
+          "description": "Player5 Pair minimum bet limit.\n Only pok deng."
         },
         "betPlayer5PairMax": {
           "type": "number",
           "format": "double",
-          "description": "Player5 Pair maximum bet limit.\n Only pok Deng."
+          "description": "Player5 Pair maximum bet limit.\n Only pok deng."
         }
       }
     },
