@@ -25,7 +25,9 @@ const tableType = [
     // { code: "22", GameType: "Lottery" },
     { code: "23",GameType: "Fortune Wheel"}, 
     { code: "24", GameType: "Black Jack" },
-    { code: "25", GameType: "Live Black Jack" }
+    { code: "25", GameType: "Live Black Jack" },
+    { code: "27", GameType: "Mini-game" },
+    { code: "29", GameType: "Pok Deng" }
 ]
 
 const tableType_cn = [
@@ -40,5 +42,7 @@ const tableType_cn = [
     // { "code": "22", "GameType": "彩票" },
     { "code": "23", "GameType": "财富大转盘" },
     { "code": "24", "GameType": "电子21点" },
-    { "code": "25", "GameType": "真人21点" }
+    { "code": "25", "GameType": "真人21点" },
+    { "code": "27", "GameType": "迷你游戏" },
+    { "code": "29", "GameType": "博丁" }
 ]

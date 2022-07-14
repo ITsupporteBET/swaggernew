@@ -1858,3 +1858,111 @@ const virtualgames_cn = [
     //{ "code": "651", "description": "电子游戏派彩无对应注别" },
     //{ "code": "652", "description": "电子游戏派彩在重覆的注別" }
 ]
+
+
+//博丁
+if (window.localStorage.getItem('lang') == "cn") {
+    $(function () {
+        $('.pokdeng').bootstrapTable({
+            data: pokdeng_cn
+        });
+    });
+} else {
+    $(function () {
+        $('.pokdeng').bootstrapTable({
+            data: pokdeng
+        });
+    });
+}
+
+const pokdeng = [{
+    betCode: "701",
+    description: "Player 1"
+},
+{
+    betCode: "702",
+    description: "Player 2"
+},
+{
+    betCode: "703",
+    description: "Player 3"
+},
+{
+    betCode: "704",
+    description: "Player 4"
+},
+{
+    betCode: "705",
+    description: "Player 5"
+},
+{
+    betCode: "721",
+    description: "Player 1 pair"
+},
+{
+    betCode: "722",
+    description: "Player 2 pair"
+},
+{
+    betCode: "723",
+    description: "Player 3 pair"
+},
+{
+    betCode: "724",
+    description: "Player 4 pair"
+},
+{
+    betCode: "725",
+    description: "Player 5 pair"
+},
+{
+    betCode: "700",
+    description: "Banker Win(only show results)"
+}
+]
+
+const pokdeng_cn = [{
+    "betCode": "701",
+    "description": "闲 1"
+},
+{
+    "betCode": "702",
+    "description": "闲 2"
+},
+{
+    "betCode": "703",
+    "description": "闲 3"
+},
+{
+    "betCode": "704",
+    "description": "闲 4"
+},
+{
+    "betCode": "705",
+    "description": "闲 5"
+},
+{
+    "betCode": "721",
+    "description": "闲 1 对"
+},
+{
+    "betCode": "722",
+    "description": "闲 2 对"
+},
+{
+    "betCode": "723",
+    "description": "闲 3 对"
+},
+{
+    "betCode": "724",
+    "description": "闲 4 对"
+},
+{
+    "betCode": "725",
+    "description": "闲 5 对"
+},
+{
+    "betCode": "700",
+    "description": "庄赢(仅提供显示结果)"
+}
+]

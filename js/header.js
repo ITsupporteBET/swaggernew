@@ -62,7 +62,10 @@ if (window.localStorage.getItem('lang') == "cn") {
                         <a class="dropdown-item" href="fortune_wheel.html" onclick="window.location.reload();">财富大转盘</a>
                         <a class="dropdown-item" href="fortune_roulette.html" onclick="window.location.reload();">财富轮盘</a>
                         <a class="dropdown-item" href="liveblackjack.html" onclick="window.location.reload();">真人21点</a>
+                        <a class="dropdown-item" href="virtual_blackjack.html" onclick="window.location.reload();">电子21点</a>
+                        <a class="dropdown-item" href="bullbull.html" onclick="window.location.reload();">牛牛</a>
                         <a class="dropdown-item" href="slot.html" onclick="window.location.reload();">Genesis老虎机</a>
+
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -156,6 +159,8 @@ if (window.localStorage.getItem('lang') == "cn") {
                         <a class="dropdown-item" href="fortune_wheel.html" onclick="window.location.reload();">Fortune Wheel</a>
                         <a class="dropdown-item" href="fortune_roulette.html" onclick="window.location.reload();">Fortune Roulette</a>
                         <a class="dropdown-item" href="liveblackjack.html" onclick="window.location.reload();">Live BlackJack </a>
+                        <a class="dropdown-item" href="virtual_blackjack.html" onclick="window.location.reload();">Virtual Blackjack</a>
+                        <a class="dropdown-item" href="bullbull.html" onclick="window.location.reload();">BullBull</a>
                         <a class="dropdown-item" href="slot.html" onclick="window.location.reload();">Genesis slot</a>
                     </div>
                 </li>
