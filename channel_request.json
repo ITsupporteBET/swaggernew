@@ -1719,7 +1719,7 @@
                 "updateGameList": {
                   "type": "integer",
                   "example": 1,
-                  "description": "Game code to update betting limit:\n 1: Baccarat - VIP table\n 2: Baccarat - Normal table\n 3:Dragon Tiger\n 4: Sic Bo\n 5: Roulette\n 6: Bull Bull\n 7: Fortune Wheel\n 8: BlackJack\n 9: Live Blackjack\n 10: Fortune Roulette"
+                  "description": "Game code to update betting limit:\n 1: Baccarat - VIP table\n 2: Baccarat - Normal table\n 3:Dragon Tiger\n 4: Sic Bo\n 5: Roulette\n 6: Bull Bull\n 7: Fortune Wheel\n 8: BlackJack\n 9: Live Blackjack\n 10: Fortune Roulette\n 11: Pok Deng"
                 }
               }
             }
@@ -3223,7 +3223,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:fortune wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 10:Fortune Roulette"
+          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:fortune wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 10:Fortune Roulette\n 11:Pok Deng"
         },
         "playerMin": {
           "type": "number",
