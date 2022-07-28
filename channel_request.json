@@ -550,7 +550,7 @@
           "Common API"
         ],
         "summary": "userbethistory",
-        "description": "This API is for querying bets recorded in a specific time period.\n Note 1: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: Please bring the following parameters **betStatus:1** query only successful records.\n Note 3: Please refer to withHoldingTotal for BullBull game withholding. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbethistory\" target=\"_blank\">Demo request & response</a>",
+        "description": "This API is for querying bets recorded in a specific time period.\n Note 1: Because the amount of data may be too large, it is recommended to bring the following parameters when requesting to reduce the query time.\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: Please bring the following parameters **betStatus:1** query only successful records.\n Note 3: Please refer to withHoldingTotal for game withholding. \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbethistory\" target=\"_blank\">Demo request & response</a>",
         "operationId": "userbethistory",
         "consumes": [
           "application/json"
@@ -2788,7 +2788,7 @@
         "withHoldingTotal": {
           "type": "number",
           "format": "double",
-          "description": "Only Bull Bull. Bull Bull's total withholding amount."
+          "description": "Total withholding amount."
         },
         "withHoldingDetail": {
           "type": "array",
