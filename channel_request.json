@@ -2659,7 +2659,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: Bull Bull\n 23:  Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game\n 29: Pok Deng"
+          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: Bull Bull\n 23:  Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game\n 29: pok-deng"
         },
         "gameName": {
           "type": "string",
