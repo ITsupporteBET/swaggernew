@@ -13,7 +13,8 @@ const gameType= [
     {code: "23",GameType: "Fortune Wheel"}, 
     {code: "24",GameType: "Virtual Blackjack"}, 
     {code: "25",GameType: "Live Black Jack"},
-    {code: "27",GameType: "Mini Game"}
+    {code: "27",GameType: "Mini Game"},
+    {code: "29",GameType: "Pok Deng"}
 ]
 
 const gameType_cn = [
@@ -31,5 +32,6 @@ const gameType_cn = [
     { "code": "23", "GameType": "财富大转盘" },
     { "code": "24", "GameType": "电子21点" },
     { "code": "25", "GameType": "真人21点" },
-    { "code": "27", "GameType": "迷你游戏" }
+    { "code": "27", "GameType": "迷你游戏" },
+    { "code": "29", "GameType": "博丁" }
 ]
