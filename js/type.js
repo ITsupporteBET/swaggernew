@@ -126,7 +126,7 @@ const type_cn = [
   { "Code": "8", "Type": "大赛报名费", "description": "大赛报名费", "Occurrence": "参加任意大赛的报名费用" },
   { "Code": "9", "Type": "大赛持有金返还", "description": "比拼大赛持有金返还", "Occurrence": "比拼模式大赛结束后返还持有金" },
   { "Code": "11", "Type": "下注错误退还", "description": "下注错误退还", "Occurrence": "在投注期间发生错误，返还已扣除的部分" },
-  { "Code": "12", "Type": "bonusWin", "description": "Jackpot獎池中獎", "Occurrence": "Jackpot獎池中注時發送(僅老虎機)" },
+  { "Code": "12", "Type": "bonusWin", "description": "Jackpot獎池中獎", "Occurrence": "Jackpot獎池中獎時發送(僅老虎機)" },
   { "Code": "14", "Type": "大赛派彩", "description": "大赛派彩（和15一起捞取）", "Occurrence": "由ebet后台发送大赛奖励" },
   { "Code": "15", "Type": "大赛奖金取回", "description": "大赛奖金取回（和14一起捞取）", "Occurrence": "若ebet后台发送大赛奖励有问题时， 使用这个事物类型取消相关奖励" },
   { "Code": "22", "Type": "下注失败退款", "description": "下注失败已经退还的纪录（仅供查询用）", "Occurrence": "渠道在退款请求中返回已处理，ebet纪录为已退款的状态" },
