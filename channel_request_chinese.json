@@ -552,7 +552,7 @@
           "通用API"
         ],
         "summary": "用户投注记录",
-        "description": "该API用于查询在特定时间段内记录的投注。\n Note 1: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: 请带以下参数 betStatus:1 以查询成功的记录\n Note 3: 牛牛游戏预扣请参考withHoldingTotal \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbethistory\" target=\"_blank\">请求&回应范例</a>",
+        "description": "该API用于查询在特定时间段内记录的投注。\n Note 1: 由于数据量可能太大，建议带以下参数减少查询时间。\n (startTimeStr, endTimeStr, pageNum, pageSize)\n Note 2: 请带以下参数 betStatus:1 以查询成功的记录\n Note 3: 游戏预扣请参考withHoldingTotal \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userbethistory\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "userbethistory",
         "consumes": [
           "application/json"
@@ -2671,7 +2671,7 @@
         },
         "gameName": {
           "type": "string",
-          "description": "游戏名称。\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot(显示游戏的gameID)\n bull-bull\n fortune-wheel\n black-jack-electronic\n black-jack-live\n mini-game(显示游戏的gameID)\n 博丁",
+          "description": "游戏名称。\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot(显示游戏的gameID)\n bull-bull\n fortune-wheel\n black-jack-electronic\n black-jack-live\n mini-game(显示游戏的gameID)\n pok-deng",
           "enum": [
             "baccarat",
             "dragon-tiger",
@@ -2796,7 +2796,7 @@
         "withHoldingTotal": {
           "type": "number",
           "format": "double",
-          "description": "只有牛牛。 牛牛的预扣总额。"
+          "description": "预扣总额。"
         },
         "withHoldingDetail": {
           "type": "array",

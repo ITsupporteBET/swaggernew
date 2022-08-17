@@ -1052,6 +1052,55 @@
         }
       }
     },
+    "increaseCredit_modifyBetList": {
+      "type": "object",
+      "properties": {
+        "betType": {
+          "type": "integer",
+          "format": "int64",
+          "example": 80,
+          "description": "Bet item"
+        },
+        "betMoney": {
+          "type": "number",
+          "format": "double",
+          "example": 100.0,
+          "description": "Bet amount. When betMoney = 0, the bet failed."
+        },
+        "seqNo": {
+          "type": "string",
+          "example": "seqNoBetseqNoBet",
+          "description": "The sequence number of the bet request. This parameter is only available for payouts."
+        },
+        "payout": {
+          "type": "number",
+          "format": "double",
+          "example": 0.0,
+          "description": "Payout amount. This parameter is only available when payout."
+        },
+        "number": {
+          "type": "string",
+          "description": "Bet number. This parameter is only available for specific items."
+        },
+        "betId": {
+          "type": "string",
+          "description": "Bet ID",
+          "example": "seqNoBetseqNoBet-80"
+        },
+        "odds": {
+          "type": "number",
+          "format": "double",
+          "example": 1.2345,
+          "description": "Odds. \n Noted: \n 1.Supports all games except slot machines. \n 2.Only when payout (type:2). \n 3.Odds do not include bet."
+        },
+        "validBet": {
+          "type": "number",
+          "format": "double",
+          "example": 100.0,
+          "description": "Valid bets for each bet item. \n This parameter will be based on the calculation rules of valid bets, please refer to the page: Parameter description - Valid betting instructions. \n Only for payout (type:2) request."
+        }
+      }
+    },
     "increaseCredit_detail": {
       "type": "object",
       "properties": {
@@ -1152,7 +1201,7 @@
           "type": "array",
           "description": "Only type = 37 has this parameter.",
           "items": {
-            "$ref": "#/definitions/increaseCredit_betList"
+            "$ref": "#/definitions/increaseCredit_modifyBetList"
           }
         },
         "eventBonusType": {
