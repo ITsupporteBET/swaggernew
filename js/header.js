@@ -76,9 +76,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="web_operation_settings.html" onclick="window.location.reload();">web操作设置</a>
                         <a class="dropdown-item" href="app_operation_settings.html" onclick="window.location.reload();">app操作设置</a>
-                        <!-- 
                         <a class="dropdown-item" href="background_operation.html" onclick="window.location.reload();">数据后台说明书</a>
-                        -->
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -173,9 +171,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown" onclick="window.location.reload();">
                         <a class="dropdown-item" href="web_operation_settings.html" onclick="window.location.reload();">Web operation settings</a>
                         <a class="dropdown-item" href="app_operation_settings.html" onclick="window.location.reload();">App operation settings</a>
-                        <!-- 
                         <a class="dropdown-item" href="background_operation.html" onclick="window.location.reload();">Backend Office User Guide</a>
-                        -->
                     </div>
                 </li>
                 <li class="nav-item dropdown">

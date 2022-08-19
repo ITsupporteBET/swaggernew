@@ -301,7 +301,7 @@ const up_his = [
 
 const up_his_cn = [
     {
-        update_time: "20220612",
+        update_time: "20220712",
         update_member: "leo",
         update_description: `
         增加游戏 博丁的相关说明<br>
