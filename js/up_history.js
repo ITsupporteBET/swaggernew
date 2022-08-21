@@ -308,6 +308,18 @@ const up_his_cn = [
         `
     },
     {
+        update_time: "20220629",
+        update_member: "leo",
+        update_description: `
+        API：<br>
+        userbethistory
+        userbethistory >> API Responses >> "betHistories" >> "niuniuWithHoldingTotal" & "niuniuWithHoldingDetail" <br>
+        对于单钱包及转账钱包：eBET Responses 變更参数名稱 <br>
+        "niuniuWithHoldingTotal" => "withHoldingTotal" <br>
+        "niuniuWithHoldingDetail" => "withHoldingDetail" <br>
+        `
+    },
+    {
         update_time: "20220518",
         update_member: "leo",
         update_description: `
