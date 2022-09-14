@@ -14,6 +14,16 @@ if (window.localStorage.getItem('lang') == "cn") {
 }
 const up_his = [
     {
+        update_time: "20220921",
+        update_member: "leo",
+        update_description: `
+        Affected API: <br>
+        userbethistory
+        Address: userbethistory >> API Responses >> "betHistories" >> "brokerageRequired" <br>
+        Single wallet/Transfer Wallet: Add API "userbethistory" new response parameter <br>
+        `
+    },
+    {
         update_time: "20220712",
         update_member: "leo",
         update_description: `
@@ -300,6 +310,16 @@ const up_his = [
 
 
 const up_his_cn = [
+    {
+        update_time: "20220921",
+        update_member: "leo",
+        update_description: `
+        Affected API: <br>
+        userbethistory
+        userbethistory >> API Responses >> "betHistories" >> "brokerageRequired" <br>
+        单钱包/转帐钱包：userbethistory新增回传参数<br>
+        `
+    },
     {
         update_time: "20220712",
         update_member: "leo",
