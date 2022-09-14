@@ -2856,6 +2856,11 @@
           "type": "integer",
           "example": 1,
           "description": "游戏平台"
+        },
+        "brokerageRequired": {
+          "type": "boolean",
+          "example": true,
+          "description": "是否為免佣金百家乐。 只有百家乐才會有此参数"
         }
       }
     },

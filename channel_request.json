@@ -2848,6 +2848,11 @@
           "type": "integer",
           "example": 1,
           "description": "Game platform"
+        },
+        "brokerageRequired": {
+          "type": "boolean",
+          "example": true,
+          "description": "Whether it is commission baccarat. Only Baccarat payout has this parameter."
         }
       }
     },
