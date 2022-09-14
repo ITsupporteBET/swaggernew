@@ -364,7 +364,7 @@
           "API used by single wallet"
         ],
         "summary": "Notification of change of user money amount",
-        "description": "This API is a notification channel for changing player money.\n Note 1: seqNo is **unique value**. Avoid repeated processing of money, do not record the same payout seqNo.\n Note 2: We have a **retry** mechanism. If it has been processed successfully before, please return 201 (seqNo repeated).\n Note 3: If the network occurs or your system returns a system error and the system is busy, we will try to resend **3 times**. \n Note 3: When betMoney = 0, the bet failed. \n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/increaseCredit \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/increaseCredit\" target=\"_blank\">Demo request & response</a>",
+        "description": "This API is a notification channel for changing player money.\n Note 1: seqNo is **unique value**. Avoid repeated processing of money, do not record the same payout seqNo.\n Note 2: We have a **retry** mechanism. If it has been processed successfully before, please return 201 (seqNo repeated).\n Note 3: If the network occurs or your system returns a system error and the system is busy, we will try to resend **3 times**. \n Note 4: When betMoney = 0, the bet failed. \n The request address it sends is the server url + api of the channel. E.g. http://127.0.0.1/increaseCredit \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20single%20wallet/increaseCredit\" target=\"_blank\">Demo request & response</a>",
         "operationId": "increaseCredit",
         "consumes": [
           "application/json"
