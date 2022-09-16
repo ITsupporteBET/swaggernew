@@ -57,6 +57,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">新增游戏
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="hi_lo.html" onclick="window.location.reload();">真人 Hi-Lo</a>
                         <a class="dropdown-item" href="pokdeng.html" onclick="window.location.reload();">博丁</a>
                         <a class="dropdown-item" href="minigame.html" onclick="window.location.reload();">迷你游戏</a>
                         <a class="dropdown-item" href="fortune_wheel.html" onclick="window.location.reload();">财富大转盘</a>
@@ -153,6 +154,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New game
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="hi_lo.html" onclick="window.location.reload();"> Live Hi-Lo</a>
                         <a class="dropdown-item" href="pokdeng.html" onclick="window.location.reload();">Pok Deng</a>
                         <a class="dropdown-item" href="minigame.html" onclick="window.location.reload();">Mini-game</a>
                         <a class="dropdown-item" href="fortune_wheel.html" onclick="window.location.reload();">Fortune Wheel</a>
