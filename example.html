@@ -183,7 +183,7 @@
                                 'channelId'=>'xx','timestamp'=>xxx,'signature'=>xxx);<br>
                                 $options = array(<br>
                                 'http' => array(<br>
-                                'header' => "Content-type: application/json\r<br>",<br>
+                                'header' => "Content-type: application/json",<br>
                                 'method' => 'POST',<br>
                                 'content' => http_build_query($data), ), );<br>
                                 $context = stream_context_create($options);//发送 HTTP POST 请求<br>
@@ -369,7 +369,7 @@
                                 'channelId'=>'xx','timestamp'=>xxx,'signature'=>xxx);<br>
                                 $options = array(<br>
                                 'http' => array(<br>
-                                'header' => "Content-type: application/json\r<br>",<br>
+                                'header' => "Content-type: application/json",<br>
                                 'method' => 'POST',<br>
                                 'content' => http_build_query($data), ), );<br>
                                 $context = stream_context_create($options);//HTTP POST request<br>
