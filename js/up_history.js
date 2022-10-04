@@ -14,6 +14,14 @@ if (window.localStorage.getItem('lang') == "cn") {
 }
 const up_his = [
     {
+        update_time: "20221004",
+        update_member: "leo",
+        update_description: `
+        Add relevant API descriptions for Board Game - Virtual PokDeng<br>
+        Add Channel Red Packet parameter<br>
+        `
+    },
+    {
         update_time: "20220921",
         update_member: "leo",
         update_description: `
@@ -21,6 +29,13 @@ const up_his = [
         userbethistory
         Address: userbethistory >> API Responses >> "betHistories" >> "brokerageRequired" <br>
         Single wallet/Transfer Wallet: Add API "userbethistory" new response parameter <br>
+        `
+    },
+    {
+        update_time: "20220916",
+        update_member: "leo",
+        update_description: `
+        Add relevant API descriptions for Dice Game - Hi-Lo<br>
         `
     },
     {
@@ -311,6 +326,14 @@ const up_his = [
 
 const up_his_cn = [
     {
+        update_time: "20221004",
+        update_member: "leo",
+        update_description: `
+        增加棋牌游戏 - 电子博丁的相关说明<br>
+        新增渠道红包活动参数<br>
+        `
+    },
+    {
         update_time: "20220921",
         update_member: "leo",
         update_description: `
@@ -318,6 +341,13 @@ const up_his_cn = [
         userbethistory
         userbethistory >> API Responses >> "betHistories" >> "brokerageRequired" <br>
         单钱包/转帐钱包：userbethistory新增回传参数<br>
+        `
+    },
+    {
+        update_time: "2022916",
+        update_member: "leo",
+        update_description: `
+        增加骰子游戏 - Hi-Lo的相关说明<br>
         `
     },
     {

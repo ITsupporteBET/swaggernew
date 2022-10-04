@@ -94,7 +94,11 @@ const sicbo = [
     { sicbo: "Two Dice Combinations", Odds: "5:1" },
     { sicbo: "Single NumBer", Odds: "1:1 (Single Dice) 2:1 (Double Dice) 3:1 (Triple Dice)" },
     { sicbo: "Two same number", Odds: "60:1" },
-    { sicbo: "Three different number", Odds: "30:1" }
+    { sicbo: "Three different number", Odds: "30:1" },
+    { sicbo: "HIGHER or LOWER", Odds: "0.01:1 - 182:1" },
+    { sicbo: "SNAP", Odds: "3.47:1 - 194.4:1" },
+    { sicbo: "3、4、5、6 or 15、16、17、18", Odds: "1.48:1" },
+    { sicbo: "7、8、9、10 or 11、12、13、14", Odds: "0.97:1" }
 ]
 
 const sicbo_cn = [
@@ -110,7 +114,11 @@ const sicbo_cn = [
     { "sicbo": "短牌（组合）", "Odds": "1赔5" },
     { "sicbo": "单点数", "Odds": "1赔1（开出一个）1赔2（开出二个）1赔3（开出三个）" },
     { "sicbo": "二同号", "Odds": "1赔60" },
-    { "sicbo": "三不同", "Odds": "1赔30" }
+    { "sicbo": "三不同", "Odds": "1赔30" },
+    { "sicbo": "更大或更小", "Odds": "1赔0.01 - 182" },
+    { "sicbo": "同点", "Odds": "1赔3.47 - 194.4" },
+    { "sicbo": "3、4、5、6 或 15、16、17、18", "Odds": "1赔1.48" },
+    { "sicbo": "7、8、9、10 或 11、12、13、14", "Odds": "1赔0.97" }
 ]
 
 if (window.localStorage.getItem('lang') == "cn") {

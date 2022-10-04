@@ -467,6 +467,34 @@ const sicbo = [{
 {
     betCode: "156",
     description: "three different numbers"
+},
+{
+    betCode: "157",
+    description: "HIGHER"
+},
+{
+    betCode: "158",
+    description: "LOWER"
+},
+{
+    betCode: "159",
+    description: "SNAP"
+},
+{
+    betCode: "160",
+    description: "3、4、5、6"
+},
+{
+    betCode: "161",
+    description: "7、8、9、10"
+},
+{
+    betCode: "162",
+    description: "11、12、13、14"
+},
+{
+    betCode: "163",
+    description: "15、16、17、18"
 }
 ]
 
@@ -685,6 +713,34 @@ const sicbo_cn = [{
 {
     "betCode": "156",
     "description": "三不同"
+},
+{
+    "betCode": "157",
+    "description": "更大"
+},
+{
+    "betCode": "158",
+    "description": "更小"
+},
+{
+    "betCode": "159",
+    "description": "同点"
+},
+{
+    "betCode": "160",
+    "description": "3、4、5、6"
+},
+{
+    "betCode": "161",
+    "description": "7、8、9、10"
+},
+{
+    "betCode": "162",
+    "description": "11、12、13、14"
+},
+{
+    "betCode": "163",
+    "description": "15、16、17、18"
 }
 ]
 

@@ -763,7 +763,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 11:博丁"
+                        "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 11:博丁\n 12:Hi-Lo"
                       },
                       "playerMin": {
                         "type": "number",
@@ -1600,6 +1600,76 @@
                         "type": "number",
                         "format": "double",
                         "description": "闲 5 对最高下注限额。\n 只有博丁。"
+                      },
+                      "biggerMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "更大最低下注限额。\n 只有Hi-Lo。"
+                      },
+                      "biggerMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "更大最高下注限额。\n 只有Hi-Lo。"
+                      },
+                      "smallerMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "更小最低下注限额。\n 只有Hi-Lo。"
+                      },
+                      "smallerMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "更小最高下注限额。\n 只有Hi-Lo。"
+                      },
+                      "sameMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "同点最低下注限额。\n 只有Hi-Lo。"
+                      },
+                      "sameMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "同点最高下注限额。\n 只有Hi-Lo。"
+                      },
+                      "sum_3_4_5_6Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "3、4、5、6 最低下注限额。\n 只有Hi-Lo。"
+                      },
+                      "sum_3_4_5_6Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "3、4、5、6 最高下注限额。\n 只有Hi-Lo。"
+                      },
+                      "sum_7_8_9_10Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "7、8、9、10 最低下注限额。\n 只有Hi-Lo。"
+                      },
+                      "sum_7_8_9_10Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "7、8、9、10 最高下注限额。\n 只有Hi-Lo。"
+                      },
+                      "sum_11_12_13_14Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "11、12、13、14 最低下注限额。\n 只有Hi-Lo。"
+                      },
+                      "sum_11_12_13_14Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "11、12、13、14 最高下注限额。\n 只有Hi-Lo。"
+                      },
+                      "sum_15_16_17_18Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "15、16、17、18 最低下注限额。\n 只有Hi-Lo。"
+                      },
+                      "sum_15_16_17_18Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "15、16、17、18 最高下注限额。\n 只有Hi-Lo。"
                       }
                     }
                   }
@@ -1881,11 +1951,11 @@
                       },
                       "bonusId": {
                         "type": "integer",
-                        "description": "活动ID。 仅在tradeType = 23,24时出现"
+                        "description": "活动ID。"
                       },
                       "bonusName": {
                         "type": "string",
-                        "description": "活动名称。 仅在tradeType = 23,24时出现"
+                        "description": "活动名称。"
                       },
                       "tradeType": {
                         "type": "integer",
@@ -3236,7 +3306,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 11:博丁"
+          "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 11:博丁\n 12:Hi-Lo"
         },
         "playerMin": {
           "type": "number",
@@ -4085,6 +4155,76 @@
           "type": "number",
           "format": "double",
           "description": "闲 5 对最高下注限额。\n 只有博丁。"
+        },
+        "biggerMin": {
+          "type": "number",
+          "format": "double",
+          "description": "更大最低下注限额。\n 只有Hi-Lo。"
+        },
+        "biggerMax": {
+          "type": "number",
+          "format": "double",
+          "description": "更大最高下注限额。\n 只有Hi-Lo。"
+        },
+        "smallerMin": {
+          "type": "number",
+          "format": "double",
+          "description": "更小最低下注限额。\n 只有Hi-Lo。"
+        },
+        "smallerMax": {
+          "type": "number",
+          "format": "double",
+          "description": "更小最高下注限额。\n 只有Hi-Lo。"
+        },
+        "sameMin": {
+          "type": "number",
+          "format": "double",
+          "description": "同点最低下注限额。\n 只有Hi-Lo。"
+        },
+        "sameMax": {
+          "type": "number",
+          "format": "double",
+          "description": "同点最高下注限额。\n 只有Hi-Lo。"
+        },
+        "sum_3_4_5_6Min": {
+          "type": "number",
+          "format": "double",
+          "description": "3、4、5、6 最低下注限额。\n 只有Hi-Lo。"
+        },
+        "sum_3_4_5_6Max": {
+          "type": "number",
+          "format": "double",
+          "description": "3、4、5、6 最高下注限额。\n 只有Hi-Lo。"
+        },
+        "sum_7_8_9_10Min": {
+          "type": "number",
+          "format": "double",
+          "description": "7、8、9、10 最低下注限额。\n 只有Hi-Lo。"
+        },
+        "sum_7_8_9_10Max": {
+          "type": "number",
+          "format": "double",
+          "description": "7、8、9、10 最高下注限额。\n 只有Hi-Lo。"
+        },
+        "sum_11_12_13_14Min": {
+          "type": "number",
+          "format": "double",
+          "description": "11、12、13、14 最低下注限额。\n 只有Hi-Lo。"
+        },
+        "sum_11_12_13_14Max": {
+          "type": "number",
+          "format": "double",
+          "description": "11、12、13、14 最高下注限额。\n 只有Hi-Lo。"
+        },
+        "sum_15_16_17_18Min": {
+          "type": "number",
+          "format": "double",
+          "description": "15、16、17、18 最低下注限额。\n 只有Hi-Lo。"
+        },
+        "sum_15_16_17_18Max": {
+          "type": "number",
+          "format": "double",
+          "description": "15、16、17、18 最高下注限额。\n 只有Hi-Lo。"
         }
       }
     },

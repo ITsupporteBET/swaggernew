@@ -1598,6 +1598,76 @@
                         "type": "number",
                         "format": "double",
                         "description": "Player5 Pair maximum bet limit.\n Only pok deng."
+                      },
+                      "biggerMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "HIGHER minimum bet limit.\n Only Hi-Lo."
+                      },
+                      "biggerMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "HIGHER maximum bet limit.\n Only Hi-Lo."
+                      },
+                      "smallerMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "LOWER minimum bet limit.\n Only Hi-Lo."
+                      },
+                      "smallerMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "LOWER maximum bet limit.\n Only Hi-Lo."
+                      },
+                      "sameMin": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "SNAP minimum bet limit.\n Only Hi-Lo."
+                      },
+                      "sameMax": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "SNAP maximum bet limit.\n Only Hi-Lo."
+                      },
+                      "sum_3_4_5_6Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "3、4、5、6 minimum bet limit.\n Only Hi-Lo."
+                      },
+                      "sum_3_4_5_6Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "3、4、5、6 maximum bet limit.\n Only Hi-Lo."
+                      },
+                      "sum_7_8_9_10Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "7、8、9、10 minimum bet limit.\n Only Hi-Lo."
+                      },
+                      "sum_7_8_9_10Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "7、8、9、10 maximum bet limit.\n Only Hi-Lo."
+                      },
+                      "sum_11_12_13_14Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "11、12、13、14 minimum bet limit.\n Only Hi-Lo."
+                      },
+                      "sum_11_12_13_14Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "11、12、13、14 maximum bet limit.\n Only Hi-Lo."
+                      },
+                      "sum_15_16_17_18Min": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "15、16、17、18 minimum bet limit.\n Only Hi-Lo."
+                      },
+                      "sum_15_16_17_18Max": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "15、16、17、18 maximum bet limit.\n Only Hi-Lo."
                       }
                     }
                   }
@@ -1877,11 +1947,11 @@
                       },
                       "bonusId": {
                         "type": "integer",
-                        "description": "Event ID. Appears only when tradeType = 23,24"
+                        "description": "Event ID."
                       },
                       "bonusName": {
                         "type": "string",
-                        "description": "Event name. Appears only when tradeType = 23,24"
+                        "description": "Event name."
                       },
                       "tradeType": {
                         "type": "integer",
@@ -4085,6 +4155,76 @@
           "type": "number",
           "format": "double",
           "description": "Player5 Pair maximum bet limit.\n Only pok deng."
+        },
+        "biggerMin": {
+          "type": "number",
+          "format": "double",
+          "description": "HIGHER minimum bet limit.\n Only Hi-Lo."
+        },
+        "biggerMax": {
+          "type": "number",
+          "format": "double",
+          "description": "HIGHER maximum bet limit.\n Only Hi-Lo."
+        },
+        "smallerMin": {
+          "type": "number",
+          "format": "double",
+          "description": "LOWER minimum bet limit.\n Only Hi-Lo."
+        },
+        "smallerMax": {
+          "type": "number",
+          "format": "double",
+          "description": "LOWER maximum bet limit.\n Only Hi-Lo."
+        },
+        "sameMin": {
+          "type": "number",
+          "format": "double",
+          "description": "SNAP minimum bet limit.\n Only Hi-Lo."
+        },
+        "sameMax": {
+          "type": "number",
+          "format": "double",
+          "description": "SNAP maximum bet limit.\n Only Hi-Lo."
+        },
+        "sum_3_4_5_6Min": {
+          "type": "number",
+          "format": "double",
+          "description": "3、4、5、6 minimum bet limit.\n Only Hi-Lo."
+        },
+        "sum_3_4_5_6Max": {
+          "type": "number",
+          "format": "double",
+          "description": "3、4、5、6 maximum bet limit.\n Only Hi-Lo."
+        },
+        "sum_7_8_9_10Min": {
+          "type": "number",
+          "format": "double",
+          "description": "7、8、9、10 minimum bet limit.\n Only Hi-Lo."
+        },
+        "sum_7_8_9_10Max": {
+          "type": "number",
+          "format": "double",
+          "description": "7、8、9、10 maximum bet limit.\n Only Hi-Lo."
+        },
+        "sum_11_12_13_14Min": {
+          "type": "number",
+          "format": "double",
+          "description": "11、12、13、14 minimum bet limit.\n Only Hi-Lo."
+        },
+        "sum_11_12_13_14Max": {
+          "type": "number",
+          "format": "double",
+          "description": "11、12、13、14 maximum bet limit.\n Only Hi-Lo."
+        },
+        "sum_15_16_17_18Min": {
+          "type": "number",
+          "format": "double",
+          "description": "15、16、17、18 minimum bet limit.\n Only Hi-Lo."
+        },
+        "sum_15_16_17_18Max": {
+          "type": "number",
+          "format": "double",
+          "description": "15、16、17、18 maximum bet limit.\n Only Hi-Lo."
         }
       }
     },
