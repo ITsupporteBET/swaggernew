@@ -344,7 +344,7 @@ const up_his_cn = [
         `
     },
     {
-        update_time: "2022916",
+        update_time: "20220916",
         update_member: "leo",
         update_description: `
         增加骰子游戏 - Hi-Lo的相关说明<br>

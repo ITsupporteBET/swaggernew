@@ -59,7 +59,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="virtual_pokdeng.html" onclick="window.location.reload();">电子博丁</a>
                         <a class="dropdown-item" href="hi_lo.html" onclick="window.location.reload();">真人 Hi-Lo</a>
-                        <a class="dropdown-item" href="pokdeng.html" onclick="window.location.reload();">博丁</a>
+                        <a class="dropdown-item" href="pokdeng.html" onclick="window.location.reload();">真人博丁</a>
                         <a class="dropdown-item" href="minigame.html" onclick="window.location.reload();">迷你游戏</a>
                         <a class="dropdown-item" href="fortune_wheel.html" onclick="window.location.reload();">财富大转盘</a>
                         <a class="dropdown-item" href="fortune_roulette.html" onclick="window.location.reload();">财富轮盘</a>
@@ -156,13 +156,13 @@ if (window.localStorage.getItem('lang') == "cn") {
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="virtual_pokdeng.html" onclick="window.location.reload();">Virtual PokDeng</a>
-                        <a class="dropdown-item" href="hi_lo.html" onclick="window.location.reload();"> Live Hi-Lo</a>
-                        <a class="dropdown-item" href="pokdeng.html" onclick="window.location.reload();">PokDeng</a>
+                        <a class="dropdown-item" href="hi_lo.html" onclick="window.location.reload();">Live Hi-Lo</a>
+                        <a class="dropdown-item" href="pokdeng.html" onclick="window.location.reload();">Live PokDeng</a>
                         <a class="dropdown-item" href="minigame.html" onclick="window.location.reload();">Mini-game</a>
                         <a class="dropdown-item" href="fortune_wheel.html" onclick="window.location.reload();">Fortune Wheel</a>
                         <a class="dropdown-item" href="fortune_roulette.html" onclick="window.location.reload();">Fortune Roulette</a>
                         <a class="dropdown-item" href="liveblackjack.html" onclick="window.location.reload();">Live BlackJack</a>
-                        <a class="dropdown-item" href="virtual_blackjack.html" onclick="window.location.reload();">Virtual Blackjack</a>
+                        <a class="dropdown-item" href="virtual_blackjack.html" onclick="window.location.reload();">Virtual BlackJack</a>
                         <a class="dropdown-item" href="bullbull.html" onclick="window.location.reload();">BullBull</a>
                         <a class="dropdown-item" href="slot.html" onclick="window.location.reload();">Genesis slot</a>
                     </div>

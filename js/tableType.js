@@ -21,10 +21,10 @@ const tableType = [
     { code: "5", GameType: "Slot" },
     { code: "8", GameType: "BullBull" },
     { code: "23",GameType: "Fortune Wheel"}, 
-    { code: "24",GameType: "Black Jack" },
-    { code: "25",GameType: "Live Black Jack" },
+    { code: "24",GameType: "Virtual BlackJack" },
+    { code: "25",GameType: "Live BlackJack" },
     { code: "27",GameType: "Mini-game" },
-    { code: "29",GameType: "Pok Deng" },
+    { code: "29",GameType: "Live PokDeng" },
     { code: "30",GameType: "Board Game"}
 ]
 
@@ -39,6 +39,6 @@ const tableType_cn = [
     { "code": "24", "GameType": "电子21点" },
     { "code": "25", "GameType": "真人21点" },
     { "code": "27", "GameType": "迷你游戏" },
-    { "code": "29", "GameType": "博丁" },
+    { "code": "29", "GameType": "真人博丁" },
     { "code": "30", "GameType": "棋牌游戏" }
 ]
