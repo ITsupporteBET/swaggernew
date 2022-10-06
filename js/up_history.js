@@ -14,6 +14,13 @@ if (window.localStorage.getItem('lang') == "cn") {
 }
 const up_his = [
     {
+        update_time: "20221006",
+        update_member: "leo",
+        update_description: `
+        Update Genesis Slot Game Restricted Area<br>
+        `
+    },
+    {
         update_time: "20221004",
         update_member: "leo",
         update_description: `
@@ -325,6 +332,13 @@ const up_his = [
 
 
 const up_his_cn = [
+    {
+        update_time: "20221006",
+        update_member: "leo",
+        update_description: `
+        更新Genesis老虎机游戏限制地区<br>
+        `
+    },
     {
         update_time: "20221004",
         update_member: "leo",
