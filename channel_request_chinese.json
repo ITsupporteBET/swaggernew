@@ -1734,7 +1734,7 @@
                   "example": [
                     1
                   ],
-                  "description": "更新投注限额游戏的代号:\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 11:博丁",
+                  "description": "更新投注限额游戏的代号:\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 11:博丁\n 12:Hi-Lo",
                   "items": {
                     "type": "integer"
                   }
@@ -1793,7 +1793,7 @@
                   "example": [
                     1
                   ],
-                  "description": "游戏类型。\n 1: 百家乐 -一般桌\n 2: 百家乐 -VIP桌\n 3:龙虎\n 4: 骰宝\n 5: 轮盘\n 6: 牛牛\n 7: 财富大转盘\n 8: 电子21点\n 9: 真人21点\n 10: 财富轮盘\n 11: 博丁"
+                  "description": "游戏类型。\n 1: 百家乐 -一般桌\n 2: 百家乐 -VIP桌\n 3:龙虎\n 4: 骰宝\n 5: 轮盘\n 6: 牛牛\n 7: 财富大转盘\n 8: 电子21点\n 9: 真人21点\n 11: 博丁\n 12:Hi-Lo"
                 }
               }
             }
@@ -3609,22 +3609,22 @@
         "tripleMin": {
           "type": "number",
           "format": "double",
-          "description": "围骰1-6 最低下注限额。\n 只有骰宝。"
+          "description": "围骰1-6 最低下注限额。\n 只有骰宝。\n 此参数名称也可以使用getbetlimit的回应参数名称：tripMin。"
         },
         "tripleMax": {
           "type": "number",
           "format": "double",
-          "description": "围骰1-6 最高下注限额。\n 只有骰宝。"
+          "description": "围骰1-6 最高下注限额。\n 只有骰宝。\n 此参数名称也可以使用getbetlimit的回应参数名称：tripMax。"
         },
         "allTripleMin": {
           "type": "number",
           "format": "double",
-          "description": "全围 最低下注限额。\n 只有骰宝。"
+          "description": "全围 最低下注限额。\n 只有骰宝。\n 此参数名称也可以使用getbetlimit的回应参数名称：allTripMin。"
         },
         "allTripleMax": {
           "type": "number",
           "format": "double",
-          "description": "全围 最高下注限额。\n 只有骰宝。"
+          "description": "全围 最高下注限额。\n 只有骰宝。\n 此参数名称也可以使用getbetlimit的回应参数名称：allTripMax。"
         },
         "fourMin": {
           "type": "number",
@@ -3869,12 +3869,12 @@
         "cornerMin": {
           "type": "number",
           "format": "double",
-          "description": "角注 最低下注限额。\n 只有轮盘。"
+          "description": "角注 最低下注限额。\n 只有轮盘。\n 此参数名称也可以使用getbetlimit的回应参数名称：connerMin。"
         },
         "cornerMax": {
           "type": "number",
           "format": "double",
-          "description": "角注 最高下注限额。\n 只有轮盘。"
+          "description": "角注 最高下注限额。\n 只有轮盘。\n 此参数名称也可以使用getbetlimit的回应参数名称：connerMax。"
         },
         "trioMin": {
           "type": "number",

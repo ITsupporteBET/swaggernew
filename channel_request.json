@@ -1732,7 +1732,7 @@
                   "example": [
                     1
                   ],
-                  "description": "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:Fortune Wheel\n 8:Virtual Blackjack\n 9:Live Blackjack",
+                  "description": "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:Fortune Wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 11: Pok Deng\n 12: Hi-Lo",
                   "items": {
                     "type": "integer"
                   }
@@ -1789,7 +1789,7 @@
                 "updateGameList": {
                   "type": "integer",
                   "example": 1,
-                  "description": "Game code to update betting limit:\n 1: Baccarat - VIP table\n 2: Baccarat - Normal table\n 3:Dragon Tiger\n 4: Sic Bo\n 5: Roulette\n 6: Bull Bull\n 7: Fortune Wheel\n 8: BlackJack\n 9: Live Blackjack\n 10: Fortune Roulette\n 11: Pok Deng"
+                  "description": "Game code to update betting limit:\n 1: Baccarat - VIP table\n 2: Baccarat - Normal table\n 3:Dragon Tiger\n 4: Sic Bo\n 5: Roulette\n 6: Bull Bull\n 7: Fortune Wheel\n 8: BlackJack\n 9: Live Blackjack\n 11: Pok Deng\n 12: Hi-Lo"
                 }
               }
             }
@@ -3619,22 +3619,22 @@
         "tripleMin": {
           "type": "number",
           "format": "double",
-          "description": "Trip minimum bet limit.\n Only sic-bo."
+          "description": "Trip minimum bet limit.\n Only sic-bo.\n This parameter name can also use the response parameter name of getbetlimit: tripMin."
         },
         "tripleMax": {
           "type": "number",
           "format": "double",
-          "description": "Trip maximum bet limit.\n Only sic-bo."
+          "description": "Trip maximum bet limit.\n Only sic-bo.\n This parameter name can also use the response parameter name of getbetlimit: tripMax."
         },
         "allTripleMin": {
           "type": "number",
           "format": "double",
-          "description": "AllTrip minimum bet limit.\n Only sic-bo."
+          "description": "AllTrip minimum bet limit.\n Only sic-bo.\n This parameter name can also use the response parameter name of getbetlimit: allTripMin."
         },
         "allTripleMax": {
           "type": "number",
           "format": "double",
-          "description": "AllTrip maximum bet limit.\n Only sic-bo."
+          "description": "AllTrip maximum bet limit.\n Only sic-bo.\n This parameter name can also use the response parameter name of getbetlimit: allTripMax."
         },
         "fourMin": {
           "type": "number",
@@ -3879,12 +3879,12 @@
         "cornerMin": {
           "type": "number",
           "format": "double",
-          "description": "Conner minimum bet limit.\n Only roulette."
+          "description": "Conner minimum bet limit.\n Only roulette.\n This parameter name can also use the response parameter name of getbetlimit: connerMin."
         },
         "cornerMax": {
           "type": "number",
           "format": "double",
-          "description": "Conner maximum bet limit.\n Only roulette."
+          "description": "Conner maximum bet limit.\n Only roulette.\n This parameter name can also use the response parameter name of getbetlimit: connerMax."
         },
         "trioMin": {
           "type": "number",

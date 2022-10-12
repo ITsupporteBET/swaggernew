@@ -14,6 +14,16 @@ if (window.localStorage.getItem('lang') == "cn") {
 }
 const up_his = [
     {
+        update_time: "20221012",
+        update_member: "leo",
+        update_description: `
+        API: <br>
+        updatebetlimit、updateBatchBetlimit: <br>
+        Adjust some request parameter names: allow to use the original request parameter name or use the response parameter name of getbetlimit.<br>
+        Single wallet/Transfer Wallet: No affect<br>
+        `
+    },
+    {
         update_time: "20221006",
         update_member: "leo",
         update_description: `
@@ -332,6 +342,16 @@ const up_his = [
 
 
 const up_his_cn = [
+    {
+        update_time: "20221012",
+        update_member: "leo",
+        update_description: `
+        API: <br>
+        updatebetlimit、updateBatchBetlimit: <br>
+        调整部分请求参数名称：允许择一使用原本的请求参数名称或使用getbetlimit的回应参数名称。<br>
+        单钱包/转帐钱包：不受影响<br>
+        `
+    },
     {
         update_time: "20221006",
         update_member: "leo",
