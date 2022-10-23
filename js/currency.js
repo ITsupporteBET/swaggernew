@@ -56,7 +56,23 @@ const currency =
         { "currency": "BDT", "description": "Bangladeshi taka" },
         { "currency": "PKR", "description": "Pakistani Rupee" },
         { "currency": "SZL", "description": "Lilangeni" },
-        { "currency": "UAH", "description": "Hryvnia" }
+        { "currency": "UAH", "description": "Hryvnia" },
+        { "currency": "BTC", "description": "Bitcoins" },
+        { "currency": "MBT", "description": "Millibitcoins" },
+        { "currency": "ETH", "description": "Ethereum" },
+        { "currency": "KHR", "description": "Cambodian Riel" },
+        { "currency": "LTC", "description": "Litecoin" },
+        { "currency": "EOS", "description": "EOS" },
+        { "currency": "BCH", "description": "BitcoinCash" },
+        { "currency": "MBCH", "description": "milliBitcoinCash" },
+        { "currency": "MLTC", "description": "milliLitecoin" },
+        { "currency": "METH", "description": "Milliethereum" },
+        { "currency": "AOA", "description": "Angolan Kwanza" },
+        { "currency": "SSP", "description": "South Sudanese Pound" },
+        { "currency": "ZMW", "description": "Zambian Kwacha" },
+        { "currency": "MWK", "description": "Malawian Kwacha" },
+        { "currency": "GMD", "description": "Gambia Dalasis" },
+        { "currency": "LSL", "description": "Lesotho Loti" }
     ]
 
 const currency_cn = [
@@ -101,6 +117,22 @@ const currency_cn = [
     { "currency": "BDT", "description": "孟加拉塔卡" },
     { "currency": "PKR", "description": "巴基斯坦卢比" },
     { "currency": "SZL", "description": "斯威士兰里兰吉尼" },
-    { "currency": "UAH", "description": "格里夫纳" }
+    { "currency": "UAH", "description": "格里夫纳" },
+    { "currency": "BTC", "description": "比特币" },
+    { "currency": "MBT", "description": "毫比特" },
+    { "currency": "ETH", "description": "以太坊" },
+    { "currency": "KHR", "description": "柬埔寨瑞尔" },
+    { "currency": "LTC", "description": "莱特币" },
+    { "currency": "EOS", "description": "柚子币" },
+    { "currency": "BCH", "description": "比特币现金" },
+    { "currency": "MBCH", "description": "毫比特币现金" },
+    { "currency": "MLTC", "description": "毫莱特币" },
+    { "currency": "METH", "description": "毫以太坊" },
+    { "currency": "AOA", "description": "安哥拉匡撒" },
+    { "currency": "SSP", "description": "南苏丹镑" },
+    { "currency": "ZMW", "description": "尚比亚克瓦查" },
+    { "currency": "MWK", "description": "马拉威克瓦查" },
+    { "currency": "GMD", "description": "甘比亚达拉西" },
+    { "currency": "LSL", "description": "赖索托马洛蒂" }
 
 ]
