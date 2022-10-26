@@ -801,6 +801,18 @@
                         "example": 1000.0,
                         "description": "和 最高下注限额。\n 只有百家乐。,龙虎。"
                       },
+                      "bankerLucky6Min": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1.0,
+                        "description": "庄幸运六 最低下注限额。\n 只有百家乐。"
+                      },
+                      "bankerLucky6Max": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "庄幸运六 最高下注限额。\n 只有百家乐。"
+                      },
                       "playerPairMin": {
                         "type": "number",
                         "format": "double",

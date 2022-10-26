@@ -799,6 +799,18 @@
                         "example": 1000.0,
                         "description": "Tie maximum bet limit.\n Only baccarat,dragon-tiger."
                       },
+                      "bankerLucky6Min": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1.0,
+                        "description": "Tie minimum bet limit.\n Only baccarat."
+                      },
+                      "bankerLucky6Max": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1000.0,
+                        "description": "Tie maximum bet limit.\n Only baccarat."
+                      },
                       "playerPairMin": {
                         "type": "number",
                         "format": "double",
@@ -3330,6 +3342,12 @@
           "example": 10.0,
           "description": "Tie minimum bet limit.\n Only baccarat,dragon-tiger."
         },
+        "tieMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1000.0,
+          "description": "Tie maximum bet limit.\n Only baccarat,dragon-tiger."
+        },
         "bankerLucky6Min": {
           "type": "number",
           "format": "double",
@@ -3339,14 +3357,8 @@
         "bankerLucky6Max": {
           "type": "number",
           "format": "double",
-          "example": 1.0,
-          "description": "Tie maximum bet limit.\n Only baccarat."
-        },
-        "tieMax": {
-          "type": "number",
-          "format": "double",
           "example": 1000.0,
-          "description": "Tie maximum bet limit.\n Only baccarat,dragon-tiger."
+          "description": "Tie maximum bet limit.\n Only baccarat."
         },
         "playerPairMin": {
           "type": "number",
