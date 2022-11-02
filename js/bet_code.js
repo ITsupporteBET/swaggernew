@@ -67,6 +67,26 @@ const baccarat = [{
 {
     betCode: "63",
     description: "playerEven"
+},
+{
+    betCode: "72",
+    description: "perfectPair"
+},
+{
+    betCode: "73",
+    description: "anyPair"
+},
+{
+    betCode: "89",
+    description: "bankerNatural"
+},
+{
+    betCode: "69",
+    description: "playerNatural"
+},
+{
+    betCode: "84",
+    description: "super6"
 }
 ]
 
@@ -91,40 +111,60 @@ const baccarat_cn = [{
     "description": "庄对"
 },
 {
-    "betCode": "86",
-    "description": "幸运六"
+    betCode: "86",
+    description: "幸运六"
 },
 {
-    "betCode": "81",
-    "description": "庄龙宝"
+    betCode: "81",
+    description: "庄龙宝"
 },
 {
-    "betCode": "61",
-    "description": "闲龙宝"
+    betCode: "61",
+    description: "闲龙宝"
 },
 {
-    "betCode": "70",
-    "description": "大"
+    betCode: "70",
+    description: "大"
 },
 {
-    "betCode": "71",
-    "description": "小"
+    betCode: "71",
+    description: "小"
 },
 {
-    "betCode": "82",
-    "description": "庄单"
+    betCode: "82",
+    description: "庄单"
 },
 {
-    "betCode": "83",
-    "description": "庄双"
+    betCode: "83",
+    description: "庄双"
 },
 {
-    "betCode": "62",
-    "description": "闲单"
+    betCode: "62",
+    description: "闲单"
 },
 {
-    "betCode": "63",
-    "description": "闲双"
+    betCode: "63",
+    description: "闲双"
+},
+{
+    betCode: "72",
+    description: "完美对子"
+},
+{
+    betCode: "73",
+    description: "任意对子"
+},
+{
+    betCode: "89",
+    description: "庄例牌"
+},
+{
+    betCode: "69",
+    description: "闲例牌"
+},
+{
+    betCode: "84",
+    description: "超级6"
 }
 ]
 
@@ -189,52 +229,52 @@ const dragonTiger = [{
 ]
 
 const dragonTiger_cn = [{
-    "betCode": "10",
-    "description": "龙"
+    betCode: "10",
+    description: "龙"
 },
 {
-    "betCode": "11",
-    "description": "虎"
+    betCode: "11",
+    description: "虎"
 },
 {
-    "betCode": "68",
-    "description": "和"
+    betCode: "68",
+    description: "和"
 },
 {
-    "betCode": "12",
-    "description": "龙单"
+    betCode: "12",
+    description: "龙单"
 },
 {
-    "betCode": "13",
-    "description": "龙双"
+    betCode: "13",
+    description: "龙双"
 },
 {
-    "betCode": "14",
-    "description": "虎单"
+    betCode: "14",
+    description: "虎单"
 },
 {
-    "betCode": "15",
-    "description": "虎双"
+    betCode: "15",
+    description: "虎双"
 },
 {
-    "betCode": "16",
-    "description": "龙黑"
+    betCode: "16",
+    description: "龙黑"
 },
 {
-    "betCode": "17",
-    "description": "龙红"
+    betCode: "17",
+    description: "龙红"
 },
 {
-    "betCode": "18",
-    "description": "虎黑"
+    betCode: "18",
+    description: "虎黑"
 },
 {
-    "betCode": "19",
-    "description": "虎红"
+    betCode: "19",
+    description: "虎红"
 },
 {
-    "betCode": "63",
-    "description": "闲双"
+    betCode: "63",
+    description: "闲双"
 }
 ]
 
