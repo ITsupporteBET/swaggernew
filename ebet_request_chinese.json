@@ -980,7 +980,7 @@
         "signature": {
           "type": "string",
           "example": "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
-          "description": "签名。 字符串拼接:\n 普通登录/applink登录: seqNo+event+channelId+username+timestamp+password\n token登录: seqNo+event+channelId+timestamp+username+accessToken"
+          "description": "签名。 字符串拼接:\n 普通登录/applink登录: seqNo+event+channelId+timestamp+username+password\n token登录: seqNo+event+channelId+timestamp+username+accessToken"
         }
       }
     },

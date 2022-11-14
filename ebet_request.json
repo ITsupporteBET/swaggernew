@@ -967,7 +967,7 @@
         "signature": {
           "type": "string",
           "example": "bCP+wYe8TxN3UIHeNPxEv7czYkXueoe1pKSB6IaUDfoR4mtFYcJl3rNFk8Uz84XAHfeD3mNE+p4gECOVw2JxxQ==",
-          "description": "Signature. String splicing:\n normal/applink: seqNo+event+channelId+username+timestamp+password\n token: seqNo+event+channelId+timestamp+username+accessToken"
+          "description": "Signature. String splicing:\n normal/applink: seqNo+event+channelId+timestamp+username+password\n token: seqNo+event+channelId+timestamp+username+accessToken"
         }
       }
     },
