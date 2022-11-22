@@ -40,7 +40,6 @@
         if (window.localStorage.getItem('lang') == "cn") {
             web_context.innerHTML = `<h1>eBET对接注意事项</h1>
     <h2>1. 请求和接收数据</h2>
-
     <span>1.请严格遵守eBET使用的<code>参数大小写</code>，否则会导致获取不正确的数据</span><br>
     <span>2.eBET是使用<code>JSON(application/json)</code>来发送和接收数据的</span><br>
     <span>3.ebet金额只计算到小数点第二位</span><br>
@@ -53,7 +52,6 @@
     <br>
 
     <h2>3. 白名單</h2>
-
     <span>eBET有3个部分需要提供ip做添加到白名单才允许使用。</span><br>
     <span>1. 登入游戏。若要在限制地区测试需要提供ip。</span><br>
 
@@ -72,43 +70,56 @@
     <span>我方添加之后就“<code>只有</code>”提供的 ip 地址才可以访问eBET api。</span><br>
     <span>PS：我方<code>已提醒</code>贵方安全措施，后期遇上关于访问 eBET api 特殊<code>状况请自负</code>。</span><br>
     <br>
+
     <h2>4. 游戏登入</h2>
     <span>登入游戏接口支持http以及https，若要<code>使用https 需做申请</code>。</span><br>
     <br>
+
     <h2>5. 用戶名组成</h2>
     <h4>組成规则</h4>
-    <span>
-    ebet接受的username的内容为<code>小写英文、数字和特定符号</code>。
-    若使用大写英文会被<code>强制转为小写英文</code>。
-    </span><br><br>
+    <span>ebet接受的username的内容为<code>小写英文、数字和特定符号</code>。若使用大写英文会被<code>强制转为小写英文</code>。</span><br><br>
     <h4>組成建议</h4>
     <span>1.建议username是由小写英文和数字组成。</span><br>
     <span>2.建议使用的长度为25字元长度。</span><br>
     <span>3.不可使用http保留字元，避免出现问题。</span><br>
     <br>
+
     <h2>6. Token组成</h2>
-    <span>
-      此說明適用accessToken和sessionToken。
-    </span><br><br>
+    <span>此說明適用accessToken和sessionToken。</span><br><br>
     <h4>組成规则</h4>
-    <span>
-      渠道可以自行定义参数值和生命周期。。
-    </span><br><br>
+    <span>渠道可以自行定义参数值和生命周期。</span><br><br>
     <h4>組成建议</h4>
     <span>1.建议是由大小写英文和数字组成，不可使用http保留字元。</span><br>
     <span>2.建议每次使用后更新为新的参数值。</span><br>
     <span>3.建议固定一组参数值提供给ebet重复测试使用。</span><br>
-    <br><br>
-    <h2>7. 建议配置</h2>
+    <br>
+
+    <h2>7. 子渠道</h2>
+    <span>eBET有提供子渠道/子代理的设置。<code>如果没有做任何设置，预设ID为0</code>。</span><br><br>
+    <h4>子渠道创建</h4>
+    <span>在eBET后台可以创建给旗下代理使用的子渠道和管理帐户。</span><br>
+    <span>注意1﹔<code>创建后，不可修改名称及删除</code>。</span><br>
+    <span>注意2﹔<code>因安全性考量，创建后，需重新登入帐号更新子渠道列表</code>。</span><br><br>
+    <h4>客制化设置</h4>
+    <span>可以对单一子渠道设置以下项目﹔</span><br>
+    <span>1. logo跳转连结</span><br>
+    <span>2. 游戏前端是否阻挡对投下注</span><br>
+    <span>3. 是否关闭多台</span><br>
+    <span>4. 是否开启自定义图片</span><br>
+    <span>注意﹔<code>该设置可以在重制后，还原成与主渠道相同设置</code>。</span><br>
+    <br>
+
+    <h2>8. 建议配置</h2>
     <table class="config" data-height="300">
-            <thead>
-                <tr>
-                    <th data-field="config_name"></th>
-                    <th data-field="config_value">建议配置</th>
-                </tr>
-            </thead>
-        </table><br>
-    <h2>8. 备注</h2>
+      <thead>
+        <tr>
+          <th data-field="config_name"></th>
+          <th data-field="config_value">建议配置</th>
+        </tr>
+      </thead>
+    </table><br>
+      
+    <h2>9. 备注</h2>
     <span>您在eBET做任何操作（例如：登入eBET游戏、向eBET发送API请求等），若收到http的错误（例如：403、502、504等），或其他未提及之错误，请向eBET人员寻求协助。</span><br>
     <br>`;
         } else {
@@ -147,9 +158,11 @@
     <span>After we add, we can only access the eBET api with the IP address provided.</span><br>
     <span>PS: We have reminded you of security measures, and you should bear your own responsibility in case of special circumstances regarding access to eBET api in the future.</span><br>
     <br>
+
     <h2>4. Game Login</h2>
     <span>The login game interface supports http and https. To use https, please contact eBET staff for assistance.</span><br>
     <br>
+
     <h2>5. Username composition</h2>
     <h4>Composition rules</h4>
     <span>
@@ -161,20 +174,35 @@
     <span>2.The recommended length is up to 25 characters.</span><br>
     <span>3.Cannot use http reserved characters, please avoid using other symbols to avoid problems.</span><br>
     <br>
+
     <h2>6. Token composition</h2>
     <span>
       This description applies to accessToken and sessionToken.
     </span><br><br>
     <h4>Composition rules</h4>
-    <span>
-      Channel can define parameter values and life cycles by themselves. 
-    </span><br><br>
+    <span>Channel can define parameter values and life cycles by themselves. </span><br><br>
     <h4>Composition suggestion</h4>
     <span>1.The suggestion is composed of uppercase and lowercase English and numbers, cannot use http reserved characters.</span><br>
     <span>2.It is recommended to update to the new parameter value after each use.</span><br>
     <span>3.It is recommended to fix a set of parameter values to ebet for repeated testing.</span><br>
     <br><br>
-    <h2>7. Recommended configuration</h2>
+
+    <h2>7. Sub-channel</h2>
+    <span>eBET provides sub-channel setting. <code>If you set nothing, the default ID will be 0</code>.</span><br><br>
+    <h4>Create sub-channel</h4>
+    <span>You can create the sub-channel and managing account for the main channel from the eBET backend.</span><br>
+    <span>Warning 1: <code>After creating, editing the name or deleting isn't allowed</code>.</span><br>
+    <span>Warning 2: <code>For the security, please log in again after you create the account</code>.</span><br><br>
+    <h4>Customized setting</h4>
+    <span>You can set the items below for one specific sub-channel:</span><br>
+    <span>1. Logo Url</span><br>
+    <span>2. Whether the game's frontend blocks cross bets from being placed</span><br>
+    <span>3. Whether to close multiple</span><br>
+    <span>4. Whether to enable custom pictures</span><br>
+    <span>Warning: <code>Press re-set, it will become the main channel's setting</code>.</span><br>
+    <br>
+
+    <h2>8. Recommended configuration</h2>
     <table class="config" data-height="300">
             <thead>
                 <tr>
@@ -183,7 +211,8 @@
                 </tr>
             </thead>
         </table><br>
-    <h2>8. Remark</h2>
+
+    <h2>9. Remark</h2>
     <span>When you do any operation on eBET (ex: login to eBET game, send API request to eBET), and if you receive http status code errors (ex: 403, 502, 504... etc.) or any other errors that are not listed above, please contact eBET staff for assistance.</span><br>
     <br>`;
         }

@@ -72,7 +72,8 @@ const currency =
         { "currency": "ZMW", "description": "Zambian Kwacha" },
         { "currency": "MWK", "description": "Malawian Kwacha" },
         { "currency": "GMD", "description": "Gambia Dalasis" },
-        { "currency": "LSL", "description": "Lesotho Loti" }
+        { "currency": "LSL", "description": "Lesotho Loti" },
+        { "currency": "NAD", "description": "Namibian Dollar" }
     ]
 
 const currency_cn = [
@@ -133,6 +134,6 @@ const currency_cn = [
     { "currency": "ZMW", "description": "尚比亚克瓦查" },
     { "currency": "MWK", "description": "马拉威克瓦查" },
     { "currency": "GMD", "description": "甘比亚达拉西" },
-    { "currency": "LSL", "description": "赖索托马洛蒂" }
-
+    { "currency": "LSL", "description": "赖索托马洛蒂" },
+    { "currency": "NAD", "description": "纳米比亚元" }
 ]

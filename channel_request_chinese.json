@@ -2934,6 +2934,11 @@
           "example": 19191919,
           "description": "用户ID"
         },
+        "providerId": {
+          "type": "string",
+          "example": "wayigame",
+          "description": "游戏供应商ID。仅电子类游戏有此参数。"
+        },
         "platform": {
           "type": "integer",
           "example": 1,

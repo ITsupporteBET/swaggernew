@@ -2347,7 +2347,7 @@
                       "providerId": {
                         "type": "string",
                         "example": "genesis",
-                        "description": "slot game vendor id"
+                        "description": "slot game provider id"
                       },
                       "releaseDate": {
                         "type": "string",
@@ -2925,6 +2925,11 @@
           "format": "int64",
           "example": 19191919,
           "description": "User ID"
+        },
+        "providerId": {
+          "type": "string",
+          "example": "wayigame",
+          "description": "Game provider ID. Only electronic games have this parameter."
         },
         "platform": {
           "type": "integer",
@@ -4523,7 +4528,7 @@
         "providerId": {
           "type": "string",
           "example": "genesis",
-          "description": "slot game vendor id"
+          "description": "slot game provider id"
         },
         "loginEventType": {
           "type": "integer",
@@ -4682,7 +4687,7 @@
         "providerId": {
           "type": "string",
           "example": "wayi",
-          "description": "Electronic game vendor ID"
+          "description": "Electronic game provider ID"
         },
         "loginEventType": {
           "type": "integer",
