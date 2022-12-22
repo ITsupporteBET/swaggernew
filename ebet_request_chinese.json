@@ -1063,6 +1063,12 @@
           "format": "double",
           "example": 100.0,
           "description": "每个投注项目的有效投注。\n 该参数会依照有效投注的计算规则，请参考：参数说明-有效投注。 \n 仅派彩请求(type:2)有此参数。"
+        },
+        "rebateAmount": {
+          "type": "number",
+          "format": "double",
+          "example": 5.0,
+          "description": "返水"
         }
       }
     },
@@ -1104,6 +1110,12 @@
           "format": "double",
           "example": 100.0,
           "description": "有效投注"
+        },
+        "rebateAmount": {
+          "type": "number",
+          "format": "double",
+          "example": 5.0,
+          "description": "返水"
         },
         "withholdingSeqNo": {
           "type": "string",

@@ -2919,6 +2919,12 @@
           "example": 10.0,
           "description": "有效投注。"
         },
+        "rebateAmount": {
+          "type": "number",
+          "format": "double",
+          "example": 5.0,
+          "description": "返水。"
+        },
         "balance": {
           "type": "number",
           "format": "double",

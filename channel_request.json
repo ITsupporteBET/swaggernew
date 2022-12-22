@@ -2911,6 +2911,12 @@
           "example": 10.0,
           "description": "Valid bet."
         },
+        "rebateAmount": {
+          "type": "number",
+          "format": "double",
+          "example": 5.0,
+          "description": "Rebate."
+        },
         "balance": {
           "type": "number",
           "format": "double",

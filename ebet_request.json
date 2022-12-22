@@ -1049,6 +1049,12 @@
           "format": "double",
           "example": 100.0,
           "description": "Valid bets for each bet item. \n This parameter will be based on the calculation rules of valid bets, please refer to the page: Parameter description - Valid betting instructions. \n Only for payout (type:2) request."
+        },
+        "rebateAmount": {
+          "type": "number",
+          "format": "double",
+          "example": 5.0,
+          "description": "Rebate"
         }
       }
     },
@@ -1139,6 +1145,12 @@
           "format": "double",
           "example": 100.0,
           "description": "Valid bet"
+        },
+        "rebateAmount": {
+          "type": "number",
+          "format": "double",
+          "example": 5.0,
+          "description": "Rebate"
         },
         "withholdingSeqNo": {
           "type": "string",
