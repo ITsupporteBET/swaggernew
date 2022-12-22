@@ -1054,7 +1054,7 @@
           "type": "number",
           "format": "double",
           "example": 5.0,
-          "description": "Rebate"
+          "description": "Rebate.Only type:2"
         }
       }
     },
@@ -1125,6 +1125,16 @@
           "example": 0,
           "description": "Game table type"
         },
+        "dealerName": {
+          "type": "string",
+          "description": "Dealer Name,only type:2",
+          "example": "Dealer1"
+        },
+        "bootsCardId": {
+          "type": "string",
+          "description": "BootsCardId,only type:2",
+          "example": "708"
+        },
         "roundCode": {
           "$ref": "#/definitions/roundCode"
         },
@@ -1150,7 +1160,7 @@
           "type": "number",
           "format": "double",
           "example": 5.0,
-          "description": "Rebate"
+          "description": "Rebate.Only type:2"
         },
         "withholdingSeqNo": {
           "type": "string",

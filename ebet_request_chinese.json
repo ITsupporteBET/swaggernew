@@ -1068,7 +1068,7 @@
           "type": "number",
           "format": "double",
           "example": 5.0,
-          "description": "返水"
+          "description": "返水。仅type:2"
         }
       }
     },
@@ -1089,6 +1089,16 @@
           "type": "integer",
           "example": 0,
           "description": "游戏桌类型"
+        },
+        "dealerName": {
+          "type": "string",
+          "description": "荷官名，仅type:2",
+          "example": "Dealer1"
+        },
+        "bootsCardId": {
+          "type": "string",
+          "description": "靴盒号，仅type:2",
+          "example": "708"
         },
         "roundCode": {
           "$ref": "#/definitions/roundCode"
@@ -1115,7 +1125,7 @@
           "type": "number",
           "format": "double",
           "example": 5.0,
-          "description": "返水"
+          "description": "返水。仅type:2"
         },
         "withholdingSeqNo": {
           "type": "string",
