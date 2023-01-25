@@ -169,7 +169,7 @@
           "多钱包使用的API"
         ],
         "summary": "充值",
-        "description": "此api为用户要变更金额，通知ebet处理。\n Note: 它返回成功是表示已接收到通知，但处理未完成。\n Note: 没有限定额度上限。\n Note: ebet金额只计算到小数点第二位 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/recharge\" target=\"_blank\">请求&回应范例</a>",
+        "description": "此api为用户要变更金额，通知ebet处理。\n Note: 它返回成功是表示已接收到通知，但处理未完成。\n Note: 没有限定额度上限。\n Note: ebet金额只计算到小数点第二位 \n Note: rechargeReqId请生成唯一值\n建議用渠道+玩家+時間 \n 切勿同秒发送\n 避免我方资料库数据无法判别 \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/recharge\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "recharge",
         "consumes": [
           "application/json"
