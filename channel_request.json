@@ -170,7 +170,7 @@
           "API used by transfer wallet"
         ],
         "summary": "reharge",
-        "description": "This API notifies eBET to process when the user's wallet amount is changed.\n Note: It returns success to indicate that a notification has been received, but processing is not complete.\n Note: There is no upper limit. \n Note: The ebet amount is only calculated to the second decimal place \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/recharge\" target=\"_blank\">Demo request & response</a>",
+        "description": "This API notifies eBET to process when the user's wallet amount is changed.\n Note: It returns success to indicate that a notification has been received, but processing is not complete.\n Note: There is no upper limit. \n Note: The ebet amount is only calculated to the second decimal place \n Note: rechargeReqId please generate a unique value \n It is recommended to use channel + player + time \n Do not send at the same time \n Avoid our database data can not be identified \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/API%20for%20transfer%20wallet/recharge\" target=\"_blank\">Demo request & response</a>",
         "operationId": "recharge",
         "consumes": [
           "application/json"
