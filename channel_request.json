@@ -761,7 +761,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "Game type.\n 1:Baccarat - VIP table \n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 11:Pok Deng\n 12:Hi-Lo"
+                        "description": "Game type.\n 1:Baccarat - VIP table \n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:fortune-wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 12:Hi-Lo"
                       },
                       "playerMin": {
                         "type": "number",
@@ -1374,12 +1374,12 @@
                       "betPlayer1Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer1 minimum bet limit.\n Bull Bull,Pok Deng."
+                        "description": "BetPlayer1 minimum bet limit.\n Bull Bull."
                       },
                       "betPlayer1Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer1 maximum bet limit.\n Bull Bull,Pok Deng."
+                        "description": "BetPlayer1 maximum bet limit.\n Bull Bull."
                       },
                       "betPlayer1DoubleMin": {
                         "type": "number",
@@ -1394,12 +1394,12 @@
                       "betPlayer2Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer2 minimum bet limit.\n Bull Bull,Pok Deng."
+                        "description": "BetPlayer2 minimum bet limit.\n Bull Bull."
                       },
                       "betPlayer2Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer2 maximum bet limit.\n Bull Bull,Pok Deng."
+                        "description": "BetPlayer2 maximum bet limit.\n Bull Bull."
                       },
                       "betPlayer2DoubleMin": {
                         "type": "number",
@@ -1414,12 +1414,12 @@
                       "betPlayer3Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer3 minimum bet limit.\n Bull Bull,Pok Deng."
+                        "description": "BetPlayer3 minimum bet limit.\n Bull Bull."
                       },
                       "betPlayer3Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "BetPlayer3 maximum bet limit.\n Bull Bull,Pok Deng."
+                        "description": "BetPlayer3 maximum bet limit.\n Bull Bull."
                       },
                       "baseBet_Min": {
                         "type": "number",
@@ -1540,76 +1540,6 @@
                         "type": "number",
                         "format": "double",
                         "description": "Multiple maximum bet limit.\n Only fortune-wheel."
-                      },
-                      "betPlayer4Min": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "BetPlayer4 minimum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer4Max": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "BetPlayer4 maximum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer5Min": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "BetPlayer5 minimum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer5Max": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "BetPlayer5 maximum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer1PairMin": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "Player1 Pair minimum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer1PairMax": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "Player1 Pair maximum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer2PairMin": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "Player2 Pair minimum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer2PairMax": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "Player2 Pair maximum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer3PairMin": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "Player3 Pair minimum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer3PairMax": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "Player3 Pair maximum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer4PairMin": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "Player4 Pair minimum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer4PairMax": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "Player4 Pair maximum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer5PairMin": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "Player5 Pair minimum bet limit.\n Only pok deng."
-                      },
-                      "betPlayer5PairMax": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "Player5 Pair maximum bet limit.\n Only pok deng."
                       },
                       "biggerMin": {
                         "type": "number",
@@ -1744,7 +1674,7 @@
                   "example": [
                     1
                   ],
-                  "description": "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:Fortune Wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 11: Pok Deng\n 12: Hi-Lo",
+                  "description": "Game code to update betting limit:\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:Fortune Wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 12: Hi-Lo",
                   "items": {
                     "type": "integer"
                   }
@@ -1801,7 +1731,7 @@
                 "updateGameList": {
                   "type": "integer",
                   "example": 1,
-                  "description": "Game code to update betting limit:\n 1: Baccarat - VIP table\n 2: Baccarat - Normal table\n 3:Dragon Tiger\n 4: Sic Bo\n 5: Roulette\n 6: Bull Bull\n 7: Fortune Wheel\n 8: BlackJack\n 9: Live Blackjack\n 11: Pok Deng\n 12: Hi-Lo"
+                  "description": "Game code to update betting limit:\n 1: Baccarat - VIP table\n 2: Baccarat - Normal table\n 3:Dragon Tiger\n 4: Sic Bo\n 5: Roulette\n 6: Bull Bull\n 7: Fortune Wheel\n 8: BlackJack\n 9: Live Blackjack\n 12: Hi-Lo"
                 }
               }
             }
@@ -2741,7 +2671,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: Bull Bull\n 23:  Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game\n 29: Pok Deng"
+          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: Bull Bull\n 23:  Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game"
         },
         "gameName": {
           "type": "string",
@@ -3242,7 +3172,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat\n 8: Bull Bull\n 23: Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game\n 29: Pok Deng\n 30: Board Game"
+          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat\n 8: Bull Bull\n 23: Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game\n 30: Board Game"
         },
         "judgeTime": {
           "type": "integer",
@@ -3321,7 +3251,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:fortune wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 10:Fortune Roulette\n 11:Pok Deng\n 12:Hi-Lo"
+          "description": "Game type.\n 1:Baccarat - VIP table\n 2:Baccarat - Normal table\n 3:Dragon Tiger\n 4:Sic Bo\n 5:Roulette\n 6:Bull Bull\n 7:fortune wheel\n 8:Virtual Blackjack\n 9:Live Blackjack\n 10:Fortune Roulette\n 12:Hi-Lo"
         },
         "playerMin": {
           "type": "number",
@@ -3952,12 +3882,12 @@
         "betPlayer1Min": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer1 minimum bet limit.\n Bull Bull,Pok Deng."
+          "description": "BetPlayer1 minimum bet limit.\n Bull Bull."
         },
         "betPlayer1Max": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer1 maximum bet limit.\n Bull Bull,Pok Deng."
+          "description": "BetPlayer1 maximum bet limit.\n Bull Bull."
         },
         "betPlayer1DoubleMin": {
           "type": "number",
@@ -3972,12 +3902,12 @@
         "betPlayer2Min": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer2 minimum bet limit.\n Bull Bull,Pok Deng."
+          "description": "BetPlayer2 minimum bet limit.\n Bull Bull."
         },
         "betPlayer2Max": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer2 maximum bet limit.\n Bull Bull,Pok Deng."
+          "description": "BetPlayer2 maximum bet limit.\n Bull Bull."
         },
         "betPlayer2DoubleMin": {
           "type": "number",
@@ -3992,12 +3922,12 @@
         "betPlayer3Min": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer3 minimum bet limit.\n Bull Bull,Pok Deng."
+          "description": "BetPlayer3 minimum bet limit.\n Bull Bull."
         },
         "betPlayer3Max": {
           "type": "number",
           "format": "double",
-          "description": "BetPlayer3 maximum bet limit.\n Bull Bull,Pok Deng."
+          "description": "BetPlayer3 maximum bet limit.\n Bull Bull."
         },
         "baseBet_Min": {
           "type": "number",
@@ -4108,76 +4038,6 @@
           "type": "number",
           "format": "double",
           "description": "Multiple maximum bet limit.\n Only fortune-wheel."
-        },
-        "betPlayer4Min": {
-          "type": "number",
-          "format": "double",
-          "description": "BetPlayer4 minimum bet limit.\n Only pok deng."
-        },
-        "betPlayer4Max": {
-          "type": "number",
-          "format": "double",
-          "description": "BetPlayer4 maximum bet limit.\n Only pok deng."
-        },
-        "betPlayer5Min": {
-          "type": "number",
-          "format": "double",
-          "description": "BetPlayer5 minimum bet limit.\n Only pok deng."
-        },
-        "betPlayer5Max": {
-          "type": "number",
-          "format": "double",
-          "description": "BetPlayer5 maximum bet limit.\n Only pok deng."
-        },
-        "betPlayer1PairMin": {
-          "type": "number",
-          "format": "double",
-          "description": "Player1 Pair minimum bet limit.\n Only pok deng."
-        },
-        "betPlayer1PairMax": {
-          "type": "number",
-          "format": "double",
-          "description": "Player1 Pair maximum bet limit.\n Only pok deng."
-        },
-        "betPlayer2PairMin": {
-          "type": "number",
-          "format": "double",
-          "description": "Player2 Pair minimum bet limit.\n Only pok deng."
-        },
-        "betPlayer2PairMax": {
-          "type": "number",
-          "format": "double",
-          "description": "Player2 Pair maximum bet limit.\n Only pok deng."
-        },
-        "betPlayer3PairMin": {
-          "type": "number",
-          "format": "double",
-          "description": "Player3 Pair minimum bet limit.\n Only pok deng."
-        },
-        "betPlayer3PairMax": {
-          "type": "number",
-          "format": "double",
-          "description": "Player3 Pair maximum bet limit.\n Only pok deng."
-        },
-        "betPlayer4PairMin": {
-          "type": "number",
-          "format": "double",
-          "description": "Player4 Pair minimum bet limit.\n Only pok deng."
-        },
-        "betPlayer4PairMax": {
-          "type": "number",
-          "format": "double",
-          "description": "Player4 Pair maximum bet limit.\n Only pok deng."
-        },
-        "betPlayer5PairMin": {
-          "type": "number",
-          "format": "double",
-          "description": "Player5 Pair minimum bet limit.\n Only pok deng."
-        },
-        "betPlayer5PairMax": {
-          "type": "number",
-          "format": "double",
-          "description": "Player5 Pair maximum bet limit.\n Only pok deng."
         },
         "biggerMin": {
           "type": "number",

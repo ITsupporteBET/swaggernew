@@ -26,7 +26,7 @@ const gameType = [
     { "code": "24", "Description": "Virtual Blackjack" },
     { "code": "25", "Description": "Live Blackjack" },
     { "code": "27", "Description": "Mini-game" },
-    { "code": "29", "Description": "Pok Deng" }
+    // { "code": "29", "Description": "Pok Deng" }
 ];
 
 const gameType_cn = [
@@ -43,7 +43,7 @@ const gameType_cn = [
     { "code": "24", "Description": "电子21点" },
     { "code": "25", "Description": "真人21点" },
     { "code": "27", "Description": "迷你游戏" },
-    { "code": "29", "Description": "博丁" }
+    // { "code": "29", "Description": "博丁" }
 
 ];
 

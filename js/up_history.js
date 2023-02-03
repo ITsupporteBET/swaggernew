@@ -67,13 +67,6 @@ const up_his = [
         `
     },
     {
-        update_time: "20220712",
-        update_member: "leo",
-        update_description: `
-        Add relevant API descriptions for Pok Deng<br>
-        `
-    },
-    {
         update_time: "20220629",
         update_member: "leo",
         update_description: `
@@ -404,13 +397,6 @@ const up_his_cn = [
         update_member: "leo",
         update_description: `
         增加骰子游戏 - Hi-Lo的相关说明<br>
-        `
-    },
-    {
-        update_time: "20220712",
-        update_member: "leo",
-        update_description: `
-        增加游戏 博丁的相关说明<br>
         `
     },
     {

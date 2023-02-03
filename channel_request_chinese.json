@@ -763,7 +763,7 @@
                       "gameType": {
                         "type": "integer",
                         "example": 1,
-                        "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 11:博丁\n 12:Hi-Lo"
+                        "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 12:Hi-Lo"
                       },
                       "playerMin": {
                         "type": "number",
@@ -1376,12 +1376,12 @@
                       "betPlayer1Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "闲 1 最低下注限额。\n 牛牛，博丁。"
+                        "description": "闲 1 最低下注限额。\n 牛牛。"
                       },
                       "betPlayer1Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "闲 1 最高下注限额。\n 牛牛，博丁。"
+                        "description": "闲 1 最高下注限额。\n 牛牛。"
                       },
                       "betPlayer1DoubleMin": {
                         "type": "number",
@@ -1396,12 +1396,12 @@
                       "betPlayer2Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "闲 2 最低下注限额。\n 牛牛，博丁。"
+                        "description": "闲 2 最低下注限额。\n 牛牛。"
                       },
                       "betPlayer2Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "闲 2 最高下注限额。\n 牛牛，博丁。"
+                        "description": "闲 2 最高下注限额。\n 牛牛。"
                       },
                       "betPlayer2DoubleMin": {
                         "type": "number",
@@ -1416,12 +1416,12 @@
                       "betPlayer3Min": {
                         "type": "number",
                         "format": "double",
-                        "description": "闲 3 最低下注限额。\n 牛牛，博丁。"
+                        "description": "闲 3 最低下注限额。\n 牛牛。"
                       },
                       "betPlayer3Max": {
                         "type": "number",
                         "format": "double",
-                        "description": "闲 3 最高下注限额。\n 牛牛，博丁。"
+                        "description": "闲 3 最高下注限额。\n 牛牛。"
                       },
                       "betPlayer3DoubleMin": {
                         "type": "number",
@@ -1542,76 +1542,6 @@
                         "type": "number",
                         "format": "double",
                         "description": "2X/8X 最高下注限额。\n 只有财富大转盘。"
-                      },
-                      "betPlayer4Min": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 4 最低下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer4Max": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 4 最高下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer5Min": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 5 最低下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer5Max": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 5 最高下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer1PairMin": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 1 对最低下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer1PairMax": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 1 对最高下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer2PairMin": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 2 对最低下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer2PairMax": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 2 对最高下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer3PairMin": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 3 对最低下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer3PairMax": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 3 对最高下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer4PairMin": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 4 对最低下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer4PairMax": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 4 对最高下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer5PairMin": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 5 对最低下注限额。\n 只有博丁。"
-                      },
-                      "betPlayer5PairMax": {
-                        "type": "number",
-                        "format": "double",
-                        "description": "闲 5 对最高下注限额。\n 只有博丁。"
                       },
                       "biggerMin": {
                         "type": "number",
@@ -1746,7 +1676,7 @@
                   "example": [
                     1
                   ],
-                  "description": "更新投注限额游戏的代号:\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 11:博丁\n 12:Hi-Lo",
+                  "description": "更新投注限额游戏的代号:\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 12:Hi-Lo",
                   "items": {
                     "type": "integer"
                   }
@@ -1805,7 +1735,7 @@
                   "example": [
                     1
                   ],
-                  "description": "游戏类型。\n 1: 百家乐 -一般桌\n 2: 百家乐 -VIP桌\n 3:龙虎\n 4: 骰宝\n 5: 轮盘\n 6: 牛牛\n 7: 财富大转盘\n 8: 电子21点\n 9: 真人21点\n 11: 博丁\n 12:Hi-Lo"
+                  "description": "游戏类型。\n 1: 百家乐 -一般桌\n 2: 百家乐 -VIP桌\n 3:龙虎\n 4: 骰宝\n 5: 轮盘\n 6: 牛牛\n 7: 财富大转盘\n 8: 电子21点\n 9: 真人21点\n 12:Hi-Lo"
                 }
               }
             }
@@ -2749,7 +2679,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点\n 27: 迷你游戏\n 29: 博丁"
+          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点\n 27: 迷你游戏"
         },
         "gameName": {
           "type": "string",
@@ -3250,7 +3180,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点\n 27: 迷你游戏\n 29: 博丁\n 30: 电子棋牌"
+          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点\n 27: 迷你游戏\n 30: 电子棋牌"
         },
         "judgeTime": {
           "type": "integer",
@@ -3329,7 +3259,7 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 11:博丁\n 12:Hi-Lo"
+          "description": "游戏类型。\n 1:百家乐 - VIP 桌\n 2:百家乐 - Normal 桌\n 3:龙虎\n 4:骰宝\n 5:轮盘\n 6:牛牛\n 7:财富大转盘\n 8:电子21点\n 9:真人21点\n 12:Hi-Lo"
         },
         "playerMin": {
           "type": "number",
@@ -3942,12 +3872,12 @@
         "betPlayer1Min": {
           "type": "number",
           "format": "double",
-          "description": "闲 1 最低下注限额。\n 牛牛，博丁。"
+          "description": "闲 1 最低下注限额。\n 牛牛。"
         },
         "betPlayer1Max": {
           "type": "number",
           "format": "double",
-          "description": "闲 1 最高下注限额。\n 牛牛，博丁。"
+          "description": "闲 1 最高下注限额。\n 牛牛。"
         },
         "betPlayer1DoubleMin": {
           "type": "number",
@@ -3962,12 +3892,12 @@
         "betPlayer2Min": {
           "type": "number",
           "format": "double",
-          "description": "闲 2 最低下注限额。\n 牛牛，博丁。"
+          "description": "闲 2 最低下注限额。\n 牛牛。"
         },
         "betPlayer2Max": {
           "type": "number",
           "format": "double",
-          "description": "闲 2 最高下注限额。\n 牛牛，博丁。"
+          "description": "闲 2 最高下注限额。\n 牛牛。"
         },
         "betPlayer2DoubleMin": {
           "type": "number",
@@ -3982,12 +3912,12 @@
         "betPlayer3Min": {
           "type": "number",
           "format": "double",
-          "description": "闲 3 最低下注限额。\n 牛牛，博丁。"
+          "description": "闲 3 最低下注限额。\n 牛牛。"
         },
         "betPlayer3Max": {
           "type": "number",
           "format": "double",
-          "description": "闲 3 最高下注限额。\n 牛牛，博丁。"
+          "description": "闲 3 最高下注限额。\n 牛牛。"
         },
         "betPlayer3DoubleMin": {
           "type": "number",
@@ -4108,76 +4038,6 @@
           "type": "number",
           "format": "double",
           "description": "2X/8X 最高下注限额。\n 只有财富大转盘。"
-        },
-        "betPlayer4Min": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 4 最低下注限额。\n 只有博丁。"
-        },
-        "betPlayer4Max": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 4 最高下注限额。\n 只有博丁。"
-        },
-        "betPlayer5Min": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 5 最低下注限额。\n 只有博丁。"
-        },
-        "betPlayer5Max": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 5 最高下注限额。\n 只有博丁。"
-        },
-        "betPlayer1PairMin": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 1 对最低下注限额。\n 只有博丁。"
-        },
-        "betPlayer1PairMax": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 1 对最高下注限额。\n 只有博丁。"
-        },
-        "betPlayer2PairMin": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 2 对最低下注限额。\n 只有博丁。"
-        },
-        "betPlayer2PairMax": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 2 对最高下注限额。\n 只有博丁。"
-        },
-        "betPlayer3PairMin": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 3 对最低下注限额。\n 只有博丁。"
-        },
-        "betPlayer3PairMax": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 3 对最高下注限额。\n 只有博丁。"
-        },
-        "betPlayer4PairMin": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 4 对最低下注限额。\n 只有博丁。"
-        },
-        "betPlayer4PairMax": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 4 对最高下注限额。\n 只有博丁。"
-        },
-        "betPlayer5PairMin": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 5 对最低下注限额。\n 只有博丁。"
-        },
-        "betPlayer5PairMax": {
-          "type": "number",
-          "format": "double",
-          "description": "闲 5 对最高下注限额。\n 只有博丁。"
         },
         "biggerMin": {
           "type": "number",
