@@ -865,25 +865,25 @@
                         "type": "number",
                         "format": "double",
                         "example": 10.0,
-                        "description": "大 最低下注限额\n 只有百家乐，骰宝，轮盘。"
+                        "description": "大 最低下注限额\n 只有百家乐，骰宝，轮盘，Hi-Lo。"
                       },
                       "bigMax": {
                         "type": "number",
                         "format": "double",
                         "example": 1000.0,
-                        "description": "大 最高下注限额。\n 只有百家乐，骰宝，轮盘。"
+                        "description": "大 最高下注限额。\n 只有百家乐，骰宝，轮盘，Hi-Lo。"
                       },
                       "smallMin": {
                         "type": "number",
                         "format": "double",
                         "example": 10.0,
-                        "description": "小 最低下注限额。\n 只有百家乐，骰宝，轮盘。"
+                        "description": "小 最低下注限额。\n 只有百家乐，骰宝，轮盘，Hi-Lo。"
                       },
                       "smallMax": {
                         "type": "number",
                         "format": "double",
                         "example": 1000.0,
-                        "description": "小 最高下注限制。\n 只有百家乐，骰宝，轮盘。"
+                        "description": "小 最高下注限制。\n 只有百家乐，骰宝，轮盘，Hi-Lo。"
                       },
                       "bankerOddMin": {
                         "type": "number",
