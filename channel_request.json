@@ -863,25 +863,25 @@
                         "type": "number",
                         "format": "double",
                         "example": 10.0,
-                        "description": "Big minimum bet limit.\n Only baccarat,sic-bo,roulette."
+                        "description": "Big minimum bet limit.\n Only baccarat,sic-bo,roulette,Hi-Lo."
                       },
                       "bigMax": {
                         "type": "number",
                         "format": "double",
                         "example": 1000.0,
-                        "description": "Big maximum bet limit.\n Only baccarat,sic-bo,roulette."
+                        "description": "Big maximum bet limit.\n Only baccarat,sic-bo,roulette,Hi-Lo."
                       },
                       "smallMin": {
                         "type": "number",
                         "format": "double",
                         "example": 10.0,
-                        "description": "Small minimum bet limit.\n Only baccarat,sic-bo,roulette."
+                        "description": "Small minimum bet limit.\n Only baccarat,sic-bo,roulette,Hi-Lo."
                       },
                       "smallMax": {
                         "type": "number",
                         "format": "double",
                         "example": 1000.0,
-                        "description": "Small maximum bet limit.\n Only baccarat,sic-bo,roulette."
+                        "description": "Small maximum bet limit.\n Only baccarat,sic-bo,roulette,Hi-Lo."
                       },
                       "bankerOddMin": {
                         "type": "number",
