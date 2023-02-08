@@ -129,7 +129,7 @@ const type = [
   {
     "Code": 41,
     "Type": "Rebate",
-    "description": "eBET event: Treasure",
+    "description": "eBET event: Rebate",
     "Occurrence": "The system will return rebate to the player according to the percentage set in the background according to the player's betting amount, but the additional amount must be paid by the channel self"
   }
 ]
@@ -156,5 +156,5 @@ const type_cn = [
   { "Code": "31", "Type": "渠道限量红包", "description": "发送限量红包的纪录", "Occurrence": "1.在ebet后台设定达成条件<br>2.达到条件后随机发送" },
   { "Code": "37", "Type": "补发金额", "description": "补发牌局结果修正后的差额", "Occurrence": "牌局结果修正后需重新计算派彩金额并补发差额" },
   { "Code": "38", "Type": "宝箱奖金发派", "description": "宝箱活动的奖金发派", "Occurrence": "牌局结束后会发放宝箱活动的奖金" },
-  { "Code": "41", "Type": "返水", "description": "系统会根据玩家的投注额，照后台设定的百分比去返水给玩家，但这额外的金额须由渠道方自行支付", "Occurrence": "牌局结束后会发放宝箱活动的奖金" }
+  { "Code": "41", "Type": "返水", "description": "系统会根据玩家的投注额，照后台设定的百分比去返水给玩家，但这额外的金额须由渠道方自行支付", "Occurrence": "牌局结束后会发放" }
 ]
