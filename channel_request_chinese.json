@@ -933,6 +933,66 @@
                         "example": 1000.0,
                         "description": "闲双 最高下注限额。\n 只有百家乐.。"
                       },
+                      "perfectPairMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+                      },
+                      "perfectPairMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+                      },
+                      "anyPairMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+                      },
+                      "anyPairMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+                      },
+                      "bankerNaturalMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+                      },
+                      "bankerNaturalMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+                      },
+                      "playerNaturalMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+                      },
+                      "playerNaturalMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+                      },
+                      "super6Min": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+                      },
+                      "super6Max": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+                      },
                       "dragonMin": {
                         "type": "number",
                         "format": "double",
@@ -3428,6 +3488,66 @@
           "format": "double",
           "example": 1000.0,
           "description": "闲双 最高下注限额。\n 只有百家乐.。"
+        },
+        "perfectPairMin": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+        },
+        "perfectPairMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+        },
+        "anyPairMin": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+        },
+        "anyPairMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+        },
+        "bankerNaturalMin": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+        },
+        "bankerNaturalMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+        },
+        "playerNaturalMin": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+        },
+        "playerNaturalMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+        },
+        "super6Min": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
+        },
+        "super6Max": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "暂时不开放使用 请预设为1。\n 只有百家乐.。"
         },
         "dragonMin": {
           "type": "number",

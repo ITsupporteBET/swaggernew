@@ -931,6 +931,66 @@
                         "example": 1000.0,
                         "description": "PlayerEven maximum bet limit.\n Only baccarat."
                       },
+                      "perfectPairMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+                      },
+                      "perfectPairMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+                      },
+                      "anyPairMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+                      },
+                      "anyPairMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+                      },
+                      "bankerNaturalMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+                      },
+                      "bankerNaturalMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+                      },
+                      "playerNaturalMin": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+                      },
+                      "playerNaturalMax": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+                      },
+                      "super6Min": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+                      },
+                      "super6Max": {
+                        "type": "number",
+                        "format": "double",
+                        "example": 1,
+                        "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+                      },
                       "dragonMin": {
                         "type": "number",
                         "format": "double",
@@ -3420,6 +3480,66 @@
           "format": "double",
           "example": 1000.0,
           "description": "PlayerEven maximum bet limit.\n Only baccarat."
+        },
+        "perfectPairMin": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+        },
+        "perfectPairMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+        },
+        "anyPairMin": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+        },
+        "anyPairMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+        },
+        "bankerNaturalMin": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+        },
+        "bankerNaturalMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+        },
+        "playerNaturalMin": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+        },
+        "playerNaturalMax": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+        },
+        "super6Min": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
+        },
+        "super6Max": {
+          "type": "number",
+          "format": "double",
+          "example": 1,
+          "description": "Please set to 1 temporarily not open for use. \n Only baccarat."
         },
         "dragonMin": {
           "type": "number",
