@@ -14,6 +14,13 @@ if (window.localStorage.getItem('lang') == "cn") {
 }
 const up_his = [
     {
+        update_time: "20230223",
+        update_member: "leo",
+        update_description: `
+        Add API increaseCredit > detail new request parameter "gameName"<br>
+        `
+    },
+    {
         update_time: "20230220",
         update_member: "leo",
         update_description: `
@@ -353,6 +360,20 @@ const up_his = [
 
 
 const up_his_cn = [
+    {
+        update_time: "20230223",
+        update_member: "leo",
+        update_description: `
+        新增API increaseCredit > detail 请求参数"gameName"<br>
+        `
+    },
+    {
+        update_time: "20230220",
+        update_member: "leo",
+        update_description: `
+        新增棋牌游戏 - 德州扑克的相关说明<br>
+        `
+    },
     {
         update_time: "20221122",
         update_member: "leo",

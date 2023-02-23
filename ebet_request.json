@@ -1287,6 +1287,21 @@
               }
             }
           }
+        },
+        "gameName": {
+          "type": "string",
+          "description": "Game name.\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot(Display the gameID)\n bull-bull\n fortune-wheel\n black-jack-electronic\n black-jack-live\n mini-game(Display the gameID)\n pok-deng",
+          "enum": [
+            "baccarat",
+            "dragon-tiger",
+            "sic-bo",
+            "roulette",
+            "bull-bull",
+            "fortune-wheel",
+            "black-jack-electronic",
+            "black-jack-live",
+            "mini-game"
+          ]
         }
       }
     },
