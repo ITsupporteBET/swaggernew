@@ -57,6 +57,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">新增游戏
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="texas_holdem.html" onclick="window.location.reload();">德州扑克</a>
                         <a class="dropdown-item" href="virtual_pokdeng.html" onclick="window.location.reload();">电子博丁</a>
                         <a class="dropdown-item" href="hi_lo.html" onclick="window.location.reload();">真人 Hi-Lo</a>
                         <a class="dropdown-item" href="minigame.html" onclick="window.location.reload();">迷你游戏</a>
@@ -154,6 +155,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New game
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="texas_holdem.html" onclick="window.location.reload();">Texas Hold'em</a>
                         <a class="dropdown-item" href="virtual_pokdeng.html" onclick="window.location.reload();">Virtual PokDeng</a>
                         <a class="dropdown-item" href="hi_lo.html" onclick="window.location.reload();">Live Hi-Lo</a>
                         <a class="dropdown-item" href="minigame.html" onclick="window.location.reload();">Mini-game</a>

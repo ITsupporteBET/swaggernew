@@ -14,6 +14,13 @@ if (window.localStorage.getItem('lang') == "cn") {
 }
 const up_his = [
     {
+        update_time: "20230220",
+        update_member: "leo",
+        update_description: `
+        Add new game Texas Hold'em<br>
+        `
+    },
+    {
         update_time: "20221122",
         update_member: "leo",
         update_description: `
