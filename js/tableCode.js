@@ -1,13 +1,13 @@
 if (window.localStorage.getItem('lang') == "cn") {
     $(function () {
         $('.tableCode').bootstrapTable({//游戏类型
-            data: tableType_cn
+            data: tableCode_cn
         });
     });
 } else {
     $(function () {
         $('.tableCode').bootstrapTable({//游戏类型
-            data: tableType
+            data: tableCode
         });
     });
 }
