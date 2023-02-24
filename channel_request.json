@@ -2935,7 +2935,7 @@
         "brokerageRequired": {
           "type": "boolean",
           "example": true,
-          "description": "Whether it is commission baccarat. Only Baccarat payout has this parameter."
+          "description": "Whether it is commission baccarat. Other game defalt will null."
         }
       }
     },
