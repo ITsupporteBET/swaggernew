@@ -16,6 +16,7 @@ $(function () {
 const currency =
     [
         { "currency": "AUD", "description": "Australian dollar" },
+        { "currency": "PHP", "description": "Philippine peso" },
         { "currency": "BND", "description": "Brunei dollar" },
         { "currency": "BRL", "description": "Brazilian real" },
         { "currency": "CNY", "description": "RMB" },
@@ -78,6 +79,7 @@ const currency =
 
 const currency_cn = [
     { "currency": "AUD", "description": "澳元" },
+    { "currency": "PHP", "description": "菲律宾披索" },
     { "currency": "BND", "description": "汶莱" },
     { "currency": "BRL", "description": "巴西雷亚尔" },
     { "currency": "CNY", "description": "人民币" },
