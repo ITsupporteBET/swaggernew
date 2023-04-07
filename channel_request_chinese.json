@@ -2743,17 +2743,20 @@
         },
         "gameName": {
           "type": "string",
-          "description": "游戏名称。\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot(显示游戏的gameID)\n bull-bull\n fortune-wheel\n black-jack-electronic\n black-jack-live\n mini-game(显示游戏的gameID)\n pok-deng",
+          "description": "游戏名称。\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng",
           "enum": [
             "baccarat",
             "dragon-tiger",
             "sic-bo",
             "roulette",
+            "slot",
             "bull-bull",
+            "fortune roulette",
             "fortune-wheel",
-            "black-jack-electronic",
-            "black-jack-live",
-            "mini-game"
+            "black_jack_electronic",
+            "black_jack_live",
+            "mini-game",
+            "pokdeng"
           ]
         },
         "betMap": {
