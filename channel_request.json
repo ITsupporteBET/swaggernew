@@ -2129,7 +2129,7 @@
                             "gameName": {
                               "type": "string",
                               "example": "baccarat",
-                              "description": "Game name \n If request parameter isMerge is true Game name will be All \n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng"
+                              "description": "Game name \n If request parameter isMerge is true Game name will be All \n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n board game"
                             },
                             "totalBet": {
                               "type": "number",
@@ -2735,7 +2735,7 @@
         },
         "gameName": {
           "type": "string",
-          "description": "Game name.\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng",
+          "description": "Game name.\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n board game",
           "enum": [
             "baccarat",
             "dragon-tiger",
@@ -2748,7 +2748,8 @@
             "black_jack_electronic",
             "black_jack_live",
             "mini-game",
-            "pokdeng"
+            "pokdeng",
+            "board game"
           ]
         },
         "betMap": {

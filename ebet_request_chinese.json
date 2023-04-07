@@ -1255,7 +1255,7 @@
         },
         "gameName": {
           "type": "string",
-          "description": "游戏名称。\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng",
+          "description": "游戏名称。\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n board game",
           "enum": [
             "baccarat",
             "dragon-tiger",
@@ -1268,7 +1268,8 @@
             "black_jack_electronic",
             "black_jack_live",
             "mini-game",
-            "pokdeng"
+            "pokdeng",
+            "board game"
           ]
         }
       }
