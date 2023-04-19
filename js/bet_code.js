@@ -1946,6 +1946,7 @@ if (window.localStorage.getItem('lang') == "cn") {
 const virtualgames = [
     { "code": "601", "description": "Virtual games common bet code" },
     { "code": "602", "description": "Virtual Pokdeng: banker" },
+    { "code": "603", "description": "Virtual Pokdeng: Insurance" },
     //{ "code": "651", "description": "Virtual games no corresponding bet code for payout" },
     { "code": "652", "description": "Virtual games have same bet code for payout(Only for parameter \"payoutDetail\")" }
 ]
@@ -1953,6 +1954,7 @@ const virtualgames = [
 const virtualgames_cn = [
     { "code": "601", "description": "电子游戏通用注别" },
     { "code": "602", "description": "电子博丁：庄家" },
+    { "code": "603", "description": "电子博丁：保险" },
     //{ "code": "651", "description": "电子游戏派彩无对应注别" },
     { "code": "652", "description": "电子游戏派彩在重覆的注別(仅payoutDetail会出现)" }
 ]
