@@ -1812,7 +1812,7 @@
           "通用API"
         ],
         "summary": "用户投注详情连结",
-        "description": "提供用户投注历史的URL。\n 链接屏幕显示游戏名称，下注日期，下注金额，派彩金额，牌局号，会员下注类型（文字+图标）和牌局结果类型（文字+图标）。 与eBET后台投注详情相同。\n\n URL path 的規則:\n 1.细单页面连结\n 2.用户名称(userName)\n 3.渠道ID(channelId)\n 4.牌局号(roundCode)\n 5.語系(lang)\n 6.加入display=1可以关闭有效投注栏位\n 7.签名signature (需由渠道用GET method自行添加上去)\n 产生的规则为 RSA (channelId+username+roundCode+lang) \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userBetTracer\" target=\"_blank\">请求&回应范例</a>",
+        "description": "提供用户投注历史的URL。\n Note: 如不使用betHistoryId，则必须使用username和roundCode。\n 链接屏幕显示游戏名称，下注日期，下注金额，派彩金额，牌局号，会员下注类型（文字+图标）和牌局结果类型（文字+图标）。 与eBET后台投注详情相同。\n\n URL path 的規則:\n 1.细单页面连结\n 2.用户名称(userName)\n 3.渠道ID(channelId)\n 4.牌局号(roundCode)\n 5.語系(lang)\n 6.加入display=1可以关闭有效投注栏位\n 7.签名signature (需由渠道用GET method自行添加上去)\n 产生的规则为 RSA (channelId+username+roundCode+lang) \n 范例链接：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userBetTracer\" target=\"_blank\">请求&回应范例</a>",
         "operationId": "userBetTracer",
         "consumes": [
           "application/json"
@@ -2133,7 +2133,7 @@
                             "gameName": {
                               "type": "string",
                               "example": "baccarat",
-                              "description": "游戏名称\n 如isMerge:true gameName则为All \n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n board game"
+                              "description": "游戏名称\n 如isMerge:true gameName则为All \n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n texas \n texasshort"
                             },
                             "totalBet": {
                               "type": "number",
@@ -2739,11 +2739,11 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点\n 27: 迷你游戏"
+          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点\n 27: 迷你游戏\n 30: 棋牌游戏"
         },
         "gameName": {
           "type": "string",
-          "description": "游戏名称。\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n board game",
+          "description": "游戏名称。\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n texas \n texasshort",
           "enum": [
             "baccarat",
             "dragon-tiger",
@@ -2757,7 +2757,8 @@
             "black_jack_live",
             "mini-game",
             "pokdeng",
-            "board game"
+            "texas",
+            "texasshort"
           ]
         },
         "betMap": {

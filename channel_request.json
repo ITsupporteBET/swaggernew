@@ -1808,7 +1808,7 @@
           "Common API"
         ],
         "summary": "userBetTracer",
-        "description": "Provides the URL of the user's betting history.\n The link screen displays the game name, bet date, bet amount, payout amount, round number, member bet type (text + icon), and the result card type (text + icon). As with eBET background betting details.\n\n URL path rules:\n 1.Page link\n 2.username\n 3.channelId\n 4.roundCode\n 5.lang\n 6.Add display = 1 to turn off the valid betting field\n 7.signature (need to be added by the channel using the GET method)\n The resulting rule is RSA (channelId+username+roundCode+lang) \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userBetTracer\" target=\"_blank\">Demo request & response</a>",
+        "description": "Provides the URL of the user's betting history.\n Note: Parameter if not use betHistoryId should add username & roundCode \n The link screen displays the game name, bet date, bet amount, payout amount, round number, member bet type (text + icon), and the result card type (text + icon). As with eBET background betting details.\n\n URL path rules:\n 1.Page link\n 2.username\n 3.channelId\n 4.roundCode\n 5.lang\n 6.Add display = 1 to turn off the valid betting field\n 7.signature (need to be added by the channel using the GET method)\n The resulting rule is RSA (channelId+username+roundCode+lang) \n Demo link：<a href=\"https://github.com/ITsupporteBET/demo_code/tree/master/Common%20API/userBetTracer\" target=\"_blank\">Demo request & response</a>",
         "operationId": "userBetTracer",
         "consumes": [
           "application/json"
@@ -2129,7 +2129,7 @@
                             "gameName": {
                               "type": "string",
                               "example": "baccarat",
-                              "description": "Game name \n If request parameter isMerge is true Game name will be All \n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n board game"
+                              "description": "Game name \n If request parameter isMerge is true Game name will be All \n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n texas \n texasshort"
                             },
                             "totalBet": {
                               "type": "number",
@@ -2731,11 +2731,11 @@
         "gameType": {
           "type": "integer",
           "example": 1,
-          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: Bull Bull\n 23:  Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game"
+          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 8: Bull Bull\n 23:  Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game\n 30: Board Game"
         },
         "gameName": {
           "type": "string",
-          "description": "Game name.\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n board game",
+          "description": "Game name.\n baccarat\n dragon-tiger\n sic-bo\n roulette\n slot\n bull-bull\n fortune roulette\n fortune-wheel\n black_jack_electronic\n black_jack_live\n mini-game\n pokdeng \n texas \n texasshort",
           "enum": [
             "baccarat",
             "dragon-tiger",
@@ -2749,7 +2749,8 @@
             "black_jack_live",
             "mini-game",
             "pokdeng",
-            "board game"
+            "texas",
+            "texasshort"
           ]
         },
         "betMap": {
