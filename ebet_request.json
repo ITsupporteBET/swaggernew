@@ -1510,7 +1510,9 @@
           "description": "Threshold for refund amount."
         },
         "sessionToken": {
-          "$ref": "#/definitions/sessionToken"
+          "type": "string",
+          "description": "Randomly generated",
+          "example": "sessionToken"
         },
         "seqNo": {
           "type": "string",

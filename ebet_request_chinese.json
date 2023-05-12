@@ -1476,7 +1476,9 @@
           "description": "退款金额的阈值。"
         },
         "sessionToken": {
-          "$ref": "#/definitions/sessionToken"
+          "type": "string",
+          "description": "随机生成",
+          "example": "sessionToken"
         },
         "seqNo": {
           "type": "string",
