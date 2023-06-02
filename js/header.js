@@ -107,6 +107,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         <a class="dropdown-item" href="signature.html" onclick="window.location.reload();">签名测试</a>
                         <a class="dropdown-item" href="update.html" onclick="window.location.reload();">更新纪录</a>
                         <a class="dropdown-item" onclick="window.open('https://drive.google.com/drive/u/1/folders/1RhZ5g1qgIJnHmygk8D_-zbJyPxOVRiZr');">下载区</a>
+                        <a class="dropdown-item" href="client_errror.html" onclick="window.location.reload();">Client error code</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -205,6 +206,7 @@ if (window.localStorage.getItem('lang') == "cn") {
                         <a class="dropdown-item" href="signature.html" onclick="window.location.reload();">Signature test</a>
                         <a class="dropdown-item" href="update.html" onclick="window.location.reload();">Update history</a>
                         <a class="dropdown-item" onclick="window.open('https://drive.google.com/drive/u/1/folders/1RhZ5g1qgIJnHmygk8D_-zbJyPxOVRiZr');">Download</a>
+                        <a class="dropdown-item" href="client_errror.html" onclick="window.location.reload();">Client error code</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

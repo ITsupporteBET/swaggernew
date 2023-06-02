@@ -133,22 +133,24 @@ if (window.localStorage.getItem('lang') == "cn") {//slot language 參數
 
     const slotlanguage_cn = [
         { "language": "zh-hans", "description": "简体中文" },
-        { "language": "vi", "description": "越南语" },
-        { "language": "th", "description": "泰文" },
-        { "language": "ru", "description": "俄语" },
-        { "language": "pt", "description": "葡萄牙語" },
-        { "language": "jp", "description": "日语" },
-        { "language": "in", "description": "印尼语" },
-        { "language": "es", "description": "西班牙语" }
+        { "language": "en", "description": "英文" },
+        // { "language": "vi", "description": "越南语" },
+        // { "language": "th", "description": "泰文" },
+        // { "language": "ru", "description": "俄语" },
+        // { "language": "pt", "description": "葡萄牙語" },
+        // { "language": "jp", "description": "日语" },
+        // { "language": "in", "description": "印尼语" },
+        // { "language": "es", "description": "西班牙语" }
     ]
 
     const slotlanguage = [
         { "language": "zh-hans", "description": "Chinese Simplified" },
-        { "language": "vi", "description": "Ting Vit" },
-        { "language": "th", "description": "Thai" },
-        { "language": "ru", "description": "Russian" },
-        { "language": "pt", "description": "Portugal" },
-        { "language": "jp", "description": "Japanese" },
-        { "language": "in", "description": "Indonesian" },
-        { "language": "es", "description": "Spanish" }
+        { "language": "en", "description": "English" },
+        // { "language": "vi", "description": "Ting Vit" },
+        // { "language": "th", "description": "Thai" },
+        // { "language": "ru", "description": "Russian" },
+        // { "language": "pt", "description": "Portugal" },
+        // { "language": "jp", "description": "Japanese" },
+        // { "language": "in", "description": "Indonesian" },
+        // { "language": "es", "description": "Spanish" }
     ]

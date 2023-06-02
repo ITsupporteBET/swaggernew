@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="eBET API Document" />
+  <meta name="robots" content="index,follow" />
+  <meta name="google" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <meta name="verify" content="index,follow" />
+  <META HTTP-EQUIV="EXPIRES" CONTENT="-1">
+  <title>eBET</title>
+  <div id="h_css"></div>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div class="container">
+    <div id="container"></div>
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+  <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/header_css.js"></script>
+  <script src="js/clienterror.js"></script>
+  <script>
+    //        en
+    const web_context = document.getElementById('container');
+    web_context.innerHTML = `
+    <h1>Client error code</h1>
+    <span>Only could check on PC mode url for desktop broswer developer tools</span><br>
+    <br>
+    <table class="clienterror" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="code">code</th>
+          <th data-field="Description">Description</th>
+        </tr>
+      </thead>
+    </table>
+    <br>
+    `;
+
+  </script>
+  <script>
+    if (window.localStorage.getItem('lang') == "cn") {
+
+      web_context.innerHTML = `
+    <h3>客户端错误代码</h3>
+    <span>只能使用电脑版浏览器用开发模式查看。</span><br>
+    <br>
+    <table class="clienterror" data-height="280">
+      <thead>
+        <tr>
+          <th data-field="code">代码</th>
+          <th data-field="Description">描述</th>
+        </tr>
+      </thead>
+    </table><br>
+    `;
+    } else {
+
+    }
+
+  </script>
+</body>
+
+</html>
