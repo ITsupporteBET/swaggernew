@@ -3256,6 +3256,11 @@
           "type": "boolean",
           "example": false,
           "description": "betHistories的显示方式。默认为false。\n true: 按确认的投注次数细分\n false: 根据付款记录显示\n Note: 该参数不会影响其他参数的计算。仍将根据付款数量进行处理。"
+        },
+        "showTestAccount": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否显示测试帐号的数据。默认为false。\n true: 显示\n false: 不显示"
         }
       }
     },

@@ -3248,6 +3248,11 @@
           "type": "boolean",
           "example": false,
           "description": "The way betHistories is displayed. Default is false.\n true: segment by the number of confirmed bets\n false: according to payout records do show\n Note: This parameter will not affect the calculation of other parameters. It will still be processed based on the number of payouts."
+        },
+        "showTestAccount": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether to display test account data. Default is false.\n true: display\n false: not display"
         }
       }
     },
