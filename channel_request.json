@@ -2647,7 +2647,7 @@
                 "betCount": {
                   "type": "number",
                   "description": "Number of bets",
-                  "example": "1"
+                  "example": 1
                 },
                 "totalBet": {
                   "type": "number",
