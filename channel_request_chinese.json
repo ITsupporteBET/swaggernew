@@ -2649,7 +2649,7 @@
                 "betCount": {
                   "type": "number",
                   "description": "下注笔数 ",
-                  "example": 1
+                  "example": "1"
                 },
                 "totalBet": {
                   "type": "number",
@@ -2692,7 +2692,8 @@
             }
           }
         }
-      },
+      }
+    },
   "definitions": {
     "username": {
       "type": "string",
