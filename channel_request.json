@@ -2691,8 +2691,7 @@
           }
         }
       }
-    }
-  },
+    },
   "definitions": {
     "username": {
       "type": "string",
@@ -4972,4 +4971,5 @@
       "description": "Odds. \n Noted: \n 1.Supports all games except slot machines. \n 2.Only when payout success round. \n 3.Odds do not include bet."
     }
   }
+}
 }

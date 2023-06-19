@@ -2693,8 +2693,7 @@
           }
         }
       }
-    }
-  },
+    },
   "definitions": {
     "username": {
       "type": "string",
