@@ -2613,6 +2613,86 @@
           }
         }
       }
+    },
+    "/api/revenueStatistics": {
+      "post": {
+        "tags": [
+          "通用API"
+        ],
+        "summary": "查询渠道营收",
+        "description": "查询时间区间内的渠道营收状况",
+        "operationId": "revenueStatistics",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_revenueStatistics"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "schema": {
+              "required": [
+              ],
+              "properties": {
+                "betCount": {
+                  "type": "number",
+                  "description": "下注笔数 ",
+                  "example": "1"
+                },
+                "totalBet": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100.0,
+                  "description": "总投注"
+                },
+                "totalEffectiveBet": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100.0,
+                  "description": "总有效投注"
+                },
+                "totalPayout": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 200.0,
+                  "description": "总派彩 "
+                },
+                "totalWithholding": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 123456.78,
+                  "description": "预扣成功的总额"
+                },
+                "totalBalance": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100.0,
+                  "description": "盈余总额，计算公式( 投注 - 派彩 )"
+                }
+                },
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -4765,6 +4845,50 @@
         }
       },
       "description": "每个投注项目的派彩金额。\n 骰宝的155.156后面会带开出的骰子点数，例如\"155:1,1,6\": 100.\n 轮盘名称后面会携带该局的点数或betTypeInterval的參數，例如\"200:17\": 3600, \"207:1\": 300, \"201:14,17\": 1800"
+    },
+    "body_revenueStatistics": {
+      "required": [
+        "channelId",
+        "timestamp",
+        "signature",
+        "startTimeStr",
+        "endTimeStr"
+      ],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "签名 字串拼接 :channelId+timestamp"
+        },
+        "startTimeStr": {
+          "$ref": "#/definitions/startTimeStr"
+        },
+        "endTimeStr": {
+          "$ref": "#/definitions/endTimeStr"
+        },
+        "subChannelId": {
+          "$ref": "#/definitions/subChannelId"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "gameType": {
+          "type": "number",
+          "example": 1,
+          "description": "游戏类型。\n 1: 百家乐\n 2: 龙虎\n 3: 骰宝\n 4: 轮盘\n 5: 老虎机\n 8: 牛牛\n 23: 财富大转盘\n 24: 电子21点\n 25: 真人21点\n 27: 迷你游戏\n 30: 棋牌游戏"
+        },
+        "timeType": {
+          "type": "number",
+          "example": 0,
+          "description": "检索数据的时间类型。\n 0:下注时间（默认）\n 1:派彩时间"
+        }
+      }
     },
     "betHistories_niuniuResult": {
       "type": "object",

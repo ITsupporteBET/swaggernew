@@ -2518,7 +2518,7 @@
         ],
         "responses": {
           "200": {
-            "description": "成功",
+            "description": "success",
             "schema": {
               "required": [
                 "status",
@@ -2570,7 +2570,7 @@
         ],
         "responses": {
           "200": {
-            "description": "成功",
+            "description": "success",
             "schema": {
               "required": [
               ],
@@ -2599,6 +2599,86 @@
                         }
                       }
                     }
+                },
+                "status": {
+                  "$ref": "#/definitions/status"
+                },
+                "apiVersion": {
+                  "$ref": "#/definitions/apiVersion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/revenueStatistics": {
+      "post": {
+        "tags": [
+          "Common API"
+        ],
+        "summary": "Query channel revenue",
+        "description": "Query channel revenue status within the time period",
+        "operationId": "revenueStatistics",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Request",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/body_revenueStatistics"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "required": [
+              ],
+              "properties": {
+                "betCount": {
+                  "type": "number",
+                  "description": "Number of bets",
+                  "example": "1"
+                },
+                "totalBet": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100,
+                  "description": "Total bet amount"
+                },
+                "totalEffectiveBet": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100,
+                  "description": "Total valid bet amount"
+                },
+                "totalPayout": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 200,
+                  "description": "Total payout amount "
+                },
+                "totalWithholding": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 10000,
+                  "description": "Total withholding amount"
+                },
+                "totalBalance": {
+                  "type": "number",
+                  "format": "double",
+                  "example": 100.0,
+                  "description": "Total surplus"
+                }
                 },
                 "status": {
                   "$ref": "#/definitions/status"
@@ -4775,6 +4855,49 @@
       },
       "description": "Payout amount for each bet item.\n Sic Bo's 155.156 will be followed by the number of open dice points, for example \"155: 1,1,6\": 100.\n Betting items on the roulette are followed by points or betTypeInterval codes, such as \"200: 17\": 3600, \"207: 1\": 300, \"201: 14,17\": 1800."
     },
+    "body_revenueStatistics": {
+      "required": [
+        "channelId",
+        "timestamp",
+        "signature",
+        "startTimeStr",
+        "endTimeStr"
+      ],
+      "properties": {
+        "channelId": {
+          "$ref": "#/definitions/channelId"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/timestamp"
+        },
+        "signature": {
+          "type": "string",
+          "example": "ZwV0Upcy93v3S/ChPh/K4FtbQ3VfA9bVomRZxBhp7I/nh2P0+qwl+dfax4QZrLwT3TuFIJGv1+nWBb+oTN5bdg==",
+          "description": "Signature. String splicing: channelId+timestamp"
+        },
+        "startTimeStr": {
+          "$ref": "#/definitions/startTimeStr"
+        },
+        "endTimeStr": {
+          "$ref": "#/definitions/endTimeStr"
+        },
+        "subChannelId": {
+          "$ref": "#/definitions/subChannelId"
+        },
+        "username": {
+          "$ref": "#/definitions/username"
+        },
+        "gameType": {
+          "type": "number",
+          "example": 1,
+          "description": "Game type.\n 1: Baccarat\n 2: Dragon Tiger\n 3: Sic Bo\n 4: Roulette\n 5: Slot\n 7: Blockchain Baccarat\n 8: Bull Bull\n 23: Fortune Wheel\n 24: Virtual Blackjack\n 25: Live Blackjack\n 27: Mini Game\n 30: Board Game"
+        },
+        "timeType": {
+          "type": "number",
+          "example": 0,
+          "description": "Time type for retrieving data:  \n 0: Bet time (default) \n 1: Payout time"
+        }
+      },
     "betHistories_niuniuResult": {
       "type": "object",
       "properties": {
