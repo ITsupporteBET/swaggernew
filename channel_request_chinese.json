@@ -2907,7 +2907,7 @@
           "example": 6,
           "description": "只有百家乐.。 闲家点数"
         },
-        "bankerCard": {
+        "bankerCards": {
           "type": "array",
           "example": [
             14,

@@ -2899,7 +2899,7 @@
           "example": 6,
           "description": "Only baccarat. Player points"
         },
-        "bankerCard": {
+        "bankerCards": {
           "type": "array",
           "example": [
             14,
